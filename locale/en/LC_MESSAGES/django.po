@@ -1,0 +1,224 @@
+# English translations for CV Builder
+# Copyright (C) 2026
+# This file is distributed under the same license as the CV Builder project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CV Builder 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-01 00:00+0000\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Salir"
+msgstr "Logout"
+
+msgid "Entrar"
+msgstr "Login"
+
+msgid "Registrarse"
+msgstr "Register"
+
+msgid "Todos los derechos reservados."
+msgstr "All rights reserved."
+
+msgid "Iniciar Sesión"
+msgstr "Login"
+
+msgid "Email o contraseña incorrectos. Por favor, inténtalo de nuevo."
+msgstr "Incorrect email or password. Please try again."
+
+msgid "Contraseña"
+msgstr "Password"
+
+msgid "¿No tienes cuenta?"
+msgstr "Don't have an account?"
+
+msgid "Regístrate"
+msgstr "Sign up"
+
+msgid "Crear Cuenta"
+msgstr "Create Account"
+
+msgid "Por favor, corrige los siguientes errores:"
+msgstr "Please correct the following errors:"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Confirmar contraseña"
+msgstr "Confirm password"
+
+msgid "Mínimo 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial."
+msgstr "Minimum 8 characters, 1 uppercase, 1 number and 1 special character."
+
+msgid "¿Ya tienes cuenta?"
+msgstr "Already have an account?"
+
+msgid "Inicia sesión"
+msgstr "Login"
+
+msgid "Mi Dashboard"
+msgstr "My Dashboard"
+
+msgid "Crear nuevo CV"
+msgstr "Create new CV"
+
+msgid "Mi Perfil"
+msgstr "My Profile"
+
+msgid "Foto de perfil"
+msgstr "Profile photo"
+
+msgid "JPG, PNG o WebP. Máximo 5MB."
+msgstr "JPG, PNG or WebP. Maximum 5MB."
+
+msgid "Subir foto"
+msgstr "Upload photo"
+
+msgid "Necesitas subir una foto para poder publicar tus CVs."
+msgstr "You need to upload a photo to publish your CVs."
+
+msgid "Bio (Quién soy)"
+msgstr "Bio (About me)"
+
+msgid "Cuéntanos sobre ti..."
+msgstr "Tell us about yourself..."
+
+msgid "Guardar bio"
+msgstr "Save bio"
+
+msgid "Mis CVs"
+msgstr "My CVs"
+
+msgid "Sin plantilla"
+msgstr "No template"
+
+msgid "Actualizado:"
+msgstr "Updated:"
+
+msgid "Editar"
+msgstr "Edit"
+
+msgid "Aún no tienes CVs creados."
+msgstr "You haven't created any CVs yet."
+
+msgid "Crear mi primer CV"
+msgstr "Create my first CV"
+
+msgid "Elige una plantilla"
+msgstr "Choose a template"
+
+msgid "Selecciona el diseño que mejor se adapte a tu estilo profesional."
+msgstr "Select the design that best fits your professional style."
+
+msgid "Seleccionar"
+msgstr "Select"
+
+msgid "Volver al dashboard"
+msgstr "Back to dashboard"
+
+msgid "Editor"
+msgstr "Editor"
+
+msgid "Volver"
+msgstr "Back"
+
+msgid "Publicar"
+msgstr "Publish"
+
+msgid "Publicado"
+msgstr "Published"
+
+msgid "Publicar CV"
+msgstr "Publish CV"
+
+msgid "Selecciona los sectores en los que encaja tu CV:"
+msgstr "Select the sectors where your CV fits:"
+
+msgid "Sector principal:"
+msgstr "Main sector:"
+
+msgid "Cancelar"
+msgstr "Cancel"
+
+msgid "Confirmar publicación"
+msgstr "Confirm publication"
+
+msgid "Quién soy"
+msgstr "About me"
+
+msgid "Experiencia"
+msgstr "Experience"
+
+msgid "Título del puesto"
+msgstr "Job title"
+
+msgid "Empresa"
+msgstr "Company"
+
+msgid "2020 - Presente"
+msgstr "2020 - Present"
+
+msgid "Descripción de tus responsabilidades..."
+msgstr "Description of your responsibilities..."
+
+msgid "Agregar experiencia"
+msgstr "Add experience"
+
+msgid "Educación"
+msgstr "Education"
+
+msgid "Título"
+msgstr "Degree"
+
+msgid "Institución"
+msgstr "Institution"
+
+msgid "2018"
+msgstr "2018"
+
+msgid "Agregar educación"
+msgstr "Add education"
+
+msgid "Habilidades"
+msgstr "Skills"
+
+msgid "Python"
+msgstr "Python"
+
+msgid "JavaScript"
+msgstr "JavaScript"
+
+msgid "Agregar habilidad"
+msgstr "Add skill"
+
+msgid "Tablón de Talentos"
+msgstr "Talent Wall"
+
+msgid "Descubre profesionales talentosos en diferentes sectores."
+msgstr "Discover talented professionals in different sectors."
+
+msgid "Todos"
+msgstr "All"
+
+msgid "Cargando..."
+msgstr "Loading..."
+
+msgid "No se encontraron CVs en esta categoría."
+msgstr "No CVs found in this category."
+
+msgid "Volver al tablón"
+msgstr "Back to wall"
+
+msgid "CV Builder"
+msgstr "CV Builder"

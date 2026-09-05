@@ -1,0 +1,38 @@
+[
+    {
+        "model": "resumes.sectortag",
+        "pk": 1,
+        "fields": {
+            "name_es": "Desarrollo Web",
+            "name_en": "Web Development",
+            "slug": "desarrollo-web"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 2,
+        "fields": {
+            "name_es": "Diseño Gráfico",
+            "name_en": "Graphic Design",
+            "slug": "diseno-grafico"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 3,
+        "fields": {
+            "name_es": "Marketing",
+            "name_en": "Marketing",
+            "slug": "marketing"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 4,
+        "fields": {
+            "name_es": "Finanzas",
+            "name_en": "Finance",
+            "slug": "finanzas"
+        }
+    }
+]

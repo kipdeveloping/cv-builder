@@ -1,0 +1,136 @@
+.creative-template {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.creative-template .cv-container {
+    display: flex;
+    min-height: 100%;
+    background: white;
+}
+
+.creative-template .sidebar {
+    width: 280px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 30px;
+    color: white;
+}
+
+.creative-template .main-content {
+    flex: 1;
+    padding: 30px;
+}
+
+.creative-template .photo-container {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.creative-template .photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.creative-template .name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.creative-template .occupation {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.creative-template .sidebar-section {
+    margin-bottom: 25px;
+}
+
+.creative-template .sidebar-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.creative-template .contact-item {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    opacity: 0.9;
+}
+
+.creative-template .skill-tag {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin: 3px;
+}
+
+.creative-template .section {
+    margin-bottom: 25px;
+}
+
+.creative-template .section-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border-left: 4px solid #667eea;
+}
+
+.creative-template .entry {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 3px solid #667eea;
+}
+
+.creative-template .entry-title {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.05rem;
+}
+
+.creative-template .entry-subtitle {
+    color: #667eea;
+    font-size: 0.9rem;
+}
+
+.creative-template .entry-period {
+    font-size: 0.8rem;
+    color: #adb5bd;
+}
+
+.creative-template .entry-description {
+    margin-top: 8px;
+    color: #495057;
+    font-size: 0.9rem;
+}
+
+.creative-template [contenteditable]:hover {
+    background-color: rgba(102, 126, 234, 0.1);
+    outline: 1px dashed rgba(102, 126, 234, 0.5);
+}
+
+.creative-template [contenteditable]:focus {
+    background-color: rgba(102, 126, 234, 0.15);
+    outline: 2px solid rgba(102, 126, 234, 0.7);
+    outline-offset: 2px;
+}

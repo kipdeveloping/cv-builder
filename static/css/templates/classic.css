@@ -1,0 +1,122 @@
+.classic-template {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.classic-template .cv-container {
+    display: flex;
+    min-height: 100%;
+    background: white;
+}
+
+.classic-template .sidebar {
+    width: 250px;
+    background: #f8f9fa;
+    padding: 30px;
+    border-right: 1px solid #e9ecef;
+}
+
+.classic-template .main-content {
+    flex: 1;
+    padding: 30px;
+}
+
+.classic-template .photo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.classic-template .photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #dee2e6;
+}
+
+.classic-template .name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.classic-template .occupation {
+    font-size: 0.9rem;
+    color: #6c757d;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.classic-template .contact-info {
+    font-size: 0.85rem;
+    color: #495057;
+}
+
+.classic-template .contact-info p {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.classic-template .section-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #2c3e50;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+.classic-template .entry {
+    margin-bottom: 15px;
+}
+
+.classic-template .entry-title {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.classic-template .entry-subtitle {
+    font-style: italic;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.classic-template .entry-period {
+    font-size: 0.85rem;
+    color: #adb5bd;
+}
+
+.classic-template .entry-description {
+    margin-top: 5px;
+    color: #495057;
+}
+
+.classic-template .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.classic-template .skill-tag {
+    background: #e9ecef;
+    color: #495057;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+}
+
+.classic-template [contenteditable]:hover {
+    background-color: rgba(0, 123, 255, 0.05);
+    outline: 1px dashed rgba(0, 123, 255, 0.3);
+}
+
+.classic-template [contenteditable]:focus {
+    background-color: rgba(0, 123, 255, 0.1);
+    outline: 2px solid rgba(0, 123, 255, 0.5);
+    outline-offset: 2px;
+}
