@@ -19,12 +19,15 @@ document.addEventListener('DOMContentLoaded', function() {
             bio: '',
             experience: [],
             education: [],
-            skills: []
+            skills: [],
+            projects: [],
+            social_links: {}
         };
 
         const experienceEntries = [];
         const educationEntries = [];
         const skills = [];
+        const projectEntries = [];
 
         cvContainer.querySelectorAll('[contenteditable]').forEach(el => {
             const field = el.dataset.field;
@@ -43,6 +46,9 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (section === 'education') {
                 if (!educationEntries[index]) educationEntries[index] = {};
                 educationEntries[index][field] = value;
+            } else if (section === 'projects') {
+                if (!projectEntries[index]) projectEntries[index] = {};
+                projectEntries[index][field] = value;
             } else if (data.hasOwnProperty(field)) {
                 data[field] = value;
             }
@@ -51,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         data.experience = experienceEntries.filter(e => e && e.title);
         data.education = educationEntries.filter(e => e && e.degree);
         data.skills = skills.filter(s => s);
+        data.projects = projectEntries.filter(p => p && p.title);
 
         return data;
     }

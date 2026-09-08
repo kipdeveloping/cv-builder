@@ -37,7 +37,7 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/wall.js' %}"></script>
+<script src="{% static 'js/wall.js' %}?v=2"></script>
 <script>
     const wallApiUrl = '{% url "wall_api" %}';
     const tagsApiUrl = '{% url "get_tags" %}';

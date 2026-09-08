@@ -49,7 +49,7 @@
     </div>
 </div>
 
-<div id="publish-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+<div id="publish-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
     <div class="bg-white rounded-xl shadow-2xl p-6 max-w-md w-full mx-4">
         <h2 class="text-xl font-semibold text-gray-900 mb-4">{% trans "Publicar CV" %}</h2>
         <p class="text-gray-600 mb-4">{% trans "Selecciona los sectores en los que encaja tu CV:" %}</p>
@@ -81,8 +81,8 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/editor.js' %}"></script>
-<script src="{% static 'js/publish.js' %}"></script>
+<script src="{% static 'js/editor.js' %}?v=2"></script>
+<script src="{% static 'js/publish.js' %}?v=2"></script>
 <script>
     const resumeId = {{ resume.id }};
     const csrfToken = '{{ csrf_token }}';

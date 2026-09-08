@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
 
         card.addEventListener('click', function() {
-            window.location.href = `/cv/${cv.id}/`;
+            window.location.href = `/candidato/${cv.user_id}/`;
         });
 
         card.style.cursor = 'pointer';

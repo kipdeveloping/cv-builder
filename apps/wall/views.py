@@ -31,6 +31,7 @@ def wall_api_view(request):
 
         cv_list.append({
             'id': cv.id,
+            'user_id': cv.user.id,
             'name': content.get('name', cv.user.get_full_name() or cv.user.email),
             'bio': profile.bio,
             'photo': profile.photo.url if profile.photo else None,

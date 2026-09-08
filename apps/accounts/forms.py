@@ -90,3 +90,22 @@ class RegistrationForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+
+class ProfileOnboardingForm(forms.Form):
+    first_name = forms.CharField(
+        label=_('Nombre'),
+        max_length=30,
+        widget=forms.TextInput(attrs={
+            'class': 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500',
+            'placeholder': 'Tu nombre'
+        })
+    )
+    last_name = forms.CharField(
+        label=_('Apellido'),
+        max_length=30,
+        widget=forms.TextInput(attrs={
+            'class': 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500',
+            'placeholder': 'Tu apellido'
+        })
+    )

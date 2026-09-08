@@ -1,26 +1,36 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load static %}
 
 {% block title %}{% trans "Dashboard" %} - CV Builder{% endblock %}
 
 {% block content %}
-<div class="space-y-8">
-    <div class="flex justify-between items-center">
-        <h1 class="text-3xl font-bold text-gray-900">{% trans "Mi Dashboard" %}</h1>
-        <a href="{% url 'select_template' %}"
-            class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition duration-200">
-            {% trans "Crear nuevo CV" %}
-        </a>
-    </div>
+{% if not user.first_name or not user.last_name %}
+<div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6 mb-6">
+    <h3 class="text-lg font-semibold text-yellow-800 mb-2">{% trans "Bienvenido a CV Builder" %}</h3>
+    <p class="text-yellow-700 mb-4">{% trans "Para completar tu perfil, necesitamos tu nombre y apellido." %}</p>
+    <form id="onboarding-form" class="flex gap-4">
+        <input type="text" id="onboarding-first-name" placeholder="{% trans 'Nombre' %}"
+            class="flex-1 px-4 py-2 border border-yellow-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+        <input type="text" id="onboarding-last-name" placeholder="{% trans 'Apellido' %}"
+            class="flex-1 px-4 py-2 border border-yellow-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+        <button type="submit"
+            class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700">
+            {% trans "Guardar" %}
+        </button>
+    </form>
+</div>
+{% endif %}
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div class="lg:col-span-1">
-            <div class="bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-semibold text-gray-900 mb-4">{% trans "Mi Perfil" %}</h2>
-
-                <div class="text-center mb-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+    <!-- SIDEBAR -->
+    <div class="lg:col-span-4 space-y-6">
+        <!-- Photo & Identity -->
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="text-center mb-4">
+                <div class="relative inline-block">
                     {% if profile.photo %}
-                        <img src="{{ profile.photo.url }}" alt="{% trans "Foto de perfil" %}"
+                        <img src="{{ profile.photo.url }}" alt="{% trans 'Foto de perfil' %}"
                             class="w-32 h-32 rounded-full object-cover mx-auto border-4 border-indigo-100">
                     {% else %}
                         <div class="w-32 h-32 rounded-full bg-gray-200 mx-auto flex items-center justify-center">
@@ -30,92 +40,545 @@
                             </svg>
                         </div>
                     {% endif %}
-                </div>
-
-                <form method="post" action="{% url 'upload_photo' %}" enctype="multipart/form-data" class="space-y-4">
-                    {% csrf_token %}
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">{% trans "Foto de perfil" %}</label>
-                        <input type="file" name="photo" accept="image/jpeg,image/png,image/webp"
-                            class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
-                        <p class="mt-1 text-xs text-gray-500">{% trans "JPG, PNG o WebP. Máximo 5MB." %}</p>
-                    </div>
-                    <button type="submit"
-                        class="w-full bg-gray-100 text-gray-700 py-2 rounded-lg font-semibold hover:bg-gray-200 transition duration-200">
-                        {% trans "Subir foto" %}
+                    <button onclick="openModal('photo-modal')"
+                        class="absolute bottom-0 right-0 bg-indigo-600 text-white p-2 rounded-full hover:bg-indigo-700 shadow-lg">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                        </svg>
                     </button>
-                </form>
-
-                {% if not profile.photo %}
-                <div class="mt-4 bg-yellow-50 border border-yellow-200 text-yellow-700 px-4 py-3 rounded-lg text-sm">
-                    {% trans "Necesitas subir una foto para poder publicar tus CVs." %}
                 </div>
+                <h2 class="text-xl font-bold text-gray-900 mt-4">
+                    {{ user.get_full_name|default:user.email }}
+                </h2>
+                <p class="text-gray-600 text-sm" id="headline-display">
+                    {{ profile.headline|default:"Sin titular" }}
+                    <button onclick="openModal('headline-modal')" class="text-indigo-600 hover:text-indigo-700 ml-1">
+                        <svg class="w-3 h-3 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                        </svg>
+                    </button>
+                </p>
+            </div>
+
+            <!-- Status Badges -->
+            <div class="flex flex-wrap gap-2 justify-center mb-4">
+                {% if profile.search_status %}
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full">
+                        {{ profile.get_search_status_display }}
+                    </span>
                 {% endif %}
+                {% if profile.availability %}
+                    <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">
+                        {{ profile.get_availability_display }}
+                    </span>
+                {% endif %}
+                {% if profile.location_flex %}
+                    <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-semibold rounded-full">
+                        {{ profile.get_location_flex_display }}
+                    </span>
+                {% endif %}
+            </div>
+            <button onclick="openModal('status-modal')"
+                class="w-full text-center text-sm text-indigo-600 hover:text-indigo-700 font-semibold">
+                {% trans "Editar estado" %}
+            </button>
+        </div>
 
-                <form method="post" action="{% url 'update_bio' %}" class="mt-6 space-y-4">
-                    {% csrf_token %}
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">{% trans "Bio (Quién soy)" %}</label>
-                        <textarea name="bio" rows="4"
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                            placeholder="{% trans 'Cuéntanos sobre ti...' %}">{{ profile.bio }}</textarea>
-                    </div>
-                    <button type="submit"
-                        class="w-full bg-gray-100 text-gray-700 py-2 rounded-lg font-semibold hover:bg-gray-200 transition duration-200">
-                        {% trans "Guardar bio" %}
-                    </button>
-                </form>
+        <!-- Skills -->
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-semibold text-gray-900">{% trans "Habilidades" %}</h3>
+                <button onclick="openModal('skills-modal')"
+                    class="text-indigo-600 hover:text-indigo-700 text-sm font-semibold">
+                    {% trans "Editar" %}
+                </button>
+            </div>
+            <div class="flex flex-wrap gap-2" id="skills-container">
+                {% for user_skill in user_skills %}
+                    <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">
+                        {{ user_skill.skill.name }}
+                        {% if user_skill.is_primary %}
+                            <span class="text-yellow-500">*</span>
+                        {% endif %}
+                    </span>
+                {% empty %}
+                    <p class="text-gray-500 text-sm">{% trans "Sin habilidades" %}</p>
+                {% endfor %}
             </div>
         </div>
 
-        <div class="lg:col-span-2">
-            <div class="bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-semibold text-gray-900 mb-4">{% trans "Mis CVs" %}</h2>
+        <!-- Bio -->
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-semibold text-gray-900">{% trans "Bio" %}</h3>
+                <button onclick="openModal('bio-modal')"
+                    class="text-indigo-600 hover:text-indigo-700 text-sm font-semibold">
+                    {% trans "Editar" %}
+                </button>
+            </div>
+            <p class="text-gray-700 text-sm" id="bio-display">
+                {{ profile.bio|default:"Sin biografia" }}
+            </p>
+        </div>
 
-                {% if user_resumes %}
-                <div class="space-y-4">
-                    {% for resume in user_resumes %}
-                    <div class="border border-gray-200 rounded-lg p-4 hover:border-indigo-300 transition duration-200">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="font-semibold text-gray-900">
-                                    {{ resume.content.name|default:"CV sin nombre" }}
-                                </h3>
-                                <p class="text-sm text-gray-500">
-                                    {{ resume.template.name|default:"Sin plantilla" }} |
-                                    <span class="{% if resume.status == 'published' %}text-green-600{% else %}text-yellow-600{% endif %}">
-                                        {{ resume.get_status_display }}
-                                    </span>
-                                </p>
-                                <p class="text-xs text-gray-400 mt-1">
-                                    {% trans "Actualizado:" %} {{ resume.updated_at|date:"d/m/Y H:i" }}
-                                </p>
-                            </div>
-                            <div class="flex space-x-2">
-                                <a href="{% url 'editor' resume.id %}"
-                                    class="px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg text-sm font-semibold hover:bg-indigo-200 transition duration-200">
-                                    {% trans "Editar" %}
-                                </a>
+        <!-- Mis CVs Button -->
+        <button onclick="openModal('cvs-modal')"
+            class="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition duration-200 shadow-lg">
+            {% trans "Mis Curriculums" %}
+        </button>
+    </div>
+
+    <!-- MAIN AREA -->
+    <div class="lg:col-span-8 space-y-6">
+        <!-- Experience/Projects Carousel -->
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-semibold text-gray-900">{% trans "Experiencia y Proyectos" %}</h3>
+                <button onclick="openModal('experience-modal')"
+                    class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700">
+                    + {% trans "Agregar" %}
+                </button>
+            </div>
+            
+            <div class="relative">
+                <div id="carousel-container" class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory">
+                    {% for exp in experience %}
+                    <div class="flex-none w-80 bg-gray-50 rounded-xl p-4 snap-start carousel-card" data-index="{{ forloop.counter0 }}">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-semibold text-gray-900">{{ exp.title }}</h4>
+                            <div class="flex gap-1">
+                                <button onclick="editExperience({{ forloop.counter0 }})"
+                                    class="text-indigo-600 hover:text-indigo-700 p-1 edit-exp-btn">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                                    </svg>
+                                </button>
+                                <button onclick="deleteExperience({{ forloop.counter0 }})"
+                                    class="text-red-600 hover:text-red-700 p-1 delete-exp-btn">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                    </svg>
+                                </button>
                             </div>
                         </div>
+                        <p class="text-sm text-gray-600 mb-1">{{ exp.company }}</p>
+                        <p class="text-xs text-gray-500 mb-2">{{ exp.period }}</p>
+                        <p class="text-sm text-gray-700">{{ exp.description|truncatewords:20 }}</p>
+                    </div>
+                    {% endfor %}
+                    
+                    {% for project in projects %}
+                    <div class="flex-none w-80 bg-gray-50 rounded-xl p-4 snap-start carousel-card" data-type="project" data-index="{{ forloop.counter0 }}">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-semibold text-gray-900">{{ project.title }}</h4>
+                            <div class="flex gap-1">
+                                <button onclick="editProject({{ forloop.counter0 }})"
+                                    class="text-indigo-600 hover:text-indigo-700 p-1 edit-proj-btn">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                                    </svg>
+                                </button>
+                                <button onclick="deleteProject({{ forloop.counter0 }})"
+                                    class="text-red-600 hover:text-red-700 p-1 delete-proj-btn">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2">{{ project.company }}</p>
+                        <p class="text-sm text-gray-700">{{ project.description|truncatewords:20 }}</p>
                     </div>
                     {% endfor %}
                 </div>
-                {% else %}
-                <div class="text-center py-12">
-                    <svg class="w-16 h-16 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                    </svg>
-                    <p class="text-gray-500 mb-4">{% trans "Aún no tienes CVs creados." %}</p>
-                    <a href="{% url 'select_template' %}"
-                        class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition duration-200">
-                        {% trans "Crear mi primer CV" %}
-                    </a>
+                
+                {% if experience|length > 0 or projects|length > 0 %}
+                <div class="flex justify-center items-center gap-4 mt-4">
+                    <button onclick="prevSlide()" class="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
+                        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <span id="carousel-counter" class="text-sm text-gray-500">1 of {{ experience|length|add:projects|length }}</span>
+                    <button onclick="nextSlide()" class="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
+                        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
                 </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-semibold text-gray-900">{% trans "Redes Sociales" %}</h3>
+                <button onclick="openModal('social-modal')"
+                    class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700">
+                    {% trans "Editar" %}
+                </button>
+            </div>
+            <div class="flex flex-wrap gap-4" id="social-links-container">
+                {% if social_links.linkedin %}
+                    <a href="{{ social_links.linkedin }}" target="_blank" class="flex items-center gap-2 text-blue-700 hover:text-blue-800">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        LinkedIn
+                    </a>
+                {% endif %}
+                {% if social_links.github %}
+                    <a href="{{ social_links.github }}" target="_blank" class="flex items-center gap-2 text-gray-800 hover:text-gray-900">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
+                    </a>
+                {% endif %}
+                {% if social_links.twitter %}
+                    <a href="{{ social_links.twitter }}" target="_blank" class="flex items-center gap-2 text-blue-400 hover:text-blue-500">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        Twitter/X
+                    </a>
+                {% endif %}
+                {% if social_links.portfolio %}
+                    <a href="{{ social_links.portfolio }}" target="_blank" class="flex items-center gap-2 text-indigo-600 hover:text-indigo-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                        Portfolio
+                    </a>
+                {% endif %}
+                {% if not social_links.linkedin and not social_links.github and not social_links.twitter and not social_links.portfolio %}
+                    <p class="text-gray-500 text-sm">{% trans "Sin redes sociales configuradas" %}</p>
                 {% endif %}
             </div>
         </div>
     </div>
 </div>
+
+<!-- Photo Modal -->
+<div id="photo-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-xl shadow-2xl p-6 max-w-md w-full mx-4">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-semibold">{% trans "Actualizar foto" %}</h3>
+            <button onclick="closeModal('photo-modal')" class="text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <form method="post" action="{% url 'upload_photo' %}" enctype="multipart/form-data" class="space-y-4">
+            {% csrf_token %}
+            <input type="file" name="photo" accept="image/jpeg,image/png,image/webp"
+                class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
+            <p class="text-xs text-gray-500">{% trans "JPG, PNG o WebP. Maximo 5MB." %}</p>
+            <div class="flex justify-end gap-3">
+                <button type="button" onclick="closeModal('photo-modal')"
+                    class="px-4 py-2 text-gray-700 hover:text-gray-900">{% trans "Cancelar" %}</button>
+                <button type="submit"
+                    class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700">{% trans "Guardar" %}</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Headline Modal -->
+<div id="headline-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-xl shadow-2xl p-6 max-w-md w-full mx-4">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-semibold">{% trans "Actualizar titular" %}</h3>
+            <button onclick="closeModal('headline-modal')" class="text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <input type="text" id="headline-input" value="{{ profile.headline }}"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 mb-4"
+            placeholder="{% trans 'Ej: Desarrollador Full Stack Senior' %}">
+        <div class="flex justify-end gap-3">
+            <button onclick="closeModal('headline-modal')"
+                class="px-4 py-2 text-gray-700 hover:text-gray-900">{% trans "Cancelar" %}</button>
+            <button onclick="saveHeadline()"
+                class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700">{% trans "Guardar" %}</button>
+        </div>
+    </div>
+</div>
+
+<!-- Bio Modal -->
+<div id="bio-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-xl shadow-2xl p-6 max-w-md w-full mx-4">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-semibold">{% trans "Actualizar bio" %}</h3>
+            <button onclick="closeModal('bio-modal')" class="text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <textarea id="bio-input" rows="4"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 mb-4"
+            placeholder="{% trans 'Cuentanos sobre ti...' %}">{{ profile.bio }}</textarea>
+        <div class="flex justify-end gap-3">
+            <button onclick="closeModal('bio-modal')"
+                class="px-4 py-2 text-gray-700 hover:text-gray-900">{% trans "Cancelar" %}</button>
+            <button onclick="saveBio()"
+                class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700">{% trans "Guardar" %}</button>
+        </div>
+    </div>
+</div>
+
+<!-- Status Modal -->
+<div id="status-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-xl shadow-2xl p-6 max-w-md w-full mx-4">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-semibold">{% trans "Actualizar estado" %}</h3>
+            <button onclick="closeModal('status-modal')" class="text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">{% trans "Estado de busqueda" %}</label>
+                <select id="search-status-input" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                    <option value="">{% trans "No especificado" %}</option>
+                    <option value="active" {% if profile.search_status == 'active' %}selected{% endif %}>{% trans "Buscando activamente" %}</option>
+                    <option value="passive" {% if profile.search_status == 'passive' %}selected{% endif %}>{% trans "Abierto a ofertas" %}</option>
+                    <option value="not_looking" {% if profile.search_status == 'not_looking' %}selected{% endif %}>{% trans "No buscando" %}</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">{% trans "Disponibilidad" %}</label>
+                <select id="availability-input" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                    <option value="">{% trans "No especificado" %}</option>
+                    <option value="immediate" {% if profile.availability == 'immediate' %}selected{% endif %}>{% trans "Inmediata" %}</option>
+                    <option value="2_weeks" {% if profile.availability == '2_weeks' %}selected{% endif %}>{% trans "2 semanas" %}</option>
+                    <option value="1_month" {% if profile.availability == '1_month' %}selected{% endif %}>{% trans "1 mes" %}</option>
+                    <option value="negotiable" {% if profile.availability == 'negotiable' %}selected{% endif %}>{% trans "Negociable" %}</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">{% trans "Preferencia de ubicacion" %}</label>
+                <select id="location-flex-input" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                    <option value="">{% trans "No especificado" %}</option>
+                    <option value="remote" {% if profile.location_flex == 'remote' %}selected{% endif %}>{% trans "Remoto" %}</option>
+                    <option value="hybrid" {% if profile.location_flex == 'hybrid' %}selected{% endif %}>{% trans "Hibrido" %}</option>
+                    <option value="onsite" {% if profile.location_flex == 'onsite' %}selected{% endif %}>{% trans "Presencial" %}</option>
+                </select>
+            </div>
+        </div>
+        <div class="flex justify-end gap-3 mt-6">
+            <button onclick="closeModal('status-modal')"
+                class="px-4 py-2 text-gray-700 hover:text-gray-900">{% trans "Cancelar" %}</button>
+            <button onclick="saveStatus()"
+                class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700">{% trans "Guardar" %}</button>
+        </div>
+    </div>
+</div>
+
+<!-- Skills Modal -->
+<div id="skills-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-xl shadow-2xl p-6 max-w-md w-full mx-4">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-semibold">{% trans "Editar habilidades" %}</h3>
+            <button onclick="closeModal('skills-modal')" class="text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="mb-4">
+            <div class="flex gap-2">
+                <input type="text" id="new-skill-input" 
+                    class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                    placeholder="{% trans 'Nueva habilidad' %}">
+                <button onclick="addSkill()"
+                    class="bg-indigo-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-indigo-700">+</button>
+            </div>
+        </div>
+        <div id="skills-list-modal" class="space-y-2 mb-4 max-h-60 overflow-y-auto">
+            {% for user_skill in user_skills %}
+            <div class="flex items-center justify-between p-2 bg-gray-50 rounded-lg skill-item" data-skill-id="{{ user_skill.skill.id }}">
+                <span class="text-sm">{{ user_skill.skill.name }}</span>
+                <div class="flex items-center gap-2">
+                    <button onclick="togglePrimary({{ user_skill.skill.id }})" 
+                        class="text-yellow-500 hover:text-yellow-600 {% if not user_skill.is_primary %}opacity-50{% endif %}"
+                        title="{% trans 'Principal' %}">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                    </button>
+                    <button onclick="removeSkill({{ user_skill.skill.id }})" class="text-red-500 hover:text-red-600">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="flex justify-end gap-3">
+            <button onclick="closeModal('skills-modal')"
+                class="px-4 py-2 text-gray-700 hover:text-gray-900">{% trans "Cancelar" %}</button>
+            <button onclick="saveSkills()"
+                class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700">{% trans "Guardar" %}</button>
+        </div>
+    </div>
+</div>
+
+<!-- CVs Modal -->
+<div id="cvs-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-xl shadow-2xl p-6 max-w-2xl w-full mx-4">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-semibold">{% trans "Mis Curriculums" %}</h3>
+            <button onclick="closeModal('cvs-modal')" class="text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="space-y-3" id="cvs-list">
+            {% for resume in user_resumes %}
+            <div class="border border-gray-200 rounded-lg p-4 hover:border-indigo-300 transition duration-200">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h4 class="font-semibold text-gray-900">{{ resume.content.name|default:"CV sin nombre" }}</h4>
+                        <p class="text-sm text-gray-500">
+                            {{ resume.template.name|default:"Sin plantilla" }} |
+                            <span class="{% if resume.status == 'published' %}text-green-600{% else %}text-yellow-600{% endif %}">
+                                {{ resume.get_status_display }}
+                            </span>
+                        </p>
+                        <p class="text-xs text-gray-400 mt-1">
+                            {% trans "Actualizado:" %} {{ resume.updated_at|date:"d/m/Y H:i" }}
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="setFeatured({{ resume.id }})"
+                            class="text-yellow-500 hover:text-yellow-600 {% if featured_resume and featured_resume.id == resume.id %}opacity-100{% else %}opacity-50{% endif %}"
+                            title="{% trans 'Destacado' %}">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                        </button>
+                        <a href="{% url 'editor' resume.id %}"
+                            class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-lg text-sm font-semibold hover:bg-indigo-200">
+                            {% trans "Editar" %}
+                        </a>
+                        {% if resume.status == 'published' %}
+                        <a href="{% url 'cv_detail' resume.id %}"
+                            class="px-3 py-1 bg-green-100 text-green-700 rounded-lg text-sm font-semibold hover:bg-green-200">
+                            {% trans "Ver CV" %}
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="flex justify-end mt-4">
+            <a href="{% url 'select_template' %}"
+                class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700">
+                + {% trans "Crear nuevo CV" %}
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Experience Modal -->
+<div id="experience-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-xl shadow-2xl p-6 max-w-lg w-full mx-4">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-semibold" id="exp-modal-title">{% trans "Agregar experiencia" %}</h3>
+            <button onclick="closeModal('experience-modal')" class="text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4 mb-4">
+            <div class="bg-white rounded-lg p-4 shadow-sm">
+                <input type="text" id="exp-title-input" class="w-full font-semibold text-gray-900 border-0 border-b border-gray-200 focus:ring-0 mb-2"
+                    placeholder="{% trans 'Titulo del puesto' %}">
+                <input type="text" id="exp-company-input" class="w-full text-sm text-gray-600 border-0 border-b border-gray-200 focus:ring-0 mb-2"
+                    placeholder="{% trans 'Empresa' %}">
+                <input type="text" id="exp-period-input" class="w-full text-xs text-gray-500 border-0 border-b border-gray-200 focus:ring-0 mb-2"
+                    placeholder="{% trans '2020 - Presente' %}">
+                <textarea id="exp-description-input" rows="3" class="w-full text-sm text-gray-700 border-0 focus:ring-0"
+                    placeholder="{% trans 'Descripcion...' %}"></textarea>
+            </div>
+        </div>
+        <input type="hidden" id="exp-edit-index" value="-1">
+        <div class="flex justify-end gap-3">
+            <button onclick="closeModal('experience-modal')"
+                class="px-4 py-2 text-gray-700 hover:text-gray-900">{% trans "Cancelar" %}</button>
+            <button onclick="saveExperience()"
+                class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700">{% trans "Guardar" %}</button>
+        </div>
+    </div>
+</div>
+
+<!-- Social Links Modal -->
+<div id="social-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-xl shadow-2xl p-6 max-w-md w-full mx-4">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-semibold">{% trans "Editar redes sociales" %}</h3>
+            <button onclick="closeModal('social-modal')" class="text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">LinkedIn</label>
+                <input type="url" id="social-linkedin" value="{{ social_links.linkedin|default:'' }}"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                    placeholder="https://linkedin.com/in/...">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">GitHub</label>
+                <input type="url" id="social-github" value="{{ social_links.github|default:'' }}"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                    placeholder="https://github.com/...">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Twitter/X</label>
+                <input type="url" id="social-twitter" value="{{ social_links.twitter|default:'' }}"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                    placeholder="https://twitter.com/...">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Portfolio</label>
+                <input type="url" id="social-portfolio" value="{{ social_links.portfolio|default:'' }}"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                    placeholder="https://...">
+            </div>
+        </div>
+        <div class="flex justify-end gap-3 mt-6">
+            <button onclick="closeModal('social-modal')"
+                class="px-4 py-2 text-gray-700 hover:text-gray-900">{% trans "Cancelar" %}</button>
+            <button onclick="saveSocialLinks()"
+                class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700">{% trans "Guardar" %}</button>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/dashboard.js' %}?v=2"></script>
+<script>
+    var urls = {
+        updateName: "{% url 'update_name' %}",
+        updateProfile: "{% url 'update_profile_fields' %}",
+        setFeatured: "{% url 'set_featured_resume' %}",
+        contactEmail: "{% url 'contact_email' user_id=user.id %}",
+    };
+    var currentResumeId = {{ featured_resume.id|default:'null' }};
+    var experienceData = {{ experience|safe }};
+    var projectsData = {{ projects|safe }};
+    var socialLinksData = {{ social_links|safe }};
+</script>
 {% endblock %}

@@ -10,6 +10,43 @@ import json
 from .models import Resume, Template
 
 
+def sync_skills_from_resume(user, skills_list):
+    from apps.accounts.models import Skill, UserSkill, UserProfile
+    
+    profile = UserProfile.objects.get(user=user)
+    
+    all_resume_skills = set()
+    for resume in Resume.objects.filter(user=user):
+        content = resume.content or {}
+        for skill_name in content.get('skills', []):
+            if skill_name and skill_name.strip():
+                all_resume_skills.add(skill_name.strip())
+    
+    for skill_name in skills_list:
+        if skill_name and skill_name.strip():
+            all_resume_skills.add(skill_name.strip())
+    
+    current_user_skills = UserSkill.objects.filter(user=profile)
+    current_skill_names = {us.skill.name for us in current_user_skills}
+    
+    for skill_name in all_resume_skills:
+        skill, _ = Skill.objects.get_or_create(
+            name=skill_name,
+            defaults={'slug': skill_name.lower().replace(' ', '-')}
+        )
+        
+        if skill_name not in current_skill_names:
+            UserSkill.objects.get_or_create(
+                user=profile,
+                skill=skill,
+                defaults={'is_primary': not current_user_skills.exists()}
+            )
+    
+    for user_skill in current_user_skills:
+        if user_skill.skill.name not in all_resume_skills:
+            user_skill.delete()
+
+
 @login_required
 def select_template_view(request):
     templates = Template.objects.all()
@@ -48,8 +85,14 @@ def save_resume_api(request):
         content = data.get('content', {})
 
         resume = get_object_or_404(Resume, id=resume_id, user=request.user)
-        resume.content = content
+        
+        if resume.content is None:
+            resume.content = {}
+        resume.content.update(content)
         resume.save()
+        
+        skills_list = content.get('skills', [])
+        sync_skills_from_resume(request.user, skills_list)
 
         return JsonResponse({
             'status': 'ok',
