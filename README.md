@@ -1,4 +1,4 @@
-# CV Builder
+﻿# CV Builder
 
 Plataforma para crear currículums interactivos basados en plantillas y publicarlos en un tablón de talento público.
 
@@ -9,6 +9,7 @@ Plataforma para crear currículums interactivos basados en plantillas y publicar
 - **Tablón de talentos**: Explora CVs publicados por sector
 - **Bilingüe**: Interfaz en español e inglés
 - **Validación robusta**: Contraseña segura, validación de archivos
+- **Login OAuth**: Autenticación con Google, GitHub y LinkedIn
 
 ## Requisitos
 
@@ -21,72 +22,129 @@ Plataforma para crear currículums interactivos basados en plantillas y publicar
 
 ### 1. Clonar el repositorio
 
-```bash
+`ash
 git clone <url-del-repositorio>
 cd crud-cvs
-```
+`
 
 ### 2. Crear entorno virtual
 
-```bash
+`ash
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
-```
+`
 
 ### 3. Instalar dependencias de Python
 
-```bash
+`ash
 pip install -r requirements.txt
-```
+`
 
 ### 4. Instalar dependencias de Node.js
 
-```bash
+`ash
 npm install
-```
+`
 
-### 5. Configurar la base de datos
+### 5. Configurar variables de entorno
 
-```bash
+Copia el archivo de ejemplo y configura tus credenciales:
+
+`ash
+cp .env.example .env
+`
+
+Edita el archivo .env con tus credenciales:
+
+`env
+# Django
+SECRET_KEY=tu-secret-key-aqui
+DEBUG=True
+
+# Google OAuth (opcional)
+GOOGLE_CLIENT_ID=tu_google_client_id
+GOOGLE_CLIENT_SECRET=tu_google_client_secret
+
+# GitHub OAuth (opcional)
+GITHUB_KEY=tu_github_client_id
+GITHUB_SECRET=tu_github_client_secret
+
+# LinkedIn OAuth (opcional)
+LINKEDIN_CLIENT_ID=tu_linkedin_client_id
+LINKEDIN_CLIENT_SECRET=tu_linkedin_client_secret
+`
+
+**Nota**: Si no configuras las credenciales OAuth, los botones de redes sociales se mostrarán pero no funcionarán. Puedes usar el login con email y contraseña normal.
+
+### 6. Configurar la base de datos
+
+`ash
 python manage.py migrate
-```
+`
 
-### 6. Cargar datos iniciales
+### 7. Cargar datos iniciales
 
-```bash
+`ash
 python manage.py loaddata fixtures/templates.json fixtures/sectors.json
-```
+`
 
-### 7. Crear usuario administrador (opcional)
+### 8. Crear usuario administrador (opcional)
 
-```bash
+`ash
 python manage.py createsuperuser
-```
+`
 
-### 8. Compilar traducciones (requiere gettext)
+### 9. Compilar traducciones (requiere gettext)
 
-```bash
+`ash
 python manage.py compilemessages
-```
+`
 
-### 9. Compilar CSS con Tailwind
+### 10. Compilar CSS con Tailwind
 
-```bash
+`ash
 npm run build:prod
-```
+`
 
-### 10. Ejecutar el servidor de desarrollo
+### 11. Ejecutar el servidor de desarrollo
 
-```bash
+`ash
 python manage.py runserver
-```
+`
 
 Visita http://127.0.0.1:8000/ para ver la aplicación.
 
+## Configuración de OAuth (Opcional)
+
+Para habilitar el login con redes sociales, necesitas crear aplicaciones OAuth en cada proveedor:
+
+### Google OAuth
+
+1. Ve a [Google Cloud Console](https://console.cloud.google.com/)
+2. Crea un nuevo proyecto o selecciona uno existente
+3. Ve a "APIs & Services" > "Credentials"
+4. Crea un "OAuth 2.0 Client ID"
+5. Configura el "Authorized redirect URIs": http://localhost:8000/complete/google-oauth2/
+6. Copia el Client ID y Client Secret en tu .env
+
+### GitHub OAuth
+
+1. Ve a [GitHub Developer Settings](https://github.com/settings/developers)
+2. Crea un "New OAuth App"
+3. Configura el "Authorization callback URL": http://localhost:8000/complete/github/
+4. Copia el Client ID y Client Secret en tu .env
+
+### LinkedIn OAuth
+
+1. Ve a [LinkedIn Developer Portal](https://www.linkedin.com/developers/)
+2. Crea una nueva aplicación
+3. Ve a "Auth" y agrega el "Authorized redirect URL": http://localhost:8000/complete/linkedin-oauth2/
+4. Copia el Client ID y Client Secret en tu .env
+
 ## Estructura del proyecto
 
-```
+`
 crud-cvs/
 ├── manage.py
 ├── requirements.txt
@@ -104,8 +162,9 @@ crud-cvs/
 │   └── js/                   # JavaScript
 ├── media/photos/             # Fotos de usuario
 ├── locale/                   # Traducciones
-└── fixtures/                 # Datos iniciales
-```
+├── fixtures/                 # Datos iniciales
+└── .env.example              # Plantilla de variables de entorno
+`
 
 ## Uso
 
@@ -141,7 +200,7 @@ crud-cvs/
 - **Backend**: Django 4.2
 - **Frontend**: HTML, Tailwind CSS v4, JavaScript vanilla
 - **Base de datos**: SQLite
-- **Autenticación**: Django built-in
+- **Autenticación**: Django built-in + python-social-auth
 - **i18n**: Django gettext
 
 ## Licencia
