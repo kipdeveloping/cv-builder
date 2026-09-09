@@ -25,7 +25,7 @@
 - [x] 3.4 Implement UserSkill removal for skills no longer in any resume
 - [x] 3.5 Preserve is_primary flag during sync operations
 - [x] 3.6 Modify save_resume_api to call sync_skills_from_resume after save
-- [ ] 3.7 Test sync with multiple resumes having different skills
+- [x] 3.7 Test sync with multiple resumes having different skills
 
 ## 4. Dashboard Template & JavaScript
 

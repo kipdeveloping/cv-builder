@@ -18,6 +18,9 @@ def login_view(request):
     if request.user.is_authenticated:
         return redirect('dashboard')
 
+    if request.GET.get('oauth_error'):
+        messages.error(request, 'Este usuario no esta registrado. Por favor, crea una cuenta primero.')
+
     if request.method == 'POST':
         form = CustomAuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -25,16 +28,20 @@ def login_view(request):
             password = form.cleaned_data.get('password')
             user = authenticate(request, username=email, password=password)
             if user is not None:
-                login(request, user)
+                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
                 next_url = request.GET.get('next', 'dashboard')
                 return redirect(next_url)
         else:
-            messages.error(request, _('Email o contraseña incorrectos.'))
+            messages.error(request, 'Email o contrasena incorrectos.')
     else:
         form = CustomAuthenticationForm()
 
-    return render(request, 'accounts/login.html', {'form': form})
-
+    return render(request, 'accounts/login.html', {
+        'form': form,
+        'SOCIAL_AUTH_GOOGLE_OAUTH2_KEY': settings.SOCIAL_AUTH_GOOGLE_OAUTH2_KEY,
+        'SOCIAL_AUTH_GITHUB_KEY': settings.SOCIAL_AUTH_GITHUB_KEY,
+        'SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY': settings.SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY,
+    })
 
 def register_view(request):
     if request.user.is_authenticated:
@@ -46,7 +53,7 @@ def register_view(request):
             user = form.save()
             from .models import UserProfile
             UserProfile.objects.create(user=user)
-            login(request, user)
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             messages.success(request, _('¡Cuenta creada exitosamente!'))
             return redirect('dashboard')
         else:
@@ -285,3 +292,52 @@ Este mensaje fue enviado desde la plataforma CV Builder.
         return JsonResponse({'status': 'ok'})
     except Exception as e:
         return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
+
+
+@login_required
+def account_settings_view(request):
+    from allauth.socialaccount.models import SocialAccount
+    
+    # Check which OAuth providers are linked
+    social_accounts = SocialAccount.objects.filter(user=request.user)
+    google_linked = social_accounts.filter(provider='google').exists()
+    github_linked = social_accounts.filter(provider='github').exists()
+    linkedin_linked = social_accounts.filter(provider='linkedin_oauth2').exists()
+    
+    return render(request, 'accounts/account_settings.html', {
+        'google_linked': google_linked,
+        'github_linked': github_linked,
+        'linkedin_linked': linkedin_linked,
+    })
+
+
+@login_required
+def account_settings_view(request):
+    from social_django.models import UserSocialAuth
+    
+    # Check which OAuth providers are linked
+    social_accounts = UserSocialAuth.objects.filter(user=request.user)
+    google_linked = social_accounts.filter(provider='google-oauth2').exists()
+    github_linked = social_accounts.filter(provider='github').exists()
+    linkedin_linked = social_accounts.filter(provider='linkedin-oauth2').exists()
+    
+    return render(request, 'accounts/account_settings.html', {
+        'google_linked': google_linked,
+        'github_linked': github_linked,
+        'linkedin_linked': linkedin_linked,
+    })
+
+
+
+
+
+def oauth_complete(request, backend, *args, **kwargs):
+    from social_core.exceptions import AuthException
+    from social_django.views import complete as social_complete
+    try:
+        return social_complete(request, backend, *args, **kwargs)
+    except AuthException:
+        messages.error(request, 'Este usuario no esta registrado. Por favor, crea una cuenta primero.')
+        return redirect('login')
+
+
