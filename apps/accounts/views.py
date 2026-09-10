@@ -239,6 +239,7 @@ def set_featured_resume_view(request):
         return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
 
 
+@login_required
 @require_POST
 def contact_email_view(request, user_id):
     try:
@@ -257,9 +258,10 @@ def contact_email_view(request, user_id):
             }, status=400)
         
         from django.core.validators import validate_email
+        from django.core.exceptions import ValidationError
         try:
             validate_email(sender_email)
-        except:
+        except ValidationError:
             return JsonResponse({
                 'status': 'error',
                 'message': 'El formato del email no es valido.'
@@ -292,23 +294,6 @@ Este mensaje fue enviado desde la plataforma CV Builder.
         return JsonResponse({'status': 'ok'})
     except Exception as e:
         return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
-
-
-@login_required
-def account_settings_view(request):
-    from allauth.socialaccount.models import SocialAccount
-    
-    # Check which OAuth providers are linked
-    social_accounts = SocialAccount.objects.filter(user=request.user)
-    google_linked = social_accounts.filter(provider='google').exists()
-    github_linked = social_accounts.filter(provider='github').exists()
-    linkedin_linked = social_accounts.filter(provider='linkedin_oauth2').exists()
-    
-    return render(request, 'accounts/account_settings.html', {
-        'google_linked': google_linked,
-        'github_linked': github_linked,
-        'linkedin_linked': linkedin_linked,
-    })
 
 
 @login_required
