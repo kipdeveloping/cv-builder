@@ -1,0 +1,446 @@
+# Arabic translations for CV Builder
+# Copyright (C) 2026
+# This file is distributed under the same license as the CV Builder project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CV Builder 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-01 00:00+0000\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Dashboard"
+msgstr "لوحة التحكم"
+
+msgid "Salir"
+msgstr "تسجيل الخروج"
+
+msgid "Entrar"
+msgstr "دخول"
+
+msgid "Registrarse"
+msgstr "تسجيل"
+
+msgid "Todos los derechos reservados."
+msgstr "جميع الحقوق محفوظة."
+
+msgid "Iniciar Sesión"
+msgstr "تسجيل الدخول"
+
+msgid "Email o contraseña incorrectos. Por favor, inténtalo de nuevo."
+msgstr "البريد الإلكتروني أو كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى."
+
+msgid "Contraseña"
+msgstr "كلمة المرور"
+
+msgid "¿No tienes cuenta?"
+msgstr "ليس لديك حساب؟"
+
+msgid "Regístrate"
+msgstr "سجل الآن"
+
+msgid "Crear Cuenta"
+msgstr "إنشاء حساب"
+
+msgid "Por favor, corrige los siguientes errores:"
+msgstr "يرجى تصحيح الأخطاء التالية:"
+
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "Confirmar contraseña"
+msgstr "تأكيد كلمة المرور"
+
+msgid "Mínimo 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial."
+msgstr "8 أحرف على الأقل، حرف كبير واحد، رقم واحد وحرف خاص واحد."
+
+msgid "¿Ya tienes cuenta?"
+msgstr "هل لديك حساب بالفعل؟"
+
+msgid "Inicia sesión"
+msgstr "تسجيل الدخول"
+
+msgid "Mi Dashboard"
+msgstr "لوحة التحكم الخاصة بي"
+
+msgid "Crear nuevo CV"
+msgstr "إنشاء سيرة ذاتية جديدة"
+
+msgid "Mi Perfil"
+msgstr "ملفي الشخصي"
+
+msgid "Foto de perfil"
+msgstr "صورة الملف الشخصي"
+
+msgid "JPG, PNG o WebP. Máximo 5MB."
+msgstr "JPG أو PNG أو WebP. بحد أقصى 5MB."
+
+msgid "Subir foto"
+msgstr "رفع الصورة"
+
+msgid "Necesitas subir una foto para poder publicar tus CVs."
+msgstr "تحتاج إلى رفع صورة لنشر سيرك الذاتية."
+
+msgid "Bio (Quién soy)"
+msgstr "نبذة عني"
+
+msgid "Cuéntanos sobre ti..."
+msgstr "حدثنا عن نفسك..."
+
+msgid "Guardar bio"
+msgstr "حفظ النبذة"
+
+msgid "Mis CVs"
+msgstr "سيري الذاتية"
+
+msgid "Sin plantilla"
+msgstr "بدون قالب"
+
+msgid "Actualizado:"
+msgstr "آخر تحديث:"
+
+msgid "Editar"
+msgstr "تعديل"
+
+msgid "Aún no tienes CVs creados."
+msgstr "لم تقم بإنشاء سير ذاتية بعد."
+
+msgid "Crear mi primer CV"
+msgstr "إنشاء أول سيرة ذاتية"
+
+msgid "Elige una plantilla"
+msgstr "اختر قالباً"
+
+msgid "Selecciona el diseño que mejor se adapte a tu estilo profesional."
+msgstr "اختر التصميم الذي يناسب أسلوبك المهني."
+
+msgid "Seleccionar"
+msgstr "اختيار"
+
+msgid "Volver al dashboard"
+msgstr "العودة إلى لوحة التحكم"
+
+msgid "Editor"
+msgstr "المحرر"
+
+msgid "Volver"
+msgstr "رجوع"
+
+msgid "Publicar"
+msgstr "نشر"
+
+msgid "Publicado"
+msgstr "منشور"
+
+msgid "Publicar CV"
+msgstr "نشر السيرة الذاتية"
+
+msgid "Selecciona los sectores en los que encaja tu CV:"
+msgstr "اختر القطاعات التي تناسب سيرتك الذاتية:"
+
+msgid "Sector principal:"
+msgstr "القطاع الرئيسي:"
+
+msgid "Cancelar"
+msgstr "إلغاء"
+
+msgid "Confirmar publicación"
+msgstr "تأكيد النشر"
+
+msgid "Quién soy"
+msgstr "من أنا"
+
+msgid "Experiencia"
+msgstr "الخبرة"
+
+msgid "Título del puesto"
+msgstr "المسمى الوظيفي"
+
+msgid "Empresa"
+msgstr "الشركة"
+
+msgid "2020 - Presente"
+msgstr "2020 - حتى الآن"
+
+msgid "Descripción de tus responsabilidades..."
+msgstr "وصف مسؤولياتك..."
+
+msgid "Agregar experiencia"
+msgstr "إضافة خبرة"
+
+msgid "Educación"
+msgstr "التعليم"
+
+msgid "Título"
+msgstr "الشهادة"
+
+msgid "Institución"
+msgstr "المؤسسة"
+
+msgid "2018"
+msgstr "2018"
+
+msgid "Agregar educación"
+msgstr "إضافة تعليم"
+
+msgid "Habilidades"
+msgstr "المهارات"
+
+msgid "Python"
+msgstr "بايثون"
+
+msgid "JavaScript"
+msgstr "جافا سكريبت"
+
+msgid "Agregar habilidad"
+msgstr "إضافة مهارة"
+
+msgid "Tablón de Talentos"
+msgstr "منصة المواهب"
+
+msgid "Descubre profesionales talentosos en diferentes sectores."
+msgstr "اكتشف محترفين موهوبين في قطاعات مختلفة."
+
+msgid "Todos"
+msgstr "الكل"
+
+msgid "Cargando..."
+msgstr "جارٍ التحميل..."
+
+msgid "No se encontraron CVs en esta categoría."
+msgstr "لم يتم العثور على سير ذاتية في هذه الفئة."
+
+msgid "Volver al tablón"
+msgstr "العودة إلى المنصة"
+
+msgid "CV Builder"
+msgstr "منشئ السيرة الذاتية"
+
+msgid "3 Plantillas profesionales"
+msgstr "3 قوالب احترافية"
+
+msgid "Agregar"
+msgstr "إضافة"
+
+msgid "Anterior"
+msgstr "السابق"
+
+msgid "Bio actualizada correctamente."
+msgstr "تم تحديث السيرة الذاتية بنجاح."
+
+msgid "CV creado exitosamente. ¡Ahora personalízalo!"
+msgstr "تم إنشاء السيرة الذاتية بنجاح. خصّصها الآن!"
+
+msgid "Cambiar tema"
+msgstr "تغيير المظهر"
+
+msgid "Comenzar ahora"
+msgstr "ابدأ الآن"
+
+msgid "Contacto"
+msgstr "اتصل بنا"
+
+msgid "Crea tu CV profesional"
+msgstr "أنشئ سيرتك الذاتية المهنية"
+
+msgid "Crear cuenta gratis"
+msgstr "أنشئ حسابًا مجانيًا"
+
+msgid "Diseña CVs impresionantes con plantillas profesionales. Publica en nuestro tablón de talentos y conecta con oportunidades."
+msgstr "صمّم سيرًا ذاتية مذهلة باستخدام قوالب احترافية. انشر في لوحة المواهب وتواصل مع الفرص."
+
+msgid "Edita directamente en la plantilla con autoguardado automático."
+msgstr "حرّر مباشرة في القالب مع حفظ تلقائي."
+
+msgid "Editor visual"
+msgstr "محرر بصري"
+
+msgid "Elige entre diseños clásico, moderno y creativo para destacar tu perfil."
+msgstr "اختر من بين التصاميم الكلاسيكية والحديثة والإبداعية لإبراز ملفك."
+
+msgid "Email o contraseña incorrectos."
+msgstr "البريد الإلكتروني أو كلمة المرور غير صحيحة."
+
+msgid "Este email ya está registrado."
+msgstr "هذا البريد الإلكتروني مسجل بالفعل."
+
+msgid "Foto actualizada correctamente."
+msgstr "تم تحديث الصورة بنجاح."
+
+msgid "Has cerrado sesión correctamente."
+msgstr "لقد سجلت خروجك بنجاح."
+
+msgid "La contraseña debe contener al menos un número."
+msgstr "يجب أن تحتوي كلمة المرور على رقم واحد على الأقل."
+
+msgid "La contraseña debe contener al menos una letra mayúscula."
+msgstr "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل."
+
+msgid "La contraseña debe tener al menos 8 caracteres."
+msgstr "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل."
+
+msgid "La foto no puede superar los 5MB."
+msgstr "لا يمكن أن تتجاوز الصورة 5 ميجابايت."
+
+msgid "Las contraseñas no coinciden."
+msgstr "كلمتا المرور غير متطابقتين."
+
+msgid "O explora el tablón como invitado"
+msgstr "أو استكشف اللوحة كضيف"
+
+msgid "Por favor, corrige los errores."
+msgstr "يرجى تصحيح الأخطاء."
+
+msgid "Publica tu CV y descubre profesionales por sector."
+msgstr "انشر سيرتك الذاتية واكتشف المحترفين حسب القطاع."
+
+msgid "Seleccionar Plantilla"
+msgstr "اختر قالبًا"
+
+msgid "Siguiente"
+msgstr "التالي"
+
+msgid "Solo se permiten archivos JPG, PNG o WebP."
+msgstr "يُسمح بملفات JPG أو PNG أو WebP فقط."
+
+msgid "Tablón de talentos"
+msgstr "لوحة المواهب"
+
+msgid "Ya tengo cuenta"
+msgstr "لدي حساب بالفعل"
+
+msgid "¡Cuenta creada exitosamente!"
+msgstr "تم إنشاء الحساب بنجاح!"
+
+msgid "¿Listo para crear tu CV?"
+msgstr "هل أنت مستعد لإنشاء سيرتك الذاتية؟"
+
+msgid "¿Por qué CV Builder?"
+msgstr "لماذا CV Builder؟"
+
+msgid "Únete a nuestra comunidad de profesionales."
+msgstr "انضم إلى مجتمعنا من المحترفين."
+
+msgid "Ver todas las secciones"
+msgstr "عرض جميع الأقسام"
+
+msgid "Al menos un carácter especial (!@#$%^&*())"
+msgstr "حرف خاص واحد على الأقل (!@#$%^&*())"
+
+msgid "Al menos un número"
+msgstr "رقم واحد على الأقل"
+
+msgid "Al menos una letra mayúscula"
+msgstr "حرف كبير واحد على الأقل"
+
+msgid "Apellido"
+msgstr "اللقب"
+
+msgid "Continuar"
+msgstr "متابعة"
+
+msgid "Crea tu cuenta"
+msgstr "أنشئ حسابك"
+
+msgid "Cuenta"
+msgstr "الحساب"
+
+msgid "Datos personales"
+msgstr "البيانات الشخصية"
+
+msgid "Ej: Desarrollador Web"
+msgstr "مثال: مطور ويب"
+
+msgid "Elige tu rol"
+msgstr "اختر دورك"
+
+msgid "Encuentra talento para tu negocio."
+msgstr "ابحث عن المواهب لشركتك."
+
+msgid "Esta funcionalidad estará disponible próximamente."
+msgstr "ستتوفر هذه الوظيفة قريباً."
+
+msgid "Introduce un email válido."
+msgstr "أدخل بريداً إلكترونياً صالحاً."
+
+msgid "La contraseña debe contener al menos un carácter especial (!@#$%^&*(),.?\":{}|<>)."
+msgstr "يجب أن تحتوي كلمة المرور على حرف خاص واحد على الأقل (!@#$%^&*(),.?\":{}|<>)."
+
+msgid "La contraseña debe tener al menos 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial."
+msgstr "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل، مع حرف كبير واحد ورقم واحد وحرف خاص واحد."
+
+msgid "Mínimo 8 caracteres"
+msgstr "8 أحرف على الأقل"
+
+msgid "Nombre"
+msgstr "الاسم الأول"
+
+msgid "Opcional"
+msgstr "اختياري"
+
+msgid "Perfil profesional"
+msgstr "الملف المهني"
+
+msgid "Por favor, completa este campo."
+msgstr "يرجى ملء هذا الحقل."
+
+msgid "Próximamente"
+msgstr "قريباً"
+
+msgid "Publica tu CV y encuentra oportunidades."
+msgstr "انشر سيرتك الذاتية واعثر على الفرص."
+
+msgid "Registro de Trabajador"
+msgstr "تسجيل العامل"
+
+msgid "Sector"
+msgstr "القطاع"
+
+msgid "Soy Empresa"
+msgstr "أنا شركة"
+
+msgid "Soy Trabajador"
+msgstr "أنا عامل"
+
+msgid "Tu nombre"
+msgstr "اسمك الأول"
+
+msgid "Tus apellidos"
+msgstr "اسمك الأخير"
+
+msgid "Título profesional"
+msgstr "المسمى المهني"
+
+msgid "Continúa con"
+msgstr "المتابعة عبر"
+
+msgid "o con tu correo electrónico"
+msgstr "أو عبر بريدك الإلكتروني"
+
+msgid "Regístrate con"
+msgstr "سجّل عبر"
+
+msgid "o crea tu cuenta con correo electrónico"
+msgstr "أو أنشئ حسابك عبر البريد الإلكتروني"
+
+msgid "Completa tu perfil profesional"
+msgstr "أكمل ملفك المهني"
+
+msgid "Para terminar tu registro, completa tu perfil profesional."
+msgstr "لإتمام تسجيلك، أكمل ملفك المهني."
+
+msgid "Selecciona al menos un campo (título o sector) para continuar."
+msgstr "حدد حقلًا واحدًا على الأقل (المسمى أو القطاع) للمتابعة."
+
+msgid "Debes seleccionar al menos un campo (título o sector)."
+msgstr "يجب تحديد حقل واحد على الأقل (المسمى أو القطاع)."
+
+msgid "Guardar y continuar"
+msgstr "حفظ والمتابعة"

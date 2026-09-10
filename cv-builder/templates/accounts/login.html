@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load socialaccount %}
+
+{% block title %}{% trans "Entrar" %} - CV Builder{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+        <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">{% trans "Iniciar Sesión" %}</h1>
+
+        <div class="space-y-3 mb-6">
+            <p class="text-sm font-semibold text-gray-600 dark:text-gray-300 text-center">{% trans "Continúa con" %}</p>
+            <div class="grid grid-cols-2 gap-3">
+                <a href="{% provider_login_url 'google' next=request.GET.next %}"
+                    class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 text-sm font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/>
+                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0012 23z"/>
+                        <path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 010-4.2V7.06H2.18a11 11 0 000 9.88l3.66-2.84z"/>
+                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15A11 11 0 002.18 7.06L5.84 9.9C6.71 7.31 9.14 5.38 12 5.38z"/>
+                    </svg>
+                    Google
+                </a>
+                <a href="{% provider_login_url 'github' next=request.GET.next %}"
+                    class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 text-sm font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 .5A11.5 11.5 0 00.5 12a11.5 11.5 0 007.85 10.92c.57.1.78-.25.78-.56v-2.02c-3.2.7-3.87-1.36-3.87-1.36-.53-1.33-1.28-1.68-1.28-1.68-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.57-.29-5.27-1.28-5.27-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.17 1.18a11 11 0 015.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.28 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.2.67.79.56A11.5 11.5 0 0023.5 12 11.5 11.5 0 0012 .5z"/>
+                    </svg>
+                    GitHub
+                </a>
+                <a href="{% provider_login_url 'microsoft' next=request.GET.next %}"
+                    class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 text-sm font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24">
+                        <rect x="2" y="2" width="10" height="10" fill="#F25022"/>
+                        <rect x="13" y="2" width="9" height="10" fill="#7FBA00"/>
+                        <rect x="2" y="13" width="10" height="9" fill="#00A4EF"/>
+                        <rect x="13" y="13" width="9" height="9" fill="#FFB900"/>
+                    </svg>
+                    Microsoft
+                </a>
+                <a href="{% provider_login_url 'apple' next=request.GET.next %}"
+                    class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 text-sm font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    Apple
+                </a>
+            </div>
+            <div class="flex items-center gap-3 my-4">
+                <span class="flex-1 h-px bg-gray-200 dark:bg-gray-700"></span>
+                <span class="text-sm text-gray-500 dark:text-gray-400">{% trans "o con tu correo electrónico" %}</span>
+                <span class="flex-1 h-px bg-gray-200 dark:bg-gray-700"></span>
+            </div>
+        </div>
+
+        {% if form.errors %}
+        <div class="bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-700 text-red-700 dark:text-red-200 px-4 py-3 rounded-lg mb-6">
+            {% trans "Email o contraseña incorrectos. Por favor, inténtalo de nuevo." %}
+        </div>
+        {% endif %}
+
+        <form method="post" class="space-y-4">
+            {% csrf_token %}
+
+            <div>
+                <label for="id_username" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Email" %}</label>
+                <input type="email" name="username" id="id_username" required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                    placeholder="tu@email.com">
+            </div>
+
+            <div>
+                <label for="id_password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Contraseña" %}</label>
+                <input type="password" name="password" id="id_password" required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                    placeholder="••••••••">
+            </div>
+
+            <button type="submit"
+                class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition duration-200">
+                {% trans "Entrar" %}
+            </button>
+        </form>
+
+        <p class="mt-6 text-center text-gray-600 dark:text-gray-300">
+            {% trans "¿No tienes cuenta?" %}
+            <a href="{% url 'register' %}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-semibold">{% trans "Regístrate" %}</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

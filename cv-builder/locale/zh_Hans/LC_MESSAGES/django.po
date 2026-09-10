@@ -1,0 +1,446 @@
+# Chinese (Simplified) translations for CV Builder
+# Copyright (C) 2026
+# This file is distributed under the same license as the CV Builder project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CV Builder 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-01 00:00+0000\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Chinese (Simplified)\n"
+"Language: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Dashboard"
+msgstr "仪表盘"
+
+msgid "Salir"
+msgstr "退出"
+
+msgid "Entrar"
+msgstr "登录"
+
+msgid "Registrarse"
+msgstr "注册"
+
+msgid "Todos los derechos reservados."
+msgstr "版权所有。"
+
+msgid "Iniciar Sesión"
+msgstr "登录"
+
+msgid "Email o contraseña incorrectos. Por favor, inténtalo de nuevo."
+msgstr "邮箱或密码错误，请重试。"
+
+msgid "Contraseña"
+msgstr "密码"
+
+msgid "¿No tienes cuenta?"
+msgstr "没有账户？"
+
+msgid "Regístrate"
+msgstr "注册"
+
+msgid "Crear Cuenta"
+msgstr "创建账户"
+
+msgid "Por favor, corrige los siguientes errores:"
+msgstr "请更正以下错误："
+
+msgid "Email"
+msgstr "邮箱"
+
+msgid "Confirmar contraseña"
+msgstr "确认密码"
+
+msgid "Mínimo 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial."
+msgstr "至少8个字符，1个大写字母，1个数字和1个特殊字符。"
+
+msgid "¿Ya tienes cuenta?"
+msgstr "已有账户？"
+
+msgid "Inicia sesión"
+msgstr "登录"
+
+msgid "Mi Dashboard"
+msgstr "我的仪表盘"
+
+msgid "Crear nuevo CV"
+msgstr "创建新简历"
+
+msgid "Mi Perfil"
+msgstr "我的资料"
+
+msgid "Foto de perfil"
+msgstr "头像"
+
+msgid "JPG, PNG o WebP. Máximo 5MB."
+msgstr "JPG、PNG或WebP格式。最大5MB。"
+
+msgid "Subir foto"
+msgstr "上传照片"
+
+msgid "Necesitas subir una foto para poder publicar tus CVs."
+msgstr "您需要上传照片才能发布简历。"
+
+msgid "Bio (Quién soy)"
+msgstr "简介（我是谁）"
+
+msgid "Cuéntanos sobre ti..."
+msgstr "介绍一下你自己..."
+
+msgid "Guardar bio"
+msgstr "保存简介"
+
+msgid "Mis CVs"
+msgstr "我的简历"
+
+msgid "Sin plantilla"
+msgstr "无模板"
+
+msgid "Actualizado:"
+msgstr "更新于："
+
+msgid "Editar"
+msgstr "编辑"
+
+msgid "Aún no tienes CVs creados."
+msgstr "您还没有创建简历。"
+
+msgid "Crear mi primer CV"
+msgstr "创建我的第一份简历"
+
+msgid "Elige una plantilla"
+msgstr "选择模板"
+
+msgid "Selecciona el diseño que mejor se adapte a tu estilo profesional."
+msgstr "选择最适合您职业风格的设计。"
+
+msgid "Seleccionar"
+msgstr "选择"
+
+msgid "Volver al dashboard"
+msgstr "返回仪表盘"
+
+msgid "Editor"
+msgstr "编辑器"
+
+msgid "Volver"
+msgstr "返回"
+
+msgid "Publicar"
+msgstr "发布"
+
+msgid "Publicado"
+msgstr "已发布"
+
+msgid "Publicar CV"
+msgstr "发布简历"
+
+msgid "Selecciona los sectores en los que encaja tu CV:"
+msgstr "选择您的简历适合的领域："
+
+msgid "Sector principal:"
+msgstr "主要领域："
+
+msgid "Cancelar"
+msgstr "取消"
+
+msgid "Confirmar publicación"
+msgstr "确认发布"
+
+msgid "Quién soy"
+msgstr "我是谁"
+
+msgid "Experiencia"
+msgstr "工作经验"
+
+msgid "Título del puesto"
+msgstr "职位名称"
+
+msgid "Empresa"
+msgstr "公司"
+
+msgid "2020 - Presente"
+msgstr "2020 - 至今"
+
+msgid "Descripción de tus responsabilidades..."
+msgstr "描述您的职责..."
+
+msgid "Agregar experiencia"
+msgstr "添加工作经验"
+
+msgid "Educación"
+msgstr "教育背景"
+
+msgid "Título"
+msgstr "学位"
+
+msgid "Institución"
+msgstr "院校"
+
+msgid "2018"
+msgstr "2018"
+
+msgid "Agregar educación"
+msgstr "添加教育经历"
+
+msgid "Habilidades"
+msgstr "技能"
+
+msgid "Python"
+msgstr "Python"
+
+msgid "JavaScript"
+msgstr "JavaScript"
+
+msgid "Agregar habilidad"
+msgstr "添加技能"
+
+msgid "Tablón de Talentos"
+msgstr "人才墙"
+
+msgid "Descubre profesionales talentosos en diferentes sectores."
+msgstr "发现不同领域的人才专业人士。"
+
+msgid "Todos"
+msgstr "全部"
+
+msgid "Cargando..."
+msgstr "加载中..."
+
+msgid "No se encontraron CVs en esta categoría."
+msgstr "此类别中未找到简历。"
+
+msgid "Volver al tablón"
+msgstr "返回人才墙"
+
+msgid "CV Builder"
+msgstr "简历生成器"
+
+msgid "3 Plantillas profesionales"
+msgstr "3 种专业模板"
+
+msgid "Agregar"
+msgstr "添加"
+
+msgid "Anterior"
+msgstr "上一个"
+
+msgid "Bio actualizada correctamente."
+msgstr "个人简介更新成功。"
+
+msgid "CV creado exitosamente. ¡Ahora personalízalo!"
+msgstr "简历创建成功。现在开始个性化设置！"
+
+msgid "Cambiar tema"
+msgstr "切换主题"
+
+msgid "Comenzar ahora"
+msgstr "立即开始"
+
+msgid "Contacto"
+msgstr "联系方式"
+
+msgid "Crea tu CV profesional"
+msgstr "创建您的专业简历"
+
+msgid "Crear cuenta gratis"
+msgstr "免费创建账户"
+
+msgid "Diseña CVs impresionantes con plantillas profesionales. Publica en nuestro tablón de talentos y conecta con oportunidades."
+msgstr "使用专业模板设计出色的简历。发布到我们的人才墙并连接机会。"
+
+msgid "Edita directamente en la plantilla con autoguardado automático."
+msgstr "在模板中直接编辑，自动保存。"
+
+msgid "Editor visual"
+msgstr "可视化编辑器"
+
+msgid "Elige entre diseños clásico, moderno y creativo para destacar tu perfil."
+msgstr "在经典、现代和创意设计中选择，突出你的个人简介。"
+
+msgid "Email o contraseña incorrectos."
+msgstr "邮箱或密码不正确。"
+
+msgid "Este email ya está registrado."
+msgstr "此邮箱已被注册。"
+
+msgid "Foto actualizada correctamente."
+msgstr "照片更新成功。"
+
+msgid "Has cerrado sesión correctamente."
+msgstr "您已成功退出登录。"
+
+msgid "La contraseña debe contener al menos un número."
+msgstr "密码必须至少包含一个数字。"
+
+msgid "La contraseña debe contener al menos una letra mayúscula."
+msgstr "密码必须至少包含一个大写字母。"
+
+msgid "La contraseña debe tener al menos 8 caracteres."
+msgstr "密码必须至少包含 8 个字符。"
+
+msgid "La foto no puede superar los 5MB."
+msgstr "照片不能超过 5MB。"
+
+msgid "Las contraseñas no coinciden."
+msgstr "密码不匹配。"
+
+msgid "O explora el tablón como invitado"
+msgstr "或以访客身份浏览人才墙"
+
+msgid "Por favor, corrige los errores."
+msgstr "请修正错误。"
+
+msgid "Publica tu CV y descubre profesionales por sector."
+msgstr "发布你的简历，按行业发现专业人士。"
+
+msgid "Seleccionar Plantilla"
+msgstr "选择模板"
+
+msgid "Siguiente"
+msgstr "下一个"
+
+msgid "Solo se permiten archivos JPG, PNG o WebP."
+msgstr "仅允许 JPG、PNG 或 WebP 文件。"
+
+msgid "Tablón de talentos"
+msgstr "人才墙"
+
+msgid "Ya tengo cuenta"
+msgstr "我已有账户"
+
+msgid "¡Cuenta creada exitosamente!"
+msgstr "账户创建成功！"
+
+msgid "¿Listo para crear tu CV?"
+msgstr "准备好创建你的简历了吗？"
+
+msgid "¿Por qué CV Builder?"
+msgstr "为什么选择 CV Builder？"
+
+msgid "Únete a nuestra comunidad de profesionales."
+msgstr "加入我们的专业人士社区。"
+
+msgid "Ver todas las secciones"
+msgstr "查看所有版块"
+
+msgid "Al menos un carácter especial (!@#$%^&*())"
+msgstr "至少一个特殊字符 (!@#$%^&*())"
+
+msgid "Al menos un número"
+msgstr "至少一个数字"
+
+msgid "Al menos una letra mayúscula"
+msgstr "至少一个大写字母"
+
+msgid "Apellido"
+msgstr "姓氏"
+
+msgid "Continuar"
+msgstr "继续"
+
+msgid "Crea tu cuenta"
+msgstr "创建您的账户"
+
+msgid "Cuenta"
+msgstr "账户"
+
+msgid "Datos personales"
+msgstr "个人信息"
+
+msgid "Ej: Desarrollador Web"
+msgstr "例如：网页开发者"
+
+msgid "Elige tu rol"
+msgstr "选择您的身份"
+
+msgid "Encuentra talento para tu negocio."
+msgstr "为您的企业寻找人才。"
+
+msgid "Esta funcionalidad estará disponible próximamente."
+msgstr "该功能即将上线。"
+
+msgid "Introduce un email válido."
+msgstr "请输入有效的邮箱地址。"
+
+msgid "La contraseña debe contener al menos un carácter especial (!@#$%^&*(),.?\":{}|<>)."
+msgstr "密码必须包含至少一个特殊字符 (!@#$%^&*(),.?\":{}|<>)。"
+
+msgid "La contraseña debe tener al menos 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial."
+msgstr "密码必须至少 8 个字符，包含 1 个大写字母、1 个数字和 1 个特殊字符。"
+
+msgid "Mínimo 8 caracteres"
+msgstr "最少 8 个字符"
+
+msgid "Nombre"
+msgstr "名字"
+
+msgid "Opcional"
+msgstr "可选"
+
+msgid "Perfil profesional"
+msgstr "职业信息"
+
+msgid "Por favor, completa este campo."
+msgstr "请填写此字段。"
+
+msgid "Próximamente"
+msgstr "即将推出"
+
+msgid "Publica tu CV y encuentra oportunidades."
+msgstr "发布您的简历并寻找机会。"
+
+msgid "Registro de Trabajador"
+msgstr "求职者注册"
+
+msgid "Sector"
+msgstr "行业"
+
+msgid "Soy Empresa"
+msgstr "我是企业"
+
+msgid "Soy Trabajador"
+msgstr "我是求职者"
+
+msgid "Tu nombre"
+msgstr "您的名字"
+
+msgid "Tus apellidos"
+msgstr "您的姓氏"
+
+msgid "Título profesional"
+msgstr "职业头衔"
+
+msgid "Continúa con"
+msgstr "使用以下方式继续"
+
+msgid "o con tu correo electrónico"
+msgstr "或使用您的邮箱"
+
+msgid "Regístrate con"
+msgstr "使用以下方式注册"
+
+msgid "o crea tu cuenta con correo electrónico"
+msgstr "或使用邮箱创建您的账户"
+
+msgid "Completa tu perfil profesional"
+msgstr "完善您的职业信息"
+
+msgid "Para terminar tu registro, completa tu perfil profesional."
+msgstr "要完成注册，请完善您的职业信息。"
+
+msgid "Selecciona al menos un campo (título o sector) para continuar."
+msgstr "请至少选择一个字段（头衔或行业）以继续。"
+
+msgid "Debes seleccionar al menos un campo (título o sector)."
+msgstr "您必须至少选择一个字段（头衔或行业）。"
+
+msgid "Guardar y continuar"
+msgstr "保存并继续"
