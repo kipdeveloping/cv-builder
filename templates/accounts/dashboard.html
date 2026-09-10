@@ -577,8 +577,13 @@
         contactEmail: "{% url 'contact_email' user_id=user.id %}",
     };
     var currentResumeId = {{ featured_resume.id|default:'null' }};
-    var experienceData = {{ experience|safe }};
-    var projectsData = {{ projects|safe }};
-    var socialLinksData = {{ social_links|safe }};
+</script>
+{{ experience|json_script:"experienceData" }}
+{{ projects|json_script:"projectsData" }}
+{{ social_links|json_script:"socialLinksData" }}
+<script>
+    var experienceData = JSON.parse(document.getElementById('experienceData').textContent);
+    var projectsData = JSON.parse(document.getElementById('projectsData').textContent);
+    var socialLinksData = JSON.parse(document.getElementById('socialLinksData').textContent);
 </script>
 {% endblock %}

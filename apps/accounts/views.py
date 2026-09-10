@@ -8,6 +8,7 @@ from django.views.decorators.http import require_POST
 from django.utils.translation import gettext_lazy as _
 from django.core.mail import send_mail
 from django.conf import settings
+from django.utils.http import url_has_allowed_host_and_scheme
 import json
 from .forms import RegistrationForm, CustomAuthenticationForm, WizardRegistrationForm, ProfileOnboardingForm
 from .models import UserProfile, Skill, UserSkill
@@ -19,7 +20,7 @@ def login_view(request):
         return redirect('dashboard')
 
     if request.GET.get('oauth_error'):
-        messages.error(request, 'Este usuario no esta registrado. Por favor, crea una cuenta primero.')
+        messages.error(request, _('Este usuario no esta registrado. Por favor, crea una cuenta primero.'))
 
     if request.method == 'POST':
         form = CustomAuthenticationForm(request, data=request.POST)
@@ -30,9 +31,11 @@ def login_view(request):
             if user is not None:
                 login(request, user, backend='django.contrib.auth.backends.ModelBackend')
                 next_url = request.GET.get('next', 'dashboard')
+                if not url_has_allowed_host_and_scheme(next_url, allowed_hosts={request.get_host()}):
+                    next_url = 'dashboard'
                 return redirect(next_url)
         else:
-            messages.error(request, 'Email o contrasena incorrectos.')
+            messages.error(request, _('Email o contraseña incorrectos.'))
     else:
         form = CustomAuthenticationForm()
 
@@ -252,7 +255,7 @@ def contact_email_view(request, user_id):
         if not sender_name or not sender_email or not message:
             return JsonResponse({
                 'status': 'error',
-                'message': 'Nombre, email y mensaje son obligatorios.'
+                'message': _('Nombre, email y mensaje son obligatorios.')
             }, status=400)
         
         from django.core.validators import validate_email
@@ -262,7 +265,7 @@ def contact_email_view(request, user_id):
         except ValidationError:
             return JsonResponse({
                 'status': 'error',
-                'message': 'El formato del email no es valido.'
+                'message': _('El formato del email no es valido.')
             }, status=400)
         
         candidate_name = candidate.get_full_name() or candidate.email
@@ -320,7 +323,7 @@ def oauth_complete(request, backend, *args, **kwargs):
     try:
         return social_complete(request, backend, *args, **kwargs)
     except AuthException:
-        messages.error(request, 'Este usuario no esta registrado. Por favor, crea una cuenta primero.')
+        messages.error(request, _('Este usuario no esta registrado. Por favor, crea una cuenta primero.'))
         return redirect('login')
 
 

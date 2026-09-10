@@ -27,21 +27,21 @@ class RegistrationForm(UserCreationForm):
     email = forms.EmailField(
         label=_('Email'),
         widget=forms.EmailInput(attrs={
-            'class': 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500',
+            'class': 'w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
             'placeholder': 'tu@email.com'
         })
     )
     password1 = forms.CharField(
         label=_('Contraseña'),
         widget=forms.PasswordInput(attrs={
-            'class': 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500',
+            'class': 'w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
             'placeholder': '••••••••'
         })
     )
     password2 = forms.CharField(
         label=_('Confirmar contraseña'),
         widget=forms.PasswordInput(attrs={
-            'class': 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500',
+            'class': 'w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
             'placeholder': '••••••••'
         })
     )
@@ -73,16 +73,6 @@ class RegistrationForm(UserCreationForm):
             raise ValidationError(errors)
         return password
 
-    def clean(self):
-        cleaned_data = super().clean()
-        password1 = cleaned_data.get('password1')
-        password2 = cleaned_data.get('password2')
-
-        if password1 and password2 and password1 != password2:
-            self.add_error('password2', _('Las contraseñas no coinciden.'))
-
-        return cleaned_data
-
     def save(self, commit=True):
         user = super().save(commit=False)
         user.email = self.cleaned_data['email']
@@ -97,7 +87,7 @@ class ProfileOnboardingForm(forms.Form):
         label=_('Nombre'),
         max_length=30,
         widget=forms.TextInput(attrs={
-            'class': 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500',
+            'class': 'w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
             'placeholder': 'Tu nombre'
         })
     )
@@ -105,7 +95,7 @@ class ProfileOnboardingForm(forms.Form):
         label=_('Apellido'),
         max_length=30,
         widget=forms.TextInput(attrs={
-            'class': 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500',
+            'class': 'w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
             'placeholder': 'Tu apellido'
         })
     )
@@ -117,7 +107,7 @@ class WizardRegistrationForm(RegistrationForm):
         max_length=30,
         required=False,
         widget=forms.TextInput(attrs={
-            'class': 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500',
+            'class': 'w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
             'placeholder': 'Tu nombre'
         })
     )
@@ -126,7 +116,7 @@ class WizardRegistrationForm(RegistrationForm):
         max_length=30,
         required=False,
         widget=forms.TextInput(attrs={
-            'class': 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500',
+            'class': 'w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
             'placeholder': 'Tu apellido'
         })
     )
@@ -135,7 +125,7 @@ class WizardRegistrationForm(RegistrationForm):
         max_length=100,
         required=False,
         widget=forms.TextInput(attrs={
-            'class': 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500',
+            'class': 'w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
             'placeholder': 'Ej: Ingeniero de Software'
         })
     )
@@ -144,7 +134,7 @@ class WizardRegistrationForm(RegistrationForm):
         max_length=100,
         required=False,
         widget=forms.TextInput(attrs={
-            'class': 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500',
+            'class': 'w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
             'placeholder': 'Ej: Tecnología'
         })
     )

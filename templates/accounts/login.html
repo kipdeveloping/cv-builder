@@ -6,12 +6,12 @@
 {% block content %}
 <div class="max-w-md mx-auto">
     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
-        <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">{% trans "Iniciar Sesion" %}</h1>
+        <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">{% trans "Iniciar Sesión" %}</h1>
 
         {% if messages %}
         <div class="mb-6">
             {% for message in messages %}
-            <div class="bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-700 text-red-700 dark:text-red-200 px-4 py-3 rounded-lg mb-2">
+            <div class="{% if message.tags == 'success' %}bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-700 text-green-700 dark:text-green-200{% else %}bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-700 text-red-700 dark:text-red-200{% endif %} px-4 py-3 rounded-lg mb-2">
                 {{ message }}
             </div>
             {% endfor %}
@@ -20,7 +20,7 @@
 
         {% if form.errors %}
         <div class="bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-700 text-red-700 dark:text-red-200 px-4 py-3 rounded-lg mb-6">
-            {% trans "Email o contrasena incorrectos. Por favor, intentalo de nuevo." %}
+            {% trans "Email o contraseña incorrectos. Por favor, inténtalo de nuevo." %}
         </div>
         {% endif %}
 
@@ -30,14 +30,14 @@
             <div>
                 <label for="id_username" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Email" %}</label>
                 <input type="email" name="username" id="id_username" required
-                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                     placeholder="tu@email.com">
             </div>
 
             <div>
-                <label for="id_password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Contrasena" %}</label>
+                <label for="id_password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Contraseña" %}</label>
                 <input type="password" name="password" id="id_password" required
-                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                     placeholder="********">
             </div>
 
@@ -53,7 +53,7 @@
                     <div class="w-full border-t border-gray-300 dark:border-gray-600"></div>
                 </div>
                 <div class="relative flex justify-center text-sm">
-                    <span class="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">{% trans "O continua con" %}</span>
+                    <span class="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">{% trans "O continúa con" %}</span>
                 </div>
             </div>
 
@@ -93,14 +93,14 @@
             </div>
             {% if not SOCIAL_AUTH_GOOGLE_OAUTH2_KEY and not SOCIAL_AUTH_GITHUB_KEY and not SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY %}
             <div class="mt-3 p-3 bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-700 rounded-lg text-sm text-yellow-800 dark:text-yellow-200">
-                {% trans "El login con redes sociales no esta configurado. Consulta el README para configurar las credenciales OAuth." %}
+                {% trans "El login con redes sociales no está configurado. Consulta el README para configurar las credenciales OAuth." %}
             </div>
             {% endif %}
         </div>
 
         <p class="mt-6 text-center text-gray-600 dark:text-gray-400">
-            {% trans "No tienes cuenta?" %}
-            <a href="{% url 'register' %}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-semibold">{% trans "Registrate" %}</a>
+            {% trans "¿No tienes cuenta?" %}
+            <a href="{% url 'register' %}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-semibold">{% trans "Regístrate" %}</a>
         </p>
     </div>
 </div>

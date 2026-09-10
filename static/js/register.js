@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const dots = [document.getElementById('dot-1'), document.getElementById('dot-2'), document.getElementById('dot-3')];
 
     const subtitles = {
-        1: 'Paso 1 de 3 — Datos de acceso',
-        2: 'Paso 2 de 3 — Datos personales',
-        3: 'Paso 3 de 3 — Información profesional'
+        1: typeof t === 'function' ? t('Paso 1 de 3 — Datos de acceso') : 'Paso 1 de 3 — Datos de acceso',
+        2: typeof t === 'function' ? t('Paso 2 de 3 — Datos personales') : 'Paso 2 de 3 — Datos personales',
+        3: typeof t === 'function' ? t('Paso 3 de 3 — Información profesional') : 'Paso 3 de 3 — Información profesional'
     };
 
     function updateUI() {

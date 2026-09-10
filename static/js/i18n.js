@@ -246,7 +246,7 @@ const I18N = {
         'Guardando...': 'جاري الحفظ...',
         'Guardado a las': 'محفوظ في',
         'Error al guardar': 'خطأ في الحفظ',
-        'Error de 연결': 'خطأ في الاتصال',
+        'Error de conexión': 'خطأ في الاتصال',
         'Nueva habilidad': 'مهارة جديدة',
         'Publicando...': 'جاري النشر...',
         'Publicado': 'منشور',

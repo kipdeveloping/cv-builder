@@ -9,6 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
     let tags = [];
     let sectors = [];
 
+    function escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
     const sectorIcons = {
         'tecnologia': '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>',
         'diseno': '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>',
@@ -44,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const allChip = document.createElement('button');
         allChip.className = 'sector-chip active flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-indigo-600 text-white transition';
         allChip.dataset.slug = 'all';
-        allChip.innerHTML = `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg> Todos`;
+        allChip.innerHTML = `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg> ${typeof t === 'function' ? t('Todos') : 'Todos'}`;
         sectorCarousel.appendChild(allChip);
 
         sectors.forEach(sector => {
@@ -52,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
             chip.className = 'sector-chip flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition';
             chip.dataset.slug = sector.slug;
             chip.dataset.id = sector.id;
-            chip.innerHTML = `${getSectorIcon(sector.name)} ${sector.name}`;
+            chip.innerHTML = `${getSectorIcon(sector.name)} ${escapeHtml(sector.name)}`;
             sectorCarousel.appendChild(chip);
         });
 
@@ -153,21 +160,24 @@ document.addEventListener('DOMContentLoaded', function() {
         card.className = 'bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300';
 
         const photoUrl = cv.photo || '/static/img/default-avatar.png';
+        const safeName = escapeHtml(cv.name);
         const truncatedBio = cv.bio && cv.bio.length > 80
-            ? cv.bio.substring(0, 80) + '...'
-            : cv.bio || 'Sin descripción';
+            ? escapeHtml(cv.bio.substring(0, 80)) + '...'
+            : escapeHtml(cv.bio) || (typeof t === 'function' ? t('Sin descripción') : 'Sin descripción');
 
         const tagsHtml = cv.tags && cv.tags.length > 0
-            ? cv.tags.map(tag => `<span class="bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200 text-xs px-2 py-1 rounded-full">${tag}</span>`).join('')
+            ? cv.tags.map(tag => `<span class="bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200 text-xs px-2 py-1 rounded-full">${escapeHtml(tag)}</span>`).join('')
             : '';
+
+        const safeProfileUrl = `/candidato/${parseInt(cv.user_id) || 0}/`;
 
         card.innerHTML = `
             <div class="aspect-square bg-gray-100 dark:bg-gray-700 relative">
-                <img src="${photoUrl}" alt="${cv.name}"
+                <img src="${escapeHtml(photoUrl)}" alt="${safeName}"
                     class="w-full h-full object-cover">
             </div>
             <div class="p-4">
-                <h3 class="font-semibold text-gray-900 dark:text-white text-lg mb-1">${cv.name}</h3>
+                <h3 class="font-semibold text-gray-900 dark:text-white text-lg mb-1">${safeName}</h3>
                 <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">${truncatedBio}</p>
                 <div class="flex flex-wrap gap-1">
                     ${tagsHtml}
@@ -176,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
 
         card.addEventListener('click', function() {
-            window.location.href = `/candidato/${cv.user_id}/`;
+            window.location.href = safeProfileUrl;
         });
 
         card.style.cursor = 'pointer';
