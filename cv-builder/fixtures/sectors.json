@@ -1,0 +1,416 @@
+[
+    {
+        "model": "resumes.sectortag",
+        "pk": 1,
+        "fields": {
+            "name_es": "Desarrollo Web",
+            "name_en": "Web Development",
+            "slug": "desarrollo-web"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 2,
+        "fields": {
+            "name_es": "Diseño Gráfico",
+            "name_en": "Graphic Design",
+            "slug": "diseno-grafico"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 3,
+        "fields": {
+            "name_es": "Marketing",
+            "name_en": "Marketing",
+            "slug": "marketing"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 4,
+        "fields": {
+            "name_es": "Finanzas",
+            "name_en": "Finance",
+            "slug": "finanzas"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 5,
+        "fields": {
+            "name_es": "Desarrollo Móvil",
+            "name_en": "Mobile Development",
+            "slug": "desarrollo-movil"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 6,
+        "fields": {
+            "name_es": "Ciencia de Datos",
+            "name_en": "Data Science",
+            "slug": "ciencia-de-datos"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 7,
+        "fields": {
+            "name_es": "Inteligencia Artificial",
+            "name_en": "Artificial Intelligence",
+            "slug": "inteligencia-artificial"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 8,
+        "fields": {
+            "name_es": "Ciberseguridad",
+            "name_en": "Cybersecurity",
+            "slug": "ciberseguridad"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 9,
+        "fields": {
+            "name_es": "DevOps y Cloud",
+            "name_en": "DevOps & Cloud",
+            "slug": "devops-cloud"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 10,
+        "fields": {
+            "name_es": "Desarrollo de Videojuegos",
+            "name_en": "Game Development",
+            "slug": "desarrollo-videojuegos"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 11,
+        "fields": {
+            "name_es": "Ingeniería de Software",
+            "name_en": "Software Engineering",
+            "slug": "ingenieria-software"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 12,
+        "fields": {
+            "name_es": "QA y Testing",
+            "name_en": "QA & Testing",
+            "slug": "qa-testing"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 13,
+        "fields": {
+            "name_es": "Diseño UX/UI",
+            "name_en": "UX/UI Design",
+            "slug": "diseno-ux-ui"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 14,
+        "fields": {
+            "name_es": "Fotografía",
+            "name_en": "Photography",
+            "slug": "fotografia"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 15,
+        "fields": {
+            "name_es": "Video y Animación",
+            "name_en": "Video & Animation",
+            "slug": "video-animacion"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 16,
+        "fields": {
+            "name_es": "Ventas",
+            "name_en": "Sales",
+            "slug": "ventas"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 17,
+        "fields": {
+            "name_es": "Recursos Humanos",
+            "name_en": "Human Resources",
+            "slug": "recursos-humanos"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 18,
+        "fields": {
+            "name_es": "Contabilidad",
+            "name_en": "Accounting",
+            "slug": "contabilidad"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 19,
+        "fields": {
+            "name_es": "Gestión de Producto",
+            "name_en": "Product Management",
+            "slug": "gestion-producto"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 20,
+        "fields": {
+            "name_es": "Logística y Cadena de Suministro",
+            "name_en": "Logistics & Supply Chain",
+            "slug": "logistica-cadena-suministro"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 21,
+        "fields": {
+            "name_es": "Derecho",
+            "name_en": "Law",
+            "slug": "derecho"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 22,
+        "fields": {
+            "name_es": "Medicina y Salud",
+            "name_en": "Medicine & Healthcare",
+            "slug": "medicina-salud"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 23,
+        "fields": {
+            "name_es": "Ingeniería",
+            "name_en": "Engineering",
+            "slug": "ingenieria"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 24,
+        "fields": {
+            "name_es": "Arquitectura",
+            "name_en": "Architecture",
+            "slug": "arquitectura"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 25,
+        "fields": {
+            "name_es": "Educación",
+            "name_en": "Education",
+            "slug": "educacion"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 26,
+        "fields": {
+            "name_es": "Periodismo y Comunicación",
+            "name_en": "Journalism & Communication",
+            "slug": "periodismo-comunicacion"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 27,
+        "fields": {
+            "name_es": "Redes Sociales",
+            "name_en": "Social Media",
+            "slug": "redes-sociales"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 28,
+        "fields": {
+            "name_es": "SEO y Marketing Digital",
+            "name_en": "SEO & Digital Marketing",
+            "slug": "seo-marketing-digital"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 29,
+        "fields": {
+            "name_es": "Atención al Cliente",
+            "name_en": "Customer Service",
+            "slug": "atencion-cliente"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 30,
+        "fields": {
+            "name_es": "Consultoría",
+            "name_en": "Consulting",
+            "slug": "consultoria"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 31,
+        "fields": {
+            "name_es": "Datos y Análisis de Negocio",
+            "name_en": "Business Intelligence",
+            "slug": "datos-analisis-negocio"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 32,
+        "fields": {
+            "name_es": "Turismo y Hotelería",
+            "name_en": "Tourism & Hospitality",
+            "slug": "turismo-hoteleria"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 33,
+        "fields": {
+            "name_es": "Gastronomía",
+            "name_en": "Gastronomy",
+            "slug": "gastronomia"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 34,
+        "fields": {
+            "name_es": "Deportes",
+            "name_en": "Sports",
+            "slug": "deportes"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 35,
+        "fields": {
+            "name_es": "Administración",
+            "name_en": "Administration",
+            "slug": "administracion"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 36,
+        "fields": {
+            "name_es": "Atención Médica y Enfermería",
+            "name_en": "Nursing & Care",
+            "slug": "enfermeria-cuidados"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 37,
+        "fields": {
+            "name_es": "Blockchain y Cripto",
+            "name_en": "Blockchain & Crypto",
+            "slug": "blockchain-cripto"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 38,
+        "fields": {
+            "name_es": "Internet de las Cosas",
+            "name_en": "Internet of Things",
+            "slug": "internet-cosas"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 39,
+        "fields": {
+            "name_es": "Traducción e Interpretación",
+            "name_en": "Translation & Interpretation",
+            "slug": "traduccion-interpretacion"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 40,
+        "fields": {
+            "name_es": "Psicología",
+            "name_en": "Psychology",
+            "slug": "psicologia"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 41,
+        "fields": {
+            "name_es": "Diseño Industrial",
+            "name_en": "Industrial Design",
+            "slug": "diseno-industrial"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 42,
+        "fields": {
+            "name_es": "Agronomía y Medio Ambiente",
+            "name_en": "Agriculture & Environment",
+            "slug": "agronomia-medio-ambiente"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 43,
+        "fields": {
+            "name_es": "Música y Entretenimiento",
+            "name_en": "Music & Entertainment",
+            "slug": "musica-entretenimiento"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 44,
+        "fields": {
+            "name_es": "Seguros",
+            "name_en": "Insurance",
+            "slug": "seguros"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 45,
+        "fields": {
+            "name_es": "Energía y Sostenibilidad",
+            "name_en": "Energy & Sustainability",
+            "slug": "energia-sostenibilidad"
+        }
+    },
+    {
+        "model": "resumes.sectortag",
+        "pk": 46,
+        "fields": {
+            "name_es": "Automoción",
+            "name_en": "Automotive",
+            "slug": "automocion"
+        }
+    }
+]

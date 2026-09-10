@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Tablón de Talentos" %} - CV Builder{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <div class="text-center">
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-white">{% trans "Tablón de Talentos" %}</h1>
+        <p class="text-gray-600 dark:text-gray-300 mt-2">{% trans "Descubre profesionales talentosos en diferentes sectores." %}</p>
+    </div>
+
+    <div id="sector-carousel" class="relative flex items-center gap-2 w-fit">
+        <button id="prev-sector" type="button" aria-label="{% trans 'Anterior' %}"
+            class="shrink-0 disabled:cursor-not-allowed disabled:opacity-40 flex items-center justify-center w-9 h-9 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200 shadow-sm">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+        <div id="sector-window" class="relative overflow-hidden py-2">
+            <div id="sector-track" class="flex gap-2 transition-transform duration-300 ease-out">
+                <button class="filter-btn active px-3 py-1.5 rounded-full text-sm font-semibold transition duration-200 bg-indigo-600 text-white whitespace-nowrap"
+                    data-slug="all">
+                    {% trans "Todos" %}
+                </button>
+            </div>
+        </div>
+        <button id="next-sector" type="button" aria-label="{% trans 'Siguiente' %}"
+            class="shrink-0 disabled:cursor-not-allowed disabled:opacity-40 flex items-center justify-center w-9 h-9 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200 shadow-sm">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
+        <button id="all-sectors-btn" type="button" aria-label="{% trans 'Ver todas las secciones' %}"
+            class="shrink-0 flex items-center justify-center w-9 h-9 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200 shadow-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </button>
+        <div id="all-sectors-menu"
+            class="hidden absolute top-full left-0 mt-2 w-64 bg-white dark:bg-gray-800 shadow-lg rounded-lg border border-gray-200 dark:border-gray-600 py-1 z-50">
+            <div class="px-2 pt-1.5 pb-1 border-b border-gray-100 dark:border-gray-700">
+                <div class="relative">
+                    <svg class="w-4 h-4 text-gray-400 absolute left-2.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <input type="text" id="sector-search" autocomplete="off"
+                        placeholder="{% trans 'Buscar sector…' %}"
+                        class="w-full pl-8 pr-7 py-1.5 text-sm bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:text-gray-100">
+                    <button id="sector-search-clear" type="button" aria-label="{% trans 'Limpiar' %}"
+                        class="hidden absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="all-sectors-list" class="flex flex-col gap-0.5 px-1.5 mt-1 max-h-64 overflow-y-auto"></div>
+            <p id="all-sectors-empty" class="hidden text-sm text-gray-500 dark:text-gray-400 px-3 py-2">{% trans "Sin coincidencias" %}</p>
+        </div>
+    </div>
+
+    <div id="loading" class="hidden text-center py-8">
+        <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
+        <p class="mt-2 text-gray-600 dark:text-gray-300">{% trans "Cargando..." %}</p>
+    </div>
+
+    <div id="cv-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    </div>
+
+    <div id="no-results" class="hidden text-center py-12">
+        <svg class="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <p class="text-gray-500 dark:text-gray-400">{% trans "No se encontraron CVs en esta categoría." %}</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/wall.js' %}"></script>
+<script>
+    const wallApiUrl = '{% url "wall_api" %}';
+    const tagsApiUrl = '{% url "get_tags" %}';
+</script>
+{% endblock %}

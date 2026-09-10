@@ -1,0 +1,446 @@
+# German translations for CV Builder
+# Copyright (C) 2026
+# This file is distributed under the same license as the CV Builder project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CV Builder 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-01 00:00+0000\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Salir"
+msgstr "Abmelden"
+
+msgid "Entrar"
+msgstr "Anmelden"
+
+msgid "Registrarse"
+msgstr "Registrieren"
+
+msgid "Todos los derechos reservados."
+msgstr "Alle Rechte vorbehalten."
+
+msgid "Iniciar Sesión"
+msgstr "Anmeldung"
+
+msgid "Email o contraseña incorrectos. Por favor, inténtalo de nuevo."
+msgstr "Email oder Passwort falsch. Bitte versuchen Sie es erneut."
+
+msgid "Contraseña"
+msgstr "Passwort"
+
+msgid "¿No tienes cuenta?"
+msgstr "Noch kein Konto?"
+
+msgid "Regístrate"
+msgstr "Registrieren"
+
+msgid "Crear Cuenta"
+msgstr "Konto erstellen"
+
+msgid "Por favor, corrige los siguientes errores:"
+msgstr "Bitte korrigieren Sie die folgenden Fehler:"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Confirmar contraseña"
+msgstr "Passwort bestätigen"
+
+msgid "Mínimo 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial."
+msgstr "Mindestens 8 Zeichen, 1 Großbuchstabe, 1 Zahl und 1 Sonderzeichen."
+
+msgid "¿Ya tienes cuenta?"
+msgstr "Schon ein Konto?"
+
+msgid "Inicia sesión"
+msgstr "Anmelden"
+
+msgid "Mi Dashboard"
+msgstr "Mein Dashboard"
+
+msgid "Crear nuevo CV"
+msgstr "Neuen CV erstellen"
+
+msgid "Mi Perfil"
+msgstr "Mein Profil"
+
+msgid "Foto de perfil"
+msgstr "Profilbild"
+
+msgid "JPG, PNG o WebP. Máximo 5MB."
+msgstr "JPG, PNG oder WebP. Maximal 5MB."
+
+msgid "Subir foto"
+msgstr "Foto hochladen"
+
+msgid "Necesitas subir una foto para poder publicar tus CVs."
+msgstr "Sie müssen ein Foto hochladen, um Ihre CVs zu veröffentlichen."
+
+msgid "Bio (Quién soy)"
+msgstr "Bio (Wer ich bin)"
+
+msgid "Cuéntanos sobre ti..."
+msgstr "Erzählen Sie uns von sich..."
+
+msgid "Guardar bio"
+msgstr "Bio speichern"
+
+msgid "Mis CVs"
+msgstr "Meine CVs"
+
+msgid "Sin plantilla"
+msgstr "Keine Vorlage"
+
+msgid "Actualizado:"
+msgstr "Aktualisiert:"
+
+msgid "Editar"
+msgstr "Bearbeiten"
+
+msgid "Aún no tienes CVs creados."
+msgstr "Sie haben noch keine CVs erstellt."
+
+msgid "Crear mi primer CV"
+msgstr "Meinen ersten CV erstellen"
+
+msgid "Elige una plantilla"
+msgstr "Wählen Sie eine Vorlage"
+
+msgid "Selecciona el diseño que mejor se adapte a tu estilo profesional."
+msgstr "Wählen Sie das Design, das am besten zu Ihrem beruflichen Stil passt."
+
+msgid "Seleccionar"
+msgstr "Auswählen"
+
+msgid "Volver al dashboard"
+msgstr "Zurück zum Dashboard"
+
+msgid "Editor"
+msgstr "Editor"
+
+msgid "Volver"
+msgstr "Zurück"
+
+msgid "Publicar"
+msgstr "Veröffentlichen"
+
+msgid "Publicado"
+msgstr "Veröffentlicht"
+
+msgid "Publicar CV"
+msgstr "CV veröffentlichen"
+
+msgid "Selecciona los sectores en los que encaja tu CV:"
+msgstr "Wählen Sie die Bereiche, in die Ihr CV passt:"
+
+msgid "Sector principal:"
+msgstr "Hauptbereich:"
+
+msgid "Cancelar"
+msgstr "Abbrechen"
+
+msgid "Confirmar publicación"
+msgstr "Veröffentlichung bestätigen"
+
+msgid "Quién soy"
+msgstr "Wer ich bin"
+
+msgid "Experiencia"
+msgstr "Berufserfahrung"
+
+msgid "Título del puesto"
+msgstr "Position"
+
+msgid "Empresa"
+msgstr "Unternehmen"
+
+msgid "2020 - Presente"
+msgstr "2020 - Heute"
+
+msgid "Descripción de tus responsabilidades..."
+msgstr "Beschreibung Ihrer Aufgaben..."
+
+msgid "Agregar experiencia"
+msgstr "Erfahrung hinzufügen"
+
+msgid "Educación"
+msgstr "Ausbildung"
+
+msgid "Título"
+msgstr "Abschluss"
+
+msgid "Institución"
+msgstr "Institution"
+
+msgid "2018"
+msgstr "2018"
+
+msgid "Agregar educación"
+msgstr "Ausbildung hinzufügen"
+
+msgid "Habilidades"
+msgstr "Fähigkeiten"
+
+msgid "Python"
+msgstr "Python"
+
+msgid "JavaScript"
+msgstr "JavaScript"
+
+msgid "Agregar habilidad"
+msgstr "Fähigkeit hinzufügen"
+
+msgid "Tablón de Talentos"
+msgstr "Talent-Pinnwand"
+
+msgid "Descubre profesionales talentosos en diferentes sectores."
+msgstr "Entdecken Sie talentierte Fachleute in verschiedenen Bereichen."
+
+msgid "Todos"
+msgstr "Alle"
+
+msgid "Cargando..."
+msgstr "Laden..."
+
+msgid "No se encontraron CVs en esta categoría."
+msgstr "Keine CVs in dieser Kategorie gefunden."
+
+msgid "Volver al tablón"
+msgstr "Zurück zur Pinnwand"
+
+msgid "CV Builder"
+msgstr "CV Builder"
+
+msgid "3 Plantillas profesionales"
+msgstr "3 professionelle Vorlagen"
+
+msgid "Agregar"
+msgstr "Hinzufügen"
+
+msgid "Anterior"
+msgstr "Zurück"
+
+msgid "Bio actualizada correctamente."
+msgstr "Bio erfolgreich aktualisiert."
+
+msgid "CV creado exitosamente. ¡Ahora personalízalo!"
+msgstr "CV erfolgreich erstellt. Passen Sie ihn jetzt an!"
+
+msgid "Cambiar tema"
+msgstr "Design ändern"
+
+msgid "Comenzar ahora"
+msgstr "Jetzt starten"
+
+msgid "Contacto"
+msgstr "Kontakt"
+
+msgid "Crea tu CV profesional"
+msgstr "Erstellen Sie Ihren professionellen CV"
+
+msgid "Crear cuenta gratis"
+msgstr "Kostenloses Konto erstellen"
+
+msgid "Diseña CVs impresionantes con plantillas profesionales. Publica en nuestro tablón de talentos y conecta con oportunidades."
+msgstr "Entwerfen Sie beeindruckende CVs mit professionellen Vorlagen. Veröffentlichen Sie auf unserer Talent-Pinnwand und knüpfen Sie Kontakte."
+
+msgid "Edita directamente en la plantilla con autoguardado automático."
+msgstr "Bearbeiten Sie direkt in der Vorlage mit automatischem Speichern."
+
+msgid "Editor visual"
+msgstr "Visueller Editor"
+
+msgid "Elige entre diseños clásico, moderno y creativo para destacar tu perfil."
+msgstr "Wählen Sie zwischen klassischen, modernen und kreativen Designs, um Ihr Profil hervorzuheben."
+
+msgid "Email o contraseña incorrectos."
+msgstr "E-Mail oder Passwort falsch."
+
+msgid "Este email ya está registrado."
+msgstr "Diese E-Mail ist bereits registriert."
+
+msgid "Foto actualizada correctamente."
+msgstr "Foto erfolgreich aktualisiert."
+
+msgid "Has cerrado sesión correctamente."
+msgstr "Sie haben sich erfolgreich abgemeldet."
+
+msgid "La contraseña debe contener al menos un número."
+msgstr "Das Passwort muss mindestens eine Zahl enthalten."
+
+msgid "La contraseña debe contener al menos una letra mayúscula."
+msgstr "Das Passwort muss mindestens einen Großbuchstaben enthalten."
+
+msgid "La contraseña debe tener al menos 8 caracteres."
+msgstr "Das Passwort muss mindestens 8 Zeichen lang sein."
+
+msgid "La foto no puede superar los 5MB."
+msgstr "Das Foto darf 5 MB nicht überschreiten."
+
+msgid "Las contraseñas no coinciden."
+msgstr "Die Passwörter stimmen nicht überein."
+
+msgid "O explora el tablón como invitado"
+msgstr "Oder erkunde die Pinnwand als Gast"
+
+msgid "Por favor, corrige los errores."
+msgstr "Bitte korrigieren Sie die Fehler."
+
+msgid "Publica tu CV y descubre profesionales por sector."
+msgstr "Veröffentlichen Sie Ihren CV und entdecken Sie Fachleute nach Branche."
+
+msgid "Seleccionar Plantilla"
+msgstr "Vorlage auswählen"
+
+msgid "Siguiente"
+msgstr "Weiter"
+
+msgid "Solo se permiten archivos JPG, PNG o WebP."
+msgstr "Nur JPG-, PNG- oder WebP-Dateien sind erlaubt."
+
+msgid "Tablón de talentos"
+msgstr "Talent-Pinnwand"
+
+msgid "Ya tengo cuenta"
+msgstr "Ich habe bereits ein Konto"
+
+msgid "¡Cuenta creada exitosamente!"
+msgstr "Konto erfolgreich erstellt!"
+
+msgid "¿Listo para crear tu CV?"
+msgstr "Bereit, Ihren CV zu erstellen?"
+
+msgid "¿Por qué CV Builder?"
+msgstr "Warum CV Builder?"
+
+msgid "Únete a nuestra comunidad de profesionales."
+msgstr "Werden Sie Teil unserer Community von Fachleuten."
+
+msgid "Ver todas las secciones"
+msgstr "Alle Sektionen anzeigen"
+
+msgid "Al menos un carácter especial (!@#$%^&*())"
+msgstr "Mindestens ein Sonderzeichen (!@#$%^&*())"
+
+msgid "Al menos un número"
+msgstr "Mindestens eine Zahl"
+
+msgid "Al menos una letra mayúscula"
+msgstr "Mindestens ein Großbuchstabe"
+
+msgid "Apellido"
+msgstr "Nachname"
+
+msgid "Continuar"
+msgstr "Weiter"
+
+msgid "Crea tu cuenta"
+msgstr "Erstellen Sie Ihr Konto"
+
+msgid "Cuenta"
+msgstr "Konto"
+
+msgid "Datos personales"
+msgstr "Persönliche Daten"
+
+msgid "Ej: Desarrollador Web"
+msgstr "z. B. Webentwickler"
+
+msgid "Elige tu rol"
+msgstr "Wählen Sie Ihre Rolle"
+
+msgid "Encuentra talento para tu negocio."
+msgstr "Finden Sie Talente für Ihr Unternehmen."
+
+msgid "Esta funcionalidad estará disponible próximamente."
+msgstr "Diese Funktion wird in Kürze verfügbar sein."
+
+msgid "Introduce un email válido."
+msgstr "Geben Sie eine gültige E-Mail-Adresse ein."
+
+msgid "La contraseña debe contener al menos un carácter especial (!@#$%^&*(),.?\":{}|<>)."
+msgstr "Das Passwort muss mindestens ein Sonderzeichen enthalten (!@#$%^&*(),.?\":{}|<>)."
+
+msgid "La contraseña debe tener al menos 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial."
+msgstr "Das Passwort muss mindestens 8 Zeichen, 1 Großbuchstaben, 1 Zahl und 1 Sonderzeichen enthalten."
+
+msgid "Mínimo 8 caracteres"
+msgstr "Mindestens 8 Zeichen"
+
+msgid "Nombre"
+msgstr "Vorname"
+
+msgid "Opcional"
+msgstr "Optional"
+
+msgid "Perfil profesional"
+msgstr "Berufliches Profil"
+
+msgid "Por favor, completa este campo."
+msgstr "Bitte füllen Sie dieses Feld aus."
+
+msgid "Próximamente"
+msgstr "Demnächst"
+
+msgid "Publica tu CV y encuentra oportunidades."
+msgstr "Veröffentlichen Sie Ihren Lebenslauf und finden Sie Möglichkeiten."
+
+msgid "Registro de Trabajador"
+msgstr "Arbeiter-Registrierung"
+
+msgid "Sector"
+msgstr "Branche"
+
+msgid "Soy Empresa"
+msgstr "Ich bin ein Unternehmen"
+
+msgid "Soy Trabajador"
+msgstr "Ich bin ein Arbeiter"
+
+msgid "Tu nombre"
+msgstr "Ihr Vorname"
+
+msgid "Tus apellidos"
+msgstr "Ihr Nachname"
+
+msgid "Título profesional"
+msgstr "Beruflicher Titel"
+
+msgid "Continúa con"
+msgstr "Weiter mit"
+
+msgid "o con tu correo electrónico"
+msgstr "oder mit Ihrer E-Mail-Adresse"
+
+msgid "Regístrate con"
+msgstr "Registrieren mit"
+
+msgid "o crea tu cuenta con correo electrónico"
+msgstr "oder erstellen Sie Ihr Konto mit der E-Mail-Adresse"
+
+msgid "Completa tu perfil profesional"
+msgstr "Vervollständigen Sie Ihr berufliches Profil"
+
+msgid "Para terminar tu registro, completa tu perfil profesional."
+msgstr "Um Ihre Registrierung abzuschließen, vervollständigen Sie Ihr berufliches Profil."
+
+msgid "Selecciona al menos un campo (título o sector) para continuar."
+msgstr "Wählen Sie mindestens ein Feld (Titel oder Branche) aus, um fortzufahren."
+
+msgid "Debes seleccionar al menos un campo (título o sector)."
+msgstr "Sie müssen mindestens ein Feld (Titel oder Branche) auswählen."
+
+msgid "Guardar y continuar"
+msgstr "Speichern und weiter"
