@@ -9,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 from django.core.mail import send_mail
 from django.conf import settings
 import json
-from .forms import RegistrationForm, CustomAuthenticationForm
+from .forms import RegistrationForm, CustomAuthenticationForm, WizardRegistrationForm, ProfileOnboardingForm
 from .models import UserProfile, Skill, UserSkill
 from apps.resumes.models import Resume
 
@@ -48,18 +48,16 @@ def register_view(request):
         return redirect('dashboard')
 
     if request.method == 'POST':
-        form = RegistrationForm(request.POST)
+        form = WizardRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            from .models import UserProfile
-            UserProfile.objects.create(user=user)
             login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             messages.success(request, _('¡Cuenta creada exitosamente!'))
             return redirect('dashboard')
         else:
             messages.error(request, _('Por favor, corrige los errores.'))
     else:
-        form = RegistrationForm()
+        form = WizardRegistrationForm()
 
     return render(request, 'accounts/register.html', {'form': form})
 
@@ -324,5 +322,25 @@ def oauth_complete(request, backend, *args, **kwargs):
     except AuthException:
         messages.error(request, 'Este usuario no esta registrado. Por favor, crea una cuenta primero.')
         return redirect('login')
+
+
+@login_required
+def complete_profile_view(request):
+    profile = request.user.profile
+    if request.method == 'POST':
+        form = ProfileOnboardingForm(request.POST)
+        if form.is_valid():
+            request.user.first_name = form.cleaned_data['first_name']
+            request.user.last_name = form.cleaned_data['last_name']
+            request.user.save()
+            messages.success(request, _('Perfil completado correctamente.'))
+            return redirect('dashboard')
+    else:
+        form = ProfileOnboardingForm(initial={
+            'first_name': request.user.first_name,
+            'last_name': request.user.last_name,
+        })
+
+    return render(request, 'accounts/complete_profile.html', {'form': form})
 
 

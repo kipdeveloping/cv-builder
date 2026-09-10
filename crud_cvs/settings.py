@@ -47,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'apps.accounts.middleware.EnsureProfileMiddleware',
 ]
 
 ROOT_URLCONF = 'crud_cvs.urls'
@@ -88,8 +89,18 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'es'
 
 LANGUAGES = [
-    ('es', 'Espanol'),
+    ('es', 'Español'),
     ('en', 'English'),
+    ('pt', 'Português'),
+    ('fr', 'Français'),
+    ('de', 'Deutsch'),
+    ('it', 'Italiano'),
+    ('ja', '日本語'),
+    ('ko', '한국어'),
+    ('zh-hans', '中文'),
+    ('ar', 'العربية'),
+    ('ru', 'Русский'),
+    ('hi', 'हिन्दी'),
 ]
 
 LOCALE_PATHS = [

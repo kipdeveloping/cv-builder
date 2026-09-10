@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load static %}
 
 {% block title %}{% trans "Registrarse" %} - CV Builder{% endblock %}
 
 {% block content %}
-<div class="max-w-md mx-auto">
-    <div class="bg-white rounded-xl shadow-lg p-8">
-        <h1 class="text-2xl font-bold text-gray-900 mb-6 text-center">{% trans "Crear Cuenta" %}</h1>
+<div class="max-w-lg mx-auto">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+        <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-2 text-center">{% trans "Crear Cuenta" %}</h1>
+        <p class="text-gray-500 dark:text-gray-400 text-center mb-6" id="step-subtitle">{% trans "Paso 1 de 3 — Datos de acceso" %}</p>
 
         {% if form.errors %}
-        <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">
+        <div class="bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-700 text-red-700 dark:text-red-200 px-4 py-3 rounded-lg mb-6">
             <p class="font-semibold mb-2">{% trans "Por favor, corrige los siguientes errores:" %}</p>
             <ul class="list-disc list-inside text-sm">
                 {% for field in form %}
@@ -24,44 +26,97 @@
         </div>
         {% endif %}
 
-        <form method="post" class="space-y-4">
+        <form method="post" id="wizard-form" class="space-y-4">
             {% csrf_token %}
 
-            <div>
-                <label for="id_email" class="block text-sm font-medium text-gray-700 mb-1">{% trans "Email" %}</label>
-                <input type="email" name="email" id="id_email" required
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                    placeholder="tu@email.com"
-                    value="{{ form.email.value|default:'' }}">
+            <div class="step step-1">
+                <div>
+                    <label for="id_email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Email" %}</label>
+                    <input type="email" name="email" id="id_email" required
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                        placeholder="tu@email.com"
+                        value="{{ form.email.value|default:'' }}">
+                </div>
+
+                <div>
+                    <label for="id_password1" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Contraseña" %}</label>
+                    <input type="password" name="password1" id="id_password1" required
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                        placeholder="••••••••">
+                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                        {% trans "Mínimo 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial." %}
+                    </p>
+                </div>
+
+                <div>
+                    <label for="id_password2" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Confirmar contraseña" %}</label>
+                    <input type="password" name="password2" id="id_password2" required
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                        placeholder="••••••••">
+                </div>
             </div>
 
-            <div>
-                <label for="id_password1" class="block text-sm font-medium text-gray-700 mb-1">{% trans "Contraseña" %}</label>
-                <input type="password" name="password1" id="id_password1" required
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                    placeholder="••••••••">
-                <p class="mt-1 text-xs text-gray-500">
-                    {% trans "Mínimo 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial." %}
-                </p>
+            <div class="step step-2 hidden">
+                <div>
+                    <label for="id_first_name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Nombre" %}</label>
+                    <input type="text" name="first_name" id="id_first_name"
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                        placeholder="{% trans 'Tu nombre' %}">
+                </div>
+
+                <div>
+                    <label for="id_last_name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Apellido" %}</label>
+                    <input type="text" name="last_name" id="id_last_name"
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                        placeholder="{% trans 'Tu apellido' %}">
+                </div>
             </div>
 
-            <div>
-                <label for="id_password2" class="block text-sm font-medium text-gray-700 mb-1">{% trans "Confirmar contraseña" %}</label>
-                <input type="password" name="password2" id="id_password2" required
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                    placeholder="••••••••">
+            <div class="step step-3 hidden">
+                <div>
+                    <label for="id_title" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Cargo / Título profesional" %}</label>
+                    <input type="text" name="title" id="id_title"
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                        placeholder="{% trans 'Ej: Ingeniero de Software' %}">
+                </div>
+
+                <div>
+                    <label for="id_sector" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Sector" %}</label>
+                    <input type="text" name="sector" id="id_sector"
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                        placeholder="{% trans 'Ej: Tecnología' %}">
+                </div>
             </div>
 
-            <button type="submit"
-                class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition duration-200">
-                {% trans "Crear Cuenta" %}
-            </button>
+            <div class="flex justify-between items-center pt-2">
+                <button type="button" id="btn-prev"
+                    class="hidden px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                    {% trans "Atrás" %}
+                </button>
+                <div class="flex-1"></div>
+                <button type="button" id="btn-next"
+                    class="px-6 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition">
+                    {% trans "Siguiente" %}
+                </button>
+                <button type="submit" id="btn-submit"
+                    class="hidden px-6 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition">
+                    {% trans "Crear Cuenta" %}
+                </button>
+            </div>
         </form>
 
-        <p class="mt-6 text-center text-gray-600">
+        <div class="flex justify-center gap-2 mt-6">
+            <span class="w-2 h-2 rounded-full bg-indigo-600" id="dot-1"></span>
+            <span class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600" id="dot-2"></span>
+            <span class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600" id="dot-3"></span>
+        </div>
+
+        <p class="mt-6 text-center text-gray-600 dark:text-gray-400">
             {% trans "¿Ya tienes cuenta?" %}
-            <a href="{% url 'login' %}" class="text-indigo-600 hover:text-indigo-700 font-semibold">{% trans "Inicia sesión" %}</a>
+            <a href="{% url 'login' %}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-semibold">{% trans "Inicia sesión" %}</a>
         </p>
     </div>
 </div>
+
+<script src="{% static 'js/register.js' %}"></script>
 {% endblock %}

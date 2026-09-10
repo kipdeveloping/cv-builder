@@ -28,6 +28,8 @@ class UserProfile(models.Model):
     photo = models.ImageField(upload_to='photos/', blank=True, null=True)
     bio = models.TextField(blank=True, default='')
     headline = models.CharField(max_length=200, blank=True, default='')
+    title = models.CharField(max_length=120, blank=True, default='')
+    sector = models.ForeignKey('resumes.SectorTag', on_delete=models.SET_NULL, null=True, blank=True, related_name='profiles')
     location_flex = models.CharField(max_length=20, choices=LOCATION_FLEX_CHOICES, blank=True, default='')
     search_status = models.CharField(max_length=20, choices=SEARCH_STATUS_CHOICES, blank=True, default='')
     availability = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, blank=True, default='')

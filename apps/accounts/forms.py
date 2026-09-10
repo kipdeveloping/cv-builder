@@ -109,3 +109,58 @@ class ProfileOnboardingForm(forms.Form):
             'placeholder': 'Tu apellido'
         })
     )
+
+
+class WizardRegistrationForm(RegistrationForm):
+    first_name = forms.CharField(
+        label=_('Nombre'),
+        max_length=30,
+        required=False,
+        widget=forms.TextInput(attrs={
+            'class': 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500',
+            'placeholder': 'Tu nombre'
+        })
+    )
+    last_name = forms.CharField(
+        label=_('Apellido'),
+        max_length=30,
+        required=False,
+        widget=forms.TextInput(attrs={
+            'class': 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500',
+            'placeholder': 'Tu apellido'
+        })
+    )
+    title = forms.CharField(
+        label=_('Cargo / Título profesional'),
+        max_length=100,
+        required=False,
+        widget=forms.TextInput(attrs={
+            'class': 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500',
+            'placeholder': 'Ej: Ingeniero de Software'
+        })
+    )
+    sector = forms.CharField(
+        label=_('Sector'),
+        max_length=100,
+        required=False,
+        widget=forms.TextInput(attrs={
+            'class': 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500',
+            'placeholder': 'Ej: Tecnología'
+        })
+    )
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.first_name = self.cleaned_data.get('first_name', '')
+        user.last_name = self.cleaned_data.get('last_name', '')
+        if commit:
+            user.save()
+            from .models import UserProfile, SectorTag
+            profile = user.profile
+            profile.title = self.cleaned_data.get('title', '')
+            sector_name = self.cleaned_data.get('sector', '').strip()
+            if sector_name:
+                sector_obj, _ = SectorTag.objects.get_or_create(name=sector_name)
+                profile.sector = sector_obj
+            profile.save()
+        return user
