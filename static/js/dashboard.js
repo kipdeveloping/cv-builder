@@ -75,33 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
         selectedPrimary = skillId;
     };
 
-    // Onboarding form
-    const onboardingForm = document.getElementById('onboarding-form');
-    if (onboardingForm) {
-        onboardingForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const firstName = document.getElementById('onboarding-first-name').value;
-            const lastName = document.getElementById('onboarding-last-name').value;
-            
-            try {
-                const response = await fetch(urls.updateName, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': getCSRFToken()
-                    },
-                    body: JSON.stringify({ first_name: firstName, last_name: lastName })
-                });
-                
-                if (response.ok) {
-                    location.reload();
-                }
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        });
-    }
-
     // Save headline
     window.saveHeadline = async function() {
         const headline = document.getElementById('headline-input').value;

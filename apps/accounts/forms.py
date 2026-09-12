@@ -82,30 +82,10 @@ class RegistrationForm(UserCreationForm):
         return user
 
 
-class ProfileOnboardingForm(forms.Form):
-    first_name = forms.CharField(
-        label=_('Nombre'),
-        max_length=30,
-        widget=forms.TextInput(attrs={
-            'class': 'w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
-            'placeholder': 'Tu nombre'
-        })
-    )
-    last_name = forms.CharField(
-        label=_('Apellido'),
-        max_length=30,
-        widget=forms.TextInput(attrs={
-            'class': 'w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
-            'placeholder': 'Tu apellido'
-        })
-    )
-
-
 class WizardRegistrationForm(RegistrationForm):
     first_name = forms.CharField(
         label=_('Nombre'),
         max_length=30,
-        required=False,
         widget=forms.TextInput(attrs={
             'class': 'w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
             'placeholder': 'Tu nombre'
@@ -114,7 +94,6 @@ class WizardRegistrationForm(RegistrationForm):
     last_name = forms.CharField(
         label=_('Apellido'),
         max_length=30,
-        required=False,
         widget=forms.TextInput(attrs={
             'class': 'w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
             'placeholder': 'Tu apellido'

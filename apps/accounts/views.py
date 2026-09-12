@@ -10,7 +10,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.utils.http import url_has_allowed_host_and_scheme
 import json
-from .forms import RegistrationForm, CustomAuthenticationForm, WizardRegistrationForm, ProfileOnboardingForm
+from .forms import RegistrationForm, CustomAuthenticationForm, WizardRegistrationForm
 from .models import UserProfile, Skill, UserSkill
 from apps.resumes.models import Resume
 
@@ -201,25 +201,6 @@ def update_profile_fields_view(request):
 
 @login_required
 @require_POST
-def update_name_view(request):
-    try:
-        data = json.loads(request.body)
-        user = request.user
-        
-        if 'first_name' in data:
-            user.first_name = data['first_name']
-        if 'last_name' in data:
-            user.last_name = data['last_name']
-        
-        user.save()
-        
-        return JsonResponse({'status': 'ok'})
-    except Exception as e:
-        return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
-
-
-@login_required
-@require_POST
 def set_featured_resume_view(request):
     try:
         data = json.loads(request.body)
@@ -325,25 +306,4 @@ def oauth_complete(request, backend, *args, **kwargs):
     except AuthException:
         messages.error(request, _('Este usuario no esta registrado. Por favor, crea una cuenta primero.'))
         return redirect('login')
-
-
-@login_required
-def complete_profile_view(request):
-    profile = request.user.profile
-    if request.method == 'POST':
-        form = ProfileOnboardingForm(request.POST)
-        if form.is_valid():
-            request.user.first_name = form.cleaned_data['first_name']
-            request.user.last_name = form.cleaned_data['last_name']
-            request.user.save()
-            messages.success(request, _('Perfil completado correctamente.'))
-            return redirect('dashboard')
-    else:
-        form = ProfileOnboardingForm(initial={
-            'first_name': request.user.first_name,
-            'last_name': request.user.last_name,
-        })
-
-    return render(request, 'accounts/complete_profile.html', {'form': form})
-
 

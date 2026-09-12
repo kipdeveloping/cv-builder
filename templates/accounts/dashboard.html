@@ -5,22 +5,7 @@
 {% block title %}{% trans "Dashboard" %} - CV Builder{% endblock %}
 
 {% block content %}
-{% if not user.first_name or not user.last_name %}
-<div class="bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-700 rounded-xl p-6 mb-6">
-    <h3 class="text-lg font-semibold text-yellow-800 dark:text-yellow-200 mb-2">{% trans "Bienvenido a CV Builder" %}</h3>
-    <p class="text-yellow-700 dark:text-yellow-300 mb-4">{% trans "Para completar tu perfil, necesitamos tu nombre y apellido." %}</p>
-    <form id="onboarding-form" class="flex gap-4">
-        <input type="text" id="onboarding-first-name" placeholder="{% trans 'Nombre' %}"
-            class="flex-1 px-4 py-2 border border-yellow-300 dark:border-yellow-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
-        <input type="text" id="onboarding-last-name" placeholder="{% trans 'Apellido' %}"
-            class="flex-1 px-4 py-2 border border-yellow-300 dark:border-yellow-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
-        <button type="submit"
-            class="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400">
-            {% trans "Guardar" %}
-        </button>
-    </form>
-</div>
-{% endif %}
+
 
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
     <!-- SIDEBAR -->
@@ -571,7 +556,6 @@
 <script src="{% static 'js/dashboard.js' %}?v=2"></script>
 <script>
     var urls = {
-        updateName: "{% url 'update_name' %}",
         updateProfile: "{% url 'update_profile_fields' %}",
         setFeatured: "{% url 'set_featured_resume' %}",
         contactEmail: "{% url 'contact_email' user_id=user.id %}",
