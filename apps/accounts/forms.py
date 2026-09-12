@@ -124,12 +124,24 @@ class WizardRegistrationForm(RegistrationForm):
         user.last_name = self.cleaned_data.get('last_name', '')
         if commit:
             user.save()
-            from .models import UserProfile, SectorTag
             profile = user.profile
             profile.title = self.cleaned_data.get('title', '')
-            sector_name = self.cleaned_data.get('sector', '').strip()
+            sector_name = self.cleaned_data.get('sector', '').strip()[:100]
             if sector_name:
-                sector_obj, _ = SectorTag.objects.get_or_create(name=sector_name)
-                profile.sector = sector_obj
+                profile.sector = self._get_or_create_sector(sector_name)
             profile.save()
         return user
+
+    @staticmethod
+    def _get_or_create_sector(name):
+        from django.utils.text import slugify
+        from apps.resumes.models import SectorTag
+
+        slug = slugify(name)[:50] or 'sector'
+        tag = SectorTag.objects.filter(slug=slug).first()
+        if tag:
+            return tag
+        return SectorTag.objects.get_or_create(
+            name_es=name,
+            defaults={'name_en': name, 'slug': slug},
+        )[0]

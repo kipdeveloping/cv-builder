@@ -81,7 +81,8 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/editor.js' %}?v=2"></script>
+{{ resume.content|json_script:"resume-content" }}
+<script src="{% static 'js/editor.js' %}?v=3"></script>
 <script src="{% static 'js/publish.js' %}?v=2"></script>
 <script>
     const resumeId = {{ resume.id }};

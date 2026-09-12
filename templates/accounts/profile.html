@@ -82,6 +82,39 @@
             <p class="text-gray-700 text-sm">{{ profile.bio|default:"Sin biografia" }}</p>
         </div>
 
+        <!-- Work preferences -->
+        {% if profile.employment_type or profile.expected_salary or profile.willing_to_relocate or profile.travel_availability %}
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <h3 class="font-semibold text-gray-900 mb-4">{% trans "Preferencias de trabajo" %}</h3>
+            <div class="space-y-2 text-sm text-gray-700">
+                {% if profile.employment_type %}
+                <p>
+                    <span class="font-medium text-gray-500">{% trans "Tipo de empleo:" %}</span>
+                    {{ profile.get_employment_types_display }}
+                </p>
+                {% endif %}
+                {% if profile.expected_salary %}
+                <p>
+                    <span class="font-medium text-gray-500">{% trans "Salario esperado:" %}</span>
+                    {{ profile.expected_salary }}
+                </p>
+                {% endif %}
+                {% if profile.willing_to_relocate %}
+                <p>
+                    <span class="font-medium text-gray-500">{% trans "Disponible para mudarse:" %}</span>
+                    {{ profile.get_willing_to_relocate_display }}
+                </p>
+                {% endif %}
+                {% if profile.travel_availability %}
+                <p>
+                    <span class="font-medium text-gray-500">{% trans "Disponible para viajar:" %}</span>
+                    {{ profile.get_travel_availability_display }}
+                </p>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
         {% if not is_owner %}
         <!-- Contact Button -->
         <button onclick="openModal('contact-modal')"
@@ -93,7 +126,14 @@
 
     <!-- MAIN AREA -->
     <div class="lg:col-span-8 space-y-6">
+        {% if not featured_resume %}
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <p class="text-gray-600">{% trans "Este candidato no tiene CVs publicados." %}</p>
+        </div>
+        {% endif %}
+
         <!-- Experience/Projects Carousel -->
+        {% if featured_resume %}
         <div class="bg-white rounded-xl shadow-lg p-6">
             <h3 class="font-semibold text-gray-900 mb-4">{% trans "Experiencia y Proyectos" %}</h3>
             
@@ -168,6 +208,125 @@
                 {% endif %}
             </div>
         </div>
+
+        <!-- Education -->
+        {% if featured_resume.content.education %}
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <h3 class="font-semibold text-gray-900 mb-4">{% trans "Educación" %}</h3>
+            <div class="space-y-4">
+                {% for edu in featured_resume.content.education %}
+                <div>
+                    <h4 class="font-semibold text-gray-900">{{ edu.degree }}</h4>
+                    <p class="text-sm text-gray-600">{{ edu.school }}</p>
+                    <p class="text-xs text-gray-500">{{ edu.year }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Languages -->
+        {% if featured_resume.content.languages %}
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <h3 class="font-semibold text-gray-900 mb-4">{% trans "Idiomas" %}</h3>
+            <div class="flex flex-wrap gap-2">
+                {% for lang in featured_resume.content.languages %}
+                <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">{{ lang.language }}{% if lang.level %} · {{ lang.level }}{% endif %}</span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Certifications -->
+        {% if featured_resume.content.certifications %}
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <h3 class="font-semibold text-gray-900 mb-4">{% trans "Certificaciones y Cursos" %}</h3>
+            <div class="space-y-4">
+                {% for cert in featured_resume.content.certifications %}
+                <div>
+                    <h4 class="font-semibold text-gray-900">{{ cert.name }}</h4>
+                    <p class="text-sm text-gray-600">{{ cert.institution }}{% if cert.year %} · {{ cert.year }}{% endif %}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Volunteering -->
+        {% if featured_resume.content.volunteering %}
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <h3 class="font-semibold text-gray-900 mb-4">{% trans "Voluntariado" %}</h3>
+            <div class="space-y-4">
+                {% for vol in featured_resume.content.volunteering %}
+                <div>
+                    <h4 class="font-semibold text-gray-900">{{ vol.role }}</h4>
+                    <p class="text-sm text-gray-600">{{ vol.organization }}{% if vol.period %} · {{ vol.period }}{% endif %}</p>
+                    <p class="text-sm text-gray-700">{{ vol.description|truncatewords:30 }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Awards -->
+        {% if featured_resume.content.awards %}
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <h3 class="font-semibold text-gray-900 mb-4">{% trans "Premios y Reconocimientos" %}</h3>
+            <div class="space-y-4">
+                {% for award in featured_resume.content.awards %}
+                <div>
+                    <h4 class="font-semibold text-gray-900">{{ award.name }}</h4>
+                    <p class="text-sm text-gray-600">{{ award.issuer }}{% if award.year %} · {{ award.year }}{% endif %}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Publications -->
+        {% if featured_resume.content.publications %}
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <h3 class="font-semibold text-gray-900 mb-4">{% trans "Publicaciones" %}</h3>
+            <div class="space-y-4">
+                {% for pub in featured_resume.content.publications %}
+                <div>
+                    <h4 class="font-semibold text-gray-900">{{ pub.title }}</h4>
+                    <p class="text-sm text-gray-600">{{ pub.venue }}{% if pub.year %} · {{ pub.year }}{% endif %}</p>
+                    {% if pub.url %}<a href="{{ pub.url }}" target="_blank" class="text-xs text-indigo-600 hover:text-indigo-700">{{ pub.url }}</a>{% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Interests -->
+        {% if featured_resume.content.interests %}
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <h3 class="font-semibold text-gray-900 mb-4">{% trans "Intereses" %}</h3>
+            <div class="flex flex-wrap gap-2">
+                {% for interest in featured_resume.content.interests %}
+                <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">{{ interest }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- References -->
+        {% if featured_resume.content.references %}
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <h3 class="font-semibold text-gray-900 mb-4">{% trans "Referencias" %}</h3>
+            <div class="space-y-4">
+                {% for ref in featured_resume.content.references %}
+                <div>
+                    <h4 class="font-semibold text-gray-900">{{ ref.name }}</h4>
+                    <p class="text-sm text-gray-600">{{ ref.position }}{% if ref.company %} · {{ ref.company }}{% endif %}</p>
+                    {% if ref.contact %}<p class="text-xs text-gray-500">{{ ref.contact }}</p>{% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% endif %}
     </div>
 </div>
 

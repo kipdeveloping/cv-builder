@@ -1,5 +1,3 @@
-from django.utils.translation import gettext_lazy as _
-from django.shortcuts import redirect
 from apps.accounts.models import UserProfile
 import requests
 from django.core.files.base import ContentFile
@@ -7,7 +5,6 @@ from django.core.files.base import ContentFile
 
 def check_existing_user(backend, user, response, *args, **kwargs):
     if user is None:
-        from django.contrib import messages
         from django.http import HttpResponseRedirect
         from django.urls import reverse
 
@@ -50,7 +47,7 @@ def save_user_profile(backend, user, response, *args, **kwargs):
         try:
             resp = requests.get(photo_url)
             if resp.status_code == 200:
-                photo_name = f'photos/{user.username}_oauth.jpg'
+                photo_name = f'{user.username}_oauth.jpg'
                 profile.photo.save(photo_name, ContentFile(resp.content), save=True)
         except Exception:
             pass

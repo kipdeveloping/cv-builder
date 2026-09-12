@@ -10,7 +10,7 @@
     <script>
         (function() {
             var theme = localStorage.getItem('cvbuilder_theme');
-            if (theme === 'dark') {
+            if (theme === 'dark' || (!theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
             }
         })();
@@ -58,7 +58,7 @@
                             {% for code, name in LANGUAGES %}
                             <form action="{% url 'set_language' %}" method="post">
                                 {% csrf_token %}
-                                <input type="hidden" name="next" value="{{ request.path }}">
+                                <input type="hidden" name="next" value="{{ request.get_full_path }}">
                                 <button type="submit" name="language" value="{{ code }}"
                                     class="w-full text-left px-4 py-2 text-sm {% if code == LANGUAGE_CODE %}text-indigo-600 dark:text-indigo-400 font-semibold{% else %}text-gray-700 dark:text-gray-200{% endif %} hover:bg-gray-100 dark:hover:bg-gray-600 transition duration-200">
                                     {{ name }}
@@ -92,6 +92,7 @@
 
     <script src="{% static 'js/i18n.js' %}"></script>
     <script src="{% static 'js/darkmode.js' %}"></script>
+    <script src="{% static 'js/language.js' %}"></script>
     {% block extra_js %}{% endblock %}
 </body>
 </html>

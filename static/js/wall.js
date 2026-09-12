@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const sectorCarousel = document.getElementById('sector-carousel');
 
     let currentFilter = 'all';
-    let tags = [];
     let sectors = [];
 
     function escapeHtml(text) {
@@ -34,12 +33,43 @@ document.addEventListener('DOMContentLoaded', function() {
         return sectorIcons['default'];
     }
 
+    const INACTIVE_FILTER = ['bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300'];
+    const ACTIVE_FILTER = ['bg-indigo-600', 'dark:bg-indigo-500', 'text-white'];
+    const INACTIVE_CHIP = ['bg-gray-100', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300'];
+
+    function setActiveFilter(slug) {
+        currentFilter = slug;
+
+        sectorCarousel.querySelectorAll('.sector-chip').forEach(c => {
+            c.classList.remove('active', 'bg-indigo-600', 'text-white');
+            c.classList.add(...INACTIVE_CHIP);
+        });
+        const activeChip = sectorCarousel.querySelector(`.sector-chip[data-slug="${slug}"]`);
+        if (activeChip) {
+            activeChip.classList.remove(...INACTIVE_CHIP);
+            activeChip.classList.add('active', 'bg-indigo-600', 'text-white');
+        }
+
+        filtersContainer.querySelectorAll('.filter-btn').forEach(b => {
+            b.classList.remove('active', ...ACTIVE_FILTER);
+            b.classList.add(...INACTIVE_FILTER);
+        });
+        const activeBtn = filtersContainer.querySelector(`.filter-btn[data-slug="${slug}"]`);
+        if (activeBtn) {
+            activeBtn.classList.remove(...INACTIVE_FILTER);
+            activeBtn.classList.add('active', ...ACTIVE_FILTER);
+        }
+
+        loadCVs();
+    }
+
     async function loadSectors() {
         try {
             const response = await fetch(tagsApiUrl);
             const data = await response.json();
             sectors = data.tags || [];
             renderSectorCarousel();
+            renderFilters();
         } catch (error) {
             console.error('Error loading sectors:', error);
         }
@@ -52,6 +82,9 @@ document.addEventListener('DOMContentLoaded', function() {
         allChip.className = 'sector-chip active flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-indigo-600 text-white transition';
         allChip.dataset.slug = 'all';
         allChip.innerHTML = `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg> ${typeof t === 'function' ? t('Todos') : 'Todos'}`;
+        allChip.addEventListener('click', function() {
+            setActiveFilter('all');
+        });
         sectorCarousel.appendChild(allChip);
 
         sectors.forEach(sector => {
@@ -60,61 +93,26 @@ document.addEventListener('DOMContentLoaded', function() {
             chip.dataset.slug = sector.slug;
             chip.dataset.id = sector.id;
             chip.innerHTML = `${getSectorIcon(sector.name)} ${escapeHtml(sector.name)}`;
+            chip.addEventListener('click', function() {
+                setActiveFilter(this.dataset.slug);
+            });
             sectorCarousel.appendChild(chip);
         });
-
-        sectorCarousel.querySelectorAll('.sector-chip').forEach(chip => {
-            chip.addEventListener('click', function() {
-                sectorCarousel.querySelectorAll('.sector-chip').forEach(c => {
-                    c.classList.remove('active', 'bg-indigo-600', 'text-white');
-                    c.classList.add('bg-gray-100', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
-                });
-                this.classList.remove('bg-gray-100', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
-                this.classList.add('active', 'bg-indigo-600', 'text-white');
-
-                currentFilter = this.dataset.slug;
-                updateFilterButtons();
-                loadCVs();
-            });
-        });
-    }
-
-    function updateFilterButtons() {
-        filtersContainer.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.classList.remove('bg-indigo-600', 'text-white', 'active');
-            btn.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
-        });
-        const activeBtn = filtersContainer.querySelector(`[data-slug="${currentFilter}"]`);
-        if (activeBtn) {
-            activeBtn.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
-            activeBtn.classList.add('bg-indigo-600', 'text-white', 'active');
-        }
     }
 
     function renderFilters() {
-        const allBtn = filtersContainer.querySelector('[data-slug="all"]');
+        filtersContainer.querySelectorAll('.filter-btn[data-slug!="all"]').forEach(btn => btn.remove());
 
-        tags.forEach(tag => {
+        sectors.forEach(sector => {
             const btn = document.createElement('button');
             btn.className = 'filter-btn px-4 py-2 rounded-full text-sm font-semibold transition duration-200 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600';
-            btn.dataset.slug = tag.slug;
-            btn.dataset.id = tag.id;
-            btn.textContent = tag.name;
-            filtersContainer.appendChild(btn);
-        });
-
-        filtersContainer.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.dataset.slug = sector.slug;
+            btn.dataset.id = sector.id;
+            btn.textContent = sector.name;
             btn.addEventListener('click', function() {
-                filtersContainer.querySelectorAll('.filter-btn').forEach(b => {
-                    b.classList.remove('bg-indigo-600', 'text-white');
-                    b.classList.add('bg-gray-200', 'text-gray-700');
-                });
-                this.classList.remove('bg-gray-200', 'text-gray-700');
-                this.classList.add('bg-indigo-600', 'text-white');
-
-                currentFilter = this.dataset.slug;
-                loadCVs();
+                setActiveFilter(this.dataset.slug);
             });
+            filtersContainer.appendChild(btn);
         });
     }
 
@@ -159,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const card = document.createElement('div');
         card.className = 'bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300';
 
-        const photoUrl = cv.photo || '/static/img/default-avatar.png';
+        const photoUrl = cv.photo || '/static/img/default-avatar.svg';
         const safeName = escapeHtml(cv.name);
         const truncatedBio = cv.bio && cv.bio.length > 80
             ? escapeHtml(cv.bio.substring(0, 80)) + '...'

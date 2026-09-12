@@ -1,0 +1,22 @@
+{% load i18n %}
+<div class="section">
+    <h2 class="section-title">{% trans "Premios y Reconocimientos" %}</h2>
+    <div id="awards-list">
+        {% for award in resume.content.awards %}
+        <div class="entry" data-section="awards" data-index="{{ forloop.counter0 }}">
+            <div class="entry-title" contenteditable="true" data-field="name">{{ award.name }}</div>
+            <div class="entry-subtitle" contenteditable="true" data-field="issuer">{{ award.issuer }}</div>
+            <div class="entry-period" contenteditable="true" data-field="year">{{ award.year }}</div>
+        </div>
+        {% empty %}
+        <div class="entry" data-section="awards" data-index="0">
+            <div class="entry-title" contenteditable="true" data-field="name">{% trans "Premio o reconocimiento" %}</div>
+            <div class="entry-subtitle" contenteditable="true" data-field="issuer">{% trans "Otorgado por" %}</div>
+            <div class="entry-period" contenteditable="true" data-field="year">{% trans "Año" %}</div>
+        </div>
+        {% endfor %}
+    </div>
+    <button class="add-entry-btn mt-2 text-sm text-indigo-600 hover:text-indigo-700" data-section="awards">
+        + {% trans "Agregar premio" %}
+    </button>
+</div>

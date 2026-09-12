@@ -4,9 +4,97 @@ document.addEventListener('DOMContentLoaded', function() {
     let saveTimeout = null;
     let isSaving = false;
 
+    let initialContent = {};
+    const contentNode = document.getElementById('resume-content');
+    if (contentNode) {
+        try { initialContent = JSON.parse(contentNode.textContent); } catch (e) { initialContent = {}; }
+    }
+
+    const SECTION_CONFIG = {
+        experience: {
+            required: 'title',
+            fields: [
+                { field: 'title', cls: 'entry-title', placeholder: 'Título del puesto' },
+                { field: 'company', cls: 'entry-subtitle', placeholder: 'Empresa' },
+                { field: 'period', cls: 'entry-period', placeholder: '2020 - Presente' },
+                { field: 'description', cls: 'entry-description', placeholder: 'Descripción...' }
+            ]
+        },
+        education: {
+            required: 'degree',
+            fields: [
+                { field: 'degree', cls: 'entry-title', placeholder: 'Título' },
+                { field: 'school', cls: 'entry-subtitle', placeholder: 'Institución' },
+                { field: 'year', cls: 'entry-period', placeholder: '2018' }
+            ]
+        },
+        projects: {
+            required: 'title',
+            fields: [
+                { field: 'title', cls: 'entry-title', placeholder: 'Nombre del proyecto' },
+                { field: 'description', cls: 'entry-description', placeholder: 'Descripción del proyecto...' },
+                { field: 'link', cls: 'entry-period', placeholder: 'https://...' }
+            ]
+        },
+        languages: {
+            required: 'language',
+            fields: [
+                { field: 'language', cls: 'entry-title', placeholder: 'Idioma' },
+                { field: 'level', cls: 'entry-subtitle', placeholder: 'Nivel' }
+            ]
+        },
+        certifications: {
+            required: 'name',
+            fields: [
+                { field: 'name', cls: 'entry-title', placeholder: 'Nombre de la certificación' },
+                { field: 'institution', cls: 'entry-subtitle', placeholder: 'Institución o plataforma' },
+                { field: 'year', cls: 'entry-period', placeholder: 'Año' }
+            ]
+        },
+        volunteering: {
+            required: 'role',
+            fields: [
+                { field: 'role', cls: 'entry-title', placeholder: 'Rol / Cargo' },
+                { field: 'organization', cls: 'entry-subtitle', placeholder: 'Organización' },
+                { field: 'period', cls: 'entry-period', placeholder: '2020 - Presente' },
+                { field: 'description', cls: 'entry-description', placeholder: 'Describe tu labor...' }
+            ]
+        },
+        awards: {
+            required: 'name',
+            fields: [
+                { field: 'name', cls: 'entry-title', placeholder: 'Premio o reconocimiento' },
+                { field: 'issuer', cls: 'entry-subtitle', placeholder: 'Otorgado por' },
+                { field: 'year', cls: 'entry-period', placeholder: 'Año' }
+            ]
+        },
+        publications: {
+            required: 'title',
+            fields: [
+                { field: 'title', cls: 'entry-title', placeholder: 'Título de la publicación' },
+                { field: 'venue', cls: 'entry-subtitle', placeholder: 'Medio o revista' },
+                { field: 'year', cls: 'entry-period', placeholder: 'Año' },
+                { field: 'url', cls: 'entry-description', placeholder: 'https://...' }
+            ]
+        },
+        references: {
+            required: 'name',
+            fields: [
+                { field: 'name', cls: 'entry-title', placeholder: 'Nombre' },
+                { field: 'position', cls: 'entry-subtitle', placeholder: 'Cargo' },
+                { field: 'company', cls: 'entry-period', placeholder: 'Empresa' },
+                { field: 'contact', cls: 'entry-description', placeholder: 'email o teléfono' }
+            ]
+        }
+    };
+
     function getCSRFToken() {
         const cookie = document.cookie.split(';').find(c => c.trim().startsWith('csrftoken='));
         return cookie ? cookie.split('=')[1] : '';
+    }
+
+    function pl(key, fallback) {
+        return typeof t === 'function' ? t(key) : fallback;
     }
 
     function collectFormData() {
@@ -17,17 +105,12 @@ document.addEventListener('DOMContentLoaded', function() {
             city: '',
             occupation: '',
             bio: '',
-            experience: [],
-            education: [],
             skills: [],
-            projects: [],
+            interests: [],
             social_links: {}
         };
-
-        const experienceEntries = [];
-        const educationEntries = [];
-        const skills = [];
-        const projectEntries = [];
+        const lists = {};
+        Object.keys(SECTION_CONFIG).forEach(k => lists[k] = []);
 
         cvContainer.querySelectorAll('[contenteditable]').forEach(el => {
             const field = el.dataset.field;
@@ -35,44 +118,41 @@ document.addEventListener('DOMContentLoaded', function() {
             const index = parseInt(el.dataset.index) || 0;
             const value = el.innerText.trim();
 
-            if (field === 'skill') {
-                if (value) skills[index] = value;
+            if (field === 'skill' || field === 'interest') {
+                if (value) data[field === 'skill' ? 'skills' : 'interests'][index] = value;
                 return;
             }
 
-            if (section === 'experience') {
-                if (!experienceEntries[index]) experienceEntries[index] = {};
-                experienceEntries[index][field] = value;
-            } else if (section === 'education') {
-                if (!educationEntries[index]) educationEntries[index] = {};
-                educationEntries[index][field] = value;
-            } else if (section === 'projects') {
-                if (!projectEntries[index]) projectEntries[index] = {};
-                projectEntries[index][field] = value;
-            } else if (data.hasOwnProperty(field)) {
+            if (section && lists[section]) {
+                if (!lists[section][index]) lists[section][index] = {};
+                lists[section][index][field] = value;
+                return;
+            }
+
+            if (data.hasOwnProperty(field)) {
                 data[field] = value;
             }
         });
 
-        data.experience = experienceEntries.filter(e => e && e.title);
-        data.education = educationEntries.filter(e => e && e.degree);
-        data.skills = skills.filter(s => s);
-        data.projects = projectEntries.filter(p => p && p.title);
+        Object.keys(SECTION_CONFIG).forEach(key => {
+            const required = SECTION_CONFIG[key].required;
+            data[key] = lists[key].filter(e => e && e[required]);
+        });
+        data.skills = data.skills.filter(s => s);
+        data.interests = data.interests.filter(s => s);
+
+        if (initialContent && initialContent.social_links && typeof initialContent.social_links === 'object') {
+            data.social_links = initialContent.social_links;
+        }
 
         return data;
-    }
-
-    function sanitizeInput(text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
     }
 
     async function saveResume() {
         if (isSaving) return;
 
         isSaving = true;
-        saveStatus.textContent = 'Guardando...';
+        saveStatus.textContent = pl('Guardando...', 'Guardando...');
         saveStatus.className = 'text-sm text-yellow-600';
 
         try {
@@ -92,15 +172,15 @@ document.addEventListener('DOMContentLoaded', function() {
             const result = await response.json();
 
             if (result.status === 'ok') {
-                saveStatus.textContent = `Guardado a las ${result.timestamp}`;
+                saveStatus.textContent = pl('Guardado a las', 'Guardado a las') + ' ' + result.timestamp;
                 saveStatus.className = 'text-sm text-green-600';
             } else {
-                saveStatus.textContent = 'Error al guardar';
+                saveStatus.textContent = pl('Error al guardar', 'Error al guardar');
                 saveStatus.className = 'text-sm text-red-600';
             }
         } catch (error) {
             console.error('Error saving:', error);
-            saveStatus.textContent = 'Error de conexión';
+            saveStatus.textContent = pl('Error de conexión', 'Error de conexión');
             saveStatus.className = 'text-sm text-red-600';
         } finally {
             isSaving = false;
@@ -112,87 +192,128 @@ document.addEventListener('DOMContentLoaded', function() {
         saveTimeout = setTimeout(saveResume, 2000);
     }
 
+    function entryHTML(section, index) {
+        const conf = SECTION_CONFIG[section];
+        const fieldsHtml = conf.fields.map(f => {
+            const ph = pl(f.placeholder, f.placeholder);
+            return `<div class="${f.cls}" contenteditable="true" data-field="${f.field}">${ph}</div>`;
+        }).join('');
+        return `<div class="entry" data-section="${section}" data-index="${index}">${fieldsHtml}` +
+            `<button type="button" class="entry-remove" title="${pl('Eliminar', 'Eliminar')}">×</button></div>`;
+    }
+
+    function bindEntry(entry) {
+        entry.querySelectorAll('[contenteditable]').forEach(el => {
+            el.addEventListener('input', debounceSave);
+            el.addEventListener('blur', function() {
+                if (saveTimeout) clearTimeout(saveTimeout);
+                saveResume();
+            });
+        });
+
+        const removeBtn = entry.querySelector('.entry-remove');
+        if (removeBtn) {
+            removeBtn.addEventListener('click', function() {
+                entry.remove();
+                reindexEntries(entry.parentElement);
+            });
+        }
+    }
+
+    function reindexEntries(list) {
+        if (!list) return;
+        Array.from(list.children).forEach((child, i) => {
+            if (child.classList.contains('entry')) {
+                child.dataset.index = i;
+                child.querySelectorAll('[contenteditable]').forEach(el => {
+                    el.dataset.index = i;
+                });
+            }
+        });
+        saveResume();
+    }
+
+    function bindTag(tag) {
+        tag.addEventListener('input', debounceSave);
+        tag.addEventListener('blur', function() {
+            if (saveTimeout) clearTimeout(saveTimeout);
+            saveResume();
+        });
+        tag.addEventListener('focus', function() {
+            if (this.innerText.trim() === this.getAttribute('data-placeholder')) {
+                this.innerText = '';
+            }
+        });
+        const removeBtn = tag.querySelector('.tag-remove');
+        if (removeBtn) {
+            removeBtn.addEventListener('click', function() {
+                tag.remove();
+                reindexTags(tag.parentElement);
+            });
+        }
+    }
+
+    function reindexTags(list) {
+        if (!list) return;
+        Array.from(list.children).forEach((child, i) => {
+            if (child.classList.contains('skill-tag')) {
+                child.dataset.index = i;
+            }
+        });
+        saveResume();
+    }
+
+    cvContainer.querySelectorAll('.entry').forEach(bindEntry);
+    cvContainer.querySelectorAll('.skill-tag').forEach(bindTag);
     cvContainer.querySelectorAll('[contenteditable]').forEach(el => {
         el.addEventListener('input', debounceSave);
         el.addEventListener('blur', function() {
             if (saveTimeout) clearTimeout(saveTimeout);
             saveResume();
         });
-
-        el.addEventListener('focus', function() {
-            if (this.innerText.trim() === this.getAttribute('data-placeholder')) {
-                this.innerText = '';
-            }
-        });
     });
 
-    document.querySelectorAll('.add-entry-btn').forEach(btn => {
+    cvContainer.querySelectorAll('.add-entry-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             const section = this.dataset.section;
+            if (!SECTION_CONFIG[section]) return;
             const list = document.getElementById(`${section}-list`);
-            const index = list.children.length;
-
-            let html = '';
-            if (section === 'experience') {
-                html = `
-                    <div class="entry" data-section="experience" data-index="${index}">
-                        <div class="entry-title" contenteditable="true" data-field="title">Título del puesto</div>
-                        <div class="entry-subtitle" contenteditable="true" data-field="company">Empresa</div>
-                        <div class="entry-period" contenteditable="true" data-field="period">2020 - Presente</div>
-                        <div class="entry-description" contenteditable="true" data-field="description">Descripción...</div>
-                    </div>
-                `;
-            } else if (section === 'education') {
-                html = `
-                    <div class="entry" data-section="education" data-index="${index}">
-                        <div class="entry-title" contenteditable="true" data-field="degree">Título</div>
-                        <div class="entry-subtitle" contenteditable="true" data-field="school">Institución</div>
-                        <div class="entry-period" contenteditable="true" data-field="year">2018</div>
-                    </div>
-                `;
-            }
-
-            list.insertAdjacentHTML('beforeend', html);
-
+            if (!list) return;
+            list.insertAdjacentHTML('beforeend', entryHTML(section, list.children.length));
             const newEntry = list.lastElementChild;
-            newEntry.querySelectorAll('[contenteditable]').forEach(el => {
-                el.addEventListener('input', debounceSave);
-                el.addEventListener('blur', function() {
-                    if (saveTimeout) clearTimeout(saveTimeout);
-                    saveResume();
-                });
-            });
-
-            newEntry.querySelector('[contenteditable]').focus();
+            bindEntry(newEntry);
+            const firstEditable = newEntry.querySelector('[contenteditable]');
+            if (firstEditable) firstEditable.focus();
         });
     });
 
-    const addSkillBtn = document.getElementById('add-skill-btn');
-    if (addSkillBtn) {
-        addSkillBtn.addEventListener('click', function() {
-            const skillsList = document.getElementById('skills-list');
-            const index = skillsList.children.length;
-
-            const newSkill = document.createElement('span');
-            newSkill.className = 'skill-tag';
-            newSkill.contentEditable = true;
-            newSkill.dataset.field = 'skill';
-            newSkill.dataset.index = index;
-            newSkill.textContent = 'Nueva habilidad';
-
-            skillsList.appendChild(newSkill);
-
-            newSkill.addEventListener('input', debounceSave);
-            newSkill.addEventListener('blur', function() {
-                if (saveTimeout) clearTimeout(saveTimeout);
-                saveResume();
-            });
-
-            newSkill.addEventListener('focus', function() {
-                this.textContent = '';
-            });
-
-            newSkill.focus();
+    function bindTagButton(btnId, field, fallbackText) {
+        const btn = document.getElementById(btnId);
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+            const list = document.getElementById(field === 'skill' ? 'skills-list' : 'interests-list');
+            if (!list) return;
+            const tag = document.createElement('span');
+            tag.className = 'skill-tag';
+            tag.contentEditable = true;
+            tag.dataset.field = field;
+            tag.dataset.index = list.children.length;
+            tag.innerHTML = `${pl(fallbackText, fallbackText)}<button type="button" class="tag-remove" title="${pl('Eliminar', 'Eliminar')}">×</button>`;
+            list.appendChild(tag);
+            bindTag(tag);
+            const text = tag.firstChild;
+            if (text) {
+                const range = document.createRange();
+                range.setStart(text, 0);
+                range.collapse(true);
+                const sel = window.getSelection();
+                sel.removeAllRanges();
+                sel.addRange(range);
+            }
+            tag.focus();
         });
     }
+
+    bindTagButton('add-skill-btn', 'skill', 'Nueva habilidad');
+    bindTagButton('add-interest-btn', 'interest', 'Nuevo interés');
 });

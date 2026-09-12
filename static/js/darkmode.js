@@ -13,21 +13,27 @@ document.addEventListener('DOMContentLoaded', function() {
         if (moonIcon) moonIcon.classList.toggle('hidden', !isDark());
     }
 
-    function setTheme(theme) {
+    function setTheme(theme, persist) {
         if (theme === 'dark') {
             html.classList.add('dark');
         } else {
             html.classList.remove('dark');
         }
-        localStorage.setItem('cvbuilder_theme', theme);
+        if (persist) localStorage.setItem('cvbuilder_theme', theme);
         syncIcons();
+    }
+
+    var saved = localStorage.getItem('cvbuilder_theme');
+    if (saved !== 'dark' && saved !== 'light') {
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setTheme(prefersDark ? 'dark' : 'light', false);
     }
 
     syncIcons();
 
     if (themeToggle) {
         themeToggle.addEventListener('click', function() {
-            setTheme(isDark() ? 'light' : 'dark');
+            setTheme(isDark() ? 'light' : 'dark', true);
         });
     }
 });

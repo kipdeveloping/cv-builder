@@ -4,7 +4,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.i18n import set_language
 from apps.accounts.views import oauth_complete
-from social_django import views as social_views
 from social_django.urls import urlpatterns as social_urlpatterns
 
 custom_social_urlpatterns = []

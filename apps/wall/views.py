@@ -14,7 +14,9 @@ def wall_view(request):
 def wall_api_view(request):
     sector_slug = request.GET.get('sector')
 
-    cvs = Resume.objects.filter(status='published').select_related('user', 'user__profile')
+    cvs = Resume.objects.filter(status='published').select_related(
+        'user', 'user__profile', 'template'
+    ).prefetch_related('resume_tags__sector_tag')
 
     if sector_slug:
         cvs = cvs.filter(resume_tags__sector_tag__slug=sector_slug, resume_tags__is_primary=True)

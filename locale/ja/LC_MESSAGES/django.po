@@ -1,0 +1,1350 @@
+# Japanese translations for CV Builder
+# Copyright (C) 2026
+# This file is distributed under the same license as the CV Builder project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CV Builder 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-12 00:11-0400\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\apps\accounts\forms.py:11 .\apps\accounts\forms.py:28
+#: .\templates\accounts\login.html:31 .\templates\accounts\register.html:34
+#: .\templates\registration\password_reset_form.html:24
+msgid "Email"
+msgstr "メールアドレス"
+
+#: .\apps\accounts\forms.py:18 .\apps\accounts\forms.py:35
+#: .\templates\accounts\account_settings.html:25
+#: .\templates\accounts\login.html:38 .\templates\accounts\register.html:42
+msgid "Contraseña"
+msgstr "パスワード"
+
+#: .\apps\accounts\forms.py:42 .\templates\accounts\register.html:52
+msgid "Confirmar contraseña"
+msgstr "パスワード確認"
+
+#: .\apps\accounts\forms.py:56
+msgid "Este email ya está registrado."
+msgstr "このメールアドレスは既に登録されています。"
+
+#: .\apps\accounts\forms.py:64
+msgid "La contraseña debe tener al menos 8 caracteres."
+msgstr "パスワードは 8 文字以上必要です。"
+
+#: .\apps\accounts\forms.py:66
+msgid "La contraseña debe contener al menos una letra mayúscula."
+msgstr "パスワードには大文字を少なくとも 1 つ含める必要があります。"
+
+#: .\apps\accounts\forms.py:68
+msgid "La contraseña debe contener al menos un número."
+msgstr "パスワードには数字を少なくとも 1 つ含める必要があります。"
+
+#: .\apps\accounts\forms.py:70
+#, python-brace-format
+msgid ""
+"La contraseña debe contener al menos un carácter especial (!@#$%^&*(),.?\":"
+"{}|<>)."
+msgstr ""
+"パスワードには少なくとも1つの特殊文字を含める必要があります (!@#$%^&*(),.?\":"
+"{}|<>)。"
+
+#: .\apps\accounts\forms.py:87 .\apps\accounts\forms.py:106
+#: .\templates\accounts\complete_profile.html:29
+#: .\templates\accounts\dashboard.html:13 .\templates\accounts\register.html:61
+#: .\templates\resumes\templates\_section_references.html:14
+msgid "Nombre"
+msgstr "名"
+
+#: .\apps\accounts\forms.py:95 .\apps\accounts\forms.py:115
+#: .\templates\accounts\complete_profile.html:37
+#: .\templates\accounts\dashboard.html:15 .\templates\accounts\register.html:68
+msgid "Apellido"
+msgstr "姓"
+
+#: .\apps\accounts\forms.py:124 .\templates\accounts\register.html:77
+#, fuzzy
+#| msgid "Título profesional"
+msgid "Cargo / Título profesional"
+msgstr "職業称号"
+
+#: .\apps\accounts\forms.py:133 .\templates\accounts\register.html:84
+msgid "Sector"
+msgstr "分野"
+
+#: .\apps\accounts\views.py:23 .\apps\accounts\views.py:334
+msgid "Este usuario no esta registrado. Por favor, crea una cuenta primero."
+msgstr "このユーザーは登録されていません。先にアカウントを作成してください。"
+
+#: .\apps\accounts\views.py:38
+msgid "Email o contraseña incorrectos."
+msgstr "メールアドレスまたはパスワードが正しくありません。"
+
+#: .\apps\accounts\views.py:58
+msgid "¡Cuenta creada exitosamente!"
+msgstr "アカウントが作成されました！"
+
+#: .\apps\accounts\views.py:61
+msgid "Por favor, corrige los errores."
+msgstr "エラーを修正してください。"
+
+#: .\apps\accounts\views.py:70
+msgid "Has cerrado sesión correctamente."
+msgstr "ログアウトしました。"
+
+#: .\apps\accounts\views.py:116
+msgid "La foto no puede superar los 5MB."
+msgstr "写真は 5MB を超えられません。"
+
+#: .\apps\accounts\views.py:121
+msgid "Solo se permiten archivos JPG, PNG o WebP."
+msgstr "JPG、PNG、WebP ファイルのみ使用できます。"
+
+#: .\apps\accounts\views.py:127
+msgid "Foto actualizada correctamente."
+msgstr "写真が更新されました。"
+
+#: .\apps\accounts\views.py:139
+msgid "Bio actualizada correctamente."
+msgstr "プロフィールが更新されました。"
+
+#: .\apps\accounts\views.py:266
+msgid "Nombre, email y mensaje son obligatorios."
+msgstr "名前、メール、メッセージは必須です。"
+
+#: .\apps\accounts\views.py:276
+msgid "El formato del email no es valido."
+msgstr "メールの形式が正しくありません。"
+
+#: .\apps\accounts\views.py:347
+#, fuzzy
+#| msgid "Bio actualizada correctamente."
+msgid "Perfil completado correctamente."
+msgstr "プロフィールが更新されました。"
+
+#: .\apps\resumes\views.py:69
+msgid "CV creado exitosamente. ¡Ahora personalízalo!"
+msgstr "CV が作成されました。今すぐカスタマイズしましょう！"
+
+#: .\templates\accounts\account_settings.html:4
+#: .\templates\accounts\account_settings.html:9
+msgid "Configuracion de Cuenta"
+msgstr "アカウント設定"
+
+#: .\templates\accounts\account_settings.html:13
+msgid "Informacion de Cuenta"
+msgstr "アカウント情報"
+
+#: .\templates\accounts\account_settings.html:15
+#, fuzzy
+#| msgid "Email"
+msgid "Email:"
+msgstr "メールアドレス"
+
+#: .\templates\accounts\account_settings.html:16
+#, fuzzy
+#| msgid "Nombre"
+msgid "Nombre:"
+msgstr "名"
+
+#: .\templates\accounts\account_settings.html:22
+msgid "Seguridad"
+msgstr "セキュリティ"
+
+#: .\templates\accounts\account_settings.html:26
+msgid "Cambia tu contraseña de acceso."
+msgstr "ログインパスワードを変更します。"
+
+#: .\templates\accounts\account_settings.html:30
+#: .\templates\registration\password_change_form.html:4
+#: .\templates\registration\password_change_form.html:9
+msgid "Cambiar contraseña"
+msgstr "パスワードを変更"
+
+#: .\templates\accounts\account_settings.html:37
+msgid "Cuentas Vinculadas"
+msgstr "連携済みアカウント"
+
+#: .\templates\accounts\account_settings.html:53
+#: .\templates\accounts\account_settings.html:71
+#: .\templates\accounts\account_settings.html:89
+msgid "Vinculada"
+msgstr "連携済み"
+
+#: .\templates\accounts\account_settings.html:54
+#: .\templates\accounts\account_settings.html:72
+#: .\templates\accounts\account_settings.html:90
+msgid "Desvincular"
+msgstr "連携解除"
+
+#: .\templates\accounts\account_settings.html:56
+#: .\templates\accounts\account_settings.html:74
+#: .\templates\accounts\account_settings.html:92
+msgid "Vincular"
+msgstr "連携"
+
+#: .\templates\accounts\account_settings.html:102
+#, fuzzy
+#| msgid "Volver al dashboard"
+msgid "Volver al Dashboard"
+msgstr "ダッシュボードに戻る"
+
+#: .\templates\accounts\complete_profile.html:4
+#, fuzzy
+#| msgid "Completa tu perfil profesional"
+msgid "Completar perfil"
+msgstr "職業プロフィールを完成させてください"
+
+#: .\templates\accounts\complete_profile.html:9
+#, fuzzy
+#| msgid "Completa tu perfil profesional"
+msgid "Completa tu perfil"
+msgstr "職業プロフィールを完成させてください"
+
+#: .\templates\accounts\complete_profile.html:10
+msgid "Cuéntanos un poco sobre ti para personalizar tu experiencia."
+msgstr ""
+"あなたの経験をパーソナライズするために、あなたについて少し教えてください。"
+
+#: .\templates\accounts\complete_profile.html:14
+#, fuzzy
+#| msgid "Por favor, corrige los errores."
+msgid "Por favor, corrige los errores:"
+msgstr "エラーを修正してください。"
+
+#: .\templates\accounts\complete_profile.html:32
+#: .\templates\accounts\profile.html:347 .\templates\accounts\register.html:64
+msgid "Tu nombre"
+msgstr "あなたの名"
+
+#: .\templates\accounts\complete_profile.html:40
+#: .\templates\accounts\register.html:71
+#, fuzzy
+#| msgid "Tus apellidos"
+msgid "Tu apellido"
+msgstr "あなたの姓"
+
+#: .\templates\accounts\complete_profile.html:46
+msgid "Continuar"
+msgstr "続ける"
+
+#: .\templates\accounts\dashboard.html:5 .\templates\base.html:72
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+#: .\templates\accounts\dashboard.html:10
+#, fuzzy
+#| msgid "CV Builder"
+msgid "Bienvenido a CV Builder"
+msgstr "履歴書ビルダー"
+
+#: .\templates\accounts\dashboard.html:11
+msgid "Para completar tu perfil, necesitamos tu nombre y apellido."
+msgstr "プロフィールを完成させるには、名前と姓が必要です。"
+
+#: .\templates\accounts\dashboard.html:19
+#: .\templates\accounts\dashboard.html:310
+#: .\templates\accounts\dashboard.html:334
+#: .\templates\accounts\dashboard.html:357
+#: .\templates\accounts\dashboard.html:407
+#: .\templates\accounts\dashboard.html:466
+#: .\templates\accounts\dashboard.html:516
+#: .\templates\accounts\dashboard.html:608
+#: .\templates\accounts\dashboard.html:654
+#, fuzzy
+#| msgid "Guardar bio"
+msgid "Guardar"
+msgstr "自己紹介を保存"
+
+#: .\templates\accounts\dashboard.html:33 .\templates\accounts\profile.html:24
+#: .\templates\resumes\templates\classic.html:6
+#: .\templates\resumes\templates\creative.html:6
+#: .\templates\resumes\templates\modern.html:5
+msgid "Foto de perfil"
+msgstr "プロフィール写真"
+
+#: .\templates\accounts\dashboard.html:85
+#, fuzzy
+#| msgid "Editar"
+msgid "Editar estado"
+msgstr "編集"
+
+#: .\templates\accounts\dashboard.html:92 .\templates\accounts\profile.html:64
+#: .\templates\resumes\templates\_section_skills.html:3
+#: .\templates\resumes\templates\creative.html:28
+msgid "Habilidades"
+msgstr "スキル"
+
+#: .\templates\accounts\dashboard.html:95
+#: .\templates\accounts\dashboard.html:118
+#: .\templates\accounts\dashboard.html:132
+#: .\templates\accounts\dashboard.html:254
+#: .\templates\accounts\dashboard.html:558
+msgid "Editar"
+msgstr "編集"
+
+#: .\templates\accounts\dashboard.html:107 .\templates\accounts\profile.html:74
+#, fuzzy
+#| msgid "Habilidades"
+msgid "Sin habilidades"
+msgstr "スキル"
+
+#: .\templates\accounts\dashboard.html:115 .\templates\accounts\profile.html:81
+msgid "Bio"
+msgstr "自己紹介"
+
+#: .\templates\accounts\dashboard.html:129
+#: .\templates\accounts\dashboard.html:416 .\templates\accounts\profile.html:88
+msgid "Preferencias de trabajo"
+msgstr "勤務希望条件"
+
+#: .\templates\accounts\dashboard.html:137 .\templates\accounts\profile.html:92
+msgid "Tipo de empleo:"
+msgstr "雇用形態:"
+
+#: .\templates\accounts\dashboard.html:141 .\templates\accounts\profile.html:98
+msgid "Salario esperado:"
+msgstr "希望給与:"
+
+#: .\templates\accounts\dashboard.html:145
+#: .\templates\accounts\profile.html:104
+msgid "Disponible para mudarse:"
+msgstr "転居可能:"
+
+#: .\templates\accounts\dashboard.html:149
+#: .\templates\accounts\profile.html:110
+msgid "Disponible para viajar:"
+msgstr "出張可能:"
+
+#: .\templates\accounts\dashboard.html:158
+#: .\templates\accounts\dashboard.html:525
+msgid "Mis Curriculums"
+msgstr "マイ履歴書"
+
+#: .\templates\accounts\dashboard.html:167
+#: .\templates\accounts\profile.html:138
+#, fuzzy
+#| msgid "Experiencia"
+msgid "Experiencia y Proyectos"
+msgstr "職歴"
+
+#: .\templates\accounts\dashboard.html:170
+#: .\templates\resumes\templates\creative.html:38
+msgid "Agregar"
+msgstr "追加"
+
+#: .\templates\accounts\dashboard.html:251
+#: .\templates\accounts\profile.html:180
+msgid "Redes Sociales"
+msgstr "ソーシャルリンク"
+
+#: .\templates\accounts\dashboard.html:283
+#: .\templates\accounts\profile.html:207
+msgid "Sin redes sociales configuradas"
+msgstr "ソーシャルリンク未設定"
+
+#: .\templates\accounts\dashboard.html:294
+#, fuzzy
+#| msgid "Actualizado:"
+msgid "Actualizar foto"
+msgstr "更新日："
+
+#: .\templates\accounts\dashboard.html:305
+#, fuzzy
+#| msgid "JPG, PNG o WebP. Máximo 5MB."
+msgid "JPG, PNG o WebP. Maximo 5MB."
+msgstr "JPG、PNG、WebP形式。最大5MB。"
+
+#: .\templates\accounts\dashboard.html:308
+#: .\templates\accounts\dashboard.html:332
+#: .\templates\accounts\dashboard.html:355
+#: .\templates\accounts\dashboard.html:405
+#: .\templates\accounts\dashboard.html:464
+#: .\templates\accounts\dashboard.html:514
+#: .\templates\accounts\dashboard.html:606
+#: .\templates\accounts\dashboard.html:652
+#: .\templates\accounts\profile.html:368 .\templates\resumes\editor.html:72
+msgid "Cancelar"
+msgstr "キャンセル"
+
+#: .\templates\accounts\dashboard.html:320
+#, fuzzy
+#| msgid "Actualizado:"
+msgid "Actualizar titular"
+msgstr "更新日："
+
+#: .\templates\accounts\dashboard.html:329
+#, fuzzy
+#| msgid "Ej: Desarrollador Web"
+msgid "Ej: Desarrollador Full Stack Senior"
+msgstr "例：Web開発者"
+
+#: .\templates\accounts\dashboard.html:343
+#, fuzzy
+#| msgid "Actualizado:"
+msgid "Actualizar bio"
+msgstr "更新日："
+
+#: .\templates\accounts\dashboard.html:352
+#, fuzzy
+#| msgid "Cuéntanos sobre ti..."
+msgid "Cuentanos sobre ti..."
+msgstr "あなたについて教えてください..."
+
+#: .\templates\accounts\dashboard.html:366
+#, fuzzy
+#| msgid "Actualizado:"
+msgid "Actualizar estado"
+msgstr "更新日："
+
+#: .\templates\accounts\dashboard.html:375
+msgid "Estado de busqueda"
+msgstr "求職ステータス"
+
+#: .\templates\accounts\dashboard.html:377
+#: .\templates\accounts\dashboard.html:386
+#: .\templates\accounts\dashboard.html:396
+#: .\templates\accounts\dashboard.html:446
+#: .\templates\accounts\dashboard.html:455
+msgid "No especificado"
+msgstr "未指定"
+
+#: .\templates\accounts\dashboard.html:378
+msgid "Buscando activamente"
+msgstr "積極的に求職中"
+
+#: .\templates\accounts\dashboard.html:379
+msgid "Abierto a ofertas"
+msgstr "オファー受付中"
+
+#: .\templates\accounts\dashboard.html:380
+msgid "No buscando"
+msgstr "求職中ではない"
+
+#: .\templates\accounts\dashboard.html:384
+msgid "Disponibilidad"
+msgstr "対応時期"
+
+#: .\templates\accounts\dashboard.html:387
+msgid "Inmediata"
+msgstr "即日"
+
+#: .\templates\accounts\dashboard.html:388
+msgid "2 semanas"
+msgstr "2週間"
+
+#: .\templates\accounts\dashboard.html:389
+msgid "1 mes"
+msgstr "1ヶ月"
+
+#: .\templates\accounts\dashboard.html:390
+msgid "Negociable"
+msgstr "応相談"
+
+#: .\templates\accounts\dashboard.html:394
+msgid "Preferencia de ubicacion"
+msgstr "勤務地の希望"
+
+#: .\templates\accounts\dashboard.html:397
+msgid "Remoto"
+msgstr "リモート"
+
+#: .\templates\accounts\dashboard.html:398
+msgid "Hibrido"
+msgstr "ハイブリッド"
+
+#: .\templates\accounts\dashboard.html:399
+msgid "Presencial"
+msgstr "出社"
+
+#: .\templates\accounts\dashboard.html:425
+msgid "Tipo de empleo"
+msgstr "雇用形態"
+
+#: .\templates\accounts\dashboard.html:438
+msgid "Salario esperado"
+msgstr "希望給与"
+
+#: .\templates\accounts\dashboard.html:441
+msgid "Ej: $50,000 - $70,000"
+msgstr "例: 月収50万円～"
+
+#: .\templates\accounts\dashboard.html:444
+msgid "Disponible para mudarse"
+msgstr "転居可能"
+
+#: .\templates\accounts\dashboard.html:447
+msgid "Sí"
+msgstr "はい"
+
+#: .\templates\accounts\dashboard.html:448
+#: .\templates\accounts\dashboard.html:456
+msgid "No"
+msgstr "いいえ"
+
+#: .\templates\accounts\dashboard.html:449
+msgid "Según destino"
+msgstr "勤務地による"
+
+#: .\templates\accounts\dashboard.html:453
+msgid "Disponible para viajar"
+msgstr "出張可能"
+
+#: .\templates\accounts\dashboard.html:457
+#, fuzzy
+#| msgid "Opcional"
+msgid "Ocasional"
+msgstr "任意"
+
+#: .\templates\accounts\dashboard.html:458
+#, fuzzy
+#| msgid "Crea tu cuenta"
+msgid "Frecuente"
+msgstr "アカウントを作成"
+
+#: .\templates\accounts\dashboard.html:475
+#, fuzzy
+#| msgid "Habilidades"
+msgid "Editar habilidades"
+msgstr "スキル"
+
+#: .\templates\accounts\dashboard.html:486
+#, fuzzy
+#| msgid "Agregar habilidad"
+msgid "Nueva habilidad"
+msgstr "スキルを追加"
+
+#: .\templates\accounts\dashboard.html:498
+#, fuzzy
+#| msgid "Sector principal:"
+msgid "Principal"
+msgstr "主な分野："
+
+#: .\templates\accounts\dashboard.html:545
+msgid "Actualizado:"
+msgstr "更新日："
+
+#: .\templates\accounts\dashboard.html:551
+msgid "Destacado"
+msgstr "注目"
+
+#: .\templates\accounts\dashboard.html:563
+msgid "Ver CV"
+msgstr "CVを見る"
+
+#: .\templates\accounts\dashboard.html:574
+msgid "Crear nuevo CV"
+msgstr "新しい履歴書を作成"
+
+#: .\templates\accounts\dashboard.html:584
+#: .\templates\resumes\templates\_section_experience.html:22
+msgid "Agregar experiencia"
+msgstr "職歴を追加"
+
+#: .\templates\accounts\dashboard.html:594
+#, fuzzy
+#| msgid "Título del puesto"
+msgid "Titulo del puesto"
+msgstr "役職"
+
+#: .\templates\accounts\dashboard.html:596
+#: .\templates\resumes\templates\_section_experience.html:15
+#: .\templates\resumes\templates\_section_references.html:16
+msgid "Empresa"
+msgstr "会社"
+
+#: .\templates\accounts\dashboard.html:598
+#: .\templates\resumes\templates\_section_experience.html:16
+#: .\templates\resumes\templates\_section_volunteering.html:16
+msgid "2020 - Presente"
+msgstr "2020年 - 現在"
+
+#: .\templates\accounts\dashboard.html:600
+msgid "Descripcion..."
+msgstr "説明..."
+
+#: .\templates\accounts\dashboard.html:617
+msgid "Editar redes sociales"
+msgstr "ソーシャルリンクを編集"
+
+#: .\templates\accounts\login.html:4 .\templates\accounts\login.html:46
+#: .\templates\base.html:75
+msgid "Entrar"
+msgstr "ログイン"
+
+#: .\templates\accounts\login.html:9
+msgid "Iniciar Sesión"
+msgstr "ログイン"
+
+#: .\templates\accounts\login.html:23
+msgid "Email o contraseña incorrectos. Por favor, inténtalo de nuevo."
+msgstr ""
+"メールアドレスまたはパスワードが正しくありません。もう一度お試しください。"
+
+#: .\templates\accounts\login.html:52
+msgid "¿Olvidaste tu contraseña?"
+msgstr "パスワードをお忘れですか？"
+
+#: .\templates\accounts\login.html:62
+#, fuzzy
+#| msgid "Continúa con"
+msgid "O continúa con"
+msgstr "で続ける"
+
+#: .\templates\accounts\login.html:102
+msgid ""
+"El login con redes sociales no está configurado. Consulta el README para "
+"configurar las credenciales OAuth."
+msgstr ""
+"ソーシャルログインが設定されていません。OAuth認証情報の設定方法はREADMEを参照"
+"してください。"
+
+#: .\templates\accounts\login.html:108
+msgid "¿No tienes cuenta?"
+msgstr "アカウントをお持ちでないですか？"
+
+#: .\templates\accounts\login.html:109
+msgid "Regístrate"
+msgstr "登録"
+
+#: .\templates\accounts\profile.html:10
+msgid "Este es tu perfil publico"
+msgstr "これはあなたの公開プロフィールです"
+
+#: .\templates\accounts\profile.html:12
+#: .\templates\registration\password_change_done.html:13
+#, fuzzy
+#| msgid "Volver al dashboard"
+msgid "Ir al Dashboard"
+msgstr "ダッシュボードに戻る"
+
+#: .\templates\accounts\profile.html:122
+#, fuzzy
+#| msgid "Contacto"
+msgid "Contactar"
+msgstr "お問い合わせ"
+
+#: .\templates\accounts\profile.html:131
+#, fuzzy
+#| msgid "Aún no tienes CVs creados."
+msgid "Este candidato no tiene CVs publicados."
+msgstr "この候補者は公開された履歴書がありません。"
+
+#: .\templates\accounts\profile.html:215
+#: .\templates\resumes\templates\_section_education.html:3
+msgid "Educación"
+msgstr "学歴"
+
+#: .\templates\accounts\profile.html:231
+#: .\templates\resumes\templates\_section_languages.html:3
+msgid "Idiomas"
+msgstr "言語"
+
+#: .\templates\accounts\profile.html:243
+#: .\templates\resumes\templates\_section_certifications.html:3
+msgid "Certificaciones y Cursos"
+msgstr "資格・コース"
+
+#: .\templates\accounts\profile.html:258
+#: .\templates\resumes\templates\_section_volunteering.html:3
+msgid "Voluntariado"
+msgstr "ボランティア"
+
+#: .\templates\accounts\profile.html:274
+#: .\templates\resumes\templates\_section_awards.html:3
+msgid "Premios y Reconocimientos"
+msgstr "受賞・表彰"
+
+#: .\templates\accounts\profile.html:289
+#: .\templates\resumes\templates\_section_publications.html:3
+#, fuzzy
+#| msgid "Publicado"
+msgid "Publicaciones"
+msgstr "公開済み"
+
+#: .\templates\accounts\profile.html:305
+#: .\templates\resumes\templates\_section_interests.html:3
+msgid "Intereses"
+msgstr "趣味・関心"
+
+#: .\templates\accounts\profile.html:317
+#: .\templates\resumes\templates\_section_references.html:3
+#, fuzzy
+#| msgid "Experiencia"
+msgid "Referencias"
+msgstr "職歴"
+
+#: .\templates\accounts\profile.html:338
+#, fuzzy
+#| msgid "Contacto"
+msgid "Contactar a"
+msgstr "お問い合わせ"
+
+#: .\templates\accounts\profile.html:350
+msgid "Nombre completo"
+msgstr "氏名"
+
+#: .\templates\accounts\profile.html:353
+#, fuzzy
+#| msgid "Email"
+msgid "Tu email"
+msgstr "メールアドレス"
+
+#: .\templates\accounts\profile.html:356
+msgid "tu@email.com"
+msgstr "you@email.com"
+
+#: .\templates\accounts\profile.html:359
+msgid "Mensaje"
+msgstr "メッセージ"
+
+#: .\templates\accounts\profile.html:362
+msgid "Escribe tu mensaje..."
+msgstr "メッセージを書いてください..."
+
+#: .\templates\accounts\profile.html:370
+msgid "Enviar"
+msgstr "送信"
+
+#: .\templates\accounts\register.html:5 .\templates\base.html:76
+msgid "Registrarse"
+msgstr "登録"
+
+#: .\templates\accounts\register.html:10 .\templates\accounts\register.html:103
+msgid "Crear Cuenta"
+msgstr "アカウント作成"
+
+#: .\templates\accounts\register.html:11
+msgid "Paso 1 de 3 — Datos de acceso"
+msgstr "ステップ1/3 — アカウント情報"
+
+#: .\templates\accounts\register.html:15
+msgid "Por favor, corrige los siguientes errores:"
+msgstr "以下のエラーを修正してください："
+
+#: .\templates\accounts\register.html:47
+msgid "Mínimo 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial."
+msgstr "8文字以上、大文字1文字、数字1文字、特殊文字1文字を含めてください。"
+
+#: .\templates\accounts\register.html:80
+msgid "Ej: Ingeniero de Software"
+msgstr "例: ソフトウェアエンジニア"
+
+#: .\templates\accounts\register.html:87
+msgid "Ej: Tecnología"
+msgstr "例: テクノロジー"
+
+#: .\templates\accounts\register.html:94
+msgid "Atrás"
+msgstr "戻る"
+
+#: .\templates\accounts\register.html:99
+msgid "Siguiente"
+msgstr "次へ"
+
+#: .\templates\accounts\register.html:115
+#: .\templates\registration\password_reset_form.html:36
+msgid "¿Ya tienes cuenta?"
+msgstr "すでにアカウントをお持ちですか？"
+
+#: .\templates\accounts\register.html:116
+#: .\templates\registration\password_reset_complete.html:13
+#: .\templates\registration\password_reset_done.html:13
+#: .\templates\registration\password_reset_form.html:37
+msgid "Inicia sesión"
+msgstr "ログイン"
+
+#: .\templates\base.html:30
+msgid "Tablón"
+msgstr "掲示板"
+
+#: .\templates\base.html:33
+msgid "Cambiar tema"
+msgstr "テーマを変更"
+
+#: .\templates\base.html:73
+msgid "Salir"
+msgstr "ログアウト"
+
+#: .\templates\base.html:89
+msgid "Todos los derechos reservados."
+msgstr "全著作権所有。"
+
+#: .\templates\landing.html:4 .\templates\landing.html:10
+msgid "Crea tu CV profesional"
+msgstr "プロフェッショナルな CV を作成"
+
+#: .\templates\landing.html:13
+msgid ""
+"Diseña CVs impresionantes con plantillas profesionales. Publica en nuestro "
+"tablón de talentos y conecta con oportunidades."
+msgstr ""
+"プロフェッショナルなテンプレートで印象的な CV を作成。才能ボードに公開して"
+"チャンスにつながりましょう。"
+
+#: .\templates\landing.html:19
+msgid "Mi Dashboard"
+msgstr "マイダッシュボード"
+
+#: .\templates\landing.html:24
+msgid "Comenzar ahora"
+msgstr "今すぐ始める"
+
+#: .\templates\landing.html:28
+msgid "Ya tengo cuenta"
+msgstr "アカウントをお持ちの方"
+
+#: .\templates\landing.html:34
+msgid "O explora el tablón como invitado"
+msgstr "またはゲストとしてボードを探索"
+
+#: .\templates\landing.html:41
+msgid "¿Por qué CV Builder?"
+msgstr "なぜ CV Builder なのか？"
+
+#: .\templates\landing.html:51
+msgid "3 Plantillas profesionales"
+msgstr "3 つのプロフェッショナルなテンプレート"
+
+#: .\templates\landing.html:52
+msgid ""
+"Elige entre diseños clásico, moderno y creativo para destacar tu perfil."
+msgstr ""
+"クラシック・モダン・クリエイティブから選んで、あなたのプロフィールを引き立て"
+"ましょう。"
+
+#: .\templates\landing.html:61
+msgid "Editor visual"
+msgstr "ビジュアルエディター"
+
+#: .\templates\landing.html:62
+msgid "Edita directamente en la plantilla con autoguardado automático."
+msgstr "自動保存付きでテンプレートを直接編集。"
+
+#: .\templates\landing.html:71
+msgid "Tablón de talentos"
+msgstr "才能ボード"
+
+#: .\templates\landing.html:72
+msgid "Publica tu CV y descubre profesionales por sector."
+msgstr "CV を公開して、分野別に専門家を見つけましょう。"
+
+#: .\templates\landing.html:78
+msgid "¿Listo para crear tu CV?"
+msgstr "CV を作成する準備はできていますか？"
+
+#: .\templates\landing.html:79
+msgid "Únete a nuestra comunidad de profesionales."
+msgstr "プロフェッショナルのコミュニティに参加しましょう。"
+
+#: .\templates\landing.html:83
+msgid "Crear cuenta gratis"
+msgstr "無料アカウントを作成"
+
+#: .\templates\registration\password_change_done.html:4
+msgid "Contraseña cambiada"
+msgstr "パスワードを変更しました"
+
+#: .\templates\registration\password_change_done.html:9
+#: .\templates\registration\password_reset_complete.html:9
+msgid "Contraseña actualizada"
+msgstr "パスワードを更新しました"
+
+#: .\templates\registration\password_change_done.html:10
+#, fuzzy
+#| msgid "Foto actualizada correctamente."
+msgid "Tu contraseña ha sido cambiada correctamente."
+msgstr "写真が更新されました。"
+
+#: .\templates\registration\password_change_form.html:10
+msgid "Introduce tu nueva contraseña."
+msgstr "新しいパスワードを入力してください。"
+
+#: .\templates\registration\password_change_form.html:32
+msgid "Actualizar contraseña"
+msgstr "パスワードを更新"
+
+#: .\templates\registration\password_reset_complete.html:4
+#, fuzzy
+#| msgid "Contraseña"
+msgid "Contraseña restablecida"
+msgstr "パスワード"
+
+#: .\templates\registration\password_reset_complete.html:10
+msgid "Tu contraseña ha sido restablecida. Ya puedes iniciar sesión."
+msgstr "パスワードが再設定されました。ログインできます。"
+
+#: .\templates\registration\password_reset_confirm.html:4
+#, fuzzy
+#| msgid "Contraseña"
+msgid "Nueva contraseña"
+msgstr "パスワード"
+
+#: .\templates\registration\password_reset_confirm.html:9
+msgid "Elige una nueva contraseña"
+msgstr "新しいパスワードを選択"
+
+#: .\templates\registration\password_reset_confirm.html:10
+msgid "Introduce tu nueva contraseña dos veces para verificar."
+msgstr "新しいパスワードを確認のため2回入力してください。"
+
+#: .\templates\registration\password_reset_confirm.html:33
+msgid "Guardar contraseña"
+msgstr "パスワードを保存"
+
+#: .\templates\registration\password_reset_confirm.html:38
+msgid ""
+"El enlace de restablecimiento no es válido o ya ha sido usado. Solicita uno "
+"nuevo."
+msgstr ""
+"再設定リンクが無効か、すでに使用されています。新しいリンクをリクエストしてく"
+"ださい。"
+
+#: .\templates\registration\password_reset_confirm.html:41
+msgid "Solicitar nuevo enlace"
+msgstr "新しいリンクをリクエスト"
+
+#: .\templates\registration\password_reset_done.html:4
+msgid "Email enviado"
+msgstr "メールを送信しました"
+
+#: .\templates\registration\password_reset_done.html:9
+msgid "Revisa tu email"
+msgstr "メールを確認してください"
+
+#: .\templates\registration\password_reset_done.html:10
+msgid ""
+"Si existe una cuenta con ese email, te hemos enviado instrucciones para "
+"restablecer tu contraseña."
+msgstr ""
+"そのメールアドレスのアカウントが存在する場合、パスワード再設定の手順を送信し"
+"ました。"
+
+#: .\templates\registration\password_reset_email.html:3
+msgid "Recibimos una solicitud para restablecer tu contraseña en CV Builder."
+msgstr "CV Builderでパスワード再設定のリクエストを受け付けました。"
+
+#: .\templates\registration\password_reset_email.html:5
+msgid "Haz clic en el siguiente enlace para elegir una nueva contraseña:"
+msgstr "以下のリンクをクリックして新しいパスワードを設定してください:"
+
+#: .\templates\registration\password_reset_email.html:9
+msgid ""
+"Si no solicitaste este cambio, ignora este email. Tu contraseña no cambiará."
+msgstr ""
+"この変更をリクエストしていない場合は、このメールを無視してください。パスワー"
+"ドは変更されません。"
+
+#: .\templates\registration\password_reset_form.html:4
+#: .\templates\registration\password_reset_form.html:9
+msgid "Recuperar contraseña"
+msgstr "パスワードを再設定"
+
+#: .\templates\registration\password_reset_form.html:10
+msgid ""
+"Introduce tu email y te enviaremos instrucciones para restablecer tu "
+"contraseña."
+msgstr "メールアドレスを入力してください。パスワード再設定の手順を送信します。"
+
+#: .\templates\registration\password_reset_form.html:31
+msgid "Enviar enlace"
+msgstr "リンクを送信"
+
+#: .\templates\registration\password_reset_subject.txt:1
+msgid "Restablecer contraseña"
+msgstr "パスワードを再設定"
+
+#: .\templates\resumes\editor.html:5 .\templates\resumes\editor.html:20
+msgid "Editor"
+msgstr "エディター"
+
+#: .\templates\resumes\editor.html:17
+msgid "Volver"
+msgstr "戻る"
+
+#: .\templates\resumes\editor.html:28
+msgid "Publicar"
+msgstr "公開"
+
+#: .\templates\resumes\editor.html:32
+msgid "Publicado"
+msgstr "公開済み"
+
+#: .\templates\resumes\editor.html:54
+msgid "Publicar CV"
+msgstr "履歴書を公開"
+
+#: .\templates\resumes\editor.html:55
+msgid "Selecciona los sectores en los que encaja tu CV:"
+msgstr "履歴書が合う分野を選択してください："
+
+#: .\templates\resumes\editor.html:61
+msgid "Sector principal:"
+msgstr "主な分野："
+
+#: .\templates\resumes\editor.html:76
+msgid "Confirmar publicación"
+msgstr "公開を確認"
+
+#: .\templates\resumes\select_template.html:4
+msgid "Seleccionar Plantilla"
+msgstr "テンプレートを選択"
+
+#: .\templates\resumes\select_template.html:8
+msgid "Elige una plantilla"
+msgstr "テンプレートを選択"
+
+#: .\templates\resumes\select_template.html:9
+msgid "Selecciona el diseño que mejor se adapte a tu estilo profesional."
+msgstr ""
+"あなたのプロフェッショナルなスタイルに最適なデザインを選択してください。"
+
+#: .\templates\resumes\select_template.html:68
+msgid "Seleccionar"
+msgstr "選択"
+
+#: .\templates\resumes\select_template.html:77
+msgid "Volver al dashboard"
+msgstr "ダッシュボードに戻る"
+
+#: .\templates\resumes\templates\_section_awards.html:13
+msgid "Premio o reconocimiento"
+msgstr "受賞・表彰"
+
+#: .\templates\resumes\templates\_section_awards.html:14
+msgid "Otorgado por"
+msgstr "主催"
+
+#: .\templates\resumes\templates\_section_awards.html:15
+#: .\templates\resumes\templates\_section_certifications.html:15
+#: .\templates\resumes\templates\_section_publications.html:16
+msgid "Año"
+msgstr "年"
+
+#: .\templates\resumes\templates\_section_awards.html:20
+#, fuzzy
+#| msgid "Agregar experiencia"
+msgid "Agregar premio"
+msgstr "職歴を追加"
+
+#: .\templates\resumes\templates\_section_certifications.html:13
+msgid "Nombre de la certificación"
+msgstr "資格名"
+
+#: .\templates\resumes\templates\_section_certifications.html:14
+#, fuzzy
+#| msgid "Institución"
+msgid "Institución o plataforma"
+msgstr "教育機関"
+
+#: .\templates\resumes\templates\_section_certifications.html:20
+#, fuzzy
+#| msgid "Agregar educación"
+msgid "Agregar certificación"
+msgstr "学歴を追加"
+
+#: .\templates\resumes\templates\_section_education.html:13
+msgid "Título"
+msgstr "学位"
+
+#: .\templates\resumes\templates\_section_education.html:14
+msgid "Institución"
+msgstr "教育機関"
+
+#: .\templates\resumes\templates\_section_education.html:15
+msgid "2018"
+msgstr "2018"
+
+#: .\templates\resumes\templates\_section_education.html:20
+msgid "Agregar educación"
+msgstr "学歴を追加"
+
+#: .\templates\resumes\templates\_section_experience.html:3
+msgid "Experiencia"
+msgstr "職歴"
+
+#: .\templates\resumes\templates\_section_experience.html:14
+msgid "Título del puesto"
+msgstr "役職"
+
+#: .\templates\resumes\templates\_section_experience.html:17
+msgid "Descripción de tus responsabilidades..."
+msgstr "担当業務の説明..."
+
+#: .\templates\resumes\templates\_section_interests.html:8
+msgid "Viajar"
+msgstr "旅行"
+
+#: .\templates\resumes\templates\_section_interests.html:9
+msgid "Lectura"
+msgstr "読書"
+
+#: .\templates\resumes\templates\_section_interests.html:13
+#, fuzzy
+#| msgid "Agregar"
+msgid "Agregar interés"
+msgstr "追加"
+
+#: .\templates\resumes\templates\_section_languages.html:12
+msgid "Idioma"
+msgstr "言語"
+
+#: .\templates\resumes\templates\_section_languages.html:13
+msgid "Nivel"
+msgstr "レベル"
+
+#: .\templates\resumes\templates\_section_languages.html:18
+#, fuzzy
+#| msgid "Agregar habilidad"
+msgid "Agregar idioma"
+msgstr "スキルを追加"
+
+#: .\templates\resumes\templates\_section_projects.html:3
+msgid "Proyectos"
+msgstr "プロジェクト"
+
+#: .\templates\resumes\templates\_section_projects.html:13
+msgid "Nombre del proyecto"
+msgstr "プロジェクト名"
+
+#: .\templates\resumes\templates\_section_projects.html:14
+#, fuzzy
+#| msgid "Descripción de tus responsabilidades..."
+msgid "Descripción del proyecto..."
+msgstr "担当業務の説明..."
+
+#: .\templates\resumes\templates\_section_projects.html:15
+#: .\templates\resumes\templates\_section_publications.html:17
+msgid "https://..."
+msgstr "https://..."
+
+#: .\templates\resumes\templates\_section_projects.html:20
+#, fuzzy
+#| msgid "Agregar experiencia"
+msgid "Agregar proyecto"
+msgstr "職歴を追加"
+
+#: .\templates\resumes\templates\_section_publications.html:14
+#, fuzzy
+#| msgid "Título del puesto"
+msgid "Título de la publicación"
+msgstr "役職"
+
+#: .\templates\resumes\templates\_section_publications.html:15
+msgid "Medio o revista"
+msgstr "媒体または雑誌"
+
+#: .\templates\resumes\templates\_section_publications.html:22
+#, fuzzy
+#| msgid "Agregar educación"
+msgid "Agregar publicación"
+msgstr "学歴を追加"
+
+#: .\templates\resumes\templates\_section_references.html:15
+#, fuzzy
+#| msgid "Cargando..."
+msgid "Cargo"
+msgstr "読み込み中..."
+
+#: .\templates\resumes\templates\_section_references.html:17
+msgid "email o teléfono"
+msgstr "メールまたは電話"
+
+#: .\templates\resumes\templates\_section_references.html:22
+#, fuzzy
+#| msgid "Agregar experiencia"
+msgid "Agregar referencia"
+msgstr "職歴を追加"
+
+#: .\templates\resumes\templates\_section_skills.html:8
+#: .\templates\resumes\templates\creative.html:33
+msgid "Python"
+msgstr "Python"
+
+#: .\templates\resumes\templates\_section_skills.html:9
+#: .\templates\resumes\templates\creative.html:34
+msgid "JavaScript"
+msgstr "JavaScript"
+
+#: .\templates\resumes\templates\_section_skills.html:13
+msgid "Agregar habilidad"
+msgstr "スキルを追加"
+
+#: .\templates\resumes\templates\_section_volunteering.html:14
+msgid "Rol / Cargo"
+msgstr "役職 / 職位"
+
+#: .\templates\resumes\templates\_section_volunteering.html:15
+msgid "Organización"
+msgstr "組織"
+
+#: .\templates\resumes\templates\_section_volunteering.html:17
+msgid "Describe tu labor..."
+msgstr "あなたの活動を説明してください..."
+
+#: .\templates\resumes\templates\_section_volunteering.html:22
+#, fuzzy
+#| msgid "Agregar habilidad"
+msgid "Agregar voluntariado"
+msgstr "スキルを追加"
+
+#: .\templates\resumes\templates\classic.html:29
+#: .\templates\resumes\templates\creative.html:45
+#: .\templates\resumes\templates\modern.html:28
+msgid "Quién soy"
+msgstr "自己紹介"
+
+#: .\templates\resumes\templates\creative.html:21
+msgid "Contacto"
+msgstr "お問い合わせ"
+
+#: .\templates\wall\cv_detail.html:15
+msgid "Volver al tablón"
+msgstr "ボードに戻る"
+
+#: .\templates\wall\cv_detail.html:18
+msgid "Ver Perfil Completo"
+msgstr "完全なプロフィールを見る"
+
+#: .\templates\wall\wall.html:5 .\templates\wall\wall.html:10
+msgid "Tablón de Talentos"
+msgstr "人材ボード"
+
+#: .\templates\wall\wall.html:11
+msgid "Descubre profesionales talentosos en diferentes sectores."
+msgstr "さまざまな分野の才能あるプロフェッショナルを発見しましょう。"
+
+#: .\templates\wall\wall.html:15
+msgid "Filtrar por sector:"
+msgstr "セクターで絞り込む:"
+
+#: .\templates\wall\wall.html:19
+msgid "Todos"
+msgstr "すべて"
+
+#: .\templates\wall\wall.html:32
+msgid "Cargando..."
+msgstr "読み込み中..."
+
+#: .\templates\wall\wall.html:43
+msgid "No se encontraron CVs en esta categoría."
+msgstr "このカテゴリでは履歴書が見つかりませんでした。"
+
+#~ msgid "Mi Perfil"
+#~ msgstr "マイプロフィール"
+
+#~ msgid "Subir foto"
+#~ msgstr "写真をアップロード"
+
+#~ msgid "Necesitas subir una foto para poder publicar tus CVs."
+#~ msgstr "履歴書を公開するには写真をアップロードしてください。"
+
+#~ msgid "Bio (Quién soy)"
+#~ msgstr "自己紹介"
+
+#~ msgid "Mis CVs"
+#~ msgstr "私の履歴書"
+
+#~ msgid "Sin plantilla"
+#~ msgstr "テンプレートなし"
+
+#~ msgid "Crear mi primer CV"
+#~ msgstr "最初の履歴書を作成"
+
+#~ msgid "Anterior"
+#~ msgstr "前へ"
+
+#~ msgid "Las contraseñas no coinciden."
+#~ msgstr "パスワードが一致しません。"
+
+#~ msgid "Ver todas las secciones"
+#~ msgstr "すべてのセクションを表示"
+
+#~ msgid "Al menos un carácter especial (!@#$%^&*())"
+#~ msgstr "特殊文字を1つ以上 (!@#$%^&*())"
+
+#~ msgid "Al menos un número"
+#~ msgstr "数字を1つ以上"
+
+#~ msgid "Al menos una letra mayúscula"
+#~ msgstr "大文字を1つ以上"
+
+#~ msgid "Cuenta"
+#~ msgstr "アカウント"
+
+#~ msgid "Datos personales"
+#~ msgstr "個人情報"
+
+#~ msgid "Elige tu rol"
+#~ msgstr "役割を選択"
+
+#~ msgid "Encuentra talento para tu negocio."
+#~ msgstr "あなたのビジネスに人材を見つけましょう。"
+
+#~ msgid "Esta funcionalidad estará disponible próximamente."
+#~ msgstr "この機能はまもなく利用可能になります。"
+
+#~ msgid "Introduce un email válido."
+#~ msgstr "有効なメールアドレスを入力してください。"
+
+#~ msgid ""
+#~ "La contraseña debe tener al menos 8 caracteres, 1 mayúscula, 1 número y 1 "
+#~ "carácter especial."
+#~ msgstr ""
+#~ "パスワードは8文字以上で、大文字1文字、数字1文字、特殊文字1文字を含む必要が"
+#~ "あります。"
+
+#~ msgid "Mínimo 8 caracteres"
+#~ msgstr "8文字以上"
+
+#~ msgid "Perfil profesional"
+#~ msgstr "職業プロフィール"
+
+#~ msgid "Por favor, completa este campo."
+#~ msgstr "このフィールドに入力してください。"
+
+#~ msgid "Próximamente"
+#~ msgstr "近日公開"
+
+#~ msgid "Publica tu CV y encuentra oportunidades."
+#~ msgstr "履歴書を公開して機会を見つけましょう。"
+
+#~ msgid "Registro de Trabajador"
+#~ msgstr "求職者登録"
+
+#~ msgid "Soy Empresa"
+#~ msgstr "私は企業です"
+
+#~ msgid "Soy Trabajador"
+#~ msgstr "私は求職者です"
+
+#~ msgid "o con tu correo electrónico"
+#~ msgstr "またはメールアドレスで"
+
+#~ msgid "Regístrate con"
+#~ msgstr "で登録する"
+
+#~ msgid "o crea tu cuenta con correo electrónico"
+#~ msgstr "またはメールアドレスでアカウントを作成する"
+
+#~ msgid "Para terminar tu registro, completa tu perfil profesional."
+#~ msgstr "登録を完了するには、職業プロフィールを完成させてください。"
+
+#~ msgid "Selecciona al menos un campo (título o sector) para continuar."
+#~ msgstr ""
+#~ "続行するには、少なくとも1つの項目（職業称号または分野）を選択してくださ"
+#~ "い。"
+
+#~ msgid "Debes seleccionar al menos un campo (título o sector)."
+#~ msgstr "少なくとも1つの項目（職業称号または分野）を選択する必要があります。"
+
+#~ msgid "Guardar y continuar"
+#~ msgstr "保存して続ける"

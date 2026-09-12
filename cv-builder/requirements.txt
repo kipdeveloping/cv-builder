@@ -1,5 +1,0 @@
-Django==6.1.1
-django-allauth==65.19.2
-crispy-bootstrap5
-django-crispy-forms
-Pillow

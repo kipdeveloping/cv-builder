@@ -1,0 +1,93 @@
+.editor-stage {
+    outline: 1px solid rgba(100, 116, 139, 0.3);
+    border-radius: 12px;
+    transition: outline-color 0.2s ease;
+}
+
+.editor-stage:hover,
+.editor-stage:focus-within {
+    outline-color: rgba(99, 102, 241, 0.6);
+}
+
+#cv-container [contenteditable]:empty::before {
+    content: attr(data-placeholder);
+    color: rgba(107, 114, 128, 0.6);
+    pointer-events: none;
+}
+
+#cv-container [contenteditable] {
+    min-height: 1em;
+    outline: none;
+}
+
+.entry {
+    position: relative;
+}
+
+.entry-remove {
+    position: absolute;
+    top: 6px;
+    right: -34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 9999px;
+    background: rgba(239, 68, 68, 0.12);
+    color: #dc2626;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.entry:hover .entry-remove {
+    opacity: 1;
+}
+
+.skill-tag {
+    position: relative;
+}
+
+.skill-tag .tag-remove {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 18px;
+    height: 18px;
+    border-radius: 9999px;
+    background: #dc2626;
+    color: #fff;
+    font-size: 11px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.skill-tag:hover .tag-remove {
+    opacity: 1;
+}
+
+.add-section-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+    font-size: 0.875rem;
+    color: #4f46e5;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.add-section-btn:hover {
+    color: #4338ca;
+    text-decoration: underline;
+}

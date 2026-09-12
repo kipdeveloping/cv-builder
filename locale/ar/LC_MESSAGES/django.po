@@ -1,0 +1,1339 @@
+# Arabic translations for CV Builder
+# Copyright (C) 2026
+# This file is distributed under the same license as the CV Builder project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CV Builder 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-12 00:11-0400\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+#: .\apps\accounts\forms.py:11 .\apps\accounts\forms.py:28
+#: .\templates\accounts\login.html:31 .\templates\accounts\register.html:34
+#: .\templates\registration\password_reset_form.html:24
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: .\apps\accounts\forms.py:18 .\apps\accounts\forms.py:35
+#: .\templates\accounts\account_settings.html:25
+#: .\templates\accounts\login.html:38 .\templates\accounts\register.html:42
+msgid "Contraseña"
+msgstr "كلمة المرور"
+
+#: .\apps\accounts\forms.py:42 .\templates\accounts\register.html:52
+msgid "Confirmar contraseña"
+msgstr "تأكيد كلمة المرور"
+
+#: .\apps\accounts\forms.py:56
+msgid "Este email ya está registrado."
+msgstr "هذا البريد الإلكتروني مسجل بالفعل."
+
+#: .\apps\accounts\forms.py:64
+msgid "La contraseña debe tener al menos 8 caracteres."
+msgstr "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل."
+
+#: .\apps\accounts\forms.py:66
+msgid "La contraseña debe contener al menos una letra mayúscula."
+msgstr "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل."
+
+#: .\apps\accounts\forms.py:68
+msgid "La contraseña debe contener al menos un número."
+msgstr "يجب أن تحتوي كلمة المرور على رقم واحد على الأقل."
+
+#: .\apps\accounts\forms.py:70
+#, python-brace-format
+msgid ""
+"La contraseña debe contener al menos un carácter especial (!@#$%^&*(),.?\":"
+"{}|<>)."
+msgstr ""
+"يجب أن تحتوي كلمة المرور على حرف خاص واحد على الأقل (!@#$%^&*(),.?\":{}|<>)."
+
+#: .\apps\accounts\forms.py:87 .\apps\accounts\forms.py:106
+#: .\templates\accounts\complete_profile.html:29
+#: .\templates\accounts\dashboard.html:13 .\templates\accounts\register.html:61
+#: .\templates\resumes\templates\_section_references.html:14
+msgid "Nombre"
+msgstr "الاسم الأول"
+
+#: .\apps\accounts\forms.py:95 .\apps\accounts\forms.py:115
+#: .\templates\accounts\complete_profile.html:37
+#: .\templates\accounts\dashboard.html:15 .\templates\accounts\register.html:68
+msgid "Apellido"
+msgstr "اللقب"
+
+#: .\apps\accounts\forms.py:124 .\templates\accounts\register.html:77
+#, fuzzy
+#| msgid "Título profesional"
+msgid "Cargo / Título profesional"
+msgstr "المسمى المهني"
+
+#: .\apps\accounts\forms.py:133 .\templates\accounts\register.html:84
+msgid "Sector"
+msgstr "القطاع"
+
+#: .\apps\accounts\views.py:23 .\apps\accounts\views.py:334
+msgid "Este usuario no esta registrado. Por favor, crea una cuenta primero."
+msgstr "هذا المستخدم غير مسجل. يرجى إنشاء حساب أولاً."
+
+#: .\apps\accounts\views.py:38
+msgid "Email o contraseña incorrectos."
+msgstr "البريد الإلكتروني أو كلمة المرور غير صحيحة."
+
+#: .\apps\accounts\views.py:58
+msgid "¡Cuenta creada exitosamente!"
+msgstr "تم إنشاء الحساب بنجاح!"
+
+#: .\apps\accounts\views.py:61
+msgid "Por favor, corrige los errores."
+msgstr "يرجى تصحيح الأخطاء."
+
+#: .\apps\accounts\views.py:70
+msgid "Has cerrado sesión correctamente."
+msgstr "لقد سجلت خروجك بنجاح."
+
+#: .\apps\accounts\views.py:116
+msgid "La foto no puede superar los 5MB."
+msgstr "لا يمكن أن تتجاوز الصورة 5 ميجابايت."
+
+#: .\apps\accounts\views.py:121
+msgid "Solo se permiten archivos JPG, PNG o WebP."
+msgstr "يُسمح بملفات JPG أو PNG أو WebP فقط."
+
+#: .\apps\accounts\views.py:127
+msgid "Foto actualizada correctamente."
+msgstr "تم تحديث الصورة بنجاح."
+
+#: .\apps\accounts\views.py:139
+msgid "Bio actualizada correctamente."
+msgstr "تم تحديث السيرة الذاتية بنجاح."
+
+#: .\apps\accounts\views.py:266
+msgid "Nombre, email y mensaje son obligatorios."
+msgstr "الاسم والبريد الإلكتروني والرسالة إلزامية."
+
+#: .\apps\accounts\views.py:276
+msgid "El formato del email no es valido."
+msgstr "صيغة البريد الإلكتروني غير صالحة."
+
+#: .\apps\accounts\views.py:347
+#, fuzzy
+#| msgid "Bio actualizada correctamente."
+msgid "Perfil completado correctamente."
+msgstr "تم تحديث السيرة الذاتية بنجاح."
+
+#: .\apps\resumes\views.py:69
+msgid "CV creado exitosamente. ¡Ahora personalízalo!"
+msgstr "تم إنشاء السيرة الذاتية بنجاح. خصّصها الآن!"
+
+#: .\templates\accounts\account_settings.html:4
+#: .\templates\accounts\account_settings.html:9
+msgid "Configuracion de Cuenta"
+msgstr "إعدادات الحساب"
+
+#: .\templates\accounts\account_settings.html:13
+msgid "Informacion de Cuenta"
+msgstr "معلومات الحساب"
+
+#: .\templates\accounts\account_settings.html:15
+#, fuzzy
+#| msgid "Email"
+msgid "Email:"
+msgstr "البريد الإلكتروني"
+
+#: .\templates\accounts\account_settings.html:16
+#, fuzzy
+#| msgid "Nombre"
+msgid "Nombre:"
+msgstr "الاسم الأول"
+
+#: .\templates\accounts\account_settings.html:22
+msgid "Seguridad"
+msgstr "الأمان"
+
+#: .\templates\accounts\account_settings.html:26
+msgid "Cambia tu contraseña de acceso."
+msgstr "غيّر كلمة مرور الدخول."
+
+#: .\templates\accounts\account_settings.html:30
+#: .\templates\registration\password_change_form.html:4
+#: .\templates\registration\password_change_form.html:9
+msgid "Cambiar contraseña"
+msgstr "تغيير كلمة المرور"
+
+#: .\templates\accounts\account_settings.html:37
+msgid "Cuentas Vinculadas"
+msgstr "الحسابات المرتبطة"
+
+#: .\templates\accounts\account_settings.html:53
+#: .\templates\accounts\account_settings.html:71
+#: .\templates\accounts\account_settings.html:89
+msgid "Vinculada"
+msgstr "مرتبط"
+
+#: .\templates\accounts\account_settings.html:54
+#: .\templates\accounts\account_settings.html:72
+#: .\templates\accounts\account_settings.html:90
+msgid "Desvincular"
+msgstr "إلغاء الارتباط"
+
+#: .\templates\accounts\account_settings.html:56
+#: .\templates\accounts\account_settings.html:74
+#: .\templates\accounts\account_settings.html:92
+msgid "Vincular"
+msgstr "ربط"
+
+#: .\templates\accounts\account_settings.html:102
+#, fuzzy
+#| msgid "Volver al dashboard"
+msgid "Volver al Dashboard"
+msgstr "العودة إلى لوحة التحكم"
+
+#: .\templates\accounts\complete_profile.html:4
+#, fuzzy
+#| msgid "Completa tu perfil profesional"
+msgid "Completar perfil"
+msgstr "أكمل ملفك المهني"
+
+#: .\templates\accounts\complete_profile.html:9
+#, fuzzy
+#| msgid "Completa tu perfil profesional"
+msgid "Completa tu perfil"
+msgstr "أكمل ملفك المهني"
+
+#: .\templates\accounts\complete_profile.html:10
+msgid "Cuéntanos un poco sobre ti para personalizar tu experiencia."
+msgstr "أخبرنا قليلاً عن نفسك لتخصيص تجربتك."
+
+#: .\templates\accounts\complete_profile.html:14
+#, fuzzy
+#| msgid "Por favor, corrige los errores."
+msgid "Por favor, corrige los errores:"
+msgstr "يرجى تصحيح الأخطاء."
+
+#: .\templates\accounts\complete_profile.html:32
+#: .\templates\accounts\profile.html:347 .\templates\accounts\register.html:64
+msgid "Tu nombre"
+msgstr "اسمك الأول"
+
+#: .\templates\accounts\complete_profile.html:40
+#: .\templates\accounts\register.html:71
+#, fuzzy
+#| msgid "Tus apellidos"
+msgid "Tu apellido"
+msgstr "اسمك الأخير"
+
+#: .\templates\accounts\complete_profile.html:46
+msgid "Continuar"
+msgstr "متابعة"
+
+#: .\templates\accounts\dashboard.html:5 .\templates\base.html:72
+msgid "Dashboard"
+msgstr "لوحة التحكم"
+
+#: .\templates\accounts\dashboard.html:10
+#, fuzzy
+#| msgid "CV Builder"
+msgid "Bienvenido a CV Builder"
+msgstr "منشئ السيرة الذاتية"
+
+#: .\templates\accounts\dashboard.html:11
+msgid "Para completar tu perfil, necesitamos tu nombre y apellido."
+msgstr "لإكمال ملفك الشخصي، نحتاج إلى اسمك الأول والأخير."
+
+#: .\templates\accounts\dashboard.html:19
+#: .\templates\accounts\dashboard.html:310
+#: .\templates\accounts\dashboard.html:334
+#: .\templates\accounts\dashboard.html:357
+#: .\templates\accounts\dashboard.html:407
+#: .\templates\accounts\dashboard.html:466
+#: .\templates\accounts\dashboard.html:516
+#: .\templates\accounts\dashboard.html:608
+#: .\templates\accounts\dashboard.html:654
+#, fuzzy
+#| msgid "Guardar bio"
+msgid "Guardar"
+msgstr "حفظ النبذة"
+
+#: .\templates\accounts\dashboard.html:33 .\templates\accounts\profile.html:24
+#: .\templates\resumes\templates\classic.html:6
+#: .\templates\resumes\templates\creative.html:6
+#: .\templates\resumes\templates\modern.html:5
+msgid "Foto de perfil"
+msgstr "صورة الملف الشخصي"
+
+#: .\templates\accounts\dashboard.html:85
+#, fuzzy
+#| msgid "Editar"
+msgid "Editar estado"
+msgstr "تعديل"
+
+#: .\templates\accounts\dashboard.html:92 .\templates\accounts\profile.html:64
+#: .\templates\resumes\templates\_section_skills.html:3
+#: .\templates\resumes\templates\creative.html:28
+msgid "Habilidades"
+msgstr "المهارات"
+
+#: .\templates\accounts\dashboard.html:95
+#: .\templates\accounts\dashboard.html:118
+#: .\templates\accounts\dashboard.html:132
+#: .\templates\accounts\dashboard.html:254
+#: .\templates\accounts\dashboard.html:558
+msgid "Editar"
+msgstr "تعديل"
+
+#: .\templates\accounts\dashboard.html:107 .\templates\accounts\profile.html:74
+#, fuzzy
+#| msgid "Habilidades"
+msgid "Sin habilidades"
+msgstr "المهارات"
+
+#: .\templates\accounts\dashboard.html:115 .\templates\accounts\profile.html:81
+msgid "Bio"
+msgstr "نبذة قصيرة"
+
+#: .\templates\accounts\dashboard.html:129
+#: .\templates\accounts\dashboard.html:416 .\templates\accounts\profile.html:88
+msgid "Preferencias de trabajo"
+msgstr "تفضيلات العمل"
+
+#: .\templates\accounts\dashboard.html:137 .\templates\accounts\profile.html:92
+msgid "Tipo de empleo:"
+msgstr "نوع التوظيف:"
+
+#: .\templates\accounts\dashboard.html:141 .\templates\accounts\profile.html:98
+msgid "Salario esperado:"
+msgstr "الراتب المتوقع:"
+
+#: .\templates\accounts\dashboard.html:145
+#: .\templates\accounts\profile.html:104
+msgid "Disponible para mudarse:"
+msgstr "مستعد للانتقال:"
+
+#: .\templates\accounts\dashboard.html:149
+#: .\templates\accounts\profile.html:110
+msgid "Disponible para viajar:"
+msgstr "مستعد للسفر:"
+
+#: .\templates\accounts\dashboard.html:158
+#: .\templates\accounts\dashboard.html:525
+msgid "Mis Curriculums"
+msgstr "سيري الذاتية"
+
+#: .\templates\accounts\dashboard.html:167
+#: .\templates\accounts\profile.html:138
+#, fuzzy
+#| msgid "Experiencia"
+msgid "Experiencia y Proyectos"
+msgstr "الخبرة"
+
+#: .\templates\accounts\dashboard.html:170
+#: .\templates\resumes\templates\creative.html:38
+msgid "Agregar"
+msgstr "إضافة"
+
+#: .\templates\accounts\dashboard.html:251
+#: .\templates\accounts\profile.html:180
+msgid "Redes Sociales"
+msgstr "روابط التواصل الاجتماعي"
+
+#: .\templates\accounts\dashboard.html:283
+#: .\templates\accounts\profile.html:207
+msgid "Sin redes sociales configuradas"
+msgstr "لا توجد روابط تواصل اجتماعي"
+
+#: .\templates\accounts\dashboard.html:294
+#, fuzzy
+#| msgid "Actualizado:"
+msgid "Actualizar foto"
+msgstr "آخر تحديث:"
+
+#: .\templates\accounts\dashboard.html:305
+#, fuzzy
+#| msgid "JPG, PNG o WebP. Máximo 5MB."
+msgid "JPG, PNG o WebP. Maximo 5MB."
+msgstr "JPG أو PNG أو WebP. بحد أقصى 5MB."
+
+#: .\templates\accounts\dashboard.html:308
+#: .\templates\accounts\dashboard.html:332
+#: .\templates\accounts\dashboard.html:355
+#: .\templates\accounts\dashboard.html:405
+#: .\templates\accounts\dashboard.html:464
+#: .\templates\accounts\dashboard.html:514
+#: .\templates\accounts\dashboard.html:606
+#: .\templates\accounts\dashboard.html:652
+#: .\templates\accounts\profile.html:368 .\templates\resumes\editor.html:72
+msgid "Cancelar"
+msgstr "إلغاء"
+
+#: .\templates\accounts\dashboard.html:320
+#, fuzzy
+#| msgid "Actualizado:"
+msgid "Actualizar titular"
+msgstr "آخر تحديث:"
+
+#: .\templates\accounts\dashboard.html:329
+#, fuzzy
+#| msgid "Ej: Desarrollador Web"
+msgid "Ej: Desarrollador Full Stack Senior"
+msgstr "مثال: مطور ويب"
+
+#: .\templates\accounts\dashboard.html:343
+#, fuzzy
+#| msgid "Actualizado:"
+msgid "Actualizar bio"
+msgstr "آخر تحديث:"
+
+#: .\templates\accounts\dashboard.html:352
+#, fuzzy
+#| msgid "Cuéntanos sobre ti..."
+msgid "Cuentanos sobre ti..."
+msgstr "حدثنا عن نفسك..."
+
+#: .\templates\accounts\dashboard.html:366
+#, fuzzy
+#| msgid "Actualizado:"
+msgid "Actualizar estado"
+msgstr "آخر تحديث:"
+
+#: .\templates\accounts\dashboard.html:375
+msgid "Estado de busqueda"
+msgstr "حالة البحث عن عمل"
+
+#: .\templates\accounts\dashboard.html:377
+#: .\templates\accounts\dashboard.html:386
+#: .\templates\accounts\dashboard.html:396
+#: .\templates\accounts\dashboard.html:446
+#: .\templates\accounts\dashboard.html:455
+msgid "No especificado"
+msgstr "غير محدد"
+
+#: .\templates\accounts\dashboard.html:378
+msgid "Buscando activamente"
+msgstr "يبحث بنشاط"
+
+#: .\templates\accounts\dashboard.html:379
+msgid "Abierto a ofertas"
+msgstr "مفتوح للعروض"
+
+#: .\templates\accounts\dashboard.html:380
+msgid "No buscando"
+msgstr "لا يبحث"
+
+#: .\templates\accounts\dashboard.html:384
+msgid "Disponibilidad"
+msgstr "التوفر"
+
+#: .\templates\accounts\dashboard.html:387
+msgid "Inmediata"
+msgstr "فوري"
+
+#: .\templates\accounts\dashboard.html:388
+msgid "2 semanas"
+msgstr "أسبوعان"
+
+#: .\templates\accounts\dashboard.html:389
+msgid "1 mes"
+msgstr "شهر واحد"
+
+#: .\templates\accounts\dashboard.html:390
+msgid "Negociable"
+msgstr "قابل للتفاوض"
+
+#: .\templates\accounts\dashboard.html:394
+msgid "Preferencia de ubicacion"
+msgstr "تفضيل الموقع"
+
+#: .\templates\accounts\dashboard.html:397
+msgid "Remoto"
+msgstr "عن بُعد"
+
+#: .\templates\accounts\dashboard.html:398
+msgid "Hibrido"
+msgstr "هجين"
+
+#: .\templates\accounts\dashboard.html:399
+msgid "Presencial"
+msgstr "في المكتب"
+
+#: .\templates\accounts\dashboard.html:425
+msgid "Tipo de empleo"
+msgstr "نوع التوظيف"
+
+#: .\templates\accounts\dashboard.html:438
+msgid "Salario esperado"
+msgstr "الراتب المتوقع"
+
+#: .\templates\accounts\dashboard.html:441
+msgid "Ej: $50,000 - $70,000"
+msgstr "مثال: 50,000 - 70,000 دولار"
+
+#: .\templates\accounts\dashboard.html:444
+msgid "Disponible para mudarse"
+msgstr "مستعد للانتقال"
+
+#: .\templates\accounts\dashboard.html:447
+msgid "Sí"
+msgstr "نعم"
+
+#: .\templates\accounts\dashboard.html:448
+#: .\templates\accounts\dashboard.html:456
+msgid "No"
+msgstr "لا"
+
+#: .\templates\accounts\dashboard.html:449
+msgid "Según destino"
+msgstr "حسب الوجهة"
+
+#: .\templates\accounts\dashboard.html:453
+msgid "Disponible para viajar"
+msgstr "مستعد للسفر"
+
+#: .\templates\accounts\dashboard.html:457
+#, fuzzy
+#| msgid "Opcional"
+msgid "Ocasional"
+msgstr "اختياري"
+
+#: .\templates\accounts\dashboard.html:458
+#, fuzzy
+#| msgid "Crea tu cuenta"
+msgid "Frecuente"
+msgstr "أنشئ حسابك"
+
+#: .\templates\accounts\dashboard.html:475
+#, fuzzy
+#| msgid "Habilidades"
+msgid "Editar habilidades"
+msgstr "المهارات"
+
+#: .\templates\accounts\dashboard.html:486
+#, fuzzy
+#| msgid "Agregar habilidad"
+msgid "Nueva habilidad"
+msgstr "إضافة مهارة"
+
+#: .\templates\accounts\dashboard.html:498
+#, fuzzy
+#| msgid "Sector principal:"
+msgid "Principal"
+msgstr "القطاع الرئيسي:"
+
+#: .\templates\accounts\dashboard.html:545
+msgid "Actualizado:"
+msgstr "آخر تحديث:"
+
+#: .\templates\accounts\dashboard.html:551
+msgid "Destacado"
+msgstr "مميز"
+
+#: .\templates\accounts\dashboard.html:563
+msgid "Ver CV"
+msgstr "عرض السيرة"
+
+#: .\templates\accounts\dashboard.html:574
+msgid "Crear nuevo CV"
+msgstr "إنشاء سيرة ذاتية جديدة"
+
+#: .\templates\accounts\dashboard.html:584
+#: .\templates\resumes\templates\_section_experience.html:22
+msgid "Agregar experiencia"
+msgstr "إضافة خبرة"
+
+#: .\templates\accounts\dashboard.html:594
+#, fuzzy
+#| msgid "Título del puesto"
+msgid "Titulo del puesto"
+msgstr "المسمى الوظيفي"
+
+#: .\templates\accounts\dashboard.html:596
+#: .\templates\resumes\templates\_section_experience.html:15
+#: .\templates\resumes\templates\_section_references.html:16
+msgid "Empresa"
+msgstr "الشركة"
+
+#: .\templates\accounts\dashboard.html:598
+#: .\templates\resumes\templates\_section_experience.html:16
+#: .\templates\resumes\templates\_section_volunteering.html:16
+msgid "2020 - Presente"
+msgstr "2020 - حتى الآن"
+
+#: .\templates\accounts\dashboard.html:600
+msgid "Descripcion..."
+msgstr "الوصف..."
+
+#: .\templates\accounts\dashboard.html:617
+msgid "Editar redes sociales"
+msgstr "تعديل روابط التواصل الاجتماعي"
+
+#: .\templates\accounts\login.html:4 .\templates\accounts\login.html:46
+#: .\templates\base.html:75
+msgid "Entrar"
+msgstr "دخول"
+
+#: .\templates\accounts\login.html:9
+msgid "Iniciar Sesión"
+msgstr "تسجيل الدخول"
+
+#: .\templates\accounts\login.html:23
+msgid "Email o contraseña incorrectos. Por favor, inténtalo de nuevo."
+msgstr "البريد الإلكتروني أو كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى."
+
+#: .\templates\accounts\login.html:52
+msgid "¿Olvidaste tu contraseña?"
+msgstr "هل نسيت كلمة المرور؟"
+
+#: .\templates\accounts\login.html:62
+#, fuzzy
+#| msgid "Continúa con"
+msgid "O continúa con"
+msgstr "المتابعة عبر"
+
+#: .\templates\accounts\login.html:102
+msgid ""
+"El login con redes sociales no está configurado. Consulta el README para "
+"configurar las credenciales OAuth."
+msgstr ""
+"تسجيل الدخول عبر وسائل التواصل الاجتماعي غير مهيأ. راجع README لتهيئة بيانات "
+"OAuth."
+
+#: .\templates\accounts\login.html:108
+msgid "¿No tienes cuenta?"
+msgstr "ليس لديك حساب؟"
+
+#: .\templates\accounts\login.html:109
+msgid "Regístrate"
+msgstr "سجل الآن"
+
+#: .\templates\accounts\profile.html:10
+msgid "Este es tu perfil publico"
+msgstr "هذا هو ملفك الشخصي العام"
+
+#: .\templates\accounts\profile.html:12
+#: .\templates\registration\password_change_done.html:13
+#, fuzzy
+#| msgid "Volver al dashboard"
+msgid "Ir al Dashboard"
+msgstr "العودة إلى لوحة التحكم"
+
+#: .\templates\accounts\profile.html:122
+#, fuzzy
+#| msgid "Contacto"
+msgid "Contactar"
+msgstr "اتصل بنا"
+
+#: .\templates\accounts\profile.html:131
+#, fuzzy
+#| msgid "Aún no tienes CVs creados."
+msgid "Este candidato no tiene CVs publicados."
+msgstr "هذا المرشح ليس لديه سير ذاتية منشورة."
+
+#: .\templates\accounts\profile.html:215
+#: .\templates\resumes\templates\_section_education.html:3
+msgid "Educación"
+msgstr "التعليم"
+
+#: .\templates\accounts\profile.html:231
+#: .\templates\resumes\templates\_section_languages.html:3
+msgid "Idiomas"
+msgstr "اللغات"
+
+#: .\templates\accounts\profile.html:243
+#: .\templates\resumes\templates\_section_certifications.html:3
+msgid "Certificaciones y Cursos"
+msgstr "الشهادات والدورات"
+
+#: .\templates\accounts\profile.html:258
+#: .\templates\resumes\templates\_section_volunteering.html:3
+msgid "Voluntariado"
+msgstr "العمل التطوعي"
+
+#: .\templates\accounts\profile.html:274
+#: .\templates\resumes\templates\_section_awards.html:3
+msgid "Premios y Reconocimientos"
+msgstr "الجوائز والتكريمات"
+
+#: .\templates\accounts\profile.html:289
+#: .\templates\resumes\templates\_section_publications.html:3
+#, fuzzy
+#| msgid "Publicado"
+msgid "Publicaciones"
+msgstr "منشور"
+
+#: .\templates\accounts\profile.html:305
+#: .\templates\resumes\templates\_section_interests.html:3
+msgid "Intereses"
+msgstr "الاهتمامات"
+
+#: .\templates\accounts\profile.html:317
+#: .\templates\resumes\templates\_section_references.html:3
+#, fuzzy
+#| msgid "Experiencia"
+msgid "Referencias"
+msgstr "الخبرة"
+
+#: .\templates\accounts\profile.html:338
+#, fuzzy
+#| msgid "Contacto"
+msgid "Contactar a"
+msgstr "اتصل بنا"
+
+#: .\templates\accounts\profile.html:350
+msgid "Nombre completo"
+msgstr "الاسم الكامل"
+
+#: .\templates\accounts\profile.html:353
+#, fuzzy
+#| msgid "Email"
+msgid "Tu email"
+msgstr "البريد الإلكتروني"
+
+#: .\templates\accounts\profile.html:356
+msgid "tu@email.com"
+msgstr "you@email.com"
+
+#: .\templates\accounts\profile.html:359
+msgid "Mensaje"
+msgstr "رسالة"
+
+#: .\templates\accounts\profile.html:362
+msgid "Escribe tu mensaje..."
+msgstr "اكتب رسالتك..."
+
+#: .\templates\accounts\profile.html:370
+msgid "Enviar"
+msgstr "إرسال"
+
+#: .\templates\accounts\register.html:5 .\templates\base.html:76
+msgid "Registrarse"
+msgstr "تسجيل"
+
+#: .\templates\accounts\register.html:10 .\templates\accounts\register.html:103
+msgid "Crear Cuenta"
+msgstr "إنشاء حساب"
+
+#: .\templates\accounts\register.html:11
+msgid "Paso 1 de 3 — Datos de acceso"
+msgstr "الخطوة 1 من 3 — بيانات الدخول"
+
+#: .\templates\accounts\register.html:15
+msgid "Por favor, corrige los siguientes errores:"
+msgstr "يرجى تصحيح الأخطاء التالية:"
+
+#: .\templates\accounts\register.html:47
+msgid "Mínimo 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial."
+msgstr "8 أحرف على الأقل، حرف كبير واحد، رقم واحد وحرف خاص واحد."
+
+#: .\templates\accounts\register.html:80
+msgid "Ej: Ingeniero de Software"
+msgstr "مثال: مهندس برمجيات"
+
+#: .\templates\accounts\register.html:87
+msgid "Ej: Tecnología"
+msgstr "مثال: تقنية"
+
+#: .\templates\accounts\register.html:94
+msgid "Atrás"
+msgstr "رجوع"
+
+#: .\templates\accounts\register.html:99
+msgid "Siguiente"
+msgstr "التالي"
+
+#: .\templates\accounts\register.html:115
+#: .\templates\registration\password_reset_form.html:36
+msgid "¿Ya tienes cuenta?"
+msgstr "هل لديك حساب بالفعل؟"
+
+#: .\templates\accounts\register.html:116
+#: .\templates\registration\password_reset_complete.html:13
+#: .\templates\registration\password_reset_done.html:13
+#: .\templates\registration\password_reset_form.html:37
+msgid "Inicia sesión"
+msgstr "تسجيل الدخول"
+
+#: .\templates\base.html:30
+msgid "Tablón"
+msgstr "لوحة الإعلانات"
+
+#: .\templates\base.html:33
+msgid "Cambiar tema"
+msgstr "تغيير المظهر"
+
+#: .\templates\base.html:73
+msgid "Salir"
+msgstr "تسجيل الخروج"
+
+#: .\templates\base.html:89
+msgid "Todos los derechos reservados."
+msgstr "جميع الحقوق محفوظة."
+
+#: .\templates\landing.html:4 .\templates\landing.html:10
+msgid "Crea tu CV profesional"
+msgstr "أنشئ سيرتك الذاتية المهنية"
+
+#: .\templates\landing.html:13
+msgid ""
+"Diseña CVs impresionantes con plantillas profesionales. Publica en nuestro "
+"tablón de talentos y conecta con oportunidades."
+msgstr ""
+"صمّم سيرًا ذاتية مذهلة باستخدام قوالب احترافية. انشر في لوحة المواهب وتواصل مع "
+"الفرص."
+
+#: .\templates\landing.html:19
+msgid "Mi Dashboard"
+msgstr "لوحة التحكم الخاصة بي"
+
+#: .\templates\landing.html:24
+msgid "Comenzar ahora"
+msgstr "ابدأ الآن"
+
+#: .\templates\landing.html:28
+msgid "Ya tengo cuenta"
+msgstr "لدي حساب بالفعل"
+
+#: .\templates\landing.html:34
+msgid "O explora el tablón como invitado"
+msgstr "أو استكشف اللوحة كضيف"
+
+#: .\templates\landing.html:41
+msgid "¿Por qué CV Builder?"
+msgstr "لماذا CV Builder؟"
+
+#: .\templates\landing.html:51
+msgid "3 Plantillas profesionales"
+msgstr "3 قوالب احترافية"
+
+#: .\templates\landing.html:52
+msgid ""
+"Elige entre diseños clásico, moderno y creativo para destacar tu perfil."
+msgstr "اختر من بين التصاميم الكلاسيكية والحديثة والإبداعية لإبراز ملفك."
+
+#: .\templates\landing.html:61
+msgid "Editor visual"
+msgstr "محرر بصري"
+
+#: .\templates\landing.html:62
+msgid "Edita directamente en la plantilla con autoguardado automático."
+msgstr "حرّر مباشرة في القالب مع حفظ تلقائي."
+
+#: .\templates\landing.html:71
+msgid "Tablón de talentos"
+msgstr "لوحة المواهب"
+
+#: .\templates\landing.html:72
+msgid "Publica tu CV y descubre profesionales por sector."
+msgstr "انشر سيرتك الذاتية واكتشف المحترفين حسب القطاع."
+
+#: .\templates\landing.html:78
+msgid "¿Listo para crear tu CV?"
+msgstr "هل أنت مستعد لإنشاء سيرتك الذاتية؟"
+
+#: .\templates\landing.html:79
+msgid "Únete a nuestra comunidad de profesionales."
+msgstr "انضم إلى مجتمعنا من المحترفين."
+
+#: .\templates\landing.html:83
+msgid "Crear cuenta gratis"
+msgstr "أنشئ حسابًا مجانيًا"
+
+#: .\templates\registration\password_change_done.html:4
+msgid "Contraseña cambiada"
+msgstr "تم تغيير كلمة المرور"
+
+#: .\templates\registration\password_change_done.html:9
+#: .\templates\registration\password_reset_complete.html:9
+msgid "Contraseña actualizada"
+msgstr "تم تحديث كلمة المرور"
+
+#: .\templates\registration\password_change_done.html:10
+#, fuzzy
+#| msgid "Foto actualizada correctamente."
+msgid "Tu contraseña ha sido cambiada correctamente."
+msgstr "تم تحديث الصورة بنجاح."
+
+#: .\templates\registration\password_change_form.html:10
+msgid "Introduce tu nueva contraseña."
+msgstr "أدخل كلمة المرور الجديدة."
+
+#: .\templates\registration\password_change_form.html:32
+msgid "Actualizar contraseña"
+msgstr "تحديث كلمة المرور"
+
+#: .\templates\registration\password_reset_complete.html:4
+#, fuzzy
+#| msgid "Contraseña"
+msgid "Contraseña restablecida"
+msgstr "كلمة المرور"
+
+#: .\templates\registration\password_reset_complete.html:10
+msgid "Tu contraseña ha sido restablecida. Ya puedes iniciar sesión."
+msgstr "تمت إعادة تعيين كلمة المرور. يمكنك الآن تسجيل الدخول."
+
+#: .\templates\registration\password_reset_confirm.html:4
+#, fuzzy
+#| msgid "Contraseña"
+msgid "Nueva contraseña"
+msgstr "كلمة المرور"
+
+#: .\templates\registration\password_reset_confirm.html:9
+msgid "Elige una nueva contraseña"
+msgstr "اختر كلمة مرور جديدة"
+
+#: .\templates\registration\password_reset_confirm.html:10
+msgid "Introduce tu nueva contraseña dos veces para verificar."
+msgstr "أدخل كلمة المرور الجديدة مرتين للتحقق."
+
+#: .\templates\registration\password_reset_confirm.html:33
+msgid "Guardar contraseña"
+msgstr "حفظ كلمة المرور"
+
+#: .\templates\registration\password_reset_confirm.html:38
+msgid ""
+"El enlace de restablecimiento no es válido o ya ha sido usado. Solicita uno "
+"nuevo."
+msgstr "رابط إعادة التعيين غير صالح أو تم استخدامه بالفعل. اطلب رابطاً جديداً."
+
+#: .\templates\registration\password_reset_confirm.html:41
+msgid "Solicitar nuevo enlace"
+msgstr "طلب رابط جديد"
+
+#: .\templates\registration\password_reset_done.html:4
+msgid "Email enviado"
+msgstr "تم إرسال البريد"
+
+#: .\templates\registration\password_reset_done.html:9
+msgid "Revisa tu email"
+msgstr "تحقق من بريدك الإلكتروني"
+
+#: .\templates\registration\password_reset_done.html:10
+msgid ""
+"Si existe una cuenta con ese email, te hemos enviado instrucciones para "
+"restablecer tu contraseña."
+msgstr ""
+"إذا كان هناك حساب بهذا البريد، فقد أرسلنا لك تعليمات لإعادة تعيين كلمة "
+"المرور."
+
+#: .\templates\registration\password_reset_email.html:3
+msgid "Recibimos una solicitud para restablecer tu contraseña en CV Builder."
+msgstr "لقد تلقينا طلباً لإعادة تعيين كلمة المرور في CV Builder."
+
+#: .\templates\registration\password_reset_email.html:5
+msgid "Haz clic en el siguiente enlace para elegir una nueva contraseña:"
+msgstr "انقر على الرابط التالي لاختيار كلمة مرور جديدة:"
+
+#: .\templates\registration\password_reset_email.html:9
+msgid ""
+"Si no solicitaste este cambio, ignora este email. Tu contraseña no cambiará."
+msgstr "إذا لم تطلب هذا التغيير، تجاهل هذا البريد. لن تتغير كلمة المرور."
+
+#: .\templates\registration\password_reset_form.html:4
+#: .\templates\registration\password_reset_form.html:9
+msgid "Recuperar contraseña"
+msgstr "استعادة كلمة المرور"
+
+#: .\templates\registration\password_reset_form.html:10
+msgid ""
+"Introduce tu email y te enviaremos instrucciones para restablecer tu "
+"contraseña."
+msgstr "أدخل بريدك الإلكتروني وسنرسل لك تعليمات لإعادة تعيين كلمة المرور."
+
+#: .\templates\registration\password_reset_form.html:31
+msgid "Enviar enlace"
+msgstr "إرسال الرابط"
+
+#: .\templates\registration\password_reset_subject.txt:1
+msgid "Restablecer contraseña"
+msgstr "إعادة تعيين كلمة المرور"
+
+#: .\templates\resumes\editor.html:5 .\templates\resumes\editor.html:20
+msgid "Editor"
+msgstr "المحرر"
+
+#: .\templates\resumes\editor.html:17
+msgid "Volver"
+msgstr "رجوع"
+
+#: .\templates\resumes\editor.html:28
+msgid "Publicar"
+msgstr "نشر"
+
+#: .\templates\resumes\editor.html:32
+msgid "Publicado"
+msgstr "منشور"
+
+#: .\templates\resumes\editor.html:54
+msgid "Publicar CV"
+msgstr "نشر السيرة الذاتية"
+
+#: .\templates\resumes\editor.html:55
+msgid "Selecciona los sectores en los que encaja tu CV:"
+msgstr "اختر القطاعات التي تناسب سيرتك الذاتية:"
+
+#: .\templates\resumes\editor.html:61
+msgid "Sector principal:"
+msgstr "القطاع الرئيسي:"
+
+#: .\templates\resumes\editor.html:76
+msgid "Confirmar publicación"
+msgstr "تأكيد النشر"
+
+#: .\templates\resumes\select_template.html:4
+msgid "Seleccionar Plantilla"
+msgstr "اختر قالبًا"
+
+#: .\templates\resumes\select_template.html:8
+msgid "Elige una plantilla"
+msgstr "اختر قالباً"
+
+#: .\templates\resumes\select_template.html:9
+msgid "Selecciona el diseño que mejor se adapte a tu estilo profesional."
+msgstr "اختر التصميم الذي يناسب أسلوبك المهني."
+
+#: .\templates\resumes\select_template.html:68
+msgid "Seleccionar"
+msgstr "اختيار"
+
+#: .\templates\resumes\select_template.html:77
+msgid "Volver al dashboard"
+msgstr "العودة إلى لوحة التحكم"
+
+#: .\templates\resumes\templates\_section_awards.html:13
+msgid "Premio o reconocimiento"
+msgstr "جائزة أو تكريم"
+
+#: .\templates\resumes\templates\_section_awards.html:14
+msgid "Otorgado por"
+msgstr "مقدم من"
+
+#: .\templates\resumes\templates\_section_awards.html:15
+#: .\templates\resumes\templates\_section_certifications.html:15
+#: .\templates\resumes\templates\_section_publications.html:16
+msgid "Año"
+msgstr "السنة"
+
+#: .\templates\resumes\templates\_section_awards.html:20
+#, fuzzy
+#| msgid "Agregar experiencia"
+msgid "Agregar premio"
+msgstr "إضافة خبرة"
+
+#: .\templates\resumes\templates\_section_certifications.html:13
+msgid "Nombre de la certificación"
+msgstr "اسم الشهادة"
+
+#: .\templates\resumes\templates\_section_certifications.html:14
+#, fuzzy
+#| msgid "Institución"
+msgid "Institución o plataforma"
+msgstr "المؤسسة"
+
+#: .\templates\resumes\templates\_section_certifications.html:20
+#, fuzzy
+#| msgid "Agregar educación"
+msgid "Agregar certificación"
+msgstr "إضافة تعليم"
+
+#: .\templates\resumes\templates\_section_education.html:13
+msgid "Título"
+msgstr "الشهادة"
+
+#: .\templates\resumes\templates\_section_education.html:14
+msgid "Institución"
+msgstr "المؤسسة"
+
+#: .\templates\resumes\templates\_section_education.html:15
+msgid "2018"
+msgstr "2018"
+
+#: .\templates\resumes\templates\_section_education.html:20
+msgid "Agregar educación"
+msgstr "إضافة تعليم"
+
+#: .\templates\resumes\templates\_section_experience.html:3
+msgid "Experiencia"
+msgstr "الخبرة"
+
+#: .\templates\resumes\templates\_section_experience.html:14
+msgid "Título del puesto"
+msgstr "المسمى الوظيفي"
+
+#: .\templates\resumes\templates\_section_experience.html:17
+msgid "Descripción de tus responsabilidades..."
+msgstr "وصف مسؤولياتك..."
+
+#: .\templates\resumes\templates\_section_interests.html:8
+msgid "Viajar"
+msgstr "السفر"
+
+#: .\templates\resumes\templates\_section_interests.html:9
+msgid "Lectura"
+msgstr "القراءة"
+
+#: .\templates\resumes\templates\_section_interests.html:13
+#, fuzzy
+#| msgid "Agregar"
+msgid "Agregar interés"
+msgstr "إضافة"
+
+#: .\templates\resumes\templates\_section_languages.html:12
+msgid "Idioma"
+msgstr "اللغة"
+
+#: .\templates\resumes\templates\_section_languages.html:13
+msgid "Nivel"
+msgstr "المستوى"
+
+#: .\templates\resumes\templates\_section_languages.html:18
+#, fuzzy
+#| msgid "Agregar habilidad"
+msgid "Agregar idioma"
+msgstr "إضافة مهارة"
+
+#: .\templates\resumes\templates\_section_projects.html:3
+msgid "Proyectos"
+msgstr "المشاريع"
+
+#: .\templates\resumes\templates\_section_projects.html:13
+msgid "Nombre del proyecto"
+msgstr "اسم المشروع"
+
+#: .\templates\resumes\templates\_section_projects.html:14
+#, fuzzy
+#| msgid "Descripción de tus responsabilidades..."
+msgid "Descripción del proyecto..."
+msgstr "وصف مسؤولياتك..."
+
+#: .\templates\resumes\templates\_section_projects.html:15
+#: .\templates\resumes\templates\_section_publications.html:17
+msgid "https://..."
+msgstr "https://..."
+
+#: .\templates\resumes\templates\_section_projects.html:20
+#, fuzzy
+#| msgid "Agregar experiencia"
+msgid "Agregar proyecto"
+msgstr "إضافة خبرة"
+
+#: .\templates\resumes\templates\_section_publications.html:14
+#, fuzzy
+#| msgid "Título del puesto"
+msgid "Título de la publicación"
+msgstr "المسمى الوظيفي"
+
+#: .\templates\resumes\templates\_section_publications.html:15
+msgid "Medio o revista"
+msgstr "الوسيلة أو المجلة"
+
+#: .\templates\resumes\templates\_section_publications.html:22
+#, fuzzy
+#| msgid "Agregar educación"
+msgid "Agregar publicación"
+msgstr "إضافة تعليم"
+
+#: .\templates\resumes\templates\_section_references.html:15
+#, fuzzy
+#| msgid "Cargando..."
+msgid "Cargo"
+msgstr "جارٍ التحميل..."
+
+#: .\templates\resumes\templates\_section_references.html:17
+msgid "email o teléfono"
+msgstr "البريد الإلكتروني أو الهاتف"
+
+#: .\templates\resumes\templates\_section_references.html:22
+#, fuzzy
+#| msgid "Agregar experiencia"
+msgid "Agregar referencia"
+msgstr "إضافة خبرة"
+
+#: .\templates\resumes\templates\_section_skills.html:8
+#: .\templates\resumes\templates\creative.html:33
+msgid "Python"
+msgstr "بايثون"
+
+#: .\templates\resumes\templates\_section_skills.html:9
+#: .\templates\resumes\templates\creative.html:34
+msgid "JavaScript"
+msgstr "جافا سكريبت"
+
+#: .\templates\resumes\templates\_section_skills.html:13
+msgid "Agregar habilidad"
+msgstr "إضافة مهارة"
+
+#: .\templates\resumes\templates\_section_volunteering.html:14
+msgid "Rol / Cargo"
+msgstr "الدور / المنصب"
+
+#: .\templates\resumes\templates\_section_volunteering.html:15
+msgid "Organización"
+msgstr "المؤسسة"
+
+#: .\templates\resumes\templates\_section_volunteering.html:17
+msgid "Describe tu labor..."
+msgstr "صف عملك..."
+
+#: .\templates\resumes\templates\_section_volunteering.html:22
+#, fuzzy
+#| msgid "Agregar habilidad"
+msgid "Agregar voluntariado"
+msgstr "إضافة مهارة"
+
+#: .\templates\resumes\templates\classic.html:29
+#: .\templates\resumes\templates\creative.html:45
+#: .\templates\resumes\templates\modern.html:28
+msgid "Quién soy"
+msgstr "من أنا"
+
+#: .\templates\resumes\templates\creative.html:21
+msgid "Contacto"
+msgstr "اتصل بنا"
+
+#: .\templates\wall\cv_detail.html:15
+msgid "Volver al tablón"
+msgstr "العودة إلى المنصة"
+
+#: .\templates\wall\cv_detail.html:18
+msgid "Ver Perfil Completo"
+msgstr "عرض الملف الكامل"
+
+#: .\templates\wall\wall.html:5 .\templates\wall\wall.html:10
+msgid "Tablón de Talentos"
+msgstr "منصة المواهب"
+
+#: .\templates\wall\wall.html:11
+msgid "Descubre profesionales talentosos en diferentes sectores."
+msgstr "اكتشف محترفين موهوبين في قطاعات مختلفة."
+
+#: .\templates\wall\wall.html:15
+msgid "Filtrar por sector:"
+msgstr "تصفية حسب القطاع:"
+
+#: .\templates\wall\wall.html:19
+msgid "Todos"
+msgstr "الكل"
+
+#: .\templates\wall\wall.html:32
+msgid "Cargando..."
+msgstr "جارٍ التحميل..."
+
+#: .\templates\wall\wall.html:43
+msgid "No se encontraron CVs en esta categoría."
+msgstr "لم يتم العثور على سير ذاتية في هذه الفئة."
+
+#~ msgid "Mi Perfil"
+#~ msgstr "ملفي الشخصي"
+
+#~ msgid "Subir foto"
+#~ msgstr "رفع الصورة"
+
+#~ msgid "Necesitas subir una foto para poder publicar tus CVs."
+#~ msgstr "تحتاج إلى رفع صورة لنشر سيرك الذاتية."
+
+#~ msgid "Bio (Quién soy)"
+#~ msgstr "نبذة عني"
+
+#~ msgid "Mis CVs"
+#~ msgstr "سيري الذاتية"
+
+#~ msgid "Sin plantilla"
+#~ msgstr "بدون قالب"
+
+#~ msgid "Crear mi primer CV"
+#~ msgstr "إنشاء أول سيرة ذاتية"
+
+#~ msgid "Anterior"
+#~ msgstr "السابق"
+
+#~ msgid "Las contraseñas no coinciden."
+#~ msgstr "كلمتا المرور غير متطابقتين."
+
+#~ msgid "Ver todas las secciones"
+#~ msgstr "عرض جميع الأقسام"
+
+#~ msgid "Al menos un carácter especial (!@#$%^&*())"
+#~ msgstr "حرف خاص واحد على الأقل (!@#$%^&*())"
+
+#~ msgid "Al menos un número"
+#~ msgstr "رقم واحد على الأقل"
+
+#~ msgid "Al menos una letra mayúscula"
+#~ msgstr "حرف كبير واحد على الأقل"
+
+#~ msgid "Cuenta"
+#~ msgstr "الحساب"
+
+#~ msgid "Datos personales"
+#~ msgstr "البيانات الشخصية"
+
+#~ msgid "Elige tu rol"
+#~ msgstr "اختر دورك"
+
+#~ msgid "Encuentra talento para tu negocio."
+#~ msgstr "ابحث عن المواهب لشركتك."
+
+#~ msgid "Esta funcionalidad estará disponible próximamente."
+#~ msgstr "ستتوفر هذه الوظيفة قريباً."
+
+#~ msgid "Introduce un email válido."
+#~ msgstr "أدخل بريداً إلكترونياً صالحاً."
+
+#~ msgid ""
+#~ "La contraseña debe tener al menos 8 caracteres, 1 mayúscula, 1 número y 1 "
+#~ "carácter especial."
+#~ msgstr ""
+#~ "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل، مع حرف كبير واحد ورقم واحد "
+#~ "وحرف خاص واحد."
+
+#~ msgid "Mínimo 8 caracteres"
+#~ msgstr "8 أحرف على الأقل"
+
+#~ msgid "Perfil profesional"
+#~ msgstr "الملف المهني"
+
+#~ msgid "Por favor, completa este campo."
+#~ msgstr "يرجى ملء هذا الحقل."
+
+#~ msgid "Próximamente"
+#~ msgstr "قريباً"
+
+#~ msgid "Publica tu CV y encuentra oportunidades."
+#~ msgstr "انشر سيرتك الذاتية واعثر على الفرص."
+
+#~ msgid "Registro de Trabajador"
+#~ msgstr "تسجيل العامل"
+
+#~ msgid "Soy Empresa"
+#~ msgstr "أنا شركة"
+
+#~ msgid "Soy Trabajador"
+#~ msgstr "أنا عامل"
+
+#~ msgid "o con tu correo electrónico"
+#~ msgstr "أو عبر بريدك الإلكتروني"
+
+#~ msgid "Regístrate con"
+#~ msgstr "سجّل عبر"
+
+#~ msgid "o crea tu cuenta con correo electrónico"
+#~ msgstr "أو أنشئ حسابك عبر البريد الإلكتروني"
+
+#~ msgid "Para terminar tu registro, completa tu perfil profesional."
+#~ msgstr "لإتمام تسجيلك، أكمل ملفك المهني."
+
+#~ msgid "Selecciona al menos un campo (título o sector) para continuar."
+#~ msgstr "حدد حقلًا واحدًا على الأقل (المسمى أو القطاع) للمتابعة."
+
+#~ msgid "Debes seleccionar al menos un campo (título o sector)."
+#~ msgstr "يجب تحديد حقل واحد على الأقل (المسمى أو القطاع)."
+
+#~ msgid "Guardar y continuar"
+#~ msgstr "حفظ والمتابعة"

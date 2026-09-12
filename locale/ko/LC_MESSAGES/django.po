@@ -1,0 +1,1340 @@
+# Korean translations for CV Builder
+# Copyright (C) 2026
+# This file is distributed under the same license as the CV Builder project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CV Builder 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-12 00:11-0400\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Korean\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\apps\accounts\forms.py:11 .\apps\accounts\forms.py:28
+#: .\templates\accounts\login.html:31 .\templates\accounts\register.html:34
+#: .\templates\registration\password_reset_form.html:24
+msgid "Email"
+msgstr "이메일"
+
+#: .\apps\accounts\forms.py:18 .\apps\accounts\forms.py:35
+#: .\templates\accounts\account_settings.html:25
+#: .\templates\accounts\login.html:38 .\templates\accounts\register.html:42
+msgid "Contraseña"
+msgstr "비밀번호"
+
+#: .\apps\accounts\forms.py:42 .\templates\accounts\register.html:52
+msgid "Confirmar contraseña"
+msgstr "비밀번호 확인"
+
+#: .\apps\accounts\forms.py:56
+msgid "Este email ya está registrado."
+msgstr "이 이메일은 이미 등록되어 있습니다."
+
+#: .\apps\accounts\forms.py:64
+msgid "La contraseña debe tener al menos 8 caracteres."
+msgstr "비밀번호는 8자 이상이어야 합니다."
+
+#: .\apps\accounts\forms.py:66
+msgid "La contraseña debe contener al menos una letra mayúscula."
+msgstr "비밀번호에는 대문자가 하나 이상 포함되어야 합니다."
+
+#: .\apps\accounts\forms.py:68
+msgid "La contraseña debe contener al menos un número."
+msgstr "비밀번호에는 숫자가 하나 이상 포함되어야 합니다."
+
+#: .\apps\accounts\forms.py:70
+#, python-brace-format
+msgid ""
+"La contraseña debe contener al menos un carácter especial (!@#$%^&*(),.?\":"
+"{}|<>)."
+msgstr ""
+"비밀번호에는 특수 문자를 1개 이상 포함해야 합니다 (!@#$%^&*(),.?\":{}|<>)."
+
+#: .\apps\accounts\forms.py:87 .\apps\accounts\forms.py:106
+#: .\templates\accounts\complete_profile.html:29
+#: .\templates\accounts\dashboard.html:13 .\templates\accounts\register.html:61
+#: .\templates\resumes\templates\_section_references.html:14
+msgid "Nombre"
+msgstr "이름"
+
+#: .\apps\accounts\forms.py:95 .\apps\accounts\forms.py:115
+#: .\templates\accounts\complete_profile.html:37
+#: .\templates\accounts\dashboard.html:15 .\templates\accounts\register.html:68
+msgid "Apellido"
+msgstr "성"
+
+#: .\apps\accounts\forms.py:124 .\templates\accounts\register.html:77
+#, fuzzy
+#| msgid "Título profesional"
+msgid "Cargo / Título profesional"
+msgstr "직업 직함"
+
+#: .\apps\accounts\forms.py:133 .\templates\accounts\register.html:84
+msgid "Sector"
+msgstr "분야"
+
+#: .\apps\accounts\views.py:23 .\apps\accounts\views.py:334
+msgid "Este usuario no esta registrado. Por favor, crea una cuenta primero."
+msgstr "이 사용자는 등록되어 있지 않습니다. 먼저 계정을 만들어 주세요."
+
+#: .\apps\accounts\views.py:38
+msgid "Email o contraseña incorrectos."
+msgstr "이메일 또는 비밀번호가 올바르지 않습니다."
+
+#: .\apps\accounts\views.py:58
+msgid "¡Cuenta creada exitosamente!"
+msgstr "계정이 성공적으로 생성되었습니다!"
+
+#: .\apps\accounts\views.py:61
+msgid "Por favor, corrige los errores."
+msgstr "오류를 수정해 주세요."
+
+#: .\apps\accounts\views.py:70
+msgid "Has cerrado sesión correctamente."
+msgstr "성공적으로 로그아웃했습니다."
+
+#: .\apps\accounts\views.py:116
+msgid "La foto no puede superar los 5MB."
+msgstr "사진은 5MB를 초과할 수 없습니다."
+
+#: .\apps\accounts\views.py:121
+msgid "Solo se permiten archivos JPG, PNG o WebP."
+msgstr "JPG, PNG 또는 WebP 파일만 허용됩니다."
+
+#: .\apps\accounts\views.py:127
+msgid "Foto actualizada correctamente."
+msgstr "사진이 성공적으로 업데이트되었습니다."
+
+#: .\apps\accounts\views.py:139
+msgid "Bio actualizada correctamente."
+msgstr "소개가 성공적으로 업데이트되었습니다."
+
+#: .\apps\accounts\views.py:266
+msgid "Nombre, email y mensaje son obligatorios."
+msgstr "이름, 이메일, 메시지는 필수입니다."
+
+#: .\apps\accounts\views.py:276
+msgid "El formato del email no es valido."
+msgstr "이메일 형식이 올바르지 않습니다."
+
+#: .\apps\accounts\views.py:347
+#, fuzzy
+#| msgid "Bio actualizada correctamente."
+msgid "Perfil completado correctamente."
+msgstr "소개가 성공적으로 업데이트되었습니다."
+
+#: .\apps\resumes\views.py:69
+msgid "CV creado exitosamente. ¡Ahora personalízalo!"
+msgstr "이력서가 생성되었습니다. 이제 맞춤 설정하세요!"
+
+#: .\templates\accounts\account_settings.html:4
+#: .\templates\accounts\account_settings.html:9
+msgid "Configuracion de Cuenta"
+msgstr "계정 설정"
+
+#: .\templates\accounts\account_settings.html:13
+msgid "Informacion de Cuenta"
+msgstr "계정 정보"
+
+#: .\templates\accounts\account_settings.html:15
+#, fuzzy
+#| msgid "Email"
+msgid "Email:"
+msgstr "이메일"
+
+#: .\templates\accounts\account_settings.html:16
+#, fuzzy
+#| msgid "Nombre"
+msgid "Nombre:"
+msgstr "이름"
+
+#: .\templates\accounts\account_settings.html:22
+msgid "Seguridad"
+msgstr "보안"
+
+#: .\templates\accounts\account_settings.html:26
+msgid "Cambia tu contraseña de acceso."
+msgstr "로그인 비밀번호를 변경하세요."
+
+#: .\templates\accounts\account_settings.html:30
+#: .\templates\registration\password_change_form.html:4
+#: .\templates\registration\password_change_form.html:9
+msgid "Cambiar contraseña"
+msgstr "비밀번호 변경"
+
+#: .\templates\accounts\account_settings.html:37
+msgid "Cuentas Vinculadas"
+msgstr "연결된 계정"
+
+#: .\templates\accounts\account_settings.html:53
+#: .\templates\accounts\account_settings.html:71
+#: .\templates\accounts\account_settings.html:89
+msgid "Vinculada"
+msgstr "연결됨"
+
+#: .\templates\accounts\account_settings.html:54
+#: .\templates\accounts\account_settings.html:72
+#: .\templates\accounts\account_settings.html:90
+msgid "Desvincular"
+msgstr "연결 해제"
+
+#: .\templates\accounts\account_settings.html:56
+#: .\templates\accounts\account_settings.html:74
+#: .\templates\accounts\account_settings.html:92
+msgid "Vincular"
+msgstr "연결"
+
+#: .\templates\accounts\account_settings.html:102
+#, fuzzy
+#| msgid "Volver al dashboard"
+msgid "Volver al Dashboard"
+msgstr "대시보드로 돌아가기"
+
+#: .\templates\accounts\complete_profile.html:4
+#, fuzzy
+#| msgid "Completa tu perfil profesional"
+msgid "Completar perfil"
+msgstr "직업 프로필을 완성하세요"
+
+#: .\templates\accounts\complete_profile.html:9
+#, fuzzy
+#| msgid "Completa tu perfil profesional"
+msgid "Completa tu perfil"
+msgstr "직업 프로필을 완성하세요"
+
+#: .\templates\accounts\complete_profile.html:10
+msgid "Cuéntanos un poco sobre ti para personalizar tu experiencia."
+msgstr "경험을 개인화하기 위해 자신에 대해 조금 알려주세요."
+
+#: .\templates\accounts\complete_profile.html:14
+#, fuzzy
+#| msgid "Por favor, corrige los errores."
+msgid "Por favor, corrige los errores:"
+msgstr "오류를 수정해 주세요."
+
+#: .\templates\accounts\complete_profile.html:32
+#: .\templates\accounts\profile.html:347 .\templates\accounts\register.html:64
+msgid "Tu nombre"
+msgstr "귀하의 이름"
+
+#: .\templates\accounts\complete_profile.html:40
+#: .\templates\accounts\register.html:71
+#, fuzzy
+#| msgid "Tus apellidos"
+msgid "Tu apellido"
+msgstr "귀하의 성"
+
+#: .\templates\accounts\complete_profile.html:46
+msgid "Continuar"
+msgstr "계속"
+
+#: .\templates\accounts\dashboard.html:5 .\templates\base.html:72
+msgid "Dashboard"
+msgstr "대시보드"
+
+#: .\templates\accounts\dashboard.html:10
+#, fuzzy
+#| msgid "CV Builder"
+msgid "Bienvenido a CV Builder"
+msgstr "이력서 빌더"
+
+#: .\templates\accounts\dashboard.html:11
+msgid "Para completar tu perfil, necesitamos tu nombre y apellido."
+msgstr "프로필을 완성하려면 이름과 성이 필요합니다."
+
+#: .\templates\accounts\dashboard.html:19
+#: .\templates\accounts\dashboard.html:310
+#: .\templates\accounts\dashboard.html:334
+#: .\templates\accounts\dashboard.html:357
+#: .\templates\accounts\dashboard.html:407
+#: .\templates\accounts\dashboard.html:466
+#: .\templates\accounts\dashboard.html:516
+#: .\templates\accounts\dashboard.html:608
+#: .\templates\accounts\dashboard.html:654
+#, fuzzy
+#| msgid "Guardar bio"
+msgid "Guardar"
+msgstr "자기소개 저장"
+
+#: .\templates\accounts\dashboard.html:33 .\templates\accounts\profile.html:24
+#: .\templates\resumes\templates\classic.html:6
+#: .\templates\resumes\templates\creative.html:6
+#: .\templates\resumes\templates\modern.html:5
+msgid "Foto de perfil"
+msgstr "프로필 사진"
+
+#: .\templates\accounts\dashboard.html:85
+#, fuzzy
+#| msgid "Editar"
+msgid "Editar estado"
+msgstr "편집"
+
+#: .\templates\accounts\dashboard.html:92 .\templates\accounts\profile.html:64
+#: .\templates\resumes\templates\_section_skills.html:3
+#: .\templates\resumes\templates\creative.html:28
+msgid "Habilidades"
+msgstr "기술"
+
+#: .\templates\accounts\dashboard.html:95
+#: .\templates\accounts\dashboard.html:118
+#: .\templates\accounts\dashboard.html:132
+#: .\templates\accounts\dashboard.html:254
+#: .\templates\accounts\dashboard.html:558
+msgid "Editar"
+msgstr "편집"
+
+#: .\templates\accounts\dashboard.html:107 .\templates\accounts\profile.html:74
+#, fuzzy
+#| msgid "Habilidades"
+msgid "Sin habilidades"
+msgstr "기술"
+
+#: .\templates\accounts\dashboard.html:115 .\templates\accounts\profile.html:81
+msgid "Bio"
+msgstr "자기소개"
+
+#: .\templates\accounts\dashboard.html:129
+#: .\templates\accounts\dashboard.html:416 .\templates\accounts\profile.html:88
+msgid "Preferencias de trabajo"
+msgstr "근무 선호사항"
+
+#: .\templates\accounts\dashboard.html:137 .\templates\accounts\profile.html:92
+msgid "Tipo de empleo:"
+msgstr "고용 형태:"
+
+#: .\templates\accounts\dashboard.html:141 .\templates\accounts\profile.html:98
+msgid "Salario esperado:"
+msgstr "희망 연봉:"
+
+#: .\templates\accounts\dashboard.html:145
+#: .\templates\accounts\profile.html:104
+msgid "Disponible para mudarse:"
+msgstr "이사 가능:"
+
+#: .\templates\accounts\dashboard.html:149
+#: .\templates\accounts\profile.html:110
+msgid "Disponible para viajar:"
+msgstr "출장 가능:"
+
+#: .\templates\accounts\dashboard.html:158
+#: .\templates\accounts\dashboard.html:525
+msgid "Mis Curriculums"
+msgstr "내 이력서"
+
+#: .\templates\accounts\dashboard.html:167
+#: .\templates\accounts\profile.html:138
+#, fuzzy
+#| msgid "Experiencia"
+msgid "Experiencia y Proyectos"
+msgstr "경력"
+
+#: .\templates\accounts\dashboard.html:170
+#: .\templates\resumes\templates\creative.html:38
+msgid "Agregar"
+msgstr "추가"
+
+#: .\templates\accounts\dashboard.html:251
+#: .\templates\accounts\profile.html:180
+msgid "Redes Sociales"
+msgstr "소셜 링크"
+
+#: .\templates\accounts\dashboard.html:283
+#: .\templates\accounts\profile.html:207
+msgid "Sin redes sociales configuradas"
+msgstr "소셜 링크가 설정되지 않음"
+
+#: .\templates\accounts\dashboard.html:294
+#, fuzzy
+#| msgid "Actualizado:"
+msgid "Actualizar foto"
+msgstr "업데이트: "
+
+#: .\templates\accounts\dashboard.html:305
+#, fuzzy
+#| msgid "JPG, PNG o WebP. Máximo 5MB."
+msgid "JPG, PNG o WebP. Maximo 5MB."
+msgstr "JPG, PNG 또는 WebP. 최대 5MB."
+
+#: .\templates\accounts\dashboard.html:308
+#: .\templates\accounts\dashboard.html:332
+#: .\templates\accounts\dashboard.html:355
+#: .\templates\accounts\dashboard.html:405
+#: .\templates\accounts\dashboard.html:464
+#: .\templates\accounts\dashboard.html:514
+#: .\templates\accounts\dashboard.html:606
+#: .\templates\accounts\dashboard.html:652
+#: .\templates\accounts\profile.html:368 .\templates\resumes\editor.html:72
+msgid "Cancelar"
+msgstr "취소"
+
+#: .\templates\accounts\dashboard.html:320
+#, fuzzy
+#| msgid "Actualizado:"
+msgid "Actualizar titular"
+msgstr "업데이트: "
+
+#: .\templates\accounts\dashboard.html:329
+#, fuzzy
+#| msgid "Ej: Desarrollador Web"
+msgid "Ej: Desarrollador Full Stack Senior"
+msgstr "예: 웹 개발자"
+
+#: .\templates\accounts\dashboard.html:343
+#, fuzzy
+#| msgid "Actualizado:"
+msgid "Actualizar bio"
+msgstr "업데이트: "
+
+#: .\templates\accounts\dashboard.html:352
+#, fuzzy
+#| msgid "Cuéntanos sobre ti..."
+msgid "Cuentanos sobre ti..."
+msgstr "자신에 대해 알려주세요..."
+
+#: .\templates\accounts\dashboard.html:366
+#, fuzzy
+#| msgid "Actualizado:"
+msgid "Actualizar estado"
+msgstr "업데이트: "
+
+#: .\templates\accounts\dashboard.html:375
+msgid "Estado de busqueda"
+msgstr "구직 상태"
+
+#: .\templates\accounts\dashboard.html:377
+#: .\templates\accounts\dashboard.html:386
+#: .\templates\accounts\dashboard.html:396
+#: .\templates\accounts\dashboard.html:446
+#: .\templates\accounts\dashboard.html:455
+msgid "No especificado"
+msgstr "지정되지 않음"
+
+#: .\templates\accounts\dashboard.html:378
+msgid "Buscando activamente"
+msgstr "적극 구직 중"
+
+#: .\templates\accounts\dashboard.html:379
+msgid "Abierto a ofertas"
+msgstr "제안 수락 가능"
+
+#: .\templates\accounts\dashboard.html:380
+msgid "No buscando"
+msgstr "구직 중 아님"
+
+#: .\templates\accounts\dashboard.html:384
+msgid "Disponibilidad"
+msgstr "근무 가능 시기"
+
+#: .\templates\accounts\dashboard.html:387
+msgid "Inmediata"
+msgstr "즉시"
+
+#: .\templates\accounts\dashboard.html:388
+msgid "2 semanas"
+msgstr "2주"
+
+#: .\templates\accounts\dashboard.html:389
+msgid "1 mes"
+msgstr "1개월"
+
+#: .\templates\accounts\dashboard.html:390
+msgid "Negociable"
+msgstr "협의 가능"
+
+#: .\templates\accounts\dashboard.html:394
+msgid "Preferencia de ubicacion"
+msgstr "근무지 선호"
+
+#: .\templates\accounts\dashboard.html:397
+msgid "Remoto"
+msgstr "재택"
+
+#: .\templates\accounts\dashboard.html:398
+msgid "Hibrido"
+msgstr "하이브리드"
+
+#: .\templates\accounts\dashboard.html:399
+msgid "Presencial"
+msgstr "출근"
+
+#: .\templates\accounts\dashboard.html:425
+msgid "Tipo de empleo"
+msgstr "고용 형태"
+
+#: .\templates\accounts\dashboard.html:438
+msgid "Salario esperado"
+msgstr "희망 연봉"
+
+#: .\templates\accounts\dashboard.html:441
+msgid "Ej: $50,000 - $70,000"
+msgstr "예: 5,000만원 - 7,000만원"
+
+#: .\templates\accounts\dashboard.html:444
+msgid "Disponible para mudarse"
+msgstr "이사 가능"
+
+#: .\templates\accounts\dashboard.html:447
+msgid "Sí"
+msgstr "예"
+
+#: .\templates\accounts\dashboard.html:448
+#: .\templates\accounts\dashboard.html:456
+msgid "No"
+msgstr "아니요"
+
+#: .\templates\accounts\dashboard.html:449
+msgid "Según destino"
+msgstr "지역에 따라 다름"
+
+#: .\templates\accounts\dashboard.html:453
+msgid "Disponible para viajar"
+msgstr "출장 가능"
+
+#: .\templates\accounts\dashboard.html:457
+#, fuzzy
+#| msgid "Opcional"
+msgid "Ocasional"
+msgstr "선택 사항"
+
+#: .\templates\accounts\dashboard.html:458
+#, fuzzy
+#| msgid "Crea tu cuenta"
+msgid "Frecuente"
+msgstr "계정 만들기"
+
+#: .\templates\accounts\dashboard.html:475
+#, fuzzy
+#| msgid "Habilidades"
+msgid "Editar habilidades"
+msgstr "기술"
+
+#: .\templates\accounts\dashboard.html:486
+#, fuzzy
+#| msgid "Agregar habilidad"
+msgid "Nueva habilidad"
+msgstr "기술 추가"
+
+#: .\templates\accounts\dashboard.html:498
+#, fuzzy
+#| msgid "Sector principal:"
+msgid "Principal"
+msgstr "주요 분야:"
+
+#: .\templates\accounts\dashboard.html:545
+msgid "Actualizado:"
+msgstr "업데이트: "
+
+#: .\templates\accounts\dashboard.html:551
+msgid "Destacado"
+msgstr "추천"
+
+#: .\templates\accounts\dashboard.html:563
+msgid "Ver CV"
+msgstr "이력서 보기"
+
+#: .\templates\accounts\dashboard.html:574
+msgid "Crear nuevo CV"
+msgstr "새 이력서 만들기"
+
+#: .\templates\accounts\dashboard.html:584
+#: .\templates\resumes\templates\_section_experience.html:22
+msgid "Agregar experiencia"
+msgstr "경력 추가"
+
+#: .\templates\accounts\dashboard.html:594
+#, fuzzy
+#| msgid "Título del puesto"
+msgid "Titulo del puesto"
+msgstr "직위"
+
+#: .\templates\accounts\dashboard.html:596
+#: .\templates\resumes\templates\_section_experience.html:15
+#: .\templates\resumes\templates\_section_references.html:16
+msgid "Empresa"
+msgstr "회사"
+
+#: .\templates\accounts\dashboard.html:598
+#: .\templates\resumes\templates\_section_experience.html:16
+#: .\templates\resumes\templates\_section_volunteering.html:16
+msgid "2020 - Presente"
+msgstr "2020년 - 현재"
+
+#: .\templates\accounts\dashboard.html:600
+msgid "Descripcion..."
+msgstr "설명..."
+
+#: .\templates\accounts\dashboard.html:617
+msgid "Editar redes sociales"
+msgstr "소셜 링크 편집"
+
+#: .\templates\accounts\login.html:4 .\templates\accounts\login.html:46
+#: .\templates\base.html:75
+msgid "Entrar"
+msgstr "로그인"
+
+#: .\templates\accounts\login.html:9
+msgid "Iniciar Sesión"
+msgstr "로그인"
+
+#: .\templates\accounts\login.html:23
+msgid "Email o contraseña incorrectos. Por favor, inténtalo de nuevo."
+msgstr "이메일 또는 비밀번호가 올바르지 않습니다. 다시 시도해 주세요."
+
+#: .\templates\accounts\login.html:52
+msgid "¿Olvidaste tu contraseña?"
+msgstr "비밀번호를 잊으셨나요?"
+
+#: .\templates\accounts\login.html:62
+#, fuzzy
+#| msgid "Continúa con"
+msgid "O continúa con"
+msgstr "로 계속하기"
+
+#: .\templates\accounts\login.html:102
+msgid ""
+"El login con redes sociales no está configurado. Consulta el README para "
+"configurar las credenciales OAuth."
+msgstr ""
+"소셜 로그인이 설정되어 있지 않습니다. OAuth 자격 증명 설정은 README를 참조하"
+"세요."
+
+#: .\templates\accounts\login.html:108
+msgid "¿No tienes cuenta?"
+msgstr "계정이 없으신가요?"
+
+#: .\templates\accounts\login.html:109
+msgid "Regístrate"
+msgstr "가입하기"
+
+#: .\templates\accounts\profile.html:10
+msgid "Este es tu perfil publico"
+msgstr "이것은 공개 프로필입니다"
+
+#: .\templates\accounts\profile.html:12
+#: .\templates\registration\password_change_done.html:13
+#, fuzzy
+#| msgid "Volver al dashboard"
+msgid "Ir al Dashboard"
+msgstr "대시보드로 돌아가기"
+
+#: .\templates\accounts\profile.html:122
+#, fuzzy
+#| msgid "Contacto"
+msgid "Contactar"
+msgstr "연락처"
+
+#: .\templates\accounts\profile.html:131
+#, fuzzy
+#| msgid "Aún no tienes CVs creados."
+msgid "Este candidato no tiene CVs publicados."
+msgstr "이 후보자는 게시된 이력서가 없습니다."
+
+#: .\templates\accounts\profile.html:215
+#: .\templates\resumes\templates\_section_education.html:3
+msgid "Educación"
+msgstr "학력"
+
+#: .\templates\accounts\profile.html:231
+#: .\templates\resumes\templates\_section_languages.html:3
+msgid "Idiomas"
+msgstr "언어"
+
+#: .\templates\accounts\profile.html:243
+#: .\templates\resumes\templates\_section_certifications.html:3
+msgid "Certificaciones y Cursos"
+msgstr "자격증 및 강의"
+
+#: .\templates\accounts\profile.html:258
+#: .\templates\resumes\templates\_section_volunteering.html:3
+msgid "Voluntariado"
+msgstr "봉사활동"
+
+#: .\templates\accounts\profile.html:274
+#: .\templates\resumes\templates\_section_awards.html:3
+msgid "Premios y Reconocimientos"
+msgstr "수상 및 표창"
+
+#: .\templates\accounts\profile.html:289
+#: .\templates\resumes\templates\_section_publications.html:3
+#, fuzzy
+#| msgid "Publicado"
+msgid "Publicaciones"
+msgstr "게시됨"
+
+#: .\templates\accounts\profile.html:305
+#: .\templates\resumes\templates\_section_interests.html:3
+msgid "Intereses"
+msgstr "관심사"
+
+#: .\templates\accounts\profile.html:317
+#: .\templates\resumes\templates\_section_references.html:3
+#, fuzzy
+#| msgid "Experiencia"
+msgid "Referencias"
+msgstr "경력"
+
+#: .\templates\accounts\profile.html:338
+#, fuzzy
+#| msgid "Contacto"
+msgid "Contactar a"
+msgstr "연락처"
+
+#: .\templates\accounts\profile.html:350
+msgid "Nombre completo"
+msgstr "성명"
+
+#: .\templates\accounts\profile.html:353
+#, fuzzy
+#| msgid "Email"
+msgid "Tu email"
+msgstr "이메일"
+
+#: .\templates\accounts\profile.html:356
+msgid "tu@email.com"
+msgstr "you@email.com"
+
+#: .\templates\accounts\profile.html:359
+msgid "Mensaje"
+msgstr "메시지"
+
+#: .\templates\accounts\profile.html:362
+msgid "Escribe tu mensaje..."
+msgstr "메시지를 작성하세요..."
+
+#: .\templates\accounts\profile.html:370
+msgid "Enviar"
+msgstr "보내기"
+
+#: .\templates\accounts\register.html:5 .\templates\base.html:76
+msgid "Registrarse"
+msgstr "가입하기"
+
+#: .\templates\accounts\register.html:10 .\templates\accounts\register.html:103
+msgid "Crear Cuenta"
+msgstr "계정 만들기"
+
+#: .\templates\accounts\register.html:11
+msgid "Paso 1 de 3 — Datos de acceso"
+msgstr "3단계 중 1단계 — 계정 정보"
+
+#: .\templates\accounts\register.html:15
+msgid "Por favor, corrige los siguientes errores:"
+msgstr "다음 오류를 수정해 주세요:"
+
+#: .\templates\accounts\register.html:47
+msgid "Mínimo 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial."
+msgstr "최소 8자, 대문자 1개, 숫자 1개, 특수문자 1개가 필요합니다."
+
+#: .\templates\accounts\register.html:80
+msgid "Ej: Ingeniero de Software"
+msgstr "예: 소프트웨어 엔지니어"
+
+#: .\templates\accounts\register.html:87
+msgid "Ej: Tecnología"
+msgstr "예: 기술"
+
+#: .\templates\accounts\register.html:94
+msgid "Atrás"
+msgstr "뒤로"
+
+#: .\templates\accounts\register.html:99
+msgid "Siguiente"
+msgstr "다음"
+
+#: .\templates\accounts\register.html:115
+#: .\templates\registration\password_reset_form.html:36
+msgid "¿Ya tienes cuenta?"
+msgstr "이미 계정이 있으신가요?"
+
+#: .\templates\accounts\register.html:116
+#: .\templates\registration\password_reset_complete.html:13
+#: .\templates\registration\password_reset_done.html:13
+#: .\templates\registration\password_reset_form.html:37
+msgid "Inicia sesión"
+msgstr "로그인"
+
+#: .\templates\base.html:30
+msgid "Tablón"
+msgstr "게시판"
+
+#: .\templates\base.html:33
+msgid "Cambiar tema"
+msgstr "테마 변경"
+
+#: .\templates\base.html:73
+msgid "Salir"
+msgstr "로그아웃"
+
+#: .\templates\base.html:89
+msgid "Todos los derechos reservados."
+msgstr "모든 권리 보유."
+
+#: .\templates\landing.html:4 .\templates\landing.html:10
+msgid "Crea tu CV profesional"
+msgstr "전문 이력서 만들기"
+
+#: .\templates\landing.html:13
+msgid ""
+"Diseña CVs impresionantes con plantillas profesionales. Publica en nuestro "
+"tablón de talentos y conecta con oportunidades."
+msgstr ""
+"전문 템플릿으로 멋진 이력서를 디자인하세요. 인재 게시판에 게시하고 기회와 연"
+"결되세요."
+
+#: .\templates\landing.html:19
+msgid "Mi Dashboard"
+msgstr "내 대시보드"
+
+#: .\templates\landing.html:24
+msgid "Comenzar ahora"
+msgstr "지금 시작하기"
+
+#: .\templates\landing.html:28
+msgid "Ya tengo cuenta"
+msgstr "이미 계정이 있습니다"
+
+#: .\templates\landing.html:34
+msgid "O explora el tablón como invitado"
+msgstr "또는 게스트로 게시판 둘러보기"
+
+#: .\templates\landing.html:41
+msgid "¿Por qué CV Builder?"
+msgstr "왜 CV Builder인가요?"
+
+#: .\templates\landing.html:51
+msgid "3 Plantillas profesionales"
+msgstr "3 가지 전문 템플릿"
+
+#: .\templates\landing.html:52
+msgid ""
+"Elige entre diseños clásico, moderno y creativo para destacar tu perfil."
+msgstr ""
+"클래식, 모던, 크리에이티브 디자인 중에서 선택하여 프로필을 돋보이게 하세요."
+
+#: .\templates\landing.html:61
+msgid "Editor visual"
+msgstr "시각적 편집기"
+
+#: .\templates\landing.html:62
+msgid "Edita directamente en la plantilla con autoguardado automático."
+msgstr "자동 저장으로 템플릿에서 직접 편집하세요."
+
+#: .\templates\landing.html:71
+msgid "Tablón de talentos"
+msgstr "인재 게시판"
+
+#: .\templates\landing.html:72
+msgid "Publica tu CV y descubre profesionales por sector."
+msgstr "이력서를 게시하고 분야별 전문가를 만나세요."
+
+#: .\templates\landing.html:78
+msgid "¿Listo para crear tu CV?"
+msgstr "이력서를 만들 준비가 되셨나요?"
+
+#: .\templates\landing.html:79
+msgid "Únete a nuestra comunidad de profesionales."
+msgstr "전문가 커뮤니티에 참여하세요."
+
+#: .\templates\landing.html:83
+msgid "Crear cuenta gratis"
+msgstr "무료 계정 만들기"
+
+#: .\templates\registration\password_change_done.html:4
+msgid "Contraseña cambiada"
+msgstr "비밀번호가 변경되었습니다"
+
+#: .\templates\registration\password_change_done.html:9
+#: .\templates\registration\password_reset_complete.html:9
+msgid "Contraseña actualizada"
+msgstr "비밀번호가 업데이트되었습니다"
+
+#: .\templates\registration\password_change_done.html:10
+#, fuzzy
+#| msgid "Foto actualizada correctamente."
+msgid "Tu contraseña ha sido cambiada correctamente."
+msgstr "사진이 성공적으로 업데이트되었습니다."
+
+#: .\templates\registration\password_change_form.html:10
+msgid "Introduce tu nueva contraseña."
+msgstr "새 비밀번호를 입력하세요."
+
+#: .\templates\registration\password_change_form.html:32
+msgid "Actualizar contraseña"
+msgstr "비밀번호 업데이트"
+
+#: .\templates\registration\password_reset_complete.html:4
+#, fuzzy
+#| msgid "Contraseña"
+msgid "Contraseña restablecida"
+msgstr "비밀번호"
+
+#: .\templates\registration\password_reset_complete.html:10
+msgid "Tu contraseña ha sido restablecida. Ya puedes iniciar sesión."
+msgstr "비밀번호가 재설정되었습니다. 이제 로그인할 수 있습니다."
+
+#: .\templates\registration\password_reset_confirm.html:4
+#, fuzzy
+#| msgid "Contraseña"
+msgid "Nueva contraseña"
+msgstr "비밀번호"
+
+#: .\templates\registration\password_reset_confirm.html:9
+msgid "Elige una nueva contraseña"
+msgstr "새 비밀번호 선택"
+
+#: .\templates\registration\password_reset_confirm.html:10
+msgid "Introduce tu nueva contraseña dos veces para verificar."
+msgstr "확인을 위해 새 비밀번호를 두 번 입력하세요."
+
+#: .\templates\registration\password_reset_confirm.html:33
+msgid "Guardar contraseña"
+msgstr "비밀번호 저장"
+
+#: .\templates\registration\password_reset_confirm.html:38
+msgid ""
+"El enlace de restablecimiento no es válido o ya ha sido usado. Solicita uno "
+"nuevo."
+msgstr ""
+"재설정 링크가 유효하지 않거나 이미 사용되었습니다. 새 링크를 요청하세요."
+
+#: .\templates\registration\password_reset_confirm.html:41
+msgid "Solicitar nuevo enlace"
+msgstr "새 링크 요청"
+
+#: .\templates\registration\password_reset_done.html:4
+msgid "Email enviado"
+msgstr "이메일이 전송되었습니다"
+
+#: .\templates\registration\password_reset_done.html:9
+msgid "Revisa tu email"
+msgstr "이메일을 확인하세요"
+
+#: .\templates\registration\password_reset_done.html:10
+msgid ""
+"Si existe una cuenta con ese email, te hemos enviado instrucciones para "
+"restablecer tu contraseña."
+msgstr "해당 이메일의 계정이 존재하면 비밀번호 재설정 안내를 보냈습니다."
+
+#: .\templates\registration\password_reset_email.html:3
+msgid "Recibimos una solicitud para restablecer tu contraseña en CV Builder."
+msgstr "CV Builder에서 비밀번호 재설정 요청을 받았습니다."
+
+#: .\templates\registration\password_reset_email.html:5
+msgid "Haz clic en el siguiente enlace para elegir una nueva contraseña:"
+msgstr "아래 링크를 클릭하여 새 비밀번호를 설정하세요:"
+
+#: .\templates\registration\password_reset_email.html:9
+msgid ""
+"Si no solicitaste este cambio, ignora este email. Tu contraseña no cambiará."
+msgstr ""
+"이 변경을 요청하지 않았다면 이 이메일을 무시하세요. 비밀번호는 변경되지 않습"
+"니다."
+
+#: .\templates\registration\password_reset_form.html:4
+#: .\templates\registration\password_reset_form.html:9
+msgid "Recuperar contraseña"
+msgstr "비밀번호 재설정"
+
+#: .\templates\registration\password_reset_form.html:10
+msgid ""
+"Introduce tu email y te enviaremos instrucciones para restablecer tu "
+"contraseña."
+msgstr "이메일을 입력하면 비밀번호 재설정 안내를 보내드립니다."
+
+#: .\templates\registration\password_reset_form.html:31
+msgid "Enviar enlace"
+msgstr "링크 보내기"
+
+#: .\templates\registration\password_reset_subject.txt:1
+msgid "Restablecer contraseña"
+msgstr "비밀번호 재설정"
+
+#: .\templates\resumes\editor.html:5 .\templates\resumes\editor.html:20
+msgid "Editor"
+msgstr "편집기"
+
+#: .\templates\resumes\editor.html:17
+msgid "Volver"
+msgstr "뒤로"
+
+#: .\templates\resumes\editor.html:28
+msgid "Publicar"
+msgstr "게시"
+
+#: .\templates\resumes\editor.html:32
+msgid "Publicado"
+msgstr "게시됨"
+
+#: .\templates\resumes\editor.html:54
+msgid "Publicar CV"
+msgstr "이력서 게시"
+
+#: .\templates\resumes\editor.html:55
+msgid "Selecciona los sectores en los que encaja tu CV:"
+msgstr "이력서에 맞는 분야를 선택하세요:"
+
+#: .\templates\resumes\editor.html:61
+msgid "Sector principal:"
+msgstr "주요 분야:"
+
+#: .\templates\resumes\editor.html:76
+msgid "Confirmar publicación"
+msgstr "게시 확인"
+
+#: .\templates\resumes\select_template.html:4
+msgid "Seleccionar Plantilla"
+msgstr "템플릿 선택"
+
+#: .\templates\resumes\select_template.html:8
+msgid "Elige una plantilla"
+msgstr "템플릿 선택"
+
+#: .\templates\resumes\select_template.html:9
+msgid "Selecciona el diseño que mejor se adapte a tu estilo profesional."
+msgstr "전문적인 스타일에 가장 잘 맞는 디자인을 선택하세요."
+
+#: .\templates\resumes\select_template.html:68
+msgid "Seleccionar"
+msgstr "선택"
+
+#: .\templates\resumes\select_template.html:77
+msgid "Volver al dashboard"
+msgstr "대시보드로 돌아가기"
+
+#: .\templates\resumes\templates\_section_awards.html:13
+msgid "Premio o reconocimiento"
+msgstr "수상 또는 표창"
+
+#: .\templates\resumes\templates\_section_awards.html:14
+msgid "Otorgado por"
+msgstr "수여 기관"
+
+#: .\templates\resumes\templates\_section_awards.html:15
+#: .\templates\resumes\templates\_section_certifications.html:15
+#: .\templates\resumes\templates\_section_publications.html:16
+msgid "Año"
+msgstr "연도"
+
+#: .\templates\resumes\templates\_section_awards.html:20
+#, fuzzy
+#| msgid "Agregar experiencia"
+msgid "Agregar premio"
+msgstr "경력 추가"
+
+#: .\templates\resumes\templates\_section_certifications.html:13
+msgid "Nombre de la certificación"
+msgstr "자격증 이름"
+
+#: .\templates\resumes\templates\_section_certifications.html:14
+#, fuzzy
+#| msgid "Institución"
+msgid "Institución o plataforma"
+msgstr "기관"
+
+#: .\templates\resumes\templates\_section_certifications.html:20
+#, fuzzy
+#| msgid "Agregar educación"
+msgid "Agregar certificación"
+msgstr "학력 추가"
+
+#: .\templates\resumes\templates\_section_education.html:13
+msgid "Título"
+msgstr "학위"
+
+#: .\templates\resumes\templates\_section_education.html:14
+msgid "Institución"
+msgstr "기관"
+
+#: .\templates\resumes\templates\_section_education.html:15
+msgid "2018"
+msgstr "2018"
+
+#: .\templates\resumes\templates\_section_education.html:20
+msgid "Agregar educación"
+msgstr "학력 추가"
+
+#: .\templates\resumes\templates\_section_experience.html:3
+msgid "Experiencia"
+msgstr "경력"
+
+#: .\templates\resumes\templates\_section_experience.html:14
+msgid "Título del puesto"
+msgstr "직위"
+
+#: .\templates\resumes\templates\_section_experience.html:17
+msgid "Descripción de tus responsabilidades..."
+msgstr "담당 업무 설명..."
+
+#: .\templates\resumes\templates\_section_interests.html:8
+msgid "Viajar"
+msgstr "여행"
+
+#: .\templates\resumes\templates\_section_interests.html:9
+msgid "Lectura"
+msgstr "독서"
+
+#: .\templates\resumes\templates\_section_interests.html:13
+#, fuzzy
+#| msgid "Agregar"
+msgid "Agregar interés"
+msgstr "추가"
+
+#: .\templates\resumes\templates\_section_languages.html:12
+msgid "Idioma"
+msgstr "언어"
+
+#: .\templates\resumes\templates\_section_languages.html:13
+msgid "Nivel"
+msgstr "수준"
+
+#: .\templates\resumes\templates\_section_languages.html:18
+#, fuzzy
+#| msgid "Agregar habilidad"
+msgid "Agregar idioma"
+msgstr "기술 추가"
+
+#: .\templates\resumes\templates\_section_projects.html:3
+msgid "Proyectos"
+msgstr "프로젝트"
+
+#: .\templates\resumes\templates\_section_projects.html:13
+msgid "Nombre del proyecto"
+msgstr "프로젝트 이름"
+
+#: .\templates\resumes\templates\_section_projects.html:14
+#, fuzzy
+#| msgid "Descripción de tus responsabilidades..."
+msgid "Descripción del proyecto..."
+msgstr "담당 업무 설명..."
+
+#: .\templates\resumes\templates\_section_projects.html:15
+#: .\templates\resumes\templates\_section_publications.html:17
+msgid "https://..."
+msgstr "https://..."
+
+#: .\templates\resumes\templates\_section_projects.html:20
+#, fuzzy
+#| msgid "Agregar experiencia"
+msgid "Agregar proyecto"
+msgstr "경력 추가"
+
+#: .\templates\resumes\templates\_section_publications.html:14
+#, fuzzy
+#| msgid "Título del puesto"
+msgid "Título de la publicación"
+msgstr "직위"
+
+#: .\templates\resumes\templates\_section_publications.html:15
+msgid "Medio o revista"
+msgstr "매체 또는 저널"
+
+#: .\templates\resumes\templates\_section_publications.html:22
+#, fuzzy
+#| msgid "Agregar educación"
+msgid "Agregar publicación"
+msgstr "학력 추가"
+
+#: .\templates\resumes\templates\_section_references.html:15
+#, fuzzy
+#| msgid "Cargando..."
+msgid "Cargo"
+msgstr "로딩 중..."
+
+#: .\templates\resumes\templates\_section_references.html:17
+msgid "email o teléfono"
+msgstr "이메일 또는 전화"
+
+#: .\templates\resumes\templates\_section_references.html:22
+#, fuzzy
+#| msgid "Agregar experiencia"
+msgid "Agregar referencia"
+msgstr "경력 추가"
+
+#: .\templates\resumes\templates\_section_skills.html:8
+#: .\templates\resumes\templates\creative.html:33
+msgid "Python"
+msgstr "Python"
+
+#: .\templates\resumes\templates\_section_skills.html:9
+#: .\templates\resumes\templates\creative.html:34
+msgid "JavaScript"
+msgstr "JavaScript"
+
+#: .\templates\resumes\templates\_section_skills.html:13
+msgid "Agregar habilidad"
+msgstr "기술 추가"
+
+#: .\templates\resumes\templates\_section_volunteering.html:14
+msgid "Rol / Cargo"
+msgstr "역할 / 직위"
+
+#: .\templates\resumes\templates\_section_volunteering.html:15
+msgid "Organización"
+msgstr "조직"
+
+#: .\templates\resumes\templates\_section_volunteering.html:17
+msgid "Describe tu labor..."
+msgstr "담당 업무를 설명하세요..."
+
+#: .\templates\resumes\templates\_section_volunteering.html:22
+#, fuzzy
+#| msgid "Agregar habilidad"
+msgid "Agregar voluntariado"
+msgstr "기술 추가"
+
+#: .\templates\resumes\templates\classic.html:29
+#: .\templates\resumes\templates\creative.html:45
+#: .\templates\resumes\templates\modern.html:28
+msgid "Quién soy"
+msgstr "자기소개"
+
+#: .\templates\resumes\templates\creative.html:21
+msgid "Contacto"
+msgstr "연락처"
+
+#: .\templates\wall\cv_detail.html:15
+msgid "Volver al tablón"
+msgstr "게시판으로 돌아가기"
+
+#: .\templates\wall\cv_detail.html:18
+msgid "Ver Perfil Completo"
+msgstr "전체 프로필 보기"
+
+#: .\templates\wall\wall.html:5 .\templates\wall\wall.html:10
+msgid "Tablón de Talentos"
+msgstr "인재 게시판"
+
+#: .\templates\wall\wall.html:11
+msgid "Descubre profesionales talentosos en diferentes sectores."
+msgstr "다양한 분야의 재능 있는 전문가를 발견하세요."
+
+#: .\templates\wall\wall.html:15
+msgid "Filtrar por sector:"
+msgstr "분야별 필터:"
+
+#: .\templates\wall\wall.html:19
+msgid "Todos"
+msgstr "전체"
+
+#: .\templates\wall\wall.html:32
+msgid "Cargando..."
+msgstr "로딩 중..."
+
+#: .\templates\wall\wall.html:43
+msgid "No se encontraron CVs en esta categoría."
+msgstr "이 카테고리에서 이력서를 찾을 수 없습니다."
+
+#~ msgid "Mi Perfil"
+#~ msgstr "내 프로필"
+
+#~ msgid "Subir foto"
+#~ msgstr "사진 업로드"
+
+#~ msgid "Necesitas subir una foto para poder publicar tus CVs."
+#~ msgstr "이력서를 게시하려면 사진을 업로드해야 합니다."
+
+#~ msgid "Bio (Quién soy)"
+#~ msgstr "자기소개"
+
+#~ msgid "Mis CVs"
+#~ msgstr "내 이력서"
+
+#~ msgid "Sin plantilla"
+#~ msgstr "템플릿 없음"
+
+#~ msgid "Crear mi primer CV"
+#~ msgstr "첫 이력서 만들기"
+
+#~ msgid "Anterior"
+#~ msgstr "이전"
+
+#~ msgid "Las contraseñas no coinciden."
+#~ msgstr "비밀번호가 일치하지 않습니다."
+
+#~ msgid "Ver todas las secciones"
+#~ msgstr "모든 섹션 보기"
+
+#~ msgid "Al menos un carácter especial (!@#$%^&*())"
+#~ msgstr "특수 문자 1개 이상 (!@#$%^&*())"
+
+#~ msgid "Al menos un número"
+#~ msgstr "숫자 1개 이상"
+
+#~ msgid "Al menos una letra mayúscula"
+#~ msgstr "대문자 1개 이상"
+
+#~ msgid "Cuenta"
+#~ msgstr "계정"
+
+#~ msgid "Datos personales"
+#~ msgstr "개인 정보"
+
+#~ msgid "Elige tu rol"
+#~ msgstr "역할 선택"
+
+#~ msgid "Encuentra talento para tu negocio."
+#~ msgstr "비즈니스를 위한 인재를 찾으세요."
+
+#~ msgid "Esta funcionalidad estará disponible próximamente."
+#~ msgstr "이 기능은 곧 제공될 예정입니다."
+
+#~ msgid "Introduce un email válido."
+#~ msgstr "유효한 이메일을 입력하세요."
+
+#~ msgid ""
+#~ "La contraseña debe tener al menos 8 caracteres, 1 mayúscula, 1 número y 1 "
+#~ "carácter especial."
+#~ msgstr ""
+#~ "비밀번호는 8자 이상, 대문자 1개, 숫자 1개, 특수 문자 1개를 포함해야 합니"
+#~ "다."
+
+#~ msgid "Mínimo 8 caracteres"
+#~ msgstr "최소 8자"
+
+#~ msgid "Perfil profesional"
+#~ msgstr "직업 프로필"
+
+#~ msgid "Por favor, completa este campo."
+#~ msgstr "이 필드를 입력하세요."
+
+#~ msgid "Próximamente"
+#~ msgstr "출시 예정"
+
+#~ msgid "Publica tu CV y encuentra oportunidades."
+#~ msgstr "이력서를 게시하고 기회를 찾으세요."
+
+#~ msgid "Registro de Trabajador"
+#~ msgstr "구직자 등록"
+
+#~ msgid "Soy Empresa"
+#~ msgstr "저는 기업입니다"
+
+#~ msgid "Soy Trabajador"
+#~ msgstr "저는 구직자입니다"
+
+#~ msgid "o con tu correo electrónico"
+#~ msgstr "또는 이메일로"
+
+#~ msgid "Regístrate con"
+#~ msgstr "로 가입하기"
+
+#~ msgid "o crea tu cuenta con correo electrónico"
+#~ msgstr "또는 이메일로 계정 만들기"
+
+#~ msgid "Para terminar tu registro, completa tu perfil profesional."
+#~ msgstr "등록을 마치려면 직업 프로필을 완성하세요."
+
+#~ msgid "Selecciona al menos un campo (título o sector) para continuar."
+#~ msgstr "계속하려면 필드를 하나 이상 선택하세요 (직업 직함 또는 분야)."
+
+#~ msgid "Debes seleccionar al menos un campo (título o sector)."
+#~ msgstr "필드(직업 직함 또는 분야)를 하나 이상 선택해야 합니다."
+
+#~ msgid "Guardar y continuar"
+#~ msgstr "저장하고 계속"

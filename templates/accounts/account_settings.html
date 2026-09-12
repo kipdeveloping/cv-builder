@@ -17,6 +17,21 @@
             </div>
         </div>
 
+        <!-- Security -->
+        <div class="mb-8">
+            <h2 class="text-lg font-semibold text-gray-800 mb-4">{% trans "Seguridad" %}</h2>
+            <div class="bg-gray-50 rounded-lg p-4 flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-medium text-gray-800">{% trans "Contraseña" %}</p>
+                    <p class="text-sm text-gray-600">{% trans "Cambia tu contraseña de acceso." %}</p>
+                </div>
+                <a href="{% url 'password_change' %}"
+                    class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-semibold hover:bg-indigo-700 transition duration-200">
+                    {% trans "Cambiar contraseña" %}
+                </a>
+            </div>
+        </div>
+
         <!-- Linked Accounts -->
         <div class="mb-8">
             <h2 class="text-lg font-semibold text-gray-800 mb-4">{% trans "Cuentas Vinculadas" %}</h2>

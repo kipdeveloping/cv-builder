@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from apps.accounts.models import UserProfile, Skill, UserSkill
+from apps.accounts.models import Skill, UserSkill
 from apps.resumes.models import Resume
 from apps.resumes.views import sync_skills_from_resume
 
@@ -10,10 +10,10 @@ class SyncSkillsFromResumeTest(TestCase):
         self.user = User.objects.create_user(
             username='testuser', password='testpass123'
         )
-        self.profile = UserProfile.objects.create(user=self.user)
+        self.profile = self.user.profile
 
     def test_single_resume_skills_sync(self):
-        resume = Resume.objects.create(
+        Resume.objects.create(
             user=self.user,
             content={'skills': ['Python', 'Django', 'JavaScript']}
         )
@@ -25,11 +25,11 @@ class SyncSkillsFromResumeTest(TestCase):
         self.assertEqual(skill_names, {'Python', 'Django', 'JavaScript'})
 
     def test_multiple_resumes_union_skills(self):
-        resume1 = Resume.objects.create(
+        Resume.objects.create(
             user=self.user,
             content={'skills': ['Python', 'Django']}
         )
-        resume2 = Resume.objects.create(
+        Resume.objects.create(
             user=self.user,
             content={'skills': ['JavaScript', 'React']}
         )

@@ -10,8 +10,8 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.utils.http import url_has_allowed_host_and_scheme
 import json
-from .forms import RegistrationForm, CustomAuthenticationForm, WizardRegistrationForm
-from .models import UserProfile, Skill, UserSkill
+from .forms import CustomAuthenticationForm, WizardRegistrationForm
+from .models import UserProfile, UserSkill
 from apps.resumes.models import Resume
 
 
@@ -46,6 +46,7 @@ def login_view(request):
         'SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY': settings.SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY,
     })
 
+
 def register_view(request):
     if request.user.is_authenticated:
         return redirect('dashboard')
@@ -75,16 +76,16 @@ def logout_view(request):
 def dashboard_view(request):
     profile = request.user.profile
     user_resumes = Resume.objects.filter(user=request.user).order_by('-updated_at')
-    
+
     featured_resume = profile.resume_destacado
     if not featured_resume or featured_resume.status != 'published':
         featured_resume = Resume.objects.filter(
             user=request.user, status='published'
         ).order_by('-updated_at').first()
-    
+
     if not featured_resume and user_resumes.exists():
         featured_resume = user_resumes.first()
-    
+
     experience = []
     projects = []
     social_links = {}
@@ -92,9 +93,9 @@ def dashboard_view(request):
         experience = featured_resume.content.get('experience', [])
         projects = featured_resume.content.get('projects', [])
         social_links = featured_resume.content.get('social_links', {})
-    
+
     user_skills = UserSkill.objects.filter(user=profile).select_related('skill')
-    
+
     return render(request, 'accounts/dashboard.html', {
         'profile': profile,
         'user_resumes': user_resumes,
@@ -143,13 +144,13 @@ def update_bio_view(request):
 def profile_view(request, user_id):
     user = get_object_or_404(User, id=user_id)
     profile = get_object_or_404(UserProfile, user=user)
-    
+
     featured_resume = profile.resume_destacado
     if not featured_resume or featured_resume.status != 'published':
         featured_resume = Resume.objects.filter(
             user=user, status='published'
         ).order_by('-updated_at').first()
-    
+
     experience = []
     projects = []
     social_links = {}
@@ -157,11 +158,11 @@ def profile_view(request, user_id):
         experience = featured_resume.content.get('experience', [])
         projects = featured_resume.content.get('projects', [])
         social_links = featured_resume.content.get('social_links', {})
-    
+
     user_skills = UserSkill.objects.filter(user=profile).select_related('skill')
-    
+
     is_owner = request.user.is_authenticated and request.user == user
-    
+
     return render(request, 'accounts/profile.html', {
         'profile_user': user,
         'profile': profile,
@@ -180,7 +181,7 @@ def update_profile_fields_view(request):
     try:
         data = json.loads(request.body)
         profile = request.user.profile
-        
+
         if 'headline' in data:
             profile.headline = data['headline']
         if 'location_flex' in data:
@@ -191,9 +192,9 @@ def update_profile_fields_view(request):
             profile.availability = data['availability']
         if 'bio' in data:
             profile.bio = data['bio']
-        
+
         profile.save()
-        
+
         return JsonResponse({'status': 'ok'})
     except Exception as e:
         return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
@@ -205,17 +206,17 @@ def set_featured_resume_view(request):
     try:
         data = json.loads(request.body)
         resume_id = data.get('resume_id')
-        
+
         profile = request.user.profile
-        
+
         if resume_id:
             resume = get_object_or_404(Resume, id=resume_id, user=request.user)
             profile.resume_destacado = resume
         else:
             profile.resume_destacado = None
-        
+
         profile.save()
-        
+
         return JsonResponse({'status': 'ok'})
     except Exception as e:
         return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
@@ -226,19 +227,18 @@ def set_featured_resume_view(request):
 def contact_email_view(request, user_id):
     try:
         candidate = get_object_or_404(User, id=user_id)
-        candidate_profile = get_object_or_404(UserProfile, user=candidate)
-        
+
         data = json.loads(request.body)
         sender_name = data.get('name', '').strip()
         sender_email = data.get('email', '').strip()
         message = data.get('message', '').strip()
-        
+
         if not sender_name or not sender_email or not message:
             return JsonResponse({
                 'status': 'error',
                 'message': _('Nombre, email y mensaje son obligatorios.')
             }, status=400)
-        
+
         from django.core.validators import validate_email
         from django.core.exceptions import ValidationError
         try:
@@ -248,10 +248,10 @@ def contact_email_view(request, user_id):
                 'status': 'error',
                 'message': _('El formato del email no es valido.')
             }, status=400)
-        
+
         candidate_name = candidate.get_full_name() or candidate.email
         subject = f'Contacto desde CV Builder - {candidate_name}'
-        
+
         email_body = f"""
 Has recibido un mensaje desde CV Builder.
 
@@ -264,7 +264,7 @@ Mensaje:
 ---
 Este mensaje fue enviado desde la plataforma CV Builder.
         """
-        
+
         send_mail(
             subject,
             email_body,
@@ -272,7 +272,7 @@ Este mensaje fue enviado desde la plataforma CV Builder.
             [candidate.email],
             fail_silently=False,
         )
-        
+
         return JsonResponse({'status': 'ok'})
     except Exception as e:
         return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
@@ -281,21 +281,18 @@ Este mensaje fue enviado desde la plataforma CV Builder.
 @login_required
 def account_settings_view(request):
     from social_django.models import UserSocialAuth
-    
+
     # Check which OAuth providers are linked
     social_accounts = UserSocialAuth.objects.filter(user=request.user)
     google_linked = social_accounts.filter(provider='google-oauth2').exists()
     github_linked = social_accounts.filter(provider='github').exists()
     linkedin_linked = social_accounts.filter(provider='linkedin-oauth2').exists()
-    
+
     return render(request, 'accounts/account_settings.html', {
         'google_linked': google_linked,
         'github_linked': github_linked,
         'linkedin_linked': linkedin_linked,
     })
-
-
-
 
 
 def oauth_complete(request, backend, *args, **kwargs):
@@ -306,4 +303,3 @@ def oauth_complete(request, backend, *args, **kwargs):
     except AuthException:
         messages.error(request, _('Este usuario no esta registrado. Por favor, crea una cuenta primero.'))
         return redirect('login')
-

@@ -9,6 +9,16 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof socialLinksData === 'undefined') window.socialLinksData = {};
     if (typeof currentResumeId === 'undefined') window.currentResumeId = null;
 
+    window.dashboardContent = {};
+    const dcNode = document.getElementById('dashboardContent');
+    if (dcNode) {
+        try { window.dashboardContent = JSON.parse(dcNode.textContent) || {}; } catch (e) { window.dashboardContent = {}; }
+    }
+
+    function getFullContent() {
+        return Object.assign({}, window.dashboardContent);
+    }
+
     function getCSRFToken() {
         const cookie = document.cookie.split(';').find(c => c.trim().startsWith('csrftoken='));
         return cookie ? cookie.split('=')[1] : '';
@@ -26,8 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Skills management
-    let selectedPrimary = null;
-
     window.addSkill = function() {
         const input = document.getElementById('new-skill-input');
         const skillName = input.value.trim();
@@ -72,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const starBtn = item.querySelector('button[title="Principal"]');
             starBtn.classList.remove('opacity-50');
         }
-        selectedPrimary = skillId;
     };
 
     // Save headline
@@ -172,6 +179,43 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
+    // Save work preferences
+    window.saveWorkPrefs = async function() {
+        const employmentType = [];
+        document.querySelectorAll('#employment-type-input input[type="checkbox"]:checked').forEach(cb => {
+            employmentType.push(cb.value);
+        });
+        const expectedSalary = document.getElementById('expected-salary-input').value;
+        const willingToRelocate = document.getElementById('relocate-input').value;
+        const travelAvailability = document.getElementById('travel-input').value;
+        
+        try {
+            const response = await fetch(urls.updateProfile, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCSRFToken()
+                },
+                body: JSON.stringify({
+                    employment_type: employmentType,
+                    expected_salary: expectedSalary,
+                    willing_to_relocate: willingToRelocate,
+                    travel_availability: travelAvailability
+                })
+            });
+            
+            if (response.ok) {
+                location.reload();
+            } else {
+                const result = await response.json();
+                alert('Error al guardar: ' + (result.message || 'Error desconocido'));
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error de conexion: ' + error.message);
+        }
+    };
+
     // Save skills
     window.saveSkills = async function() {
         const skills = [];
@@ -192,6 +236,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         try {
+            const content = getFullContent();
+            content.skills = skills;
             const response = await fetch('/api/resume/save/', {
                 method: 'POST',
                 headers: {
@@ -200,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 body: JSON.stringify({
                     resume_id: currentResumeId,
-                    content: { skills: skills }
+                    content: content
                 })
             });
             
@@ -327,6 +373,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         try {
+            const content = getFullContent();
+            content.experience = experienceData;
+            content.projects = projectsData;
             const response = await fetch('/api/resume/save/', {
                 method: 'POST',
                 headers: {
@@ -335,7 +384,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 body: JSON.stringify({
                     resume_id: currentResumeId,
-                    content: { experience: experienceData, projects: projectsData }
+                    content: content
                 })
             });
             
@@ -361,6 +410,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         try {
+            const content = getFullContent();
+            content.social_links = socialLinks;
             const response = await fetch('/api/resume/save/', {
                 method: 'POST',
                 headers: {
@@ -369,7 +420,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 body: JSON.stringify({
                     resume_id: currentResumeId,
-                    content: { social_links: socialLinks }
+                    content: content
                 })
             });
             

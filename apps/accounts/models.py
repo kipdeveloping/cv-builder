@@ -22,6 +22,30 @@ AVAILABILITY_CHOICES = [
     ('negotiable', 'Negociable'),
 ]
 
+EMPLOYMENT_TYPE_CHOICES = [
+    ('full_time', 'Full-time'),
+    ('part_time', 'Part-time'),
+    ('contract', 'Contrato'),
+    ('freelance', 'Freelance'),
+    ('internship', 'Prácticas'),
+]
+
+RELOCATE_CHOICES = [
+    ('yes', 'Sí'),
+    ('no', 'No'),
+    ('somewhere', 'Según destino'),
+]
+
+TRAVEL_CHOICES = [
+    ('none', 'No'),
+    ('occasional', 'Ocasional'),
+    ('frequent', 'Frecuente'),
+]
+
+
+def default_list():
+    return []
+
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
@@ -33,10 +57,20 @@ class UserProfile(models.Model):
     location_flex = models.CharField(max_length=20, choices=LOCATION_FLEX_CHOICES, blank=True, default='')
     search_status = models.CharField(max_length=20, choices=SEARCH_STATUS_CHOICES, blank=True, default='')
     availability = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, blank=True, default='')
+    employment_type = models.JSONField(default=default_list, blank=True)
+    expected_salary = models.CharField(max_length=100, blank=True, default='')
+    willing_to_relocate = models.CharField(max_length=20, choices=RELOCATE_CHOICES, blank=True, default='')
+    travel_availability = models.CharField(max_length=20, choices=TRAVEL_CHOICES, blank=True, default='')
     resume_destacado = models.ForeignKey('resumes.Resume', on_delete=models.SET_NULL, null=True, blank=True, related_name='featured_profiles')
 
     def __str__(self):
         return f"Profile of {self.user.email}"
+
+    def get_employment_types_display(self):
+        mapping = dict(EMPLOYMENT_TYPE_CHOICES)
+        return ' | '.join(
+            mapping.get(code, code) for code in (self.employment_type or []) if code
+        )
 
     class Meta:
         verbose_name = 'User Profile'

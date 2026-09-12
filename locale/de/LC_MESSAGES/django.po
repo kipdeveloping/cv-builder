@@ -1,0 +1,1354 @@
+# German translations for CV Builder
+# Copyright (C) 2026
+# This file is distributed under the same license as the CV Builder project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CV Builder 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-12 00:11-0400\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\apps\accounts\forms.py:11 .\apps\accounts\forms.py:28
+#: .\templates\accounts\login.html:31 .\templates\accounts\register.html:34
+#: .\templates\registration\password_reset_form.html:24
+msgid "Email"
+msgstr "Email"
+
+#: .\apps\accounts\forms.py:18 .\apps\accounts\forms.py:35
+#: .\templates\accounts\account_settings.html:25
+#: .\templates\accounts\login.html:38 .\templates\accounts\register.html:42
+msgid "Contraseña"
+msgstr "Passwort"
+
+#: .\apps\accounts\forms.py:42 .\templates\accounts\register.html:52
+msgid "Confirmar contraseña"
+msgstr "Passwort bestätigen"
+
+#: .\apps\accounts\forms.py:56
+msgid "Este email ya está registrado."
+msgstr "Diese E-Mail ist bereits registriert."
+
+#: .\apps\accounts\forms.py:64
+msgid "La contraseña debe tener al menos 8 caracteres."
+msgstr "Das Passwort muss mindestens 8 Zeichen lang sein."
+
+#: .\apps\accounts\forms.py:66
+msgid "La contraseña debe contener al menos una letra mayúscula."
+msgstr "Das Passwort muss mindestens einen Großbuchstaben enthalten."
+
+#: .\apps\accounts\forms.py:68
+msgid "La contraseña debe contener al menos un número."
+msgstr "Das Passwort muss mindestens eine Zahl enthalten."
+
+#: .\apps\accounts\forms.py:70
+#, python-brace-format
+msgid ""
+"La contraseña debe contener al menos un carácter especial (!@#$%^&*(),.?\":"
+"{}|<>)."
+msgstr ""
+"Das Passwort muss mindestens ein Sonderzeichen enthalten (!@#$%^&*(),.?\":{}|"
+"<>)."
+
+#: .\apps\accounts\forms.py:87 .\apps\accounts\forms.py:106
+#: .\templates\accounts\complete_profile.html:29
+#: .\templates\accounts\dashboard.html:13 .\templates\accounts\register.html:61
+#: .\templates\resumes\templates\_section_references.html:14
+msgid "Nombre"
+msgstr "Vorname"
+
+#: .\apps\accounts\forms.py:95 .\apps\accounts\forms.py:115
+#: .\templates\accounts\complete_profile.html:37
+#: .\templates\accounts\dashboard.html:15 .\templates\accounts\register.html:68
+msgid "Apellido"
+msgstr "Nachname"
+
+#: .\apps\accounts\forms.py:124 .\templates\accounts\register.html:77
+#, fuzzy
+#| msgid "Título profesional"
+msgid "Cargo / Título profesional"
+msgstr "Beruflicher Titel"
+
+#: .\apps\accounts\forms.py:133 .\templates\accounts\register.html:84
+msgid "Sector"
+msgstr "Branche"
+
+#: .\apps\accounts\views.py:23 .\apps\accounts\views.py:334
+msgid "Este usuario no esta registrado. Por favor, crea una cuenta primero."
+msgstr ""
+"Dieser Benutzer ist nicht registriert. Bitte erstelle zuerst ein Konto."
+
+#: .\apps\accounts\views.py:38
+msgid "Email o contraseña incorrectos."
+msgstr "E-Mail oder Passwort falsch."
+
+#: .\apps\accounts\views.py:58
+msgid "¡Cuenta creada exitosamente!"
+msgstr "Konto erfolgreich erstellt!"
+
+#: .\apps\accounts\views.py:61
+msgid "Por favor, corrige los errores."
+msgstr "Bitte korrigieren Sie die Fehler."
+
+#: .\apps\accounts\views.py:70
+msgid "Has cerrado sesión correctamente."
+msgstr "Sie haben sich erfolgreich abgemeldet."
+
+#: .\apps\accounts\views.py:116
+msgid "La foto no puede superar los 5MB."
+msgstr "Das Foto darf 5 MB nicht überschreiten."
+
+#: .\apps\accounts\views.py:121
+msgid "Solo se permiten archivos JPG, PNG o WebP."
+msgstr "Nur JPG-, PNG- oder WebP-Dateien sind erlaubt."
+
+#: .\apps\accounts\views.py:127
+msgid "Foto actualizada correctamente."
+msgstr "Foto erfolgreich aktualisiert."
+
+#: .\apps\accounts\views.py:139
+msgid "Bio actualizada correctamente."
+msgstr "Bio erfolgreich aktualisiert."
+
+#: .\apps\accounts\views.py:266
+msgid "Nombre, email y mensaje son obligatorios."
+msgstr "Name, E-Mail und Nachricht sind Pflichtfelder."
+
+#: .\apps\accounts\views.py:276
+msgid "El formato del email no es valido."
+msgstr "Das E-Mail-Format ist ungültig."
+
+#: .\apps\accounts\views.py:347
+#, fuzzy
+#| msgid "Bio actualizada correctamente."
+msgid "Perfil completado correctamente."
+msgstr "Bio erfolgreich aktualisiert."
+
+#: .\apps\resumes\views.py:69
+msgid "CV creado exitosamente. ¡Ahora personalízalo!"
+msgstr "CV erfolgreich erstellt. Passen Sie ihn jetzt an!"
+
+#: .\templates\accounts\account_settings.html:4
+#: .\templates\accounts\account_settings.html:9
+msgid "Configuracion de Cuenta"
+msgstr "Kontoeinstellungen"
+
+#: .\templates\accounts\account_settings.html:13
+msgid "Informacion de Cuenta"
+msgstr "Kontoinformationen"
+
+#: .\templates\accounts\account_settings.html:15
+#, fuzzy
+#| msgid "Email"
+msgid "Email:"
+msgstr "Email"
+
+#: .\templates\accounts\account_settings.html:16
+#, fuzzy
+#| msgid "Nombre"
+msgid "Nombre:"
+msgstr "Vorname"
+
+#: .\templates\accounts\account_settings.html:22
+msgid "Seguridad"
+msgstr "Sicherheit"
+
+#: .\templates\accounts\account_settings.html:26
+msgid "Cambia tu contraseña de acceso."
+msgstr "Ändere dein Zugangspasswort."
+
+#: .\templates\accounts\account_settings.html:30
+#: .\templates\registration\password_change_form.html:4
+#: .\templates\registration\password_change_form.html:9
+msgid "Cambiar contraseña"
+msgstr "Passwort ändern"
+
+#: .\templates\accounts\account_settings.html:37
+msgid "Cuentas Vinculadas"
+msgstr "Verknüpfte Konten"
+
+#: .\templates\accounts\account_settings.html:53
+#: .\templates\accounts\account_settings.html:71
+#: .\templates\accounts\account_settings.html:89
+msgid "Vinculada"
+msgstr "Verknüpft"
+
+#: .\templates\accounts\account_settings.html:54
+#: .\templates\accounts\account_settings.html:72
+#: .\templates\accounts\account_settings.html:90
+msgid "Desvincular"
+msgstr "Verknüpfung aufheben"
+
+#: .\templates\accounts\account_settings.html:56
+#: .\templates\accounts\account_settings.html:74
+#: .\templates\accounts\account_settings.html:92
+msgid "Vincular"
+msgstr "Verknüpfen"
+
+#: .\templates\accounts\account_settings.html:102
+#, fuzzy
+#| msgid "Volver al dashboard"
+msgid "Volver al Dashboard"
+msgstr "Zurück zum Dashboard"
+
+#: .\templates\accounts\complete_profile.html:4
+#, fuzzy
+#| msgid "Completa tu perfil profesional"
+msgid "Completar perfil"
+msgstr "Vervollständigen Sie Ihr berufliches Profil"
+
+#: .\templates\accounts\complete_profile.html:9
+#, fuzzy
+#| msgid "Completa tu perfil profesional"
+msgid "Completa tu perfil"
+msgstr "Vervollständigen Sie Ihr berufliches Profil"
+
+#: .\templates\accounts\complete_profile.html:10
+msgid "Cuéntanos un poco sobre ti para personalizar tu experiencia."
+msgstr ""
+"Erzähle uns ein wenig über dich, um deine Erfahrung zu personalisieren."
+
+#: .\templates\accounts\complete_profile.html:14
+#, fuzzy
+#| msgid "Por favor, corrige los errores."
+msgid "Por favor, corrige los errores:"
+msgstr "Bitte korrigieren Sie die Fehler."
+
+#: .\templates\accounts\complete_profile.html:32
+#: .\templates\accounts\profile.html:347 .\templates\accounts\register.html:64
+msgid "Tu nombre"
+msgstr "Ihr Vorname"
+
+#: .\templates\accounts\complete_profile.html:40
+#: .\templates\accounts\register.html:71
+#, fuzzy
+#| msgid "Tus apellidos"
+msgid "Tu apellido"
+msgstr "Ihr Nachname"
+
+#: .\templates\accounts\complete_profile.html:46
+msgid "Continuar"
+msgstr "Weiter"
+
+#: .\templates\accounts\dashboard.html:5 .\templates\base.html:72
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: .\templates\accounts\dashboard.html:10
+#, fuzzy
+#| msgid "CV Builder"
+msgid "Bienvenido a CV Builder"
+msgstr "CV Builder"
+
+#: .\templates\accounts\dashboard.html:11
+msgid "Para completar tu perfil, necesitamos tu nombre y apellido."
+msgstr "Um dein Profil abzuschließen, benötigen wir deinen Vor- und Nachnamen."
+
+#: .\templates\accounts\dashboard.html:19
+#: .\templates\accounts\dashboard.html:310
+#: .\templates\accounts\dashboard.html:334
+#: .\templates\accounts\dashboard.html:357
+#: .\templates\accounts\dashboard.html:407
+#: .\templates\accounts\dashboard.html:466
+#: .\templates\accounts\dashboard.html:516
+#: .\templates\accounts\dashboard.html:608
+#: .\templates\accounts\dashboard.html:654
+#, fuzzy
+#| msgid "Guardar bio"
+msgid "Guardar"
+msgstr "Bio speichern"
+
+#: .\templates\accounts\dashboard.html:33 .\templates\accounts\profile.html:24
+#: .\templates\resumes\templates\classic.html:6
+#: .\templates\resumes\templates\creative.html:6
+#: .\templates\resumes\templates\modern.html:5
+msgid "Foto de perfil"
+msgstr "Profilbild"
+
+#: .\templates\accounts\dashboard.html:85
+#, fuzzy
+#| msgid "Editar"
+msgid "Editar estado"
+msgstr "Bearbeiten"
+
+#: .\templates\accounts\dashboard.html:92 .\templates\accounts\profile.html:64
+#: .\templates\resumes\templates\_section_skills.html:3
+#: .\templates\resumes\templates\creative.html:28
+msgid "Habilidades"
+msgstr "Fähigkeiten"
+
+#: .\templates\accounts\dashboard.html:95
+#: .\templates\accounts\dashboard.html:118
+#: .\templates\accounts\dashboard.html:132
+#: .\templates\accounts\dashboard.html:254
+#: .\templates\accounts\dashboard.html:558
+msgid "Editar"
+msgstr "Bearbeiten"
+
+#: .\templates\accounts\dashboard.html:107 .\templates\accounts\profile.html:74
+#, fuzzy
+#| msgid "Habilidades"
+msgid "Sin habilidades"
+msgstr "Fähigkeiten"
+
+#: .\templates\accounts\dashboard.html:115 .\templates\accounts\profile.html:81
+msgid "Bio"
+msgstr "Bio"
+
+#: .\templates\accounts\dashboard.html:129
+#: .\templates\accounts\dashboard.html:416 .\templates\accounts\profile.html:88
+msgid "Preferencias de trabajo"
+msgstr "Arbeitspräferenzen"
+
+#: .\templates\accounts\dashboard.html:137 .\templates\accounts\profile.html:92
+msgid "Tipo de empleo:"
+msgstr "Beschäftigungsart:"
+
+#: .\templates\accounts\dashboard.html:141 .\templates\accounts\profile.html:98
+msgid "Salario esperado:"
+msgstr "Wunschgehalt:"
+
+#: .\templates\accounts\dashboard.html:145
+#: .\templates\accounts\profile.html:104
+msgid "Disponible para mudarse:"
+msgstr "Bereit, umzuziehen:"
+
+#: .\templates\accounts\dashboard.html:149
+#: .\templates\accounts\profile.html:110
+msgid "Disponible para viajar:"
+msgstr "Bereit zu reisen:"
+
+#: .\templates\accounts\dashboard.html:158
+#: .\templates\accounts\dashboard.html:525
+msgid "Mis Curriculums"
+msgstr "Meine Lebensläufe"
+
+#: .\templates\accounts\dashboard.html:167
+#: .\templates\accounts\profile.html:138
+#, fuzzy
+#| msgid "Experiencia"
+msgid "Experiencia y Proyectos"
+msgstr "Berufserfahrung"
+
+#: .\templates\accounts\dashboard.html:170
+#: .\templates\resumes\templates\creative.html:38
+msgid "Agregar"
+msgstr "Hinzufügen"
+
+#: .\templates\accounts\dashboard.html:251
+#: .\templates\accounts\profile.html:180
+msgid "Redes Sociales"
+msgstr "Soziale Netzwerke"
+
+#: .\templates\accounts\dashboard.html:283
+#: .\templates\accounts\profile.html:207
+msgid "Sin redes sociales configuradas"
+msgstr "Keine sozialen Netzwerke konfiguriert"
+
+#: .\templates\accounts\dashboard.html:294
+#, fuzzy
+#| msgid "Actualizado:"
+msgid "Actualizar foto"
+msgstr "Aktualisiert:"
+
+#: .\templates\accounts\dashboard.html:305
+#, fuzzy
+#| msgid "JPG, PNG o WebP. Máximo 5MB."
+msgid "JPG, PNG o WebP. Maximo 5MB."
+msgstr "JPG, PNG oder WebP. Maximal 5MB."
+
+#: .\templates\accounts\dashboard.html:308
+#: .\templates\accounts\dashboard.html:332
+#: .\templates\accounts\dashboard.html:355
+#: .\templates\accounts\dashboard.html:405
+#: .\templates\accounts\dashboard.html:464
+#: .\templates\accounts\dashboard.html:514
+#: .\templates\accounts\dashboard.html:606
+#: .\templates\accounts\dashboard.html:652
+#: .\templates\accounts\profile.html:368 .\templates\resumes\editor.html:72
+msgid "Cancelar"
+msgstr "Abbrechen"
+
+#: .\templates\accounts\dashboard.html:320
+#, fuzzy
+#| msgid "Actualizado:"
+msgid "Actualizar titular"
+msgstr "Aktualisiert:"
+
+#: .\templates\accounts\dashboard.html:329
+#, fuzzy
+#| msgid "Ej: Desarrollador Web"
+msgid "Ej: Desarrollador Full Stack Senior"
+msgstr "z. B. Webentwickler"
+
+#: .\templates\accounts\dashboard.html:343
+#, fuzzy
+#| msgid "Actualizado:"
+msgid "Actualizar bio"
+msgstr "Aktualisiert:"
+
+#: .\templates\accounts\dashboard.html:352
+#, fuzzy
+#| msgid "Cuéntanos sobre ti..."
+msgid "Cuentanos sobre ti..."
+msgstr "Erzählen Sie uns von sich..."
+
+#: .\templates\accounts\dashboard.html:366
+#, fuzzy
+#| msgid "Actualizado:"
+msgid "Actualizar estado"
+msgstr "Aktualisiert:"
+
+#: .\templates\accounts\dashboard.html:375
+msgid "Estado de busqueda"
+msgstr "Suchstatus"
+
+#: .\templates\accounts\dashboard.html:377
+#: .\templates\accounts\dashboard.html:386
+#: .\templates\accounts\dashboard.html:396
+#: .\templates\accounts\dashboard.html:446
+#: .\templates\accounts\dashboard.html:455
+msgid "No especificado"
+msgstr "Nicht angegeben"
+
+#: .\templates\accounts\dashboard.html:378
+msgid "Buscando activamente"
+msgstr "Aktiv suchend"
+
+#: .\templates\accounts\dashboard.html:379
+msgid "Abierto a ofertas"
+msgstr "Offen für Angebote"
+
+#: .\templates\accounts\dashboard.html:380
+msgid "No buscando"
+msgstr "Nicht aktiv suchend"
+
+#: .\templates\accounts\dashboard.html:384
+msgid "Disponibilidad"
+msgstr "Verfügbarkeit"
+
+#: .\templates\accounts\dashboard.html:387
+msgid "Inmediata"
+msgstr "Sofort"
+
+#: .\templates\accounts\dashboard.html:388
+msgid "2 semanas"
+msgstr "2 Wochen"
+
+#: .\templates\accounts\dashboard.html:389
+msgid "1 mes"
+msgstr "1 Monat"
+
+#: .\templates\accounts\dashboard.html:390
+msgid "Negociable"
+msgstr "Verhandelbar"
+
+#: .\templates\accounts\dashboard.html:394
+msgid "Preferencia de ubicacion"
+msgstr "Standortpräferenz"
+
+#: .\templates\accounts\dashboard.html:397
+msgid "Remoto"
+msgstr "Remote"
+
+#: .\templates\accounts\dashboard.html:398
+msgid "Hibrido"
+msgstr "Hybrid"
+
+#: .\templates\accounts\dashboard.html:399
+msgid "Presencial"
+msgstr "Vor Ort"
+
+#: .\templates\accounts\dashboard.html:425
+msgid "Tipo de empleo"
+msgstr "Beschäftigungsart"
+
+#: .\templates\accounts\dashboard.html:438
+msgid "Salario esperado"
+msgstr "Wunschgehalt"
+
+#: .\templates\accounts\dashboard.html:441
+msgid "Ej: $50,000 - $70,000"
+msgstr "z. B. 50.000 € – 70.000 €"
+
+#: .\templates\accounts\dashboard.html:444
+msgid "Disponible para mudarse"
+msgstr "Bereit, umzuziehen"
+
+#: .\templates\accounts\dashboard.html:447
+msgid "Sí"
+msgstr "Ja"
+
+#: .\templates\accounts\dashboard.html:448
+#: .\templates\accounts\dashboard.html:456
+msgid "No"
+msgstr "Nein"
+
+#: .\templates\accounts\dashboard.html:449
+msgid "Según destino"
+msgstr "Je nach Ziel"
+
+#: .\templates\accounts\dashboard.html:453
+msgid "Disponible para viajar"
+msgstr "Bereit zu reisen"
+
+#: .\templates\accounts\dashboard.html:457
+#, fuzzy
+#| msgid "Opcional"
+msgid "Ocasional"
+msgstr "Optional"
+
+#: .\templates\accounts\dashboard.html:458
+#, fuzzy
+#| msgid "Crea tu cuenta"
+msgid "Frecuente"
+msgstr "Erstellen Sie Ihr Konto"
+
+#: .\templates\accounts\dashboard.html:475
+#, fuzzy
+#| msgid "Habilidades"
+msgid "Editar habilidades"
+msgstr "Fähigkeiten"
+
+#: .\templates\accounts\dashboard.html:486
+#, fuzzy
+#| msgid "Agregar habilidad"
+msgid "Nueva habilidad"
+msgstr "Fähigkeit hinzufügen"
+
+#: .\templates\accounts\dashboard.html:498
+#, fuzzy
+#| msgid "Sector principal:"
+msgid "Principal"
+msgstr "Hauptbereich:"
+
+#: .\templates\accounts\dashboard.html:545
+msgid "Actualizado:"
+msgstr "Aktualisiert:"
+
+#: .\templates\accounts\dashboard.html:551
+msgid "Destacado"
+msgstr "Hervorgehoben"
+
+#: .\templates\accounts\dashboard.html:563
+msgid "Ver CV"
+msgstr "CV ansehen"
+
+#: .\templates\accounts\dashboard.html:574
+msgid "Crear nuevo CV"
+msgstr "Neuen CV erstellen"
+
+#: .\templates\accounts\dashboard.html:584
+#: .\templates\resumes\templates\_section_experience.html:22
+msgid "Agregar experiencia"
+msgstr "Erfahrung hinzufügen"
+
+#: .\templates\accounts\dashboard.html:594
+#, fuzzy
+#| msgid "Título del puesto"
+msgid "Titulo del puesto"
+msgstr "Position"
+
+#: .\templates\accounts\dashboard.html:596
+#: .\templates\resumes\templates\_section_experience.html:15
+#: .\templates\resumes\templates\_section_references.html:16
+msgid "Empresa"
+msgstr "Unternehmen"
+
+#: .\templates\accounts\dashboard.html:598
+#: .\templates\resumes\templates\_section_experience.html:16
+#: .\templates\resumes\templates\_section_volunteering.html:16
+msgid "2020 - Presente"
+msgstr "2020 - Heute"
+
+#: .\templates\accounts\dashboard.html:600
+msgid "Descripcion..."
+msgstr "Beschreibung..."
+
+#: .\templates\accounts\dashboard.html:617
+msgid "Editar redes sociales"
+msgstr "Soziale Netzwerke bearbeiten"
+
+#: .\templates\accounts\login.html:4 .\templates\accounts\login.html:46
+#: .\templates\base.html:75
+msgid "Entrar"
+msgstr "Anmelden"
+
+#: .\templates\accounts\login.html:9
+msgid "Iniciar Sesión"
+msgstr "Anmeldung"
+
+#: .\templates\accounts\login.html:23
+msgid "Email o contraseña incorrectos. Por favor, inténtalo de nuevo."
+msgstr "Email oder Passwort falsch. Bitte versuchen Sie es erneut."
+
+#: .\templates\accounts\login.html:52
+msgid "¿Olvidaste tu contraseña?"
+msgstr "Passwort vergessen?"
+
+#: .\templates\accounts\login.html:62
+#, fuzzy
+#| msgid "Continúa con"
+msgid "O continúa con"
+msgstr "Weiter mit"
+
+#: .\templates\accounts\login.html:102
+msgid ""
+"El login con redes sociales no está configurado. Consulta el README para "
+"configurar las credenciales OAuth."
+msgstr ""
+"Social-Login ist nicht konfiguriert. Siehe README zur Einrichtung der OAuth-"
+"Zugangsdaten."
+
+#: .\templates\accounts\login.html:108
+msgid "¿No tienes cuenta?"
+msgstr "Noch kein Konto?"
+
+#: .\templates\accounts\login.html:109
+msgid "Regístrate"
+msgstr "Registrieren"
+
+#: .\templates\accounts\profile.html:10
+msgid "Este es tu perfil publico"
+msgstr "Dies ist dein öffentliches Profil"
+
+#: .\templates\accounts\profile.html:12
+#: .\templates\registration\password_change_done.html:13
+#, fuzzy
+#| msgid "Volver al dashboard"
+msgid "Ir al Dashboard"
+msgstr "Zurück zum Dashboard"
+
+#: .\templates\accounts\profile.html:122
+#, fuzzy
+#| msgid "Contacto"
+msgid "Contactar"
+msgstr "Kontakt"
+
+#: .\templates\accounts\profile.html:131
+#, fuzzy
+#| msgid "Aún no tienes CVs creados."
+msgid "Este candidato no tiene CVs publicados."
+msgstr "Dieser Kandidat hat keine veröffentlichten Lebensläufe."
+
+#: .\templates\accounts\profile.html:215
+#: .\templates\resumes\templates\_section_education.html:3
+msgid "Educación"
+msgstr "Ausbildung"
+
+#: .\templates\accounts\profile.html:231
+#: .\templates\resumes\templates\_section_languages.html:3
+msgid "Idiomas"
+msgstr "Sprachen"
+
+#: .\templates\accounts\profile.html:243
+#: .\templates\resumes\templates\_section_certifications.html:3
+msgid "Certificaciones y Cursos"
+msgstr "Zertifizierungen und Kurse"
+
+#: .\templates\accounts\profile.html:258
+#: .\templates\resumes\templates\_section_volunteering.html:3
+msgid "Voluntariado"
+msgstr "Ehrenamt"
+
+#: .\templates\accounts\profile.html:274
+#: .\templates\resumes\templates\_section_awards.html:3
+msgid "Premios y Reconocimientos"
+msgstr "Auszeichnungen und Anerkennungen"
+
+#: .\templates\accounts\profile.html:289
+#: .\templates\resumes\templates\_section_publications.html:3
+#, fuzzy
+#| msgid "Publicado"
+msgid "Publicaciones"
+msgstr "Veröffentlicht"
+
+#: .\templates\accounts\profile.html:305
+#: .\templates\resumes\templates\_section_interests.html:3
+msgid "Intereses"
+msgstr "Interessen"
+
+#: .\templates\accounts\profile.html:317
+#: .\templates\resumes\templates\_section_references.html:3
+#, fuzzy
+#| msgid "Experiencia"
+msgid "Referencias"
+msgstr "Berufserfahrung"
+
+#: .\templates\accounts\profile.html:338
+#, fuzzy
+#| msgid "Contacto"
+msgid "Contactar a"
+msgstr "Kontakt"
+
+#: .\templates\accounts\profile.html:350
+msgid "Nombre completo"
+msgstr "Vollständiger Name"
+
+#: .\templates\accounts\profile.html:353
+#, fuzzy
+#| msgid "Email"
+msgid "Tu email"
+msgstr "Email"
+
+#: .\templates\accounts\profile.html:356
+msgid "tu@email.com"
+msgstr "du@email.com"
+
+#: .\templates\accounts\profile.html:359
+msgid "Mensaje"
+msgstr "Nachricht"
+
+#: .\templates\accounts\profile.html:362
+msgid "Escribe tu mensaje..."
+msgstr "Schreibe deine Nachricht..."
+
+#: .\templates\accounts\profile.html:370
+msgid "Enviar"
+msgstr "Senden"
+
+#: .\templates\accounts\register.html:5 .\templates\base.html:76
+msgid "Registrarse"
+msgstr "Registrieren"
+
+#: .\templates\accounts\register.html:10 .\templates\accounts\register.html:103
+msgid "Crear Cuenta"
+msgstr "Konto erstellen"
+
+#: .\templates\accounts\register.html:11
+msgid "Paso 1 de 3 — Datos de acceso"
+msgstr "Schritt 1 von 3 — Zugangsdaten"
+
+#: .\templates\accounts\register.html:15
+msgid "Por favor, corrige los siguientes errores:"
+msgstr "Bitte korrigieren Sie die folgenden Fehler:"
+
+#: .\templates\accounts\register.html:47
+msgid "Mínimo 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial."
+msgstr "Mindestens 8 Zeichen, 1 Großbuchstabe, 1 Zahl und 1 Sonderzeichen."
+
+#: .\templates\accounts\register.html:80
+msgid "Ej: Ingeniero de Software"
+msgstr "z. B. Softwareentwickler"
+
+#: .\templates\accounts\register.html:87
+msgid "Ej: Tecnología"
+msgstr "z. B. Technologie"
+
+#: .\templates\accounts\register.html:94
+msgid "Atrás"
+msgstr "Zurück"
+
+#: .\templates\accounts\register.html:99
+msgid "Siguiente"
+msgstr "Weiter"
+
+#: .\templates\accounts\register.html:115
+#: .\templates\registration\password_reset_form.html:36
+msgid "¿Ya tienes cuenta?"
+msgstr "Schon ein Konto?"
+
+#: .\templates\accounts\register.html:116
+#: .\templates\registration\password_reset_complete.html:13
+#: .\templates\registration\password_reset_done.html:13
+#: .\templates\registration\password_reset_form.html:37
+msgid "Inicia sesión"
+msgstr "Anmelden"
+
+#: .\templates\base.html:30
+msgid "Tablón"
+msgstr "Pinnwand"
+
+#: .\templates\base.html:33
+msgid "Cambiar tema"
+msgstr "Design ändern"
+
+#: .\templates\base.html:73
+msgid "Salir"
+msgstr "Abmelden"
+
+#: .\templates\base.html:89
+msgid "Todos los derechos reservados."
+msgstr "Alle Rechte vorbehalten."
+
+#: .\templates\landing.html:4 .\templates\landing.html:10
+msgid "Crea tu CV profesional"
+msgstr "Erstellen Sie Ihren professionellen CV"
+
+#: .\templates\landing.html:13
+msgid ""
+"Diseña CVs impresionantes con plantillas profesionales. Publica en nuestro "
+"tablón de talentos y conecta con oportunidades."
+msgstr ""
+"Entwerfen Sie beeindruckende CVs mit professionellen Vorlagen. "
+"Veröffentlichen Sie auf unserer Talent-Pinnwand und knüpfen Sie Kontakte."
+
+#: .\templates\landing.html:19
+msgid "Mi Dashboard"
+msgstr "Mein Dashboard"
+
+#: .\templates\landing.html:24
+msgid "Comenzar ahora"
+msgstr "Jetzt starten"
+
+#: .\templates\landing.html:28
+msgid "Ya tengo cuenta"
+msgstr "Ich habe bereits ein Konto"
+
+#: .\templates\landing.html:34
+msgid "O explora el tablón como invitado"
+msgstr "Oder erkunde die Pinnwand als Gast"
+
+#: .\templates\landing.html:41
+msgid "¿Por qué CV Builder?"
+msgstr "Warum CV Builder?"
+
+#: .\templates\landing.html:51
+msgid "3 Plantillas profesionales"
+msgstr "3 professionelle Vorlagen"
+
+#: .\templates\landing.html:52
+msgid ""
+"Elige entre diseños clásico, moderno y creativo para destacar tu perfil."
+msgstr ""
+"Wählen Sie zwischen klassischen, modernen und kreativen Designs, um Ihr "
+"Profil hervorzuheben."
+
+#: .\templates\landing.html:61
+msgid "Editor visual"
+msgstr "Visueller Editor"
+
+#: .\templates\landing.html:62
+msgid "Edita directamente en la plantilla con autoguardado automático."
+msgstr "Bearbeiten Sie direkt in der Vorlage mit automatischem Speichern."
+
+#: .\templates\landing.html:71
+msgid "Tablón de talentos"
+msgstr "Talent-Pinnwand"
+
+#: .\templates\landing.html:72
+msgid "Publica tu CV y descubre profesionales por sector."
+msgstr "Veröffentlichen Sie Ihren CV und entdecken Sie Fachleute nach Branche."
+
+#: .\templates\landing.html:78
+msgid "¿Listo para crear tu CV?"
+msgstr "Bereit, Ihren CV zu erstellen?"
+
+#: .\templates\landing.html:79
+msgid "Únete a nuestra comunidad de profesionales."
+msgstr "Werden Sie Teil unserer Community von Fachleuten."
+
+#: .\templates\landing.html:83
+msgid "Crear cuenta gratis"
+msgstr "Kostenloses Konto erstellen"
+
+#: .\templates\registration\password_change_done.html:4
+msgid "Contraseña cambiada"
+msgstr "Passwort geändert"
+
+#: .\templates\registration\password_change_done.html:9
+#: .\templates\registration\password_reset_complete.html:9
+msgid "Contraseña actualizada"
+msgstr "Passwort aktualisiert"
+
+#: .\templates\registration\password_change_done.html:10
+#, fuzzy
+#| msgid "Foto actualizada correctamente."
+msgid "Tu contraseña ha sido cambiada correctamente."
+msgstr "Foto erfolgreich aktualisiert."
+
+#: .\templates\registration\password_change_form.html:10
+msgid "Introduce tu nueva contraseña."
+msgstr "Gib dein neues Passwort ein."
+
+#: .\templates\registration\password_change_form.html:32
+msgid "Actualizar contraseña"
+msgstr "Passwort aktualisieren"
+
+#: .\templates\registration\password_reset_complete.html:4
+#, fuzzy
+#| msgid "Contraseña"
+msgid "Contraseña restablecida"
+msgstr "Passwort"
+
+#: .\templates\registration\password_reset_complete.html:10
+msgid "Tu contraseña ha sido restablecida. Ya puedes iniciar sesión."
+msgstr "Dein Passwort wurde zurückgesetzt. Du kannst dich jetzt anmelden."
+
+#: .\templates\registration\password_reset_confirm.html:4
+#, fuzzy
+#| msgid "Contraseña"
+msgid "Nueva contraseña"
+msgstr "Passwort"
+
+#: .\templates\registration\password_reset_confirm.html:9
+msgid "Elige una nueva contraseña"
+msgstr "Wähle ein neues Passwort"
+
+#: .\templates\registration\password_reset_confirm.html:10
+msgid "Introduce tu nueva contraseña dos veces para verificar."
+msgstr "Gib dein neues Passwort zur Bestätigung zweimal ein."
+
+#: .\templates\registration\password_reset_confirm.html:33
+msgid "Guardar contraseña"
+msgstr "Passwort speichern"
+
+#: .\templates\registration\password_reset_confirm.html:38
+msgid ""
+"El enlace de restablecimiento no es válido o ya ha sido usado. Solicita uno "
+"nuevo."
+msgstr ""
+"Der Zurücksetzungslink ist ungültig oder wurde bereits verwendet. Fordere "
+"einen neuen an."
+
+#: .\templates\registration\password_reset_confirm.html:41
+msgid "Solicitar nuevo enlace"
+msgstr "Neuen Link anfordern"
+
+#: .\templates\registration\password_reset_done.html:4
+msgid "Email enviado"
+msgstr "E-Mail gesendet"
+
+#: .\templates\registration\password_reset_done.html:9
+msgid "Revisa tu email"
+msgstr "Prüfe deine E-Mails"
+
+#: .\templates\registration\password_reset_done.html:10
+msgid ""
+"Si existe una cuenta con ese email, te hemos enviado instrucciones para "
+"restablecer tu contraseña."
+msgstr ""
+"Wenn ein Konto mit dieser E-Mail existiert, haben wir dir Anweisungen zum "
+"Zurücksetzen deines Passworts gesendet."
+
+#: .\templates\registration\password_reset_email.html:3
+msgid "Recibimos una solicitud para restablecer tu contraseña en CV Builder."
+msgstr ""
+"Wir haben eine Anfrage zum Zurücksetzen deines Passworts bei CV Builder "
+"erhalten."
+
+#: .\templates\registration\password_reset_email.html:5
+msgid "Haz clic en el siguiente enlace para elegir una nueva contraseña:"
+msgstr "Klicke auf den folgenden Link, um ein neues Passwort festzulegen:"
+
+#: .\templates\registration\password_reset_email.html:9
+msgid ""
+"Si no solicitaste este cambio, ignora este email. Tu contraseña no cambiará."
+msgstr ""
+"Wenn du diese Änderung nicht angefordert hast, ignoriere diese E-Mail. Dein "
+"Passwort wird nicht geändert."
+
+#: .\templates\registration\password_reset_form.html:4
+#: .\templates\registration\password_reset_form.html:9
+msgid "Recuperar contraseña"
+msgstr "Passwort zurücksetzen"
+
+#: .\templates\registration\password_reset_form.html:10
+msgid ""
+"Introduce tu email y te enviaremos instrucciones para restablecer tu "
+"contraseña."
+msgstr ""
+"Gib deine E-Mail ein und wir senden dir Anweisungen zum Zurücksetzen deines "
+"Passworts."
+
+#: .\templates\registration\password_reset_form.html:31
+msgid "Enviar enlace"
+msgstr "Link senden"
+
+#: .\templates\registration\password_reset_subject.txt:1
+msgid "Restablecer contraseña"
+msgstr "Passwort zurücksetzen"
+
+#: .\templates\resumes\editor.html:5 .\templates\resumes\editor.html:20
+msgid "Editor"
+msgstr "Editor"
+
+#: .\templates\resumes\editor.html:17
+msgid "Volver"
+msgstr "Zurück"
+
+#: .\templates\resumes\editor.html:28
+msgid "Publicar"
+msgstr "Veröffentlichen"
+
+#: .\templates\resumes\editor.html:32
+msgid "Publicado"
+msgstr "Veröffentlicht"
+
+#: .\templates\resumes\editor.html:54
+msgid "Publicar CV"
+msgstr "CV veröffentlichen"
+
+#: .\templates\resumes\editor.html:55
+msgid "Selecciona los sectores en los que encaja tu CV:"
+msgstr "Wählen Sie die Bereiche, in die Ihr CV passt:"
+
+#: .\templates\resumes\editor.html:61
+msgid "Sector principal:"
+msgstr "Hauptbereich:"
+
+#: .\templates\resumes\editor.html:76
+msgid "Confirmar publicación"
+msgstr "Veröffentlichung bestätigen"
+
+#: .\templates\resumes\select_template.html:4
+msgid "Seleccionar Plantilla"
+msgstr "Vorlage auswählen"
+
+#: .\templates\resumes\select_template.html:8
+msgid "Elige una plantilla"
+msgstr "Wählen Sie eine Vorlage"
+
+#: .\templates\resumes\select_template.html:9
+msgid "Selecciona el diseño que mejor se adapte a tu estilo profesional."
+msgstr "Wählen Sie das Design, das am besten zu Ihrem beruflichen Stil passt."
+
+#: .\templates\resumes\select_template.html:68
+msgid "Seleccionar"
+msgstr "Auswählen"
+
+#: .\templates\resumes\select_template.html:77
+msgid "Volver al dashboard"
+msgstr "Zurück zum Dashboard"
+
+#: .\templates\resumes\templates\_section_awards.html:13
+msgid "Premio o reconocimiento"
+msgstr "Auszeichnung oder Anerkennung"
+
+#: .\templates\resumes\templates\_section_awards.html:14
+msgid "Otorgado por"
+msgstr "Verliehen von"
+
+#: .\templates\resumes\templates\_section_awards.html:15
+#: .\templates\resumes\templates\_section_certifications.html:15
+#: .\templates\resumes\templates\_section_publications.html:16
+msgid "Año"
+msgstr "Jahr"
+
+#: .\templates\resumes\templates\_section_awards.html:20
+#, fuzzy
+#| msgid "Agregar experiencia"
+msgid "Agregar premio"
+msgstr "Erfahrung hinzufügen"
+
+#: .\templates\resumes\templates\_section_certifications.html:13
+msgid "Nombre de la certificación"
+msgstr "Name der Zertifizierung"
+
+#: .\templates\resumes\templates\_section_certifications.html:14
+#, fuzzy
+#| msgid "Institución"
+msgid "Institución o plataforma"
+msgstr "Institution"
+
+#: .\templates\resumes\templates\_section_certifications.html:20
+#, fuzzy
+#| msgid "Agregar educación"
+msgid "Agregar certificación"
+msgstr "Ausbildung hinzufügen"
+
+#: .\templates\resumes\templates\_section_education.html:13
+msgid "Título"
+msgstr "Abschluss"
+
+#: .\templates\resumes\templates\_section_education.html:14
+msgid "Institución"
+msgstr "Institution"
+
+#: .\templates\resumes\templates\_section_education.html:15
+msgid "2018"
+msgstr "2018"
+
+#: .\templates\resumes\templates\_section_education.html:20
+msgid "Agregar educación"
+msgstr "Ausbildung hinzufügen"
+
+#: .\templates\resumes\templates\_section_experience.html:3
+msgid "Experiencia"
+msgstr "Berufserfahrung"
+
+#: .\templates\resumes\templates\_section_experience.html:14
+msgid "Título del puesto"
+msgstr "Position"
+
+#: .\templates\resumes\templates\_section_experience.html:17
+msgid "Descripción de tus responsabilidades..."
+msgstr "Beschreibung Ihrer Aufgaben..."
+
+#: .\templates\resumes\templates\_section_interests.html:8
+msgid "Viajar"
+msgstr "Reisen"
+
+#: .\templates\resumes\templates\_section_interests.html:9
+msgid "Lectura"
+msgstr "Lesen"
+
+#: .\templates\resumes\templates\_section_interests.html:13
+#, fuzzy
+#| msgid "Agregar"
+msgid "Agregar interés"
+msgstr "Hinzufügen"
+
+#: .\templates\resumes\templates\_section_languages.html:12
+msgid "Idioma"
+msgstr "Sprache"
+
+#: .\templates\resumes\templates\_section_languages.html:13
+msgid "Nivel"
+msgstr "Niveau"
+
+#: .\templates\resumes\templates\_section_languages.html:18
+#, fuzzy
+#| msgid "Agregar habilidad"
+msgid "Agregar idioma"
+msgstr "Fähigkeit hinzufügen"
+
+#: .\templates\resumes\templates\_section_projects.html:3
+msgid "Proyectos"
+msgstr "Projekte"
+
+#: .\templates\resumes\templates\_section_projects.html:13
+msgid "Nombre del proyecto"
+msgstr "Projektname"
+
+#: .\templates\resumes\templates\_section_projects.html:14
+#, fuzzy
+#| msgid "Descripción de tus responsabilidades..."
+msgid "Descripción del proyecto..."
+msgstr "Beschreibung Ihrer Aufgaben..."
+
+#: .\templates\resumes\templates\_section_projects.html:15
+#: .\templates\resumes\templates\_section_publications.html:17
+msgid "https://..."
+msgstr "https://..."
+
+#: .\templates\resumes\templates\_section_projects.html:20
+#, fuzzy
+#| msgid "Agregar experiencia"
+msgid "Agregar proyecto"
+msgstr "Erfahrung hinzufügen"
+
+#: .\templates\resumes\templates\_section_publications.html:14
+#, fuzzy
+#| msgid "Título del puesto"
+msgid "Título de la publicación"
+msgstr "Position"
+
+#: .\templates\resumes\templates\_section_publications.html:15
+msgid "Medio o revista"
+msgstr "Medium oder Zeitschrift"
+
+#: .\templates\resumes\templates\_section_publications.html:22
+#, fuzzy
+#| msgid "Agregar educación"
+msgid "Agregar publicación"
+msgstr "Ausbildung hinzufügen"
+
+#: .\templates\resumes\templates\_section_references.html:15
+#, fuzzy
+#| msgid "Cargando..."
+msgid "Cargo"
+msgstr "Laden..."
+
+#: .\templates\resumes\templates\_section_references.html:17
+msgid "email o teléfono"
+msgstr "E-Mail oder Telefon"
+
+#: .\templates\resumes\templates\_section_references.html:22
+#, fuzzy
+#| msgid "Agregar experiencia"
+msgid "Agregar referencia"
+msgstr "Erfahrung hinzufügen"
+
+#: .\templates\resumes\templates\_section_skills.html:8
+#: .\templates\resumes\templates\creative.html:33
+msgid "Python"
+msgstr "Python"
+
+#: .\templates\resumes\templates\_section_skills.html:9
+#: .\templates\resumes\templates\creative.html:34
+msgid "JavaScript"
+msgstr "JavaScript"
+
+#: .\templates\resumes\templates\_section_skills.html:13
+msgid "Agregar habilidad"
+msgstr "Fähigkeit hinzufügen"
+
+#: .\templates\resumes\templates\_section_volunteering.html:14
+msgid "Rol / Cargo"
+msgstr "Rolle / Position"
+
+#: .\templates\resumes\templates\_section_volunteering.html:15
+msgid "Organización"
+msgstr "Organisation"
+
+#: .\templates\resumes\templates\_section_volunteering.html:17
+msgid "Describe tu labor..."
+msgstr "Beschreibe deine Tätigkeit..."
+
+#: .\templates\resumes\templates\_section_volunteering.html:22
+#, fuzzy
+#| msgid "Agregar habilidad"
+msgid "Agregar voluntariado"
+msgstr "Fähigkeit hinzufügen"
+
+#: .\templates\resumes\templates\classic.html:29
+#: .\templates\resumes\templates\creative.html:45
+#: .\templates\resumes\templates\modern.html:28
+msgid "Quién soy"
+msgstr "Wer ich bin"
+
+#: .\templates\resumes\templates\creative.html:21
+msgid "Contacto"
+msgstr "Kontakt"
+
+#: .\templates\wall\cv_detail.html:15
+msgid "Volver al tablón"
+msgstr "Zurück zur Pinnwand"
+
+#: .\templates\wall\cv_detail.html:18
+msgid "Ver Perfil Completo"
+msgstr "Vollständiges Profil ansehen"
+
+#: .\templates\wall\wall.html:5 .\templates\wall\wall.html:10
+msgid "Tablón de Talentos"
+msgstr "Talent-Pinnwand"
+
+#: .\templates\wall\wall.html:11
+msgid "Descubre profesionales talentosos en diferentes sectores."
+msgstr "Entdecken Sie talentierte Fachleute in verschiedenen Bereichen."
+
+#: .\templates\wall\wall.html:15
+msgid "Filtrar por sector:"
+msgstr "Nach Sektor filtern:"
+
+#: .\templates\wall\wall.html:19
+msgid "Todos"
+msgstr "Alle"
+
+#: .\templates\wall\wall.html:32
+msgid "Cargando..."
+msgstr "Laden..."
+
+#: .\templates\wall\wall.html:43
+msgid "No se encontraron CVs en esta categoría."
+msgstr "Keine CVs in dieser Kategorie gefunden."
+
+#~ msgid "Mi Perfil"
+#~ msgstr "Mein Profil"
+
+#~ msgid "Subir foto"
+#~ msgstr "Foto hochladen"
+
+#~ msgid "Necesitas subir una foto para poder publicar tus CVs."
+#~ msgstr "Sie müssen ein Foto hochladen, um Ihre CVs zu veröffentlichen."
+
+#~ msgid "Bio (Quién soy)"
+#~ msgstr "Bio (Wer ich bin)"
+
+#~ msgid "Mis CVs"
+#~ msgstr "Meine CVs"
+
+#~ msgid "Sin plantilla"
+#~ msgstr "Keine Vorlage"
+
+#~ msgid "Crear mi primer CV"
+#~ msgstr "Meinen ersten CV erstellen"
+
+#~ msgid "Anterior"
+#~ msgstr "Zurück"
+
+#~ msgid "Las contraseñas no coinciden."
+#~ msgstr "Die Passwörter stimmen nicht überein."
+
+#~ msgid "Ver todas las secciones"
+#~ msgstr "Alle Sektionen anzeigen"
+
+#~ msgid "Al menos un carácter especial (!@#$%^&*())"
+#~ msgstr "Mindestens ein Sonderzeichen (!@#$%^&*())"
+
+#~ msgid "Al menos un número"
+#~ msgstr "Mindestens eine Zahl"
+
+#~ msgid "Al menos una letra mayúscula"
+#~ msgstr "Mindestens ein Großbuchstabe"
+
+#~ msgid "Cuenta"
+#~ msgstr "Konto"
+
+#~ msgid "Datos personales"
+#~ msgstr "Persönliche Daten"
+
+#~ msgid "Elige tu rol"
+#~ msgstr "Wählen Sie Ihre Rolle"
+
+#~ msgid "Encuentra talento para tu negocio."
+#~ msgstr "Finden Sie Talente für Ihr Unternehmen."
+
+#~ msgid "Esta funcionalidad estará disponible próximamente."
+#~ msgstr "Diese Funktion wird in Kürze verfügbar sein."
+
+#~ msgid "Introduce un email válido."
+#~ msgstr "Geben Sie eine gültige E-Mail-Adresse ein."
+
+#~ msgid ""
+#~ "La contraseña debe tener al menos 8 caracteres, 1 mayúscula, 1 número y 1 "
+#~ "carácter especial."
+#~ msgstr ""
+#~ "Das Passwort muss mindestens 8 Zeichen, 1 Großbuchstaben, 1 Zahl und 1 "
+#~ "Sonderzeichen enthalten."
+
+#~ msgid "Mínimo 8 caracteres"
+#~ msgstr "Mindestens 8 Zeichen"
+
+#~ msgid "Perfil profesional"
+#~ msgstr "Berufliches Profil"
+
+#~ msgid "Por favor, completa este campo."
+#~ msgstr "Bitte füllen Sie dieses Feld aus."
+
+#~ msgid "Próximamente"
+#~ msgstr "Demnächst"
+
+#~ msgid "Publica tu CV y encuentra oportunidades."
+#~ msgstr "Veröffentlichen Sie Ihren Lebenslauf und finden Sie Möglichkeiten."
+
+#~ msgid "Registro de Trabajador"
+#~ msgstr "Arbeiter-Registrierung"
+
+#~ msgid "Soy Empresa"
+#~ msgstr "Ich bin ein Unternehmen"
+
+#~ msgid "Soy Trabajador"
+#~ msgstr "Ich bin ein Arbeiter"
+
+#~ msgid "o con tu correo electrónico"
+#~ msgstr "oder mit Ihrer E-Mail-Adresse"
+
+#~ msgid "Regístrate con"
+#~ msgstr "Registrieren mit"
+
+#~ msgid "o crea tu cuenta con correo electrónico"
+#~ msgstr "oder erstellen Sie Ihr Konto mit der E-Mail-Adresse"
+
+#~ msgid "Para terminar tu registro, completa tu perfil profesional."
+#~ msgstr ""
+#~ "Um Ihre Registrierung abzuschließen, vervollständigen Sie Ihr berufliches "
+#~ "Profil."
+
+#~ msgid "Selecciona al menos un campo (título o sector) para continuar."
+#~ msgstr ""
+#~ "Wählen Sie mindestens ein Feld (Titel oder Branche) aus, um fortzufahren."
+
+#~ msgid "Debes seleccionar al menos un campo (título o sector)."
+#~ msgstr "Sie müssen mindestens ein Feld (Titel oder Branche) auswählen."
+
+#~ msgid "Guardar y continuar"
+#~ msgstr "Speichern und weiter"

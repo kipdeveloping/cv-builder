@@ -47,7 +47,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'apps.accounts.middleware.EnsureProfileMiddleware',
 ]
 
 ROOT_URLCONF = 'crud_cvs.urls'
@@ -165,8 +164,3 @@ SOCIAL_AUTH_PIPELINE = (
     'apps.accounts.pipeline.check_existing_user',
     'apps.accounts.pipeline.save_user_profile',
 )
-
-
-
-
-

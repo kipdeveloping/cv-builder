@@ -47,6 +47,12 @@
             </button>
         </form>
 
+        <p class="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
+            <a href="{% url 'password_reset' %}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-semibold">
+                {% trans "¿Olvidaste tu contraseña?" %}
+            </a>
+        </p>
+
         <div class="mt-6">
             <div class="relative">
                 <div class="absolute inset-0 flex items-center">

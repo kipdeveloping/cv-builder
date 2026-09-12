@@ -72,15 +72,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 const result = await response.json();
                 
                 if (result.status === 'ok') {
-                    successDiv.textContent = 'Mensaje enviado correctamente.';
+                    successDiv.textContent = t('Mensaje enviado correctamente.');
                     successDiv.classList.remove('hidden');
                     contactForm.reset();
                 } else {
-                    errorDiv.textContent = result.message || 'Error al enviar el mensaje.';
+                    errorDiv.textContent = result.message || t('Error al enviar el mensaje.');
                     errorDiv.classList.remove('hidden');
                 }
             } catch (error) {
-                errorDiv.textContent = 'Error de conexion. Intenta de nuevo.';
+                errorDiv.textContent = t('Error de conexion. Intenta de nuevo.');
                 errorDiv.classList.remove('hidden');
             }
         });

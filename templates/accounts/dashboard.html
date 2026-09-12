@@ -108,6 +108,35 @@
             </p>
         </div>
 
+        <!-- Preferencias de trabajo -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-semibold text-gray-900 dark:text-white">{% trans "Preferencias de trabajo" %}</h3>
+                <button onclick="openModal('work-modal')"
+                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-semibold">
+                    {% trans "Editar" %}
+                </button>
+            </div>
+            <div class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <p>
+                    <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Tipo de empleo:" %}</span>
+                    {% if profile.employment_type %}{{ profile.get_employment_types_display }}{% else %}<span class="text-gray-400">—</span>{% endif %}
+                </p>
+                <p>
+                    <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Salario esperado:" %}</span>
+                    {% if profile.expected_salary %}{{ profile.expected_salary }}{% else %}<span class="text-gray-400">—</span>{% endif %}
+                </p>
+                <p>
+                    <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Disponible para mudarse:" %}</span>
+                    {% if profile.willing_to_relocate %}{{ profile.get_willing_to_relocate_display }}{% else %}<span class="text-gray-400">—</span>{% endif %}
+                </p>
+                <p>
+                    <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Disponible para viajar:" %}</span>
+                    {% if profile.travel_availability %}{{ profile.get_travel_availability_display }}{% else %}<span class="text-gray-400">—</span>{% endif %}
+                </p>
+            </div>
+        </div>
+
         <!-- Mis CVs Button -->
         <button onclick="openModal('cvs-modal')"
             class="w-full bg-indigo-600 dark:bg-indigo-500 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400 transition duration-200 shadow-lg">
@@ -365,6 +394,65 @@
     </div>
 </div>
 
+<!-- Work Preferences Modal -->
+<div id="work-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 max-w-md w-full mx-4">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-semibold dark:text-white">{% trans "Preferencias de trabajo" %}</h3>
+            <button onclick="closeModal('work-modal')" class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Tipo de empleo" %}</label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="employment-type-input">
+                    {% for value, label in employment_types %}
+                    <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+                        <input type="checkbox" value="{{ value }}"
+                            class="rounded border-gray-300 dark:border-gray-600 text-indigo-600 focus:ring-indigo-500"
+                            {% if value in profile.employment_type %}checked{% endif %}>
+                        {{ label }}
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Salario esperado" %}</label>
+                <input type="text" id="expected-salary-input" value="{{ profile.expected_salary }}"
+                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 mb-2"
+                    placeholder="{% trans 'Ej: $50,000 - $70,000' %}">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Disponible para mudarse" %}</label>
+                <select id="relocate-input" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                    <option value="">{% trans "No especificado" %}</option>
+                    <option value="yes" {% if profile.willing_to_relocate == 'yes' %}selected{% endif %}>{% trans "Sí" %}</option>
+                    <option value="no" {% if profile.willing_to_relocate == 'no' %}selected{% endif %}>{% trans "No" %}</option>
+                    <option value="somewhere" {% if profile.willing_to_relocate == 'somewhere' %}selected{% endif %}>{% trans "Según destino" %}</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Disponible para viajar" %}</label>
+                <select id="travel-input" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                    <option value="">{% trans "No especificado" %}</option>
+                    <option value="none" {% if profile.travel_availability == 'none' %}selected{% endif %}>{% trans "No" %}</option>
+                    <option value="occasional" {% if profile.travel_availability == 'occasional' %}selected{% endif %}>{% trans "Ocasional" %}</option>
+                    <option value="frequent" {% if profile.travel_availability == 'frequent' %}selected{% endif %}>{% trans "Frecuente" %}</option>
+                </select>
+            </div>
+        </div>
+        <div class="flex justify-end gap-3 mt-6">
+            <button onclick="closeModal('work-modal')"
+                class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{% trans "Cancelar" %}</button>
+            <button onclick="saveWorkPrefs()"
+                class="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400">{% trans "Guardar" %}</button>
+        </div>
+    </div>
+</div>
+
 <!-- Skills Modal -->
 <div id="skills-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 max-w-md w-full mx-4">
@@ -558,13 +646,13 @@
     var urls = {
         updateProfile: "{% url 'update_profile_fields' %}",
         setFeatured: "{% url 'set_featured_resume' %}",
-        contactEmail: "{% url 'contact_email' user_id=user.id %}",
     };
     var currentResumeId = {{ featured_resume.id|default:'null' }};
 </script>
 {{ experience|json_script:"experienceData" }}
 {{ projects|json_script:"projectsData" }}
 {{ social_links|json_script:"socialLinksData" }}
+{{ featured_resume.content|json_script:"dashboardContent" }}
 <script>
     var experienceData = JSON.parse(document.getElementById('experienceData').textContent);
     var projectsData = JSON.parse(document.getElementById('projectsData').textContent);
