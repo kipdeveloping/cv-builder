@@ -261,7 +261,7 @@ const I18N = {
         'Eliminar este proyecto?': 'Supprimer ce projet ?',
         'Eliminar esta experiencia?': 'Supprimer cette expérience ?',
         'Mensaje enviado correctamente.': 'Message envoyé avec succès.',
-        'Error al enviar el mensaje.': 'Erreur lors de l'envoi du message.',
+        'Error al enviar el mensaje.': "Erreur lors de l'envoi du message.",
         'Error de conexion. Intenta de nuevo.': 'Erreur de connexion. Réessayez.',
     },
     de: {
@@ -328,8 +328,8 @@ const I18N = {
         'Eliminar este proyecto?': 'Dieses Projekt löschen?',
         'Eliminar esta experiencia?': 'Diese Erfahrung löschen?',
         'Mensaje enviado correctamente.': 'Nachricht erfolgreich gesendet.',
-        'Error al enviar el mensaje.': 'Fehler beim Senden der Nachricht.',
-        'Error de conexion. Intenta de nuevo.': 'Verbindungsfehler. Versuchen Sie es erneut.',
+        'Error al enviar el mensaje.': "Fehler beim Senden der Nachricht.",
+        'Error de conexion. Intenta de nuevo.': "Verbindungsfehler. Versuchen Sie es erneut.",
     },
     it: {
         'Guardando...': 'Salvataggio in corso...',
@@ -395,8 +395,8 @@ const I18N = {
         'Eliminar este proyecto?': 'Eliminare questo progetto?',
         'Eliminar esta experiencia?': 'Eliminare questa esperienza?',
         'Mensaje enviado correctamente.': 'Messaggio inviato correttamente.',
-        'Error al enviar el mensaje.': 'Errore durante l'invio del messaggio.',
-        'Error de conexion. Intenta de nuevo.': 'Errore di connessione. Riprova.',
+        'Error al enviar el mensaje.': "Errore durante l'invio del messaggio.",
+        'Error de conexion. Intenta de nuevo.': "Errore di connessione. Riprova.",
     },
     ja: {
         'Guardando...': '保存中...',
@@ -462,8 +462,8 @@ const I18N = {
         'Eliminar este proyecto?': 'このプロジェクトを削除しますか？',
         'Eliminar esta experiencia?': 'この職歴を削除しますか？',
         'Mensaje enviado correctamente.': 'メッセージが正常に送信されました。',
-        'Error al enviar el mensaje.': 'メッセージ送信中にエラーが発生しました。',
-        'Error de conexion. Intenta de nuevo.': '接続エラー。もう一度お試しください。',
+        'Error al enviar el mensaje.': "メッセージ送信中にエラーが発生しました。",
+        'Error de conexion. Intenta de nuevo.': "接続エラー。もう一度お試しください。",
     },
     ko: {
         'Guardando...': '저장 중...',
@@ -529,8 +529,8 @@ const I18N = {
         'Eliminar este proyecto?': '이 프로젝트를 삭제하시겠습니까?',
         'Eliminar esta experiencia?': '이 경력을 삭제하시겠습니까?',
         'Mensaje enviado correctamente.': '메시지가 성공적으로 전송되었습니다.',
-        'Error al enviar el mensaje.': '메시지 전송 중 오류가 발생했습니다.',
-        'Error de conexion. Intenta de nuevo.': '연결 오류. 다시 시도하세요.',
+        'Error al enviar el mensaje.': "메시지 전송 중 오류가 발생했습니다.",
+        'Error de conexion. Intenta de nuevo.': "연결 오류. 다시 시도하세요.",
     },
     zh: {
         'Guardando...': '保存中...',
@@ -596,8 +596,8 @@ const I18N = {
         'Eliminar este proyecto?': '删除此项目？',
         'Eliminar esta experiencia?': '删除此经历？',
         'Mensaje enviado correctamente.': '消息发送成功。',
-        'Error al enviar el mensaje.': '发送消息时出错。',
-        'Error de conexion. Intenta de nuevo.': '连接错误。请重试。',
+        'Error al enviar el mensaje.': "发送消息时出错。",
+        'Error de conexion. Intenta de nuevo.': "连接错误。请重试。",
     },
     ar: {
         'Guardando...': 'جاري الحفظ...',
@@ -663,8 +663,8 @@ const I18N = {
         'Eliminar este proyecto?': 'حذف هذا المشروع؟',
         'Eliminar esta experiencia?': 'حذف هذه الخبرة؟',
         'Mensaje enviado correctamente.': 'تم إرسال الرسالة بنجاح.',
-        'Error al enviar el mensaje.': 'خطأ في إرسال الرسالة.',
-        'Error de conexion. Intenta de nuevo.': 'خطأ في الاتصال. حاول مرة أخرى.',
+        'Error al enviar el mensaje.': "خطأ في إرسال الرسالة.",
+        'Error de conexion. Intenta de nuevo.': "خطأ في الاتصال. حاول مرة أخرى.",
     },
     ru: {
         'Guardando...': 'Сохранение...',
@@ -730,8 +730,8 @@ const I18N = {
         'Eliminar este proyecto?': 'Удалить этот проект?',
         'Eliminar esta experiencia?': 'Удалить этот опыт?',
         'Mensaje enviado correctamente.': 'Сообщение успешно отправлено.',
-        'Error al enviar el mensaje.': 'Ошибка при отправке сообщения.',
-        'Error de conexion. Intenta de nuevo.': 'Ошибка подключения. Попробуйте ещё раз.',
+        'Error al enviar el mensaje.': "Ошибка при отправке сообщения.",
+        'Error de conexion. Intenta de nuevo.': "Ошибка подключения. Попробуйте ещё раз.",
     },
     hi: {
         'Guardando...': 'सहेज रहा है...',
@@ -796,9 +796,9 @@ const I18N = {
         'Por favor, crea un CV primero antes de guardar.': 'सहेजने से पहले कृपया पहले CV बनाएं।',
         'Eliminar este proyecto?': 'इस परियोजना को हटाएं?',
         'Eliminar esta experiencia?': 'इस अनुभव को हटाएं?',
-        'Mensaje enviado correctamente.': 'संदेश सफलतापूर्वक भेजा गया।',
-        'Error al enviar el mensaje.': 'संदेश भेजने में त्रुटि।',
-        'Error de conexion. Intenta de nuevo.': 'कनेक्शन त्रुटि। फिर से प्रयास करें।',
+        'Mensaje enviado correctamente.': "संदेश सफलतापूर्वक भेजा गया।",
+        'Error al enviar el mensaje.': "संदेश भेजने में त्रुटि।",
+        'Error de conexion. Intenta de nuevo.': "कनेक्शन त्रुटि। फिर से प्रयास करें।",
     },
 };
 
