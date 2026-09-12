@@ -18,11 +18,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='userprofile',
-            name='expected_salary',
-            field=models.CharField(blank=True, default='', max_length=100),
-        ),
-        migrations.AddField(
-            model_name='userprofile',
             name='travel_availability',
             field=models.CharField(blank=True, choices=[('none', 'No'), ('occasional', 'Ocasional'), ('frequent', 'Frecuente')], default='', max_length=20),
         ),

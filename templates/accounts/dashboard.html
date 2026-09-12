@@ -123,10 +123,6 @@
                     {% if profile.employment_type %}{{ profile.get_employment_types_display }}{% else %}<span class="text-gray-400">—</span>{% endif %}
                 </p>
                 <p>
-                    <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Salario esperado:" %}</span>
-                    {% if profile.expected_salary %}{{ profile.expected_salary }}{% else %}<span class="text-gray-400">—</span>{% endif %}
-                </p>
-                <p>
                     <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Disponible para mudarse:" %}</span>
                     {% if profile.willing_to_relocate %}{{ profile.get_willing_to_relocate_display }}{% else %}<span class="text-gray-400">—</span>{% endif %}
                 </p>
@@ -418,12 +414,6 @@
                     </label>
                     {% endfor %}
                 </div>
-            </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Salario esperado" %}</label>
-                <input type="text" id="expected-salary-input" value="{{ profile.expected_salary }}"
-                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 mb-2"
-                    placeholder="{% trans 'Ej: $50,000 - $70,000' %}">
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Disponible para mudarse" %}</label>

@@ -185,7 +185,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('#employment-type-input input[type="checkbox"]:checked').forEach(cb => {
             employmentType.push(cb.value);
         });
-        const expectedSalary = document.getElementById('expected-salary-input').value;
         const willingToRelocate = document.getElementById('relocate-input').value;
         const travelAvailability = document.getElementById('travel-input').value;
         
@@ -198,7 +197,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 body: JSON.stringify({
                     employment_type: employmentType,
-                    expected_salary: expectedSalary,
                     willing_to_relocate: willingToRelocate,
                     travel_availability: travelAvailability
                 })

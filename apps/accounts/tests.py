@@ -111,14 +111,12 @@ class ProfilePreferencesTest(TestCase):
         )
         self.client.login(username='p@example.com', password='Contraseña1!')
         response = self.client.post(reverse('update_profile_fields'), data={
-            'expected_salary': '$60,000',
             'willing_to_relocate': 'yes',
             'travel_availability': 'occasional',
             'employment_type': ['contract', 'part_time'],
         }, content_type='application/json')
         self.assertEqual(response.status_code, 200)
         profile = UserProfile.objects.get(user=user)
-        self.assertEqual(profile.expected_salary, '$60,000')
         self.assertEqual(profile.willing_to_relocate, 'yes')
         self.assertEqual(profile.employment_type, ['contract', 'part_time'])
 

@@ -58,7 +58,6 @@ class UserProfile(models.Model):
     search_status = models.CharField(max_length=20, choices=SEARCH_STATUS_CHOICES, blank=True, default='')
     availability = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, blank=True, default='')
     employment_type = models.JSONField(default=default_list, blank=True)
-    expected_salary = models.CharField(max_length=100, blank=True, default='')
     willing_to_relocate = models.CharField(max_length=20, choices=RELOCATE_CHOICES, blank=True, default='')
     travel_availability = models.CharField(max_length=20, choices=TRAVEL_CHOICES, blank=True, default='')
     resume_destacado = models.ForeignKey('resumes.Resume', on_delete=models.SET_NULL, null=True, blank=True, related_name='featured_profiles')
