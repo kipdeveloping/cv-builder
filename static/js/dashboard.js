@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+﻿document.addEventListener('DOMContentLoaded', function() {
     let currentSlide = 0;
     const carousel = document.getElementById('carousel-container');
     const cards = carousel ? carousel.querySelectorAll('.carousel-card') : [];
@@ -7,18 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof experienceData === 'undefined') window.experienceData = [];
     if (typeof projectsData === 'undefined') window.projectsData = [];
     if (typeof socialLinksData === 'undefined') window.socialLinksData = {};
-    if (typeof currentResumeId === 'undefined') window.currentResumeId = null;
-
-    window.dashboardContent = {};
-    const dcNode = document.getElementById('dashboardContent');
-    if (dcNode) {
-        try { window.dashboardContent = JSON.parse(dcNode.textContent) || {}; } catch (e) { window.dashboardContent = {}; }
-    }
-
-    function getFullContent() {
-        return Object.assign({}, window.dashboardContent);
-    }
-
+    
     function getCSRFToken() {
         const cookie = document.cookie.split(';').find(c => c.trim().startsWith('csrftoken='));
         return cookie ? cookie.split('=')[1] : '';
@@ -35,62 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById(modalId).classList.remove('flex');
     };
 
-    // Skills management
-    window.addSkill = function() {
-        const input = document.getElementById('new-skill-input');
-        const skillName = input.value.trim();
-        if (!skillName) return;
-        
-        const skillsList = document.getElementById('skills-list-modal');
-        const skillId = 'new_' + Date.now();
-        
-        const skillDiv = document.createElement('div');
-        skillDiv.className = 'flex items-center justify-between p-2 bg-gray-50 rounded-lg skill-item';
-        skillDiv.dataset.skillId = skillId;
-        skillDiv.innerHTML = `
-            <span class="text-sm">${skillName}</span>
-            <div class="flex items-center gap-2">
-                <button onclick="togglePrimary('${skillId}')" class="text-yellow-500 hover:text-yellow-600 opacity-50" title="Principal">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                    </svg>
-                </button>
-                <button onclick="removeSkill('${skillId}')" class="text-red-500 hover:text-red-600">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-        `;
-        skillsList.appendChild(skillDiv);
-        input.value = '';
-    };
-
-    window.removeSkill = function(skillId) {
-        const item = document.querySelector(`[data-skill-id="${skillId}"]`);
-        if (item) item.remove();
-    };
-
-    window.togglePrimary = function(skillId) {
-        document.querySelectorAll('.skill-item button[title="Principal"]').forEach(btn => {
-            btn.classList.add('opacity-50');
-        });
-        const item = document.querySelector(`[data-skill-id="${skillId}"]`);
-        if (item) {
-            const starBtn = item.querySelector('button[title="Principal"]');
-            starBtn.classList.remove('opacity-50');
-        }
-    };
-
     // Save headline
     window.saveHeadline = async function() {
         const headline = document.getElementById('headline-input').value;
-        if (!currentResumeId) {
-            alert('Por favor, crea un CV primero antes de guardar.');
-            return;
-        }
+        
         try {
-            console.log('Saving headline:', headline);
             const response = await fetch(urls.updateProfile, {
                 method: 'POST',
                 headers: {
@@ -101,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             const result = await response.json();
-            console.log('Response:', result);
             
             if (response.ok) {
                 document.getElementById('headline-display').innerHTML = headline + ' <button onclick="openModal(\'headline-modal\')" class="text-indigo-600 hover:text-indigo-700 ml-1"><svg class="w-3 h-3 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg></button>';
@@ -119,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.saveBio = async function() {
         const bio = document.getElementById('bio-input').value;
         try {
-            console.log('Saving bio:', bio);
             const response = await fetch(urls.updateProfile, {
                 method: 'POST',
                 headers: {
@@ -130,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             const result = await response.json();
-            console.log('Response:', result);
             
             if (response.ok) {
                 document.getElementById('bio-display').textContent = bio || 'Sin biografia';
@@ -151,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const locationFlex = document.getElementById('location-flex-input').value;
         
         try {
-            console.log('Saving status:', { searchStatus, availability, locationFlex });
             const response = await fetch(urls.updateProfile, {
                 method: 'POST',
                 headers: {
@@ -166,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             const result = await response.json();
-            console.log('Response:', result);
             
             if (response.ok) {
                 location.reload();
@@ -211,68 +144,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } catch (error) {
             console.error('Error:', error);
             alert('Error de conexion: ' + error.message);
-        }
-    };
-
-    // Save skills
-    window.saveSkills = async function() {
-        const skills = [];
-        let primarySkill = null;
-        
-        document.querySelectorAll('.skill-item').forEach(item => {
-            const skillId = item.dataset.skillId;
-            const skillName = item.querySelector('span').textContent;
-            const isPrimary = !item.querySelector('button[title="Principal"]').classList.contains('opacity-50');
-            
-            if (isPrimary) primarySkill = skillName;
-            skills.push(skillName);
-        });
-        
-        if (!currentResumeId) {
-            alert('Por favor, crea un CV primero antes de guardar.');
-            return;
-        }
-        
-        try {
-            const content = getFullContent();
-            content.skills = skills;
-            const response = await fetch('/api/resume/save/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': getCSRFToken()
-                },
-                body: JSON.stringify({
-                    resume_id: currentResumeId,
-                    content: content
-                })
-            });
-            
-            if (response.ok) {
-                location.reload();
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    };
-
-    // CV list modal
-    window.setFeatured = async function(resumeId) {
-        try {
-            const response = await fetch(urls.setFeatured, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': getCSRFToken()
-                },
-                body: JSON.stringify({ resume_id: resumeId })
-            });
-            
-            if (response.ok) {
-                location.reload();
-            }
-        } catch (error) {
-            console.error('Error:', error);
         }
     };
 
@@ -365,24 +236,16 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     async function saveExperienceData() {
-        if (!currentResumeId) {
-            alert('Por favor, crea un CV primero antes de guardar.');
-            return false;
-        }
-        
         try {
-            const content = getFullContent();
-            content.experience = experienceData;
-            content.projects = projectsData;
-            const response = await fetch('/api/resume/save/', {
+            const response = await fetch(urls.updateProfile, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'X-CSRFToken': getCSRFToken()
                 },
                 body: JSON.stringify({
-                    resume_id: currentResumeId,
-                    content: content
+                    experience: experienceData,
+                    projects: projectsData
                 })
             });
             
@@ -402,23 +265,15 @@ document.addEventListener('DOMContentLoaded', function() {
             portfolio: document.getElementById('social-portfolio').value
         };
         
-        if (!currentResumeId) {
-            alert('Por favor, crea un CV primero antes de guardar.');
-            return;
-        }
-        
         try {
-            const content = getFullContent();
-            content.social_links = socialLinks;
-            const response = await fetch('/api/resume/save/', {
+            const response = await fetch(urls.updateProfile, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'X-CSRFToken': getCSRFToken()
                 },
                 body: JSON.stringify({
-                    resume_id: currentResumeId,
-                    content: content
+                    social_links: socialLinks
                 })
             });
             

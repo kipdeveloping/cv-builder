@@ -1,8 +1,8 @@
-{% extends 'base.html' %}
+﻿{% extends 'base.html' %}
 {% load i18n %}
 {% load static %}
 
-{% block title %}{{ profile_user.get_full_name|default:profile_user.email }} - CV Builder{% endblock %}
+{% block title %}{{ profile_user.get_full_name|default:profile_user.email }} - Perfil Profesional{% endblock %}
 
 {% block content %}
 {% if is_owner %}
@@ -59,23 +59,6 @@
             </div>
         </div>
 
-        <!-- Skills -->
-        <div class="bg-white rounded-xl shadow-lg p-6">
-            <h3 class="font-semibold text-gray-900 mb-4">{% trans "Habilidades" %}</h3>
-            <div class="flex flex-wrap gap-2">
-                {% for user_skill in user_skills %}
-                    <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">
-                        {{ user_skill.skill.name }}
-                        {% if user_skill.is_primary %}
-                            <span class="text-yellow-500">*</span>
-                        {% endif %}
-                    </span>
-                {% empty %}
-                    <p class="text-gray-500 text-sm">{% trans "Sin habilidades" %}</p>
-                {% endfor %}
-            </div>
-        </div>
-
         <!-- Bio -->
         <div class="bg-white rounded-xl shadow-lg p-6">
             <h3 class="font-semibold text-gray-900 mb-4">{% trans "Bio" %}</h3>
@@ -83,7 +66,7 @@
         </div>
 
         <!-- Work preferences -->
-        {% if profile.employment_type or profile.expected_salary or profile.willing_to_relocate or profile.travel_availability %}
+        {% if profile.employment_type or profile.willing_to_relocate or profile.travel_availability %}
         <div class="bg-white rounded-xl shadow-lg p-6">
             <h3 class="font-semibold text-gray-900 mb-4">{% trans "Preferencias de trabajo" %}</h3>
             <div class="space-y-2 text-sm text-gray-700">
@@ -91,12 +74,6 @@
                 <p>
                     <span class="font-medium text-gray-500">{% trans "Tipo de empleo:" %}</span>
                     {{ profile.get_employment_types_display }}
-                </p>
-                {% endif %}
-                {% if profile.expected_salary %}
-                <p>
-                    <span class="font-medium text-gray-500">{% trans "Salario esperado:" %}</span>
-                    {{ profile.expected_salary }}
                 </p>
                 {% endif %}
                 {% if profile.willing_to_relocate %}
@@ -126,20 +103,14 @@
 
     <!-- MAIN AREA -->
     <div class="lg:col-span-8 space-y-6">
-        {% if not featured_resume %}
-        <div class="bg-white rounded-xl shadow-lg p-6">
-            <p class="text-gray-600">{% trans "Este candidato no tiene CVs publicados." %}</p>
-        </div>
-        {% endif %}
-
         <!-- Experience/Projects Carousel -->
-        {% if featured_resume %}
+        {% if profile.experience or profile.projects %}
         <div class="bg-white rounded-xl shadow-lg p-6">
             <h3 class="font-semibold text-gray-900 mb-4">{% trans "Experiencia y Proyectos" %}</h3>
             
             <div class="relative">
                 <div id="carousel-container" class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory">
-                    {% for exp in experience %}
+                    {% for exp in profile.experience %}
                     <div class="flex-none w-80 bg-gray-50 rounded-xl p-4 snap-start carousel-card">
                         <h4 class="font-semibold text-gray-900 mb-2">{{ exp.title }}</h4>
                         <p class="text-sm text-gray-600 mb-1">{{ exp.company }}</p>
@@ -148,7 +119,7 @@
                     </div>
                     {% endfor %}
                     
-                    {% for project in projects %}
+                    {% for project in profile.projects %}
                     <div class="flex-none w-80 bg-gray-50 rounded-xl p-4 snap-start carousel-card">
                         <h4 class="font-semibold text-gray-900 mb-2">{{ project.title }}</h4>
                         <p class="text-sm text-gray-600 mb-2">{{ project.company }}</p>
@@ -157,14 +128,14 @@
                     {% endfor %}
                 </div>
                 
-                {% if experience|length > 0 or projects|length > 0 %}
+                {% if profile.experience|length > 0 or profile.projects|length > 0 %}
                 <div class="flex justify-center items-center gap-4 mt-4">
                     <button onclick="prevSlide()" class="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
                         <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                         </svg>
                     </button>
-                    <span id="carousel-counter" class="text-sm text-gray-500">1 of {{ experience|length|add:projects|length }}</span>
+                    <span id="carousel-counter" class="text-sm text-gray-500">1 of {{ profile.experience|length|add:profile.projects|length }}</span>
                     <button onclick="nextSlide()" class="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
                         <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -174,159 +145,45 @@
                 {% endif %}
             </div>
         </div>
+        {% else %}
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <p class="text-gray-600">{% trans "Sin experiencia ni proyectos agregados." %}</p>
+        </div>
+        {% endif %}
 
         <!-- Social Links -->
         <div class="bg-white rounded-xl shadow-lg p-6">
             <h3 class="font-semibold text-gray-900 mb-4">{% trans "Redes Sociales" %}</h3>
             <div class="flex flex-wrap gap-4">
-                {% if social_links.linkedin %}
-                    <a href="{{ social_links.linkedin }}" target="_blank" class="flex items-center gap-2 text-blue-700 hover:text-blue-800">
+                {% if profile.social_links.linkedin %}
+                    <a href="{{ profile.social_links.linkedin }}" target="_blank" class="flex items-center gap-2 text-blue-700 hover:text-blue-800">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                         LinkedIn
                     </a>
                 {% endif %}
-                {% if social_links.github %}
-                    <a href="{{ social_links.github }}" target="_blank" class="flex items-center gap-2 text-gray-800 hover:text-gray-900">
+                {% if profile.social_links.github %}
+                    <a href="{{ profile.social_links.github }}" target="_blank" class="flex items-center gap-2 text-gray-800 hover:text-gray-900">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                         GitHub
                     </a>
                 {% endif %}
-                {% if social_links.twitter %}
-                    <a href="{{ social_links.twitter }}" target="_blank" class="flex items-center gap-2 text-blue-400 hover:text-blue-500">
+                {% if profile.social_links.twitter %}
+                    <a href="{{ profile.social_links.twitter }}" target="_blank" class="flex items-center gap-2 text-blue-400 hover:text-blue-500">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                         Twitter/X
                     </a>
                 {% endif %}
-                {% if social_links.portfolio %}
-                    <a href="{{ social_links.portfolio }}" target="_blank" class="flex items-center gap-2 text-indigo-600 hover:text-indigo-700">
+                {% if profile.social_links.portfolio %}
+                    <a href="{{ profile.social_links.portfolio }}" target="_blank" class="flex items-center gap-2 text-indigo-600 hover:text-indigo-700">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                         Portfolio
                     </a>
                 {% endif %}
-                {% if not social_links.linkedin and not social_links.github and not social_links.twitter and not social_links.portfolio %}
+                {% if not profile.social_links.linkedin and not profile.social_links.github and not profile.social_links.twitter and not profile.social_links.portfolio %}
                     <p class="text-gray-500 text-sm">{% trans "Sin redes sociales configuradas" %}</p>
                 {% endif %}
             </div>
         </div>
-
-        <!-- Education -->
-        {% if featured_resume.content.education %}
-        <div class="bg-white rounded-xl shadow-lg p-6">
-            <h3 class="font-semibold text-gray-900 mb-4">{% trans "Educación" %}</h3>
-            <div class="space-y-4">
-                {% for edu in featured_resume.content.education %}
-                <div>
-                    <h4 class="font-semibold text-gray-900">{{ edu.degree }}</h4>
-                    <p class="text-sm text-gray-600">{{ edu.school }}</p>
-                    <p class="text-xs text-gray-500">{{ edu.year }}</p>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
-
-        <!-- Languages -->
-        {% if featured_resume.content.languages %}
-        <div class="bg-white rounded-xl shadow-lg p-6">
-            <h3 class="font-semibold text-gray-900 mb-4">{% trans "Idiomas" %}</h3>
-            <div class="flex flex-wrap gap-2">
-                {% for lang in featured_resume.content.languages %}
-                <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">{{ lang.language }}{% if lang.level %} · {{ lang.level }}{% endif %}</span>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
-
-        <!-- Certifications -->
-        {% if featured_resume.content.certifications %}
-        <div class="bg-white rounded-xl shadow-lg p-6">
-            <h3 class="font-semibold text-gray-900 mb-4">{% trans "Certificaciones y Cursos" %}</h3>
-            <div class="space-y-4">
-                {% for cert in featured_resume.content.certifications %}
-                <div>
-                    <h4 class="font-semibold text-gray-900">{{ cert.name }}</h4>
-                    <p class="text-sm text-gray-600">{{ cert.institution }}{% if cert.year %} · {{ cert.year }}{% endif %}</p>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
-
-        <!-- Volunteering -->
-        {% if featured_resume.content.volunteering %}
-        <div class="bg-white rounded-xl shadow-lg p-6">
-            <h3 class="font-semibold text-gray-900 mb-4">{% trans "Voluntariado" %}</h3>
-            <div class="space-y-4">
-                {% for vol in featured_resume.content.volunteering %}
-                <div>
-                    <h4 class="font-semibold text-gray-900">{{ vol.role }}</h4>
-                    <p class="text-sm text-gray-600">{{ vol.organization }}{% if vol.period %} · {{ vol.period }}{% endif %}</p>
-                    <p class="text-sm text-gray-700">{{ vol.description|truncatewords:30 }}</p>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
-
-        <!-- Awards -->
-        {% if featured_resume.content.awards %}
-        <div class="bg-white rounded-xl shadow-lg p-6">
-            <h3 class="font-semibold text-gray-900 mb-4">{% trans "Premios y Reconocimientos" %}</h3>
-            <div class="space-y-4">
-                {% for award in featured_resume.content.awards %}
-                <div>
-                    <h4 class="font-semibold text-gray-900">{{ award.name }}</h4>
-                    <p class="text-sm text-gray-600">{{ award.issuer }}{% if award.year %} · {{ award.year }}{% endif %}</p>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
-
-        <!-- Publications -->
-        {% if featured_resume.content.publications %}
-        <div class="bg-white rounded-xl shadow-lg p-6">
-            <h3 class="font-semibold text-gray-900 mb-4">{% trans "Publicaciones" %}</h3>
-            <div class="space-y-4">
-                {% for pub in featured_resume.content.publications %}
-                <div>
-                    <h4 class="font-semibold text-gray-900">{{ pub.title }}</h4>
-                    <p class="text-sm text-gray-600">{{ pub.venue }}{% if pub.year %} · {{ pub.year }}{% endif %}</p>
-                    {% if pub.url %}<a href="{{ pub.url }}" target="_blank" class="text-xs text-indigo-600 hover:text-indigo-700">{{ pub.url }}</a>{% endif %}
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
-
-        <!-- Interests -->
-        {% if featured_resume.content.interests %}
-        <div class="bg-white rounded-xl shadow-lg p-6">
-            <h3 class="font-semibold text-gray-900 mb-4">{% trans "Intereses" %}</h3>
-            <div class="flex flex-wrap gap-2">
-                {% for interest in featured_resume.content.interests %}
-                <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">{{ interest }}</span>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
-
-        <!-- References -->
-        {% if featured_resume.content.references %}
-        <div class="bg-white rounded-xl shadow-lg p-6">
-            <h3 class="font-semibold text-gray-900 mb-4">{% trans "Referencias" %}</h3>
-            <div class="space-y-4">
-                {% for ref in featured_resume.content.references %}
-                <div>
-                    <h4 class="font-semibold text-gray-900">{{ ref.name }}</h4>
-                    <p class="text-sm text-gray-600">{{ ref.position }}{% if ref.company %} · {{ ref.company }}{% endif %}</p>
-                    {% if ref.contact %}<p class="text-xs text-gray-500">{{ ref.contact }}</p>{% endif %}
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
-        {% endif %}
     </div>
 </div>
 

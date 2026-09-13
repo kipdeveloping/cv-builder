@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+﻿document.addEventListener('DOMContentLoaded', function() {
     const profileGrid = document.getElementById('cv-grid');
     const loading = document.getElementById('loading');
     const noResults = document.getElementById('no-results');
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const card = document.createElement('div');
         card.className = 'bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300';
 
-        const photoUrl = profile.photo || '/static/img/default-avatar.svg';
+        const photoUrl = profile.photo || '';
         const safeName = escapeHtml(profile.name);
         const headline = profile.headline || '';
         const location = profile.location || '';

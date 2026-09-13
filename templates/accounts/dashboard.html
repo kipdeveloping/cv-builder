@@ -1,8 +1,8 @@
-{% extends 'base.html' %}
+﻿{% extends 'base.html' %}
 {% load i18n %}
 {% load static %}
 
-{% block title %}{% trans "Dashboard" %} - CV Builder{% endblock %}
+{% block title %}{% trans "Dashboard" %} - Perfil Profesional{% endblock %}
 
 {% block content %}
 
@@ -97,15 +97,15 @@
             <div class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                 <p>
                     <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Tipo de empleo:" %}</span>
-                    {% if profile.employment_type %}{{ profile.get_employment_types_display }}{% else %}<span class="text-gray-400">—</span>{% endif %}
+                    {% if profile.employment_type %}{{ profile.get_employment_types_display }}{% else %}<span class="text-gray-400">â€”</span>{% endif %}
                 </p>
                 <p>
                     <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Disponible para mudarse:" %}</span>
-                    {% if profile.willing_to_relocate %}{{ profile.get_willing_to_relocate_display }}{% else %}<span class="text-gray-400">—</span>{% endif %}
+                    {% if profile.willing_to_relocate %}{{ profile.get_willing_to_relocate_display }}{% else %}<span class="text-gray-400">â€”</span>{% endif %}
                 </p>
                 <p>
                     <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Disponible para viajar:" %}</span>
-                    {% if profile.travel_availability %}{{ profile.get_travel_availability_display }}{% else %}<span class="text-gray-400">—</span>{% endif %}
+                    {% if profile.travel_availability %}{{ profile.get_travel_availability_display }}{% else %}<span class="text-gray-400">â€”</span>{% endif %}
                 </p>
             </div>
         </div>
@@ -416,9 +416,9 @@
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Disponible para mudarse" %}</label>
                 <select id="relocate-input" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
                     <option value="">{% trans "No especificado" %}</option>
-                    <option value="yes" {% if profile.willing_to_relocate == 'yes' %}selected{% endif %}>{% trans "Sí" %}</option>
+                    <option value="yes" {% if profile.willing_to_relocate == 'yes' %}selected{% endif %}>{% trans "SÃ­" %}</option>
                     <option value="no" {% if profile.willing_to_relocate == 'no' %}selected{% endif %}>{% trans "No" %}</option>
-                    <option value="somewhere" {% if profile.willing_to_relocate == 'somewhere' %}selected{% endif %}>{% trans "Según destino" %}</option>
+                    <option value="somewhere" {% if profile.willing_to_relocate == 'somewhere' %}selected{% endif %}>{% trans "SegÃºn destino" %}</option>
                 </select>
             </div>
             <div>
@@ -536,3 +536,4 @@
     var socialLinksData = JSON.parse(document.getElementById('socialLinksData').textContent);
 </script>
 {% endblock %}
+

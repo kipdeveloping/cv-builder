@@ -1,4 +1,4 @@
-import re
+﻿import re
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -15,10 +15,10 @@ class CustomAuthenticationForm(AuthenticationForm):
         })
     )
     password = forms.CharField(
-        label=_('Contraseña'),
+        label=_('ContraseÃ±a'),
         widget=forms.PasswordInput(attrs={
             'class': 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500',
-            'placeholder': '••••••••'
+            'placeholder': 'â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢'
         })
     )
 
@@ -32,17 +32,17 @@ class RegistrationForm(UserCreationForm):
         })
     )
     password1 = forms.CharField(
-        label=_('Contraseña'),
+        label=_('ContraseÃ±a'),
         widget=forms.PasswordInput(attrs={
             'class': 'w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
-            'placeholder': '••••••••'
+            'placeholder': 'â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢'
         })
     )
     password2 = forms.CharField(
-        label=_('Confirmar contraseña'),
+        label=_('Confirmar contraseÃ±a'),
         widget=forms.PasswordInput(attrs={
             'class': 'w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
-            'placeholder': '••••••••'
+            'placeholder': 'â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢'
         })
     )
 
@@ -53,7 +53,7 @@ class RegistrationForm(UserCreationForm):
     def clean_email(self):
         email = self.cleaned_data.get('email')
         if User.objects.filter(email=email).exists():
-            raise ValidationError(_('Este email ya está registrado.'))
+            raise ValidationError(_('Este email ya estÃ¡ registrado.'))
         return email
 
     def clean_password1(self):
@@ -61,13 +61,13 @@ class RegistrationForm(UserCreationForm):
         errors = []
 
         if len(password) < 8:
-            errors.append(_('La contraseña debe tener al menos 8 caracteres.'))
+            errors.append(_('La contraseÃ±a debe tener al menos 8 caracteres.'))
         if not re.search(r'[A-Z]', password):
-            errors.append(_('La contraseña debe contener al menos una letra mayúscula.'))
+            errors.append(_('La contraseÃ±a debe contener al menos una letra mayÃºscula.'))
         if not re.search(r'[0-9]', password):
-            errors.append(_('La contraseña debe contener al menos un número.'))
+            errors.append(_('La contraseÃ±a debe contener al menos un nÃºmero.'))
         if not re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
-            errors.append(_('La contraseña debe contener al menos un carácter especial (!@#$%^&*(),.?":{}|<>).'))
+            errors.append(_('La contraseÃ±a debe contener al menos un carÃ¡cter especial (!@#$%^&*(),.?":{}|<>).'))
 
         if errors:
             raise ValidationError(errors)
@@ -100,7 +100,7 @@ class WizardRegistrationForm(RegistrationForm):
         })
     )
     title = forms.CharField(
-        label=_('Cargo / Título profesional'),
+        label=_('Cargo / TÃ­tulo profesional'),
         max_length=100,
         required=False,
         widget=forms.TextInput(attrs={
@@ -114,7 +114,7 @@ class WizardRegistrationForm(RegistrationForm):
         required=False,
         widget=forms.TextInput(attrs={
             'class': 'w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
-            'placeholder': 'Ej: Tecnología'
+            'placeholder': 'Ej: TecnologÃ­a'
         })
     )
 
@@ -132,16 +132,4 @@ class WizardRegistrationForm(RegistrationForm):
             profile.save()
         return user
 
-    @staticmethod
-    def _get_or_create_sector(name):
-        from django.utils.text import slugify
-        from apps.accounts.models import SectorTag
 
-        slug = slugify(name)[:50] or 'sector'
-        tag = SectorTag.objects.filter(slug=slug).first()
-        if tag:
-            return tag
-        return SectorTag.objects.get_or_create(
-            name_es=name,
-            defaults={'name_en': name, 'slug': slug},
-        )[0]
