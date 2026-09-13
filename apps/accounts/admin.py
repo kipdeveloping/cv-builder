@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserProfile, Skill, UserSkill
+from .models import UserProfile, SectorTag
 
 
 @admin.register(UserProfile)
@@ -9,15 +9,8 @@ class UserProfileAdmin(admin.ModelAdmin):
     search_fields = ['user__email', 'user__first_name', 'user__last_name', 'headline']
 
 
-@admin.register(Skill)
-class SkillAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug']
-    search_fields = ['name']
-    prepopulated_fields = {'slug': ('name',)}
-
-
-@admin.register(UserSkill)
-class UserSkillAdmin(admin.ModelAdmin):
-    list_display = ['user', 'skill', 'is_primary']
-    list_filter = ['is_primary']
-    search_fields = ['user__user__email', 'skill__name']
+@admin.register(SectorTag)
+class SectorTagAdmin(admin.ModelAdmin):
+    list_display = ['name_es', 'name_en', 'slug']
+    search_fields = ['name_es', 'name_en']
+    prepopulated_fields = {'slug': ('name_es',)}

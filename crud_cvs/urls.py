@@ -21,7 +21,6 @@ urlpatterns = [
     path('social/', include((custom_social_urlpatterns, 'social'))),
     path('accounts/', include('apps.accounts.urls')),
     path('', include('apps.wall.urls')),
-    path('', include('apps.resumes.urls')),
 ]
 
 if settings.DEBUG:

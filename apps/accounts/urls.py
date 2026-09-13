@@ -11,7 +11,7 @@ urlpatterns = [
     path('upload-photo/', views.upload_photo_view, name='upload_photo'),
     path('update-bio/', views.update_bio_view, name='update_bio'),
     path('update-profile/', views.update_profile_fields_view, name='update_profile_fields'),
-    path('set-featured/', views.set_featured_resume_view, name='set_featured_resume'),
+    path('toggle-visibility/', views.toggle_profile_visibility, name='toggle_profile_visibility'),
     path('contact/<int:user_id>/', views.contact_email_view, name='contact_email'),
     path('password-change/', auth_views.PasswordChangeView.as_view(
         template_name='registration/password_change_form.html',

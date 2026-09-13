@@ -429,4 +429,52 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error:', error);
         }
     };
+
+    // Profile visibility toggle
+    window.toggleVisibility = async function() {
+        const button = document.getElementById('visibility-toggle');
+        const dot = document.getElementById('visibility-dot');
+        const warning = document.getElementById('visibility-warning');
+        
+        const isChecked = button.getAttribute('aria-checked') === 'true';
+        const newState = !isChecked;
+        
+        button.setAttribute('aria-checked', newState);
+        button.classList.toggle('bg-indigo-600', newState);
+        button.classList.toggle('bg-gray-300', !newState);
+        button.classList.toggle('dark:bg-gray-600', !newState);
+        dot.classList.toggle('translate-x-5', newState);
+        dot.classList.toggle('translate-x-0', !newState);
+        warning.classList.add('hidden');
+
+        try {
+            const response = await fetch(urls.toggleVisibility, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCSRFToken()
+                }
+            });
+            const result = await response.json();
+
+            if (!response.ok || result.status !== 'ok') {
+                button.setAttribute('aria-checked', isChecked);
+                button.classList.toggle('bg-indigo-600', isChecked);
+                button.classList.toggle('bg-gray-300', !isChecked);
+                button.classList.toggle('dark:bg-gray-600', !isChecked);
+                dot.classList.toggle('translate-x-5', isChecked);
+                dot.classList.toggle('translate-x-0', !isChecked);
+                warning.textContent = result.message || 'Error al cambiar visibilidad.';
+                warning.classList.remove('hidden');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            button.setAttribute('aria-checked', isChecked);
+            button.classList.toggle('bg-indigo-600', isChecked);
+            button.classList.toggle('bg-gray-300', !isChecked);
+            button.classList.toggle('dark:bg-gray-600', !isChecked);
+            dot.classList.toggle('translate-x-5', isChecked);
+            dot.classList.toggle('translate-x-0', !isChecked);
+        }
+    };
 });

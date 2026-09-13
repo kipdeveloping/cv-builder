@@ -47,23 +47,42 @@ def default_list():
     return []
 
 
+class SectorTag(models.Model):
+    name_es = models.CharField(max_length=100)
+    name_en = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True)
+
+    def __str__(self):
+        return self.name_es
+
+    def get_name(self, language='es'):
+        return self.name_en if language == 'en' else self.name_es
+
+    class Meta:
+        verbose_name = 'Sector Tag'
+        verbose_name_plural = 'Sector Tags'
+
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     photo = models.ImageField(upload_to='photos/', blank=True, null=True)
     bio = models.TextField(blank=True, default='')
     headline = models.CharField(max_length=200, blank=True, default='')
     title = models.CharField(max_length=120, blank=True, default='')
-    sector = models.ForeignKey('resumes.SectorTag', on_delete=models.SET_NULL, null=True, blank=True, related_name='profiles')
+    sector_name = models.CharField(max_length=100, blank=True, default='')
+    is_public = models.BooleanField(default=False)
     location_flex = models.CharField(max_length=20, choices=LOCATION_FLEX_CHOICES, blank=True, default='')
     search_status = models.CharField(max_length=20, choices=SEARCH_STATUS_CHOICES, blank=True, default='')
     availability = models.CharField(max_length=20, choices=AVAILABILITY_CHOICES, blank=True, default='')
     employment_type = models.JSONField(default=default_list, blank=True)
     willing_to_relocate = models.CharField(max_length=20, choices=RELOCATE_CHOICES, blank=True, default='')
     travel_availability = models.CharField(max_length=20, choices=TRAVEL_CHOICES, blank=True, default='')
-    resume_destacado = models.ForeignKey('resumes.Resume', on_delete=models.SET_NULL, null=True, blank=True, related_name='featured_profiles')
+    experience = models.JSONField(default=default_list, blank=True)
+    projects = models.JSONField(default=default_list, blank=True)
+    social_links = models.JSONField(default=dict, blank=True)
 
     def __str__(self):
-        return f"Profile of {self.user.email}"
+        return f'Profile of {self.user.email}'
 
     def get_employment_types_display(self):
         mapping = dict(EMPLOYMENT_TYPE_CHOICES)
@@ -74,40 +93,3 @@ class UserProfile(models.Model):
     class Meta:
         verbose_name = 'User Profile'
         verbose_name_plural = 'User Profiles'
-
-
-class Skill(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(unique=True, max_length=100)
-
-    def __str__(self):
-        return self.name
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
-            original_slug = self.slug
-            counter = 1
-            while Skill.objects.filter(slug=self.slug).exists():
-                self.slug = f"{original_slug}-{counter}"
-                counter += 1
-        super().save(*args, **kwargs)
-
-    class Meta:
-        verbose_name = 'Skill'
-        verbose_name_plural = 'Skills'
-        ordering = ['name']
-
-
-class UserSkill(models.Model):
-    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='user_skills')
-    skill = models.ForeignKey(Skill, on_delete=models.CASCADE, related_name='user_skills')
-    is_primary = models.BooleanField(default=False)
-
-    def __str__(self):
-        return f"{self.user} - {self.skill}"
-
-    class Meta:
-        verbose_name = 'User Skill'
-        verbose_name_plural = 'User Skills'
-        unique_together = ['user', 'skill']

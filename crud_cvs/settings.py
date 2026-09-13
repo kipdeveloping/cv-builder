@@ -25,7 +25,6 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'social_django',
     'apps.accounts',
-    'apps.resumes',
     'apps.wall',
 ]
 
