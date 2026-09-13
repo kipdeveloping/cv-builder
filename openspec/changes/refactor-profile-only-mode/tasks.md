@@ -51,13 +51,14 @@
 
 ## 7. Integration Verification
 
-- [ ] 7.1 Test full registration flow: complete 3-step wizard â†’ verify profile created with title + sector_name; verify `is_public=False` by default
-- [ ] 7.2 Test dashboard: load dashboard â†’ verify sidebar shows profile data, visibility toggle present, experience/project/social modals work, no "Mis CVs" modal
-- [ ] 7.3 Test visibility toggle: click toggle to public â†’ verify API call succeeds, `is_public=True` in DB, profile appears on wall; click toggle to private â†’ verify removed from wall
-- [ ] 7.4 Test photo requirement: toggle to public without photo â†’ verify error shown, toggle stays private; upload photo â†’ toggle to public succeeds
-- [ ] 7.5 Test wall: load `/tablon/` â†’ verify only public profiles shown; filter by sector â†’ verify filtering works; click card â†’ verify navigation to `/candidato/<user_id>/`
-- [ ] 7.6 Test public profile: visit `/candidato/<public_user_id>/` â†’ verify profile displays with sidebar + main area, no edit controls, contact form works; visit `/candidato/<private_user_id>/` â†’ verify 404
-- [ ] 7.7 Test owner profile: authenticated user visits own `/candidato/<own_id>/` â†’ verify "Este es tu perfil publico" banner and dashboard link shown
-- [ ] 7.8 Run Django test suite (if any): `python manage.py test` â†’ verify no regressions
+- [x] 7.1 Test full registration flow: complete 3-step wizard â†’ verify profile created with title + sector_name; verify `is_public=False` by default
+- [x] 7.2 Test dashboard: load dashboard â†’ verify sidebar shows profile data, visibility toggle present, experience/project/social modals work, no "Mis CVs" modal
+- [x] 7.3 Test visibility toggle: click toggle to public â†’ verify API call succeeds, `is_public=True` in DB, profile appears on wall; click toggle to private â†’ verify removed from wall
+- [x] 7.4 Test photo requirement: toggle to public without photo â†’ verify error shown, toggle stays private; upload photo â†’ toggle to public succeeds
+- [x] 7.5 Test wall: load `/tablon/` â†’ verify only public profiles shown; filter by sector â†’ verify filtering works; click card â†’ verify navigation to `/candidato/<user_id>/`
+- [x] 7.6 Test public profile: visit `/candidato/<public_user_id>/` â†’ verify profile displays with sidebar + main area, no edit controls, contact form works; visit `/candidato/<private_user_id>/` â†’ verify 404
+- [x] 7.7 Test owner profile: authenticated user visits own `/candidato/<own_id>/` â†’ verify "Este es tu perfil publico" banner and dashboard link shown
+- [x] 7.8 Run Django test suite (if any): `python manage.py test` â†’ verify no regressions
 - [x] 7.9 Check for any remaining `resumes` references in codebase: `grep -r "resumes" --include="*.py" .` â†’ verify only in migrations/historical files
+
 
