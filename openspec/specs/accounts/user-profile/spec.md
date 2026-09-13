@@ -1,24 +1,35 @@
-# User Profile Specification
+﻿# User Profile Specification
 
 ## Purpose
 
-Manages user profile data including photo upload and bio field, displayed on the public talent wall and used across all CVs.
+Manages user profile data including photo upload, bio field, and visibility controls, displayed on the public talent wall.
 
 ## Requirements
 
-### Requirement: UserProfile model with photo and bio
-The system SHALL maintain a UserProfile linked one-to-one with each User, containing a photo field and a bio text field.
+### Requirement: UserProfile model with photo, bio, and visibility
+The system SHALL maintain a UserProfile linked one-to-one with each User, containing a photo field, bio text field, is_public boolean, sector_name text, and professional title. The profile SHALL NOT reference Resume or SectorTag via foreign keys.
 
 #### Scenario: Profile created on user registration
 - **WHEN** a new user registers
 - **THEN** a UserProfile is automatically created with empty photo and bio fields
+- **AND** `is_public` defaults to false
+- **AND** `sector_name` and `title` are populated from registration wizard
+
+#### Scenario: Profile stores sector as text
+- **WHEN** user completes registration with sector field
+- **THEN** the sector value is stored in `UserProfile.sector_name` (CharField)
+- **AND** no SectorTag foreign key is created or referenced
+
+#### Scenario: Profile stores professional title
+- **WHEN** user completes registration with title field
+- **THEN** the title value is stored in `UserProfile.title` (CharField)
 
 ### Requirement: Photo upload from dashboard
 The system SHALL allow users to upload or change their profile photo from the dashboard interface.
 
 #### Scenario: Successful photo upload
 - **WHEN** user selects a valid image file (jpg, png, webp) under 5MB
-- **THEN** system saves the photo and displays it in the dashboard and on all CVs
+- **THEN** system saves the photo and displays it in the dashboard and on the public profile page
 
 #### Scenario: Photo upload with invalid file type
 - **WHEN** user attempts to upload a file that is not jpg, png, or webp
@@ -33,26 +44,19 @@ The system SHALL store a bio text in the UserProfile that is displayed on the ta
 
 #### Scenario: User edits bio
 - **WHEN** user updates their bio text in the dashboard
-- **THEN** system saves the bio and it appears on their talent wall card
+- **THEN** system saves the bio and it appears on their talent wall card (if profile is public)
 
-### Requirement: Photo required before publishing
-The system SHALL prevent users from publishing a CV unless they have uploaded a profile photo.
+### Requirement: Photo required for public profile visibility
+The system SHALL prevent users from making their profile public unless they have uploaded a profile photo.
 
-#### Scenario: Publish attempt without photo
-- **WHEN** user attempts to publish a CV without a profile photo
-- **THEN** system blocks publishing and prompts user to upload a photo first
+#### Scenario: Toggle public without photo
+- **WHEN** user attempts to set `is_public=true` without a profile photo
+- **THEN** system blocks the toggle and prompts user to upload a photo first
 
-### Requirement: Photo displayed on all CVs
-The system SHALL use the same UserProfile photo across all of the user's CVs, rendered according to each template's layout.
+### Requirement: Profile visibility toggle
+The system SHALL provide an API endpoint for toggling the `is_public` field on UserProfile.
 
-#### Scenario: Photo in Classic template
-- **WHEN** user views a CV with Classic template
-- **THEN** photo appears in the left sidebar with formal styling
-
-#### Scenario: Photo in Modern template
-- **WHEN** user views a CV with Modern template
-- **THEN** photo appears at the top with clean minimalist styling
-
-#### Scenario: Photo in Creative template
-- **WHEN** user views a CV with Creative template
-- **THEN** photo appears with color overlay and artistic styling
+#### Scenario: Toggle visibility via API
+- **WHEN** authenticated user POSTs to /accounts/toggle-visibility/
+- **THEN** system toggles the `is_public` field on the user's profile
+- **AND** returns the new visibility state

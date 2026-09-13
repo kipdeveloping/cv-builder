@@ -1,44 +1,48 @@
-# Public Profile Specification
+﻿# Public Profile Specification
 
 ## Purpose
 
-Provides a public-facing candidate profile page that displays the same content as the owner's dashboard but without edit controls, enabling visitors to view professional information and contact candidates.
+Displays candidate profiles publicly on the talent wall, allowing visitors to view professional information and contact candidates.
 
 ## Requirements
 
 ### Requirement: Public profile page accessible by user ID
-The system SHALL provide a public profile page at `/candidato/<user_id>/` that displays the candidate's professional information.
+The system SHALL provide a public profile page at `/candidato/<user_id>/` that displays the candidate's professional information. The profile SHALL only be accessible if the target user's profile has `is_public=true`.
 
 #### Scenario: Access public profile
-- **WHEN** visitor navigates to `/candidato/<user_id>/`
+- **WHEN** visitor navigates to `/candidato/<user_id>/` AND target profile has `is_public=true`
 - **THEN** the system displays the candidate's profile with sidebar and main area layout
 - **AND** the page uses the same visual design as the dashboard
+
+#### Scenario: Access private profile returns 404
+- **WHEN** visitor navigates to `/candidato/<user_id>/` AND target profile has `is_public=false`
+- **THEN** the system returns a 404 page
+- **AND** no profile information is leaked
 
 #### Scenario: Non-existent user
 - **WHEN** visitor navigates to `/candidato/<nonexistent_id>/`
 - **THEN** the system returns a 404 page
 
-### Requirement: Profile displays featured or most recent published resume
-The profile SHALL display data from the user's featured resume (resume_destacado). If no featured resume is set, it SHALL fall back to the most recent published resume.
+### Requirement: Profile displays profile data directly
+The profile SHALL display data directly from the UserProfile model and its JSON fields (experience, projects, social_links, etc.). There is no fallback to Resume data since the Resume model is removed.
 
-#### Scenario: Featured resume exists
-- **WHEN** user has a resume_destacado set AND that resume is published
-- **THEN** profile displays data from the featured resume
+#### Scenario: Profile displays profile data
+- **WHEN** visitor views a public profile
+- **THEN** sidebar displays photo, name, headline, bio, title, sector_name, status badges
+- **AND** main area displays experience/project carousel from UserProfile JSON fields
+- **AND** social links from UserProfile JSON fields
 
-#### Scenario: No featured resume
-- **WHEN** user has no resume_destacado set
-- **THEN** profile displays data from the most recently published resume
-
-#### Scenario: No published resumes
-- **WHEN** user has no published resumes
-- **THEN** profile displays a message indicating no published CVs
+#### Scenario: No experience/projects
+- **WHEN** visitor views a public profile with no experience or projects
+- **THEN** carousel is empty with appropriate empty state message
+- **AND** no error is displayed
 
 ### Requirement: Sidebar displays read-only profile information
-The sidebar SHALL display the candidate's photo, name, headline, skills, bio, and status badges without any edit controls.
+The sidebar SHALL display the candidate's photo, name, headline, bio, title, sector_name, and status badges without any edit controls.
 
 #### Scenario: View sidebar as visitor
 - **WHEN** visitor views the profile sidebar
-- **THEN** photo, name, headline, skills grid, bio, and status badges are displayed
+- **THEN** photo, name, headline, title, sector_name, bio, and status badges are displayed
 - **AND** no edit buttons or modals are present
 
 ### Requirement: Main area displays experience/project carousel

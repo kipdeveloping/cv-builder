@@ -1,8 +1,8 @@
-# Dashboard Specification
+﻿# Dashboard Specification
 
 ## Purpose
 
-Provides candidates with a comprehensive dashboard for managing their professional profile, including inline editing of all profile fields, experience/project carousel management, social links, skills, and CV organization.
+Provides the main user interface for managing profile data, visibility, experience, projects, and social links.
 
 ## Requirements
 
@@ -30,19 +30,34 @@ The sidebar SHALL display the user's profile photo (circular), full name, headli
 - **THEN** headline text is displayed below the name
 - **AND** clicking the headline or edit icon opens an inline edit modal
 
-### Requirement: Skills section in sidebar
-The sidebar SHALL display user skills as a grid of tags. An edit button SHALL open a modal for adding/removing/reordering skills and setting a primary skill.
-
-#### Scenario: View skills
+#### Scenario: Bio display and edit
 - **WHEN** user views sidebar
-- **THEN** skills are displayed as a tag grid with up to 8 visible skills
-- **AND** if more than 8 skills exist, a "+N more" indicator shows
+- **THEN** bio text is displayed
+- **AND** clicking edit button opens an inline edit modal
 
-#### Scenario: Edit skills
-- **WHEN** user clicks edit button on skills section
-- **THEN** a modal opens showing all skills with add/remove controls
-- **AND** user can mark one skill as primary
-- **AND** changes are saved via POST to /update-profile/
+#### Scenario: Title and sector display
+- **WHEN** user views sidebar
+- **THEN** professional title and sector_name are displayed
+- **AND** editable via profile fields modal
+
+### Requirement: Profile visibility toggle in sidebar
+The sidebar SHALL display a visibility toggle (public/private) that controls whether the profile appears on the talent wall.
+
+#### Scenario: View visibility toggle
+- **WHEN** user views sidebar
+- **THEN** a toggle switch shows current visibility state (Public/Private)
+- **AND** label indicates "Visible en Tablón" when public, "Privado" when private
+
+#### Scenario: Toggle visibility
+- **WHEN** user clicks the visibility toggle
+- **THEN** system POSTs to /accounts/toggle-visibility/
+- **AND** toggle updates to reflect new state
+- **AND** profile visibility on wall changes immediately
+
+#### Scenario: Toggle to public requires photo
+- **WHEN** user toggles to public without a profile photo
+- **THEN** system blocks the toggle and shows error prompting photo upload
+- **AND** visibility remains private
 
 ### Requirement: Status badges in sidebar
 The sidebar SHALL display employment status badges (search status, availability, location preference). An edit button SHALL open a modal for updating these fields.
@@ -55,20 +70,6 @@ The sidebar SHALL display employment status badges (search status, availability,
 - **WHEN** user clicks edit button on status section
 - **THEN** a modal opens with dropdowns for each status field
 - **AND** changes are saved via POST to /update-profile/
-
-### Requirement: Mis CVs button opens CV list modal
-The sidebar SHALL have a fixed "Mis Curriculums" button at the bottom. Clicking it SHALL open a modal listing all user resumes with actions.
-
-#### Scenario: Open CV list modal
-- **WHEN** user clicks "Mis Curriculums" button
-- **THEN** a modal opens showing all resumes with name, status, template, and updated date
-- **AND** each resume has Edit, View CV, and Set as Featured buttons
-
-#### Scenario: Set featured resume
-- **WHEN** user clicks star icon on a resume in the CV list modal
-- **THEN** POST request is sent to /set-featured/ with resume_id
-- **AND** the star icon toggles to filled state
-- **AND** only one resume can be featured at a time
 
 ### Requirement: Experience/project carousel in main area
 The main area SHALL display a horizontal carousel of experience and project cards. Each card SHALL show title, company/project name, period, and description. Owner SHALL see edit and delete buttons on each card.
@@ -95,7 +96,7 @@ The main area SHALL display a horizontal carousel of experience and project card
 #### Scenario: Delete card
 - **WHEN** user clicks delete button on a carousel card
 - **THEN** a confirmation dialog appears
-- **AND** on confirmation, the card is removed from the carousel and Resume.content
+- **AND** on confirmation, the card is removed from the carousel and UserProfile JSON fields
 
 ### Requirement: Social links section in main area
 The main area SHALL display social link icons for platforms that have URLs configured. An add/edit button SHALL open a modal for managing social links.
@@ -109,7 +110,19 @@ The main area SHALL display social link icons for platforms that have URLs confi
 - **WHEN** user clicks add/edit button on social links section
 - **THEN** a modal opens with input fields for LinkedIn, GitHub, Twitter/X, Portfolio, and custom URLs
 - **AND** user can add/remove platform URLs
-- **AND** changes are saved to Resume.content.social_links
+- **AND** changes are saved to UserProfile JSON fields (social_links)
+
+### Requirement: Work preferences section in sidebar
+The sidebar SHALL display work preferences (employment type, willingness to relocate, travel availability). An edit button SHALL open a modal for updating these fields.
+
+#### Scenario: View work preferences
+- **WHEN** user views sidebar
+- **THEN** work preferences are displayed with current values
+
+#### Scenario: Edit work preferences
+- **WHEN** user clicks edit button on work preferences section
+- **THEN** a modal opens with checkboxes for employment type and dropdowns for relocate/travel
+- **AND** changes are saved via POST to /update-profile/
 
 ### Requirement: Onboarding banner for incomplete profiles
 If the user's first_name or last_name is empty, the dashboard SHALL display an onboarding banner prompting them to complete their name.

@@ -1,8 +1,8 @@
-## Purpose
+﻿## Purpose
 
 Controls profile visibility on the talent wall, allowing users to toggle between public (visible on wall) and private (hidden from wall) profiles.
 
-## ADDED Requirements
+## Requirements
 
 ### Requirement: User can toggle profile visibility
 The system SHALL provide a mechanism for authenticated users to toggle their profile visibility between public and private.
@@ -26,11 +26,11 @@ The system SHALL provide a mechanism for authenticated users to toggle their pro
 The talent wall API SHALL only return profiles with `is_public` set to true.
 
 #### Scenario: Wall API filters by visibility
-- **WHEN** client fetches profiles from /api/wall/cvs/
+- **WHEN** client fetches profiles from /api/wall/profiles/
 - **THEN** only profiles with `is_public=true` are returned
 - **AND** profiles with `is_public=false` are excluded
 
 #### Scenario: Sector filter applies only to public profiles
-- **WHEN** client fetches profiles with sector filter from /api/wall/cvs/?sector=<slug>
+- **WHEN** client fetches profiles with sector filter from /api/wall/profiles/?sector=<slug>
 - **THEN** only public profiles matching the sector are returned
 - **AND** private profiles are excluded regardless of sector match
