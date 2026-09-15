@@ -14,8 +14,8 @@
 
 ## 3. Branch 2: fix/work-preferences-context
 
-- [ ] 3.1 Update apps/accounts/views.py dashboard_view to pass EMPLOYMENT_TYPE_CHOICES as employment_types in context and verify template receives the variable
-- [ ] 3.2 Run python manage.py check and python manage.py test to verify no errors
+- [x] 3.1 Update apps/accounts/views.py dashboard_view to pass EMPLOYMENT_TYPE_CHOICES as employment_types in context and verify template receives the variable
+- [x] 3.2 Run python manage.py check and python manage.py test to verify no errors
 - [ ] 3.3 Commit changes with message "fix: pass employment_types to dashboard template context"
 
 ## 4. Branch 3: refactor/data-model-cleanup

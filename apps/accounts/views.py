@@ -73,8 +73,12 @@ def logout_view(request):
 
 @login_required
 def dashboard_view(request):
+    from .models import EMPLOYMENT_TYPE_CHOICES
     profile = request.user.profile
-    return render(request, 'accounts/dashboard.html', {'profile': profile})
+    return render(request, 'accounts/dashboard.html', {
+        'profile': profile,
+        'employment_types': EMPLOYMENT_TYPE_CHOICES,
+    })
 
 
 @login_required
