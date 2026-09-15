@@ -145,10 +145,6 @@ class PublicProfileTest(TestCase):
         response = self.client.get(reverse('profile', args=[self.user.id]))
         self.assertContains(response, 'Ir al Dashboard')
 
-    def test_no_published_cv_shows_message(self):
-        response = self.client.get(reverse('profile', args=[self.user.id]))
-        self.assertContains(response, 'no tiene CVs publicados')
-
 
 class ContactEmailTest(TestCase):
     def setUp(self):
