@@ -94,8 +94,8 @@ def wall_api_view(request):
 
         if tags_must:
             must_tags_set = set(tags_must)
-            profile_must_tags = {slug for slug, ttype in profile_tags.items() if ttype == 'must'}
-            if not must_tags_set.issubset(profile_must_tags):
+            profile_tag_slugs = set(profile_tags.keys())
+            if not must_tags_set.issubset(profile_tag_slugs):
                 continue
 
         score = 0
@@ -115,12 +115,12 @@ def wall_api_view(request):
 
         for tag_slug in tags_must:
             max_score += 15
-            if tag_slug in profile_tags and profile_tags[tag_slug] == 'must':
+            if tag_slug in profile_tags:
                 score += 15
 
         for tag_slug in tags_nice:
             max_score += 10
-            if tag_slug in profile_tags and profile_tags[tag_slug] == 'nice':
+            if tag_slug in profile_tags:
                 score += 10
 
         relevance = round((score / max_score * 100) if max_score > 0 else 0)

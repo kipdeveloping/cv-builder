@@ -44,9 +44,9 @@
 
 ## 6. Branch 5: fix/wall-tag-filtering
 
-- [ ] 6.1 Update wall_api_view in apps/wall/views.py: change must-tag filter to match profiles that have the tag regardless of tag_type and verify filter works
-- [ ] 6.2 Update scoring in wall_api_view: match tags regardless of tag_type for relevance calculation and verify scoring works
-- [ ] 6.3 Run python manage.py check and python manage.py test to verify no errors
+- [x] 6.1 Update wall_api_view in apps/wall/views.py: change must-tag filter to match profiles that have the tag regardless of tag_type and verify filter works
+- [x] 6.2 Update scoring in wall_api_view: match tags regardless of tag_type for relevance calculation and verify scoring works
+- [x] 6.3 Run python manage.py check and python manage.py test to verify no errors
 - [ ] 6.4 Commit changes with message "fix: update wall tag filtering to match regardless of tag_type"
 
 ## 7. Branch 6: feat/dashboard-skills-modal
