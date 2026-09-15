@@ -20,17 +20,17 @@
 
 ## 4. Branch 3: refactor/data-model-cleanup
 
-- [ ] 4.1 Remove sector_name field from UserProfile in apps/accounts/models.py and verify model loads correctly
-- [ ] 4.2 Run python manage.py makemigrations accounts to generate migration for field removal
-- [ ] 4.3 Create data migration to set sector=SectorTag(slug='tecnologia') for all profiles where sector IS NULL
-- [ ] 4.4 Remove title field from UserProfile in apps/accounts/models.py and verify model loads correctly
-- [ ] 4.5 Run python manage.py makemigrations accounts to generate migration for field removal
-- [ ] 4.6 Create data migration to copy title to headline where headline is empty
-- [ ] 4.7 Run python manage.py migrate to apply all migrations and verify database state
-- [ ] 4.8 Fix save_profile_tags_view in apps/accounts/views.py: change SectorRol.objects.get(slug=data['rol']) to SectorRol.objects.get(slug=data['rol'], sector__slug=data['sector']) and fix RolEspecialidad similarly
-- [ ] 4.9 Fix wall location filter in apps/wall/views.py: add location parameter handling and filter by location_flex
-- [ ] 4.10 Remove sector_name fallback from wall API response in apps/wall/views.py line 132
-- [ ] 4.11 Run python manage.py check and python manage.py test to verify no errors
+- [x] 4.1 Remove sector_name field from UserProfile in apps/accounts/models.py and verify model loads correctly
+- [x] 4.2 Run python manage.py makemigrations accounts to generate migration for field removal
+- [x] 4.3 Create data migration to set sector=SectorTag(slug='tecnologia') for all profiles where sector IS NULL
+- [x] 4.4 Remove title field from UserProfile in apps/accounts/models.py and verify model loads correctly
+- [x] 4.5 Run python manage.py makemigrations accounts to generate migration for field removal
+- [x] 4.6 Create data migration to copy title to headline where headline is empty
+- [x] 4.7 Run python manage.py migrate to apply all migrations and verify database state
+- [x] 4.8 Fix save_profile_tags_view in apps/accounts/views.py: change SectorRol.objects.get(slug=data['rol']) to SectorRol.objects.get(slug=data['rol'], sector__slug=data['sector']) and fix RolEspecialidad similarly
+- [x] 4.9 Fix wall location filter in apps/wall/views.py: add location parameter handling and filter by location_flex
+- [x] 4.10 Remove sector_name fallback from wall API response in apps/wall/views.py line 132
+- [x] 4.11 Run python manage.py check and python manage.py test to verify no errors
 - [ ] 4.12 Commit changes with message "refactor: clean data model - remove sector_name, fix slug uniqueness, fix location filter"
 
 ## 5. Branch 4: fix/registration-sector-dropdown

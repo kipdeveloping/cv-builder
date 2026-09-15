@@ -273,9 +273,9 @@ def save_profile_tags_view(request):
         if 'sector' in data:
             profile.sector = SectorTag.objects.get(slug=data['sector']) if data['sector'] else None
         if 'rol' in data:
-            profile.rol = SectorRol.objects.get(slug=data['rol']) if data['rol'] else None
+            profile.rol = SectorRol.objects.get(slug=data['rol'], sector__slug=data['sector']) if data['rol'] else None
         if 'especialidad' in data:
-            profile.especialidad = RolEspecialidad.objects.get(slug=data['especialidad']) if data['especialidad'] else None
+            profile.especialidad = RolEspecialidad.objects.get(slug=data['especialidad'], sector_rol__slug=data['rol']) if data['especialidad'] else None
         if 'seniority' in data:
             profile.seniority = data['seniority']
         if 'languages' in data:

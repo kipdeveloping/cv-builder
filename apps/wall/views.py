@@ -69,6 +69,7 @@ def wall_api_view(request):
     tags_must = request.GET.get('tags_must', '').split(',') if request.GET.get('tags_must') else []
     tags_nice = request.GET.get('tags_nice', '').split(',') if request.GET.get('tags_nice') else []
     seniority = request.GET.get('seniority')
+    location = request.GET.get('location')
     languages = request.GET.get('languages')
 
     profiles = UserProfile.objects.filter(is_public=True).select_related(
@@ -83,6 +84,8 @@ def wall_api_view(request):
         profiles = profiles.filter(especialidad__slug=especialidad_slug)
     if seniority:
         profiles = profiles.filter(seniority=seniority)
+    if location:
+        profiles = profiles.filter(location_flex=location)
 
     profile_list = []
     for profile in profiles:
@@ -129,7 +132,7 @@ def wall_api_view(request):
             'headline': profile.headline or '',
             'bio': profile.bio or '',
             'photo': profile.photo.url if profile.photo else None,
-            'sector': profile.sector.name_es if profile.sector else (profile.sector_name or ''),
+            'sector': profile.sector.name_es if profile.sector else '',
             'rol': profile.rol.name_es if profile.rol else '',
             'especialidad': profile.especialidad.name_es if profile.especialidad else '',
             'seniority': profile.seniority or '',

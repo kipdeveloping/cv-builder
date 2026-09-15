@@ -68,8 +68,6 @@ class UserProfile(models.Model):
     photo = models.ImageField(upload_to='photos/', blank=True, null=True)
     bio = models.TextField(blank=True, default='')
     headline = models.CharField(max_length=200, blank=True, default='')
-    title = models.CharField(max_length=120, blank=True, default='')
-    sector_name = models.CharField(max_length=100, blank=True, default='')
     is_public = models.BooleanField(default=False)
     location_flex = models.CharField(max_length=20, choices=LOCATION_FLEX_CHOICES, blank=True, default='')
     search_status = models.CharField(max_length=20, choices=SEARCH_STATUS_CHOICES, blank=True, default='')
