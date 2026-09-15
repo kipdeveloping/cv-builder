@@ -62,7 +62,9 @@ def register_view(request):
     else:
         form = WizardRegistrationForm()
 
-    return render(request, 'accounts/register.html', {'form': form})
+    from .models import SectorTag
+    sectors = SectorTag.objects.all()
+    return render(request, 'accounts/register.html', {'form': form, 'sectors': sectors})
 
 
 def logout_view(request):

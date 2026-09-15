@@ -99,15 +99,7 @@ class WizardRegistrationForm(RegistrationForm):
             'placeholder': 'Tu apellido'
         })
     )
-    title = forms.CharField(
-        label=_('Cargo / TÃ­tulo profesional'),
-        max_length=100,
-        required=False,
-        widget=forms.TextInput(attrs={
-            'class': 'w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white',
-            'placeholder': 'Ej: Ingeniero de Software'
-        })
-    )
+    # title field removed - will be synced with headline
     sector = forms.CharField(
         label=_('Sector'),
         max_length=100,
@@ -118,6 +110,14 @@ class WizardRegistrationForm(RegistrationForm):
         })
     )
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        from .models import SectorTag
+        sector_choices = [('', _('Seleccionar...'))]
+        for tag in SectorTag.objects.all():
+            sector_choices.append((tag.slug, tag.name_es))
+        self.fields['sector'].choices = sector_choices
+
     def save(self, commit=True):
         user = super().save(commit=False)
         user.first_name = self.cleaned_data.get('first_name', '')
@@ -125,10 +125,13 @@ class WizardRegistrationForm(RegistrationForm):
         if commit:
             user.save()
             profile = user.profile
-            profile.title = self.cleaned_data.get('title', '')
-            sector_name = self.cleaned_data.get('sector', '').strip()[:100]
-            if sector_name:
-                profile.sector_name = sector_name
+            sector_slug = self.cleaned_data.get('sector', '')
+            if sector_slug:
+                from .models import SectorTag
+                try:
+                    profile.sector = SectorTag.objects.get(slug=sector_slug)
+                except SectorTag.DoesNotExist:
+                    pass
             profile.save()
         return user
 

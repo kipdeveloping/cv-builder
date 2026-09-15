@@ -35,11 +35,11 @@
 
 ## 5. Branch 4: fix/registration-sector-dropdown
 
-- [ ] 5.1 Update WizardRegistrationForm in apps/accounts/forms.py: change sector from CharField(TextInput) to CharField(Select) with SectorTag choices and verify form loads
-- [ ] 5.2 Update WizardRegistrationForm.save(): change profile.sector_name to profile.sector = SectorTag.objects.get(slug=sector_slug) and remove profile.title assignment
-- [ ] 5.3 Update register_view in apps/accounts/views.py to pass SectorTag.objects.all() as sectors to template context
-- [ ] 5.4 Update templates/accounts/register.html step 3: replace sector text input with select dropdown and remove title input
-- [ ] 5.5 Run python manage.py check and python manage.py test to verify no errors
+- [x] 5.1 Update WizardRegistrationForm in apps/accounts/forms.py: change sector from CharField(TextInput) to CharField(Select) with SectorTag choices and verify form loads
+- [x] 5.2 Update WizardRegistrationForm.save(): change profile.sector_name to profile.sector = SectorTag.objects.get(slug=sector_slug) and remove profile.title assignment
+- [x] 5.3 Update register_view in apps/accounts/views.py to pass SectorTag.objects.all() as sectors to template context
+- [x] 5.4 Update templates/accounts/register.html step 3: replace sector text input with select dropdown and remove title input
+- [x] 5.5 Run python manage.py check and python manage.py test to verify no errors
 - [ ] 5.6 Commit changes with message "fix: use sector dropdown in registration, remove title from step 3"
 
 ## 6. Branch 5: fix/wall-tag-filtering
