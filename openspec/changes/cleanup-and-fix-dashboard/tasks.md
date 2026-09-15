@@ -10,7 +10,7 @@
 - [x] 2.4 Remove test_no_published_cv_shows_message from apps/accounts/tests.py and verify test file runs without errors
 - [x] 2.5 Delete openspec/specs/resumes/ directory (cv-templates, resume-editor, resume-publishing) and verify directory is removed
 - [x] 2.6 Run python manage.py check and python manage.py test to verify no errors
-- [ ] 2.7 Commit changes with message "cleanup: remove orphaned resume/CV references"
+- [x] 2.7 Commit changes with message "cleanup: remove orphaned resume/CV references"
 
 ## 3. Branch 2: fix/work-preferences-context
 
