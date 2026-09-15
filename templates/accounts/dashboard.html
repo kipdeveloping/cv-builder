@@ -89,7 +89,7 @@
         <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="font-semibold text-gray-900 dark:text-white">{% trans "Mis Habilidades" %}</h3>
-                <button onclick="openModal('skills-modal')"
+                <button onclick="openSkillsModal()"
                     class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-semibold">
                     {% trans "Editar" %}
                 </button>
@@ -111,11 +111,23 @@
                     <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Seniority:" %}</span>
                     <span id="skills-seniority-display">{% if profile.seniority %}{{ profile.get_seniority_display }}{% else %}<span class="text-gray-400">—</span>{% endif %}</span>
                 </p>
+                <p>
+                    <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Idiomas:" %}</span>
+                    <span id="skills-languages-display">
+                        {% if profile.languages %}
+                            {% for lang in profile.languages %}
+                                {{ lang.code }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            <span class="text-gray-400">—</span>
+                        {% endif %}
+                    </span>
+                </p>
                 <div>
                     <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Tags:" %}</span>
                     <div id="skills-tags-display" class="flex flex-wrap gap-1 mt-1">
                         {% for pt in profile.tags.all %}
-                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold {% if pt.tag_type == 'must' %}bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200{% else %}bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200{% endif %}">
+                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200">
                                 {{ pt.tag.name_es }}
                             </span>
                         {% endfor %}
@@ -318,25 +330,25 @@
         <div class="space-y-4">
             <div>
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Sector" %}</label>
-                <select id="skills-sector-input" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                <select id="skills-sector-select" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
                     <option value="">{% trans "Seleccionar..." %}</option>
                 </select>
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Rol" %}</label>
-                <select id="skills-rol-input" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                <select id="skills-rol-select" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
                     <option value="">{% trans "Seleccionar..." %}</option>
                 </select>
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Especialidad" %}</label>
-                <select id="skills-especialidad-input" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                <select id="skills-especialidad-select" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
                     <option value="">{% trans "Seleccionar..." %}</option>
                 </select>
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Seniority" %}</label>
-                <select id="skills-seniority-input" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                <select id="skills-seniority-select" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
                     <option value="">{% trans "Seleccionar..." %}</option>
                     <option value="junior">Junior</option>
                     <option value="semi_senior">Semi-Senior</option>
@@ -345,44 +357,21 @@
                 </select>
             </div>
             <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Tags" %}</label>
+                <div id="selected-tags" class="flex flex-wrap gap-2 mb-2"></div>
+                <div class="relative">
+                    <input type="text" id="tag-search-input" placeholder="Buscar tag..." oninput="searchTags(this.value)"
+                        class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                    <div id="tag-suggestions" class="hidden absolute z-10 w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg mt-1 max-h-48 overflow-y-auto"></div>
+                </div>
+            </div>
+            <div>
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Idiomas" %}</label>
-                <div id="skills-languages-chips" class="flex flex-wrap gap-2 mb-2"></div>
+                <div id="selected-languages" class="flex flex-wrap gap-2 mb-2"></div>
                 <div class="flex gap-2">
-                    <select id="skills-language-select" class="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
-                        <option value="es">Español</option>
-                        <option value="en">Inglés</option>
-                        <option value="pt">Portugués</option>
-                        <option value="fr">Francés</option>
-                        <option value="de">Alemán</option>
-                    </select>
-                    <select id="skills-language-level" class="w-24 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
-                        <option value="nativo">Nativo</option>
-                        <option value="C2">C2</option>
-                        <option value="C1">C1</option>
-                        <option value="B2">B2</option>
-                        <option value="B1">B1</option>
-                        <option value="A2">A2</option>
-                        <option value="A1">A1</option>
-                    </select>
-                    <button type="button" id="add-language-btn" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">+</button>
-                </div>
-            </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Tags Obligatorios" %}</label>
-                <div id="skills-must-tags-chips" class="flex flex-wrap gap-2 mb-2"></div>
-                <div class="relative">
-                    <input type="text" id="skills-must-tags-input" placeholder="Buscar tag..."
-                        class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
-                    <div id="skills-must-tags-suggestions" class="hidden absolute z-10 w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg mt-1 max-h-48 overflow-y-auto"></div>
-                </div>
-            </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Tags Deseables" %}</label>
-                <div id="skills-nice-tags-chips" class="flex flex-wrap gap-2 mb-2"></div>
-                <div class="relative">
-                    <input type="text" id="skills-nice-tags-input" placeholder="Buscar tag..."
-                        class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
-                    <div id="skills-nice-tags-suggestions" class="hidden absolute z-10 w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg mt-1 max-h-48 overflow-y-auto"></div>
+                    <input type="text" id="language-input" placeholder="Código (ej: en)"
+                        class="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                    <button type="button" onclick="addLanguage()" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">+</button>
                 </div>
             </div>
         </div>
@@ -654,6 +643,10 @@
     var urls = {
         updateProfile: "{% url 'update_profile_fields' %}",
         toggleVisibility: "{% url 'toggle_profile_visibility' %}",
+        getProfileTags: "{% url 'get_profile_tags' %}",
+        saveProfileTags: "{% url 'save_profile_tags' %}",
+        tagHierarchy: "/api/tags/hierarchy/",
+        allTags: "/api/tags/all/",
     };
     var profileIsPublic = {{ profile.is_public|yesno:"true,false" }};
 </script>

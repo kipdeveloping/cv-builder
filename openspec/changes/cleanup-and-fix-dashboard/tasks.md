@@ -51,23 +51,23 @@
 
 ## 7. Branch 6: feat/dashboard-skills-modal
 
-- [ ] 7.1 Add API URLs to dashboard.html urls dict: getProfileTags, saveProfileTags, tagHierarchy, allTags
-- [ ] 7.2 Implement loadHierarchy() in dashboard.js: fetch /api/tags/hierarchy/ and store locally
-- [ ] 7.3 Implement populateSkillsSectorDropdown(preselectedSlug?) in dashboard.js: fill sector select with hierarchy data
-- [ ] 7.4 Implement populateSkillsRolDropdown(sectorSlug, preselectedSlug?) in dashboard.js: fill rol select based on sector
-- [ ] 7.5 Implement populateSkillsEspecialidadDropdown(sectorSlug, rolSlug, preselectedSlug?) in dashboard.js: fill especialidad select
-- [ ] 7.6 Implement openSkillsModal() in dashboard.js: open modal + fetch /accounts/api/profile/tags/ + populate all fields
-- [ ] 7.7 Implement loadAllTags() in dashboard.js: fetch /api/tags/all/ for tag search
-- [ ] 7.8 Implement searchTags(query) in dashboard.js: filter tags by name, show suggestions
-- [ ] 7.9 Implement addTag(slug, name) and removeTag(slug) in dashboard.js: manage tag chips
-- [ ] 7.10 Implement addLanguage() and removeLanguage(code) in dashboard.js: manage language chips
-- [ ] 7.11 Implement saveSkills() in dashboard.js: POST to /accounts/api/profile/tags/save/ with all selections
-- [ ] 7.12 Add event listeners for cascading dropdowns, tag search, language add/remove in dashboard.js
-- [ ] 7.13 Update dashboard.html skills modal: remove must/nice tag sections, add single tag section, add title input
-- [ ] 7.14 Add title and languages display to dashboard.html sidebar
-- [ ] 7.15 Change dashboard.html skills section "Editar" button onclick to call openSkillsModal()
-- [ ] 7.16 Add title sync logic to update_profile_fields_view in apps/accounts/views.py
-- [ ] 7.17 Run python manage.py check and python manage.py test to verify no errors
+- [x] 7.1 Add API URLs to dashboard.html urls dict: getProfileTags, saveProfileTags, tagHierarchy, allTags
+- [x] 7.2 Implement loadHierarchy() in dashboard.js: fetch /api/tags/hierarchy/ and store locally
+- [x] 7.3 Implement populateSkillsSectorDropdown(preselectedSlug?) in dashboard.js: fill sector select with hierarchy data
+- [x] 7.4 Implement populateSkillsRolDropdown(sectorSlug, preselectedSlug?) in dashboard.js: fill rol select based on sector
+- [x] 7.5 Implement populateSkillsEspecialidadDropdown(sectorSlug, rolSlug, preselectedSlug?) in dashboard.js: fill especialidad select
+- [x] 7.6 Implement openSkillsModal() in dashboard.js: open modal + fetch /accounts/api/profile/tags/ + populate all fields
+- [x] 7.7 Implement loadAllTags() in dashboard.js: fetch /api/tags/all/ for tag search
+- [x] 7.8 Implement searchTags(query) in dashboard.js: filter tags by name, show suggestions
+- [x] 7.9 Implement addTag(slug, name) and removeTag(slug) in dashboard.js: manage tag chips
+- [x] 7.10 Implement addLanguage() and removeLanguage(code) in dashboard.js: manage language chips
+- [x] 7.11 Implement saveSkills() in dashboard.js: POST to /accounts/api/profile/tags/save/ with all selections
+- [x] 7.12 Add event listeners for cascading dropdowns, tag search, language add/remove in dashboard.js
+- [x] 7.13 Update dashboard.html skills modal: remove must/nice tag sections, add single tag section, add title input
+- [x] 7.14 Add title and languages display to dashboard.html sidebar
+- [x] 7.15 Change dashboard.html skills section "Editar" button onclick to call openSkillsModal()
+- [x] 7.16 ~~Add title sync logic to update_profile_fields_view~~ N/A: title field was removed in branch 3
+- [x] 7.17 Run python manage.py check and python manage.py test to verify no errors
 - [ ] 7.18 Commit changes with message "feat: implement dashboard skills modal with hierarchy, tags, languages, title"
 
 ## 8. Post-implementation: Final Verification

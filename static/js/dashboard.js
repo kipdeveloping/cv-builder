@@ -332,5 +332,220 @@
             dot.classList.toggle('translate-x-0', !isChecked);
         }
     };
-});
 
+    // Skills modal
+    let skillsHierarchy = [];
+    let allTags = [];
+    let selectedTags = [];
+    let selectedLanguages = [];
+
+    window.loadHierarchy = async function() {
+        try {
+            const response = await fetch(urls.tagHierarchy);
+            if (response.ok) {
+                skillsHierarchy = await response.json();
+            }
+        } catch (error) {
+            console.error('Error loading hierarchy:', error);
+        }
+    };
+
+    window.populateSkillsSectorDropdown = function(preselectedSlug) {
+        const sectorSelect = document.getElementById('skills-sector-select');
+        if (!sectorSelect) return;
+        sectorSelect.innerHTML = '<option value="">Seleccionar sector...</option>';
+        skillsHierarchy.forEach(sector => {
+            const option = document.createElement('option');
+            option.value = sector.slug;
+            option.textContent = sector.name_es;
+            if (preselectedSlug && sector.slug === preselectedSlug) option.selected = true;
+            sectorSelect.appendChild(option);
+        });
+    };
+
+    window.populateSkillsRolDropdown = function(sectorSlug, preselectedSlug) {
+        const rolSelect = document.getElementById('skills-rol-select');
+        if (!rolSelect) return;
+        rolSelect.innerHTML = '<option value="">Seleccionar rol...</option>';
+        const sector = skillsHierarchy.find(s => s.slug === sectorSlug);
+        if (sector) {
+            sector.children.forEach(rol => {
+                const option = document.createElement('option');
+                option.value = rol.slug;
+                option.textContent = rol.name_es;
+                if (preselectedSlug && rol.slug === preselectedSlug) option.selected = true;
+                rolSelect.appendChild(option);
+            });
+        }
+    };
+
+    window.populateSkillsEspecialidadDropdown = function(sectorSlug, rolSlug, preselectedSlug) {
+        const espSelect = document.getElementById('skills-especialidad-select');
+        if (!espSelect) return;
+        espSelect.innerHTML = '<option value="">Seleccionar especialidad...</option>';
+        const sector = skillsHierarchy.find(s => s.slug === sectorSlug);
+        if (sector) {
+            const rol = sector.children.find(r => r.slug === rolSlug);
+            if (rol) {
+                rol.children.forEach(esp => {
+                    const option = document.createElement('option');
+                    option.value = esp.slug;
+                    option.textContent = esp.name_es;
+                    if (preselectedSlug && esp.slug === preselectedSlug) option.selected = true;
+                    espSelect.appendChild(option);
+                });
+            }
+        }
+    };
+
+    window.openSkillsModal = async function() {
+        try {
+            const response = await fetch(urls.getProfileTags);
+            if (response.ok) {
+                const data = await response.json();
+                selectedTags = data.tags || [];
+                selectedLanguages = data.languages || [];
+                
+                if (data.sector) {
+                    populateSkillsSectorDropdown(data.sector);
+                    if (data.rol) {
+                        populateSkillsRolDropdown(data.sector, data.rol);
+                        if (data.especialidad) {
+                            populateSkillsEspecialidadDropdown(data.sector, data.rol, data.especialidad);
+                        }
+                    }
+                } else {
+                    populateSkillsSectorDropdown();
+                }
+                
+                renderSelectedTags();
+                renderSelectedLanguages();
+                openModal('skills-modal');
+            }
+        } catch (error) {
+            console.error('Error loading profile tags:', error);
+        }
+    };
+
+    window.loadAllTags = async function() {
+        try {
+            const response = await fetch(urls.allTags);
+            if (response.ok) {
+                allTags = await response.json();
+            }
+        } catch (error) {
+            console.error('Error loading tags:', error);
+        }
+    };
+
+    window.searchTags = function(query) {
+        const suggestions = document.getElementById('tag-suggestions');
+        if (!suggestions) return;
+        if (!query || query.length < 2) {
+            suggestions.classList.add('hidden');
+            return;
+        }
+        const filtered = allTags.filter(tag => 
+            tag.name.toLowerCase().includes(query.toLowerCase()) ||
+            tag.slug.includes(query.toLowerCase())
+        ).slice(0, 10);
+        
+        if (filtered.length === 0) {
+            suggestions.classList.add('hidden');
+            return;
+        }
+        
+        suggestions.innerHTML = filtered.map(tag => 
+            '<div class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer" onclick="addTag(\'' + tag.slug + '\', \'' + tag.name + '\')">' + tag.name + '</div>'
+        ).join('');
+        suggestions.classList.remove('hidden');
+    };
+
+    window.addTag = function(slug, name) {
+        if (!selectedTags.find(t => t.slug === slug)) {
+            selectedTags.push({ slug, name });
+            renderSelectedTags();
+        }
+        document.getElementById('tag-search-input').value = '';
+        document.getElementById('tag-suggestions').classList.add('hidden');
+    };
+
+    window.removeTag = function(slug) {
+        selectedTags = selectedTags.filter(t => t.slug !== slug);
+        renderSelectedTags();
+    };
+
+    function renderSelectedTags() {
+        const container = document.getElementById('selected-tags');
+        if (!container) return;
+        container.innerHTML = selectedTags.map(tag => 
+            '<span class="inline-flex items-center px-3 py-1 rounded-full text-sm bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200">' + 
+            tag.name + 
+            '<button onclick="removeTag(\'' + tag.slug + '\')" class="ml-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-800">&times;</button></span>'
+        ).join('');
+    }
+
+    window.addLanguage = function() {
+        const input = document.getElementById('language-input');
+        const code = input.value.trim();
+        if (code && !selectedLanguages.find(l => l.code === code)) {
+            selectedLanguages.push({ code, name: code });
+            renderSelectedLanguages();
+        }
+        input.value = '';
+    };
+
+    window.removeLanguage = function(code) {
+        selectedLanguages = selectedLanguages.filter(l => l.code !== code);
+        renderSelectedLanguages();
+    };
+
+    function renderSelectedLanguages() {
+        const container = document.getElementById('selected-languages');
+        if (!container) return;
+        container.innerHTML = selectedLanguages.map(lang => 
+            '<span class="inline-flex items-center px-3 py-1 rounded-full text-sm bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200">' + 
+            lang.name + 
+            '<button onclick="removeLanguage(\'' + lang.code + '\')" class="ml-2 text-green-600 dark:text-green-400 hover:text-green-800">&times;</button></span>'
+        ).join('');
+    }
+
+    window.saveSkills = async function() {
+        const sector = document.getElementById('skills-sector-select').value;
+        const rol = document.getElementById('skills-rol-select').value;
+        const especialidad = document.getElementById('skills-especialidad-select').value;
+        const seniority = document.getElementById('skills-seniority-select').value;
+        
+        try {
+            const response = await fetch(urls.saveProfileTags, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCSRFToken()
+                },
+                body: JSON.stringify({
+                    sector,
+                    rol,
+                    especialidad,
+                    seniority,
+                    tags: selectedTags.map(t => ({ slug: t.slug, tag_type: 'nice' })),
+                    languages: selectedLanguages.map(l => ({ code: l.code, level: 'intermediate' }))
+                })
+            });
+            
+            if (response.ok) {
+                location.reload();
+            } else {
+                const result = await response.json();
+                alert('Error al guardar: ' + (result.message || 'Error desconocido'));
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error de conexion: ' + error.message);
+        }
+    };
+
+    // Initialize skills modal
+    loadHierarchy();
+    loadAllTags();
+});
