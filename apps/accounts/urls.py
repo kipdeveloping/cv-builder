@@ -1,4 +1,4 @@
-from django.urls import path, reverse_lazy
+﻿from django.urls import path, reverse_lazy
 from django.contrib.auth import views as auth_views
 from . import views
 
@@ -13,6 +13,8 @@ urlpatterns = [
     path('update-profile/', views.update_profile_fields_view, name='update_profile_fields'),
     path('toggle-visibility/', views.toggle_profile_visibility, name='toggle_profile_visibility'),
     path('contact/<int:user_id>/', views.contact_email_view, name='contact_email'),
+    path('api/profile/tags/', views.get_profile_tags_view, name='get_profile_tags'),
+    path('api/profile/tags/save/', views.save_profile_tags_view, name='save_profile_tags'),
     path('password-change/', auth_views.PasswordChangeView.as_view(
         template_name='registration/password_change_form.html',
         success_url=reverse_lazy('password_change_done'),

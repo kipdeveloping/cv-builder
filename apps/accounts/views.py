@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+﻿from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -11,7 +11,7 @@ from django.conf import settings
 from django.utils.http import url_has_allowed_host_and_scheme
 import json
 from .forms import CustomAuthenticationForm, WizardRegistrationForm
-from .models import UserProfile
+from .models import UserProfile, SectorTag, SectorRol, RolEspecialidad, Tag, ProfileTag
 
 
 def login_view(request):
@@ -257,3 +257,63 @@ def oauth_complete(request, backend, *args, **kwargs):
     except AuthException:
         messages.error(request, _('Este usuario no esta registrado. Por favor, crea una cuenta primero.'))
         return redirect('login')
+
+
+@login_required
+@require_POST
+def save_profile_tags_view(request):
+    try:
+        data = json.loads(request.body)
+        profile = request.user.profile
+
+        if 'sector' in data:
+            profile.sector = SectorTag.objects.get(slug=data['sector']) if data['sector'] else None
+        if 'rol' in data:
+            profile.rol = SectorRol.objects.get(slug=data['rol']) if data['rol'] else None
+        if 'especialidad' in data:
+            profile.especialidad = RolEspecialidad.objects.get(slug=data['especialidad']) if data['especialidad'] else None
+        if 'seniority' in data:
+            profile.seniority = data['seniority']
+        if 'languages' in data:
+            profile.languages = data['languages']
+
+        profile.save()
+
+        if 'tags' in data:
+            ProfileTag.objects.filter(profile=profile).delete()
+            for tag_data in data['tags']:
+                tag = Tag.objects.get(slug=tag_data['slug'])
+                ProfileTag.objects.create(
+                    profile=profile,
+                    tag=tag,
+                    tag_type=tag_data.get('tag_type', 'nice')
+                )
+
+        return JsonResponse({'status': 'ok'})
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
+
+
+@login_required
+def get_profile_tags_view(request):
+    try:
+        profile = request.user.profile
+
+        tags = [{
+            'slug': pt.tag.slug,
+            'name': pt.tag.name_es,
+            'tag_type': pt.tag_type,
+            'category': pt.tag.category
+        } for pt in profile.tags.select_related('tag').all()]
+
+        return JsonResponse({
+            'status': 'ok',
+            'sector': profile.sector.slug if profile.sector else None,
+            'rol': profile.rol.slug if profile.rol else None,
+            'especialidad': profile.especialidad.slug if profile.especialidad else None,
+            'seniority': profile.seniority,
+            'languages': profile.languages,
+            'tags': tags
+        })
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': str(e)}, status=400)

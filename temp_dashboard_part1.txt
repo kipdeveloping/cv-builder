@@ -1,0 +1,120 @@
+﻿{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Dashboard" %} - Perfil Profesional{% endblock %}
+
+{% block content %}
+
+
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+    <!-- SIDEBAR -->
+    <div class="lg:col-span-4 space-y-6">
+        <!-- Photo & Identity -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
+            <div class="text-center mb-4">
+                <div class="relative inline-block">
+                    {% if profile.photo %}
+                        <img src="{{ profile.photo.url }}" alt="{% trans 'Foto de perfil' %}"
+                            class="w-32 h-32 rounded-full object-cover mx-auto border-4 border-indigo-100 dark:border-indigo-900/50">
+                    {% else %}
+                        <div class="w-32 h-32 rounded-full bg-gray-200 dark:bg-gray-700 mx-auto flex items-center justify-center">
+                            <svg class="w-16 h-16 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                    {% endif %}
+                    <button onclick="openModal('photo-modal')"
+                        class="absolute bottom-0 right-0 bg-indigo-600 dark:bg-indigo-500 text-white p-2 rounded-full hover:bg-indigo-700 dark:hover:bg-indigo-400 shadow-lg">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <h2 class="text-xl font-bold text-gray-900 dark:text-white mt-4">
+                    {{ user.get_full_name|default:user.email }}
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 text-sm" id="headline-display">
+                    {{ profile.headline|default:"Sin titular" }}
+                    <button onclick="openModal('headline-modal')" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 ml-1">
+                        <svg class="w-3 h-3 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                        </svg>
+                    </button>
+                </p>
+            </div>
+
+            <!-- Status Badges -->
+            <div class="flex flex-wrap gap-2 justify-center mb-4">
+                {% if profile.search_status %}
+                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 text-xs font-semibold rounded-full">
+                        {{ profile.get_search_status_display }}
+                    </span>
+                {% endif %}
+                {% if profile.availability %}
+                    <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 text-xs font-semibold rounded-full">
+                        {{ profile.get_availability_display }}
+                    </span>
+                {% endif %}
+                {% if profile.location_flex %}
+                    <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 text-xs font-semibold rounded-full">
+                        {{ profile.get_location_flex_display }}
+                    </span>
+                {% endif %}
+            </div>
+            <button onclick="openModal('status-modal')"
+                class="w-full text-center text-sm text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-semibold">
+                {% trans "Editar estado" %}
+            </button>
+        </div>
+
+        <!-- Bio -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-semibold text-gray-900 dark:text-white">{% trans "Bio" %}</h3>
+                <button onclick="openModal('bio-modal')"
+                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-semibold">
+                    {% trans "Editar" %}
+                </button>
+            </div>
+            <p class="text-gray-700 dark:text-gray-300 text-sm" id="bio-display">
+                {{ profile.bio|default:"Sin biografia" }}
+            </p>
+        </div>
+
+        <!-- Preferencias de trabajo -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-semibold text-gray-900 dark:text-white">{% trans "Preferencias de trabajo" %}</h3>
+                <button onclick="openModal('work-modal')"
+                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-semibold">
+                    {% trans "Editar" %}
+                </button>
+            </div>
+            <div class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <p>
+                    <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Tipo de empleo:" %}</span>
+                    {% if profile.employment_type %}{{ profile.get_employment_types_display }}{% else %}<span class="text-gray-400">â€”</span>{% endif %}
+                </p>
+                <p>
+                    <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Disponible para mudarse:" %}</span>
+                    {% if profile.willing_to_relocate %}{{ profile.get_willing_to_relocate_display }}{% else %}<span class="text-gray-400">â€”</span>{% endif %}
+                </p>
+                <p>
+                    <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Disponible para viajar:" %}</span>
+                    {% if profile.travel_availability %}{{ profile.get_travel_availability_display }}{% else %}<span class="text-gray-400">â€”</span>{% endif %}
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- MAIN AREA -->
+    <div class="lg:col-span-8 space-y-6">
+        <!-- Experience/Projects Carousel -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-semibold text-gray-900 dark:text-white">{% trans "Experiencia y Proyectos" %}</h3>

@@ -1,4 +1,4 @@
-from django.db import models
+﻿from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 
@@ -27,13 +27,13 @@ EMPLOYMENT_TYPE_CHOICES = [
     ('part_time', 'Part-time'),
     ('contract', 'Contrato'),
     ('freelance', 'Freelance'),
-    ('internship', 'Prácticas'),
+    ('internship', 'PrÃ¡cticas'),
 ]
 
 RELOCATE_CHOICES = [
-    ('yes', 'Sí'),
+    ('yes', 'SÃ­'),
     ('no', 'No'),
-    ('somewhere', 'Según destino'),
+    ('somewhere', 'SegÃºn destino'),
 ]
 
 TRAVEL_CHOICES = [
@@ -80,6 +80,18 @@ class UserProfile(models.Model):
     experience = models.JSONField(default=default_list, blank=True)
     projects = models.JSONField(default=default_list, blank=True)
     social_links = models.JSONField(default=dict, blank=True)
+    sector = models.ForeignKey(SectorTag, on_delete=models.SET_NULL, null=True, blank=True)
+    rol = models.ForeignKey('SectorRol', on_delete=models.SET_NULL, null=True, blank=True)
+    especialidad = models.ForeignKey('RolEspecialidad', on_delete=models.SET_NULL, null=True, blank=True)
+
+    SENIORITY_CHOICES = [
+        ('junior', 'Junior'),
+        ('semi_senior', 'Semi-Senior'),
+        ('senior', 'Senior'),
+        ('lead', 'Lead'),
+    ]
+    seniority = models.CharField(max_length=20, choices=SENIORITY_CHOICES, blank=True, default='')
+    languages = models.JSONField(default=dict, blank=True)
 
     def __str__(self):
         return f'Profile of {self.user.email}'
@@ -93,3 +105,94 @@ class UserProfile(models.Model):
     class Meta:
         verbose_name = 'User Profile'
         verbose_name_plural = 'User Profiles'
+
+class SectorRol(models.Model):
+    sector = models.ForeignKey(SectorTag, on_delete=models.CASCADE, related_name='roles')
+    name_es = models.CharField(max_length=100)
+    name_en = models.CharField(max_length=100)
+    slug = models.SlugField()
+
+    def __str__(self):
+        return f"{self.sector.name_es} > {self.name_es}"
+
+    def get_name(self, language='es'):
+        return self.name_en if language == 'en' else self.name_es
+
+    class Meta:
+        unique_together = ('sector', 'slug')
+        verbose_name = 'Sector Rol'
+        verbose_name_plural = 'Sector Roles'
+
+
+class RolEspecialidad(models.Model):
+    sector_rol = models.ForeignKey(SectorRol, on_delete=models.CASCADE, related_name='especialidades')
+    name_es = models.CharField(max_length=100)
+    name_en = models.CharField(max_length=100)
+    slug = models.SlugField()
+
+    def __str__(self):
+        return f"{self.sector_rol} > {self.name_es}"
+
+    def get_name(self, language='es'):
+        return self.name_en if language == 'en' else self.name_es
+
+    class Meta:
+        unique_together = ('sector_rol', 'slug')
+        verbose_name = 'Rol Especialidad'
+        verbose_name_plural = 'Rol Especialidades'
+
+
+class Tag(models.Model):
+    CATEGORY_CHOICES = [
+        ('lenguaje', 'Lenguaje'),
+        ('framework', 'Framework'),
+        ('herramienta', 'Herramienta'),
+        ('soft_skill', 'Soft Skill'),
+        ('otro', 'Otro'),
+    ]
+
+    name_es = models.CharField(max_length=100)
+    name_en = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True)
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='otro')
+    especialidad = models.ForeignKey(
+        RolEspecialidad,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='tags'
+    )
+
+    def __str__(self):
+        return self.name_es
+
+    def get_name(self, language='es'):
+        return self.name_en if language == 'en' else self.name_es
+
+    class Meta:
+        verbose_name = 'Tag'
+        verbose_name_plural = 'Tags'
+
+
+class ProfileTag(models.Model):
+    TAG_TYPE_CHOICES = [
+        ('must', 'Obligatorio'),
+        ('nice', 'Deseable'),
+    ]
+
+    profile = models.ForeignKey('UserProfile', on_delete=models.CASCADE, related_name='tags')
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    tag_type = models.CharField(max_length=4, choices=TAG_TYPE_CHOICES, default='nice')
+
+    class Meta:
+        unique_together = ('profile', 'tag')
+        verbose_name = 'Profile Tag'
+        verbose_name_plural = 'Profile Tags'
+
+    def __str__(self):
+        return f"{self.profile} - {self.tag.name_es} ({self.tag_type})"
+
+
+
+
+

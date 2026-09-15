@@ -1,25 +1,16 @@
 [
     {
-        "model": "resumes.sectortag",
+        "model": "accounts.sectortag",
         "pk": 1,
         "fields": {
-            "name_es": "Desarrollo Web",
-            "name_en": "Web Development",
-            "slug": "desarrollo-web"
+            "name_es": "Tecnología",
+            "name_en": "Technology",
+            "slug": "tecnologia"
         }
     },
     {
-        "model": "resumes.sectortag",
+        "model": "accounts.sectortag",
         "pk": 2,
-        "fields": {
-            "name_es": "Diseño Gráfico",
-            "name_en": "Graphic Design",
-            "slug": "diseno-grafico"
-        }
-    },
-    {
-        "model": "resumes.sectortag",
-        "pk": 3,
         "fields": {
             "name_es": "Marketing",
             "name_en": "Marketing",
@@ -27,8 +18,26 @@
         }
     },
     {
-        "model": "resumes.sectortag",
+        "model": "accounts.sectortag",
+        "pk": 3,
+        "fields": {
+            "name_es": "Diseño",
+            "name_en": "Design",
+            "slug": "diseno"
+        }
+    },
+    {
+        "model": "accounts.sectortag",
         "pk": 4,
+        "fields": {
+            "name_es": "Salud",
+            "name_en": "Health",
+            "slug": "salud"
+        }
+    },
+    {
+        "model": "accounts.sectortag",
+        "pk": 5,
         "fields": {
             "name_es": "Finanzas",
             "name_en": "Finance",
