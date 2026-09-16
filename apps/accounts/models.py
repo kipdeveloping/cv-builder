@@ -27,7 +27,6 @@ EMPLOYMENT_TYPE_CHOICES = [
     ('part_time', 'Part-time'),
     ('contract', 'Contrato'),
     ('freelance', 'Freelance'),
-    ('internship', 'PrÃ¡cticas'),
 ]
 
 RELOCATE_CHOICES = [

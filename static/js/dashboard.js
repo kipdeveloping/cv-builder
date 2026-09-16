@@ -399,6 +399,7 @@
     };
 
     window.openSkillsModal = async function() {
+        openModal('skills-modal');
         try {
             const response = await fetch(urls.getProfileTags);
             if (response.ok) {
@@ -420,7 +421,6 @@
                 
                 renderSelectedTags();
                 renderSelectedLanguages();
-                openModal('skills-modal');
             }
         } catch (error) {
             console.error('Error loading profile tags:', error);
