@@ -1278,8 +1278,6 @@
 
 
 
-<script src="{% static 'js/dashboard.js' %}?v=2"></script>
-
 <script>
 
     var urls = {
@@ -1301,6 +1299,8 @@
     var profileIsPublic = {{ profile.is_public|yesno:"true,false" }};
 
 </script>
+
+<script src="{% static 'js/dashboard.js' %}?v=3"></script>
 
 {{ profile.experience|json_script:"experienceData" }}
 
