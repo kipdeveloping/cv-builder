@@ -343,7 +343,8 @@
         try {
             const response = await fetch(urls.tagHierarchy);
             if (response.ok) {
-                skillsHierarchy = await response.json();
+                const data = await response.json();
+                skillsHierarchy = data.hierarchy || [];
             }
         } catch (error) {
             console.error('Error loading hierarchy:', error);
@@ -357,7 +358,7 @@
         skillsHierarchy.forEach(sector => {
             const option = document.createElement('option');
             option.value = sector.slug;
-            option.textContent = sector.name_es;
+            option.textContent = sector.name;
             if (preselectedSlug && sector.slug === preselectedSlug) option.selected = true;
             sectorSelect.appendChild(option);
         });
@@ -369,10 +370,10 @@
         rolSelect.innerHTML = '<option value="">Seleccionar rol...</option>';
         const sector = skillsHierarchy.find(s => s.slug === sectorSlug);
         if (sector) {
-            sector.children.forEach(rol => {
+            sector.roles.forEach(rol => {
                 const option = document.createElement('option');
                 option.value = rol.slug;
-                option.textContent = rol.name_es;
+                option.textContent = rol.name;
                 if (preselectedSlug && rol.slug === preselectedSlug) option.selected = true;
                 rolSelect.appendChild(option);
             });
@@ -385,12 +386,12 @@
         espSelect.innerHTML = '<option value="">Seleccionar especialidad...</option>';
         const sector = skillsHierarchy.find(s => s.slug === sectorSlug);
         if (sector) {
-            const rol = sector.children.find(r => r.slug === rolSlug);
+            const rol = sector.roles.find(r => r.slug === rolSlug);
             if (rol) {
-                rol.children.forEach(esp => {
+                rol.especialidades.forEach(esp => {
                     const option = document.createElement('option');
                     option.value = esp.slug;
-                    option.textContent = esp.name_es;
+                    option.textContent = esp.name;
                     if (preselectedSlug && esp.slug === preselectedSlug) option.selected = true;
                     espSelect.appendChild(option);
                 });
@@ -400,6 +401,9 @@
 
     window.openSkillsModal = async function() {
         openModal('skills-modal');
+        populateSkillsSectorDropdown();
+        renderSelectedTags();
+        renderSelectedLanguages();
         try {
             const response = await fetch(urls.getProfileTags);
             if (response.ok) {
@@ -415,8 +419,6 @@
                             populateSkillsEspecialidadDropdown(data.sector, data.rol, data.especialidad);
                         }
                     }
-                } else {
-                    populateSkillsSectorDropdown();
                 }
                 
                 renderSelectedTags();
@@ -544,6 +546,19 @@
             alert('Error de conexion: ' + error.message);
         }
     };
+
+    // Skills modal cascading dropdowns
+    document.getElementById('skills-sector-select').addEventListener('change', function() {
+        const sectorSlug = this.value;
+        populateSkillsRolDropdown(sectorSlug);
+        document.getElementById('skills-especialidad-select').innerHTML = '<option value="">Seleccionar especialidad...</option>';
+    });
+
+    document.getElementById('skills-rol-select').addEventListener('change', function() {
+        const sectorSlug = document.getElementById('skills-sector-select').value;
+        const rolSlug = this.value;
+        populateSkillsEspecialidadDropdown(sectorSlug, rolSlug);
+    });
 
     // Initialize skills modal
     loadHierarchy();
