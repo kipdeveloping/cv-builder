@@ -232,9 +232,9 @@
 
                         {% if profile.languages %}
 
-                            {% for lang in profile.languages %}
+                            {% for code, level in profile.languages.items %}
 
-                                {{ lang.code }}{% if not forloop.last %}, {% endif %}
+                                {{ code }}{% if not forloop.last %}, {% endif %}
 
                             {% endfor %}
 
