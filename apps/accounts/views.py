@@ -281,7 +281,11 @@ def save_profile_tags_view(request):
         if 'seniority' in data:
             profile.seniority = data['seniority']
         if 'languages' in data:
-            profile.languages = data['languages']
+            langs = data['languages']
+            if isinstance(langs, list):
+                profile.languages = {l['code']: l.get('level', 'intermediate') for l in langs if l.get('code')}
+            else:
+                profile.languages = langs
 
         profile.save()
 
@@ -312,13 +316,21 @@ def get_profile_tags_view(request):
             'category': pt.tag.category
         } for pt in profile.tags.select_related('tag').all()]
 
+        lang_names = {
+            'es': 'Espanol', 'en': 'Ingles', 'pt': 'Portugues',
+            'fr': 'Frances', 'de': 'Aleman', 'it': 'Italiano',
+            'ja': 'Japones', 'ko': 'Coreano', 'zh': 'Chino',
+            'ru': 'Ruso', 'ar': 'Arabe', 'hi': 'Hindi'
+        }
+        languages = [{'code': k, 'name': lang_names.get(k, k)} for k in profile.languages.keys()] if isinstance(profile.languages, dict) else []
+
         return JsonResponse({
             'status': 'ok',
             'sector': profile.sector.slug if profile.sector else None,
             'rol': profile.rol.slug if profile.rol else None,
             'especialidad': profile.especialidad.slug if profile.especialidad else None,
             'seniority': profile.seniority,
-            'languages': profile.languages,
+            'languages': languages,
             'tags': tags
         })
     except Exception as e:
