@@ -401,9 +401,13 @@
 
     window.openSkillsModal = async function() {
         openModal('skills-modal');
-        populateSkillsSectorDropdown();
         renderSelectedTags();
         renderSelectedLanguages();
+        
+        if (skillsHierarchy.length === 0) {
+            await loadHierarchy();
+        }
+        
         try {
             const response = await fetch(urls.getProfileTags);
             if (response.ok) {
@@ -411,13 +415,11 @@
                 selectedTags = data.tags || [];
                 selectedLanguages = data.languages || [];
                 
+                populateSkillsSectorDropdown(data.sector || null);
                 if (data.sector) {
-                    populateSkillsSectorDropdown(data.sector);
+                    populateSkillsRolDropdown(data.sector, data.rol || null);
                     if (data.rol) {
-                        populateSkillsRolDropdown(data.sector, data.rol);
-                        if (data.especialidad) {
-                            populateSkillsEspecialidadDropdown(data.sector, data.rol, data.especialidad);
-                        }
+                        populateSkillsEspecialidadDropdown(data.sector, data.rol, data.especialidad || null);
                     }
                 }
                 
@@ -433,7 +435,8 @@
         try {
             const response = await fetch(urls.allTags);
             if (response.ok) {
-                allTags = await response.json();
+                const data = await response.json();
+                allTags = data.tags || data || [];
             }
         } catch (error) {
             console.error('Error loading tags:', error);
@@ -488,13 +491,14 @@
     }
 
     window.addLanguage = function() {
-        const input = document.getElementById('language-input');
-        const code = input.value.trim();
+        const select = document.getElementById('language-select');
+        const code = select.value;
+        const name = select.options[select.selectedIndex].text;
         if (code && !selectedLanguages.find(l => l.code === code)) {
-            selectedLanguages.push({ code, name: code });
+            selectedLanguages.push({ code, name });
             renderSelectedLanguages();
         }
-        input.value = '';
+        select.value = '';
     };
 
     window.removeLanguage = function(code) {

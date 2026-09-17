@@ -740,9 +740,21 @@
 
                 <div class="flex gap-2">
 
-                    <input type="text" id="language-input" placeholder="Código (ej: en)"
-
-                        class="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                    <select id="language-select" class="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                        <option value="">Seleccionar idioma...</option>
+                        <option value="es">Español</option>
+                        <option value="en">Inglés</option>
+                        <option value="pt">Portugués</option>
+                        <option value="fr">Francés</option>
+                        <option value="de">Alemán</option>
+                        <option value="it">Italiano</option>
+                        <option value="ja">Japonés</option>
+                        <option value="ko">Coreano</option>
+                        <option value="zh">Chino</option>
+                        <option value="ru">Ruso</option>
+                        <option value="ar">Árabe</option>
+                        <option value="hi">Hindi</option>
+                    </select>
 
                     <button type="button" onclick="addLanguage()" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">+</button>
 
