@@ -1,138 +1,86 @@
-﻿# Dashboard Specification
+﻿# profile/dashboard Specification
 
 ## Purpose
 
-Provides the main user interface for managing profile data, visibility, experience, projects, and social links.
+Provides the user dashboard interface for managing profile information including work preferences, skills, languages, and professional details.
 
 ## Requirements
 
-### Requirement: Dashboard layout with sidebar and main area
-The dashboard SHALL display a 2-column responsive layout with a sidebar (4/12 width on desktop) and main content area (8/12 width on desktop). On mobile, the layout SHALL stack vertically.
-
-#### Scenario: Desktop layout
-- **WHEN** user accesses dashboard on desktop viewport (>= 1024px)
-- **THEN** sidebar displays on the left (4/12 width) and main area on the right (8/12 width)
-
-#### Scenario: Mobile layout
-- **WHEN** user accesses dashboard on mobile viewport (< 1024px)
-- **THEN** sidebar stacks above main area, both full width
-
-### Requirement: Sidebar displays profile identity
-The sidebar SHALL display the user's profile photo (circular), full name, headline, and bio. Each editable field SHALL have a visible edit button that opens an inline modal.
-
-#### Scenario: Photo display and edit
-- **WHEN** user views sidebar
-- **THEN** profile photo is displayed in a circular format with an edit button overlay
-- **AND** clicking edit button opens a modal for photo upload
-
-#### Scenario: Headline display and edit
-- **WHEN** user views sidebar
-- **THEN** headline text is displayed below the name
-- **AND** clicking the headline or edit icon opens an inline edit modal
-
-#### Scenario: Bio display and edit
-- **WHEN** user views sidebar
-- **THEN** bio text is displayed
-- **AND** clicking edit button opens an inline edit modal
-
-#### Scenario: Title and sector display
-- **WHEN** user views sidebar
-- **THEN** professional title and sector_name are displayed
-- **AND** editable via profile fields modal
-
-### Requirement: Profile visibility toggle in sidebar
-The sidebar SHALL display a visibility toggle (public/private) that controls whether the profile appears on the talent wall.
-
-#### Scenario: View visibility toggle
-- **WHEN** user views sidebar
-- **THEN** a toggle switch shows current visibility state (Public/Private)
-- **AND** label indicates "Visible en Tablón" when public, "Privado" when private
-
-#### Scenario: Toggle visibility
-- **WHEN** user clicks the visibility toggle
-- **THEN** system POSTs to /accounts/toggle-visibility/
-- **AND** toggle updates to reflect new state
-- **AND** profile visibility on wall changes immediately
-
-#### Scenario: Toggle to public requires photo
-- **WHEN** user toggles to public without a profile photo
-- **THEN** system blocks the toggle and shows error prompting photo upload
-- **AND** visibility remains private
-
-### Requirement: Status badges in sidebar
-The sidebar SHALL display employment status badges (search status, availability, location preference). An edit button SHALL open a modal for updating these fields.
-
-#### Scenario: View status badges
-- **WHEN** user views sidebar
-- **THEN** status badges are displayed showing current search_status, availability, and location_flex values
-
-#### Scenario: Edit status
-- **WHEN** user clicks edit button on status section
-- **THEN** a modal opens with dropdowns for each status field
-- **AND** changes are saved via POST to /update-profile/
-
-### Requirement: Experience/project carousel in main area
-The main area SHALL display a horizontal carousel of experience and project cards. Each card SHALL show title, company/project name, period, and description. Owner SHALL see edit and delete buttons on each card.
-
-#### Scenario: View carousel
-- **WHEN** user views main area
-- **THEN** experience and project cards are displayed in a horizontal scrollable carousel
-- **AND** navigation arrows allow scrolling left/right
-- **AND** a card counter shows current position (e.g., "2 of 5")
-
-#### Scenario: Add new experience/project
-- **WHEN** user clicks "+ Agregar experiencia" button
-- **THEN** a modal opens showing a preview card with editable fields (title, company, period, description)
-- **AND** the preview card matches the exact styling of cards in the carousel
-- **AND** user can fill in fields and click Save to add the card
-- **AND** or click Cancel to discard
-
-#### Scenario: Edit existing card
-- **WHEN** user clicks edit button on a carousel card
-- **THEN** the same modal opens pre-populated with the card's data
-- **AND** user can modify fields and click Save to update
-- **AND** or click Cancel to discard changes
-
-#### Scenario: Delete card
-- **WHEN** user clicks delete button on a carousel card
-- **THEN** a confirmation dialog appears
-- **AND** on confirmation, the card is removed from the carousel and UserProfile JSON fields
-
-### Requirement: Social links section in main area
-The main area SHALL display social link icons for platforms that have URLs configured. An add/edit button SHALL open a modal for managing social links.
-
-#### Scenario: View social links
-- **WHEN** user views main area
-- **THEN** social link icons are displayed for platforms with configured URLs
-- **AND** each icon links to the configured URL
-
-#### Scenario: Add/edit social links
-- **WHEN** user clicks add/edit button on social links section
-- **THEN** a modal opens with input fields for LinkedIn, GitHub, Twitter/X, Portfolio, and custom URLs
-- **AND** user can add/remove platform URLs
-- **AND** changes are saved to UserProfile JSON fields (social_links)
-
 ### Requirement: Work preferences section in sidebar
-The sidebar SHALL display work preferences (employment type, willingness to relocate, travel availability). An edit button SHALL open a modal for updating these fields.
+The sidebar SHALL display work preferences (employment type, willingness to relocate, travel availability). An edit button SHALL open a modal for updating these fields. The employment type checkboxes SHALL render correctly with all available options.
 
 #### Scenario: View work preferences
 - **WHEN** user views sidebar
 - **THEN** work preferences are displayed with current values
+
+#### Scenario: Employment type checkboxes render
+- **WHEN** user opens work preferences modal
+- **THEN** employment type checkboxes are displayed with all options from EMPLOYMENT_TYPE_CHOICES
+- **AND** currently selected types are pre-checked
 
 #### Scenario: Edit work preferences
 - **WHEN** user clicks edit button on work preferences section
 - **THEN** a modal opens with checkboxes for employment type and dropdowns for relocate/travel
 - **AND** changes are saved via POST to /update-profile/
 
-### Requirement: Onboarding banner for incomplete profiles
-If the user's first_name or last_name is empty, the dashboard SHALL display an onboarding banner prompting them to complete their name.
+### Requirement: Skills modal with hierarchy dropdowns
+The dashboard SHALL provide a skills modal that allows users to select their sector, rol, especialidad, seniority, languages, and tags from the global dictionary. The modal SHALL load hierarchy data from the API and populate cascading dropdowns.
 
-#### Scenario: Show onboarding banner
-- **WHEN** user accesses dashboard AND (first_name is empty OR last_name is empty)
-- **THEN** a yellow banner appears at the top of the dashboard
-- **AND** banner contains a form to enter first_name and last_name
-- **AND** submitting the form POSTs to /update-name/
+#### Scenario: Open skills modal loads hierarchy
+- **WHEN** user clicks "Editar" on the skills section
+- **THEN** the skills modal opens
+- **AND** sector dropdown is populated from /api/tags/hierarchy/
+- **AND** user's current selections are pre-populated
 
-#### Scenario: Hide onboarding banner
-- **WHEN** user accesses dashboard AND first_name and last_name are both filled
-- **THEN** no onboarding banner is displayed
+#### Scenario: Cascading dropdown behavior
+- **WHEN** user selects a sector in the skills modal
+- **THEN** rol dropdown is populated with roles for that sector
+- **AND** especialidad dropdown is cleared
+
+#### Scenario: Save skills
+- **WHEN** user selects sector, rol, especialidad, seniority, languages, and tags
+- **AND** clicks "Guardar"
+- **THEN** system POSTs to /accounts/api/profile/tags/save/
+- **AND** profile is updated with new selections
+- **AND** modal closes and sidebar updates
+
+### Requirement: Simple tag selection for profiles
+The skills modal SHALL provide a single tag selector (no must/nice distinction). Users SHALL select tags from the global dictionary. These tags determine under which filters the profile appears in the wall.
+
+#### Scenario: Add tags from global dictionary
+- **WHEN** user types in the tag search input
+- **THEN** system shows matching tags from /api/tags/all/
+- **AND** user can click to add a tag
+
+#### Scenario: Remove tags
+- **WHEN** user clicks the X on a tag chip
+- **THEN** the tag is removed from the selection
+
+### Requirement: Title field in skills modal
+The skills modal SHALL include a title input field that allows users to edit their professional title. The title SHALL sync with headline (if one is empty when the other is saved).
+
+#### Scenario: Edit title in skills modal
+- **WHEN** user changes the title field in skills modal
+- **AND** clicks "Guardar"
+- **THEN** title is saved
+- **AND** if headline was empty, headline is set to the title value
+
+### Requirement: Languages display in sidebar
+The sidebar SHALL display the user's configured languages with their proficiency levels.
+
+#### Scenario: View languages
+- **WHEN** user views sidebar and has configured languages
+- **THEN** languages are displayed as "language (level)" format
+- **AND** multiple languages are separated by commas
+
+### Requirement: Languages editor in skills modal
+The skills modal SHALL allow users to add and remove languages with proficiency levels.
+
+#### Scenario: Add language
+- **WHEN** user selects a language and level, then clicks "+"
+- **THEN** language chip is added to the display
+- **AND** language is included in the save payload
+
+#### Scenario: Remove language
+- **WHEN** user clicks the X on a language chip
+- **THEN** language is removed from the selection

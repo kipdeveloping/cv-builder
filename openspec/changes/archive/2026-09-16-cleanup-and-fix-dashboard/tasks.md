@@ -16,7 +16,7 @@
 
 - [x] 3.1 Update apps/accounts/views.py dashboard_view to pass EMPLOYMENT_TYPE_CHOICES as employment_types in context and verify template receives the variable
 - [x] 3.2 Run python manage.py check and python manage.py test to verify no errors
-- [ ] 3.3 Commit changes with message "fix: pass employment_types to dashboard template context"
+- [x] 3.3 Commit changes with message "fix: pass employment_types to dashboard template context"
 
 ## 4. Branch 3: refactor/data-model-cleanup
 
@@ -31,7 +31,7 @@
 - [x] 4.9 Fix wall location filter in apps/wall/views.py: add location parameter handling and filter by location_flex
 - [x] 4.10 Remove sector_name fallback from wall API response in apps/wall/views.py line 132
 - [x] 4.11 Run python manage.py check and python manage.py test to verify no errors
-- [ ] 4.12 Commit changes with message "refactor: clean data model - remove sector_name, fix slug uniqueness, fix location filter"
+- [x] 4.12 Commit changes with message "refactor: clean data model - remove sector_name, fix slug uniqueness, fix location filter"
 
 ## 5. Branch 4: fix/registration-sector-dropdown
 
@@ -40,14 +40,14 @@
 - [x] 5.3 Update register_view in apps/accounts/views.py to pass SectorTag.objects.all() as sectors to template context
 - [x] 5.4 Update templates/accounts/register.html step 3: replace sector text input with select dropdown and remove title input
 - [x] 5.5 Run python manage.py check and python manage.py test to verify no errors
-- [ ] 5.6 Commit changes with message "fix: use sector dropdown in registration, remove title from step 3"
+- [x] 5.6 Commit changes with message "fix: use sector dropdown in registration, remove title from step 3"
 
 ## 6. Branch 5: fix/wall-tag-filtering
 
 - [x] 6.1 Update wall_api_view in apps/wall/views.py: change must-tag filter to match profiles that have the tag regardless of tag_type and verify filter works
 - [x] 6.2 Update scoring in wall_api_view: match tags regardless of tag_type for relevance calculation and verify scoring works
 - [x] 6.3 Run python manage.py check and python manage.py test to verify no errors
-- [ ] 6.4 Commit changes with message "fix: update wall tag filtering to match regardless of tag_type"
+- [x] 6.4 Commit changes with message "fix: update wall tag filtering to match regardless of tag_type"
 
 ## 7. Branch 6: feat/dashboard-skills-modal
 
@@ -68,7 +68,7 @@
 - [x] 7.15 Change dashboard.html skills section "Editar" button onclick to call openSkillsModal()
 - [x] 7.16 ~~Add title sync logic to update_profile_fields_view~~ N/A: title field was removed in branch 3
 - [x] 7.17 Run python manage.py check and python manage.py test to verify no errors
-- [ ] 7.18 Commit changes with message "feat: implement dashboard skills modal with hierarchy, tags, languages, title"
+- [x] 7.18 Commit changes with message "feat: implement dashboard skills modal with hierarchy, tags, languages, title"
 
 ## 8. Post-implementation: Final Verification
 

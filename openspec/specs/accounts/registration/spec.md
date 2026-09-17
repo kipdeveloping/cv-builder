@@ -1,57 +1,24 @@
-﻿## Purpose
+﻿# accounts/registration Specification
 
-Requerir nombre y apellido durante el registro de usuarios para garantizar que todos los perfiles tengan informaciÃ³n bÃ¡sica completa desde el inicio.
+## Purpose
+
+Handles new user registration through a 3-step wizard that collects account credentials, personal information, and professional sector classification.
 
 ## Requirements
 
-### Requirement: Nombre y apellido obligatorios en registro
-El formulario de registro SHALL requerir los campos `first_name` (nombre) y `last_name` (apellido) como obligatorios. El registro NO SHALL completarse si alguno de estos campos estÃ¡ vacÃ­o.
+### Requirement: Registration captures professional title and sector
+The registration form SHALL capture the title field (professional role/title) and a sector dropdown during the registration wizard. The sector SHALL be selected from a dropdown populated with options from the global SectorTag dictionary.
 
-#### Scenario: Registro exitoso con nombre y apellido
-- **WHEN** un usuario envÃ­a el formulario de registro con email, contraseÃ±a, nombre y apellido
-- **THEN** el sistema crea la cuenta y redirige al dashboard
+#### Scenario: Successful registration with title and sector
+- **WHEN** a user completes the 3-step wizard with email, password, first name, last name, title, and sector
+- **THEN** the system creates the account, UserProfile, and saves title and sector FK on the profile
 
-#### Scenario: Registro fallido sin nombre
-- **WHEN** un usuario envÃ­a el formulario de registro sin completar el campo nombre
-- **THEN** el sistema muestra un error de validaciÃ³n indicando que el nombre es requerido
+#### Scenario: Registration with optional title and sector
+- **WHEN** a user omits the title and/or sector fields in step 3
+- **THEN** the system creates the account normally with empty title and null sector FK
+- **AND** the user can complete them later from the dashboard
 
-#### Scenario: Registro fallido sin apellido
-- **WHEN** un usuario envÃ­a el formulario de registro sin completar el campo apellido
-- **THEN** el sistema muestra un error de validaciÃ³n indicando que el apellido es requerido
-
-### Requirement: EliminaciÃ³n de la pÃ¡gina complete-profile
-El sistema NO SHALL redirigir a los usuarios a una pÃ¡gina de "completar perfil" despuÃ©s del registro. La ruta `/accounts/complete-profile/` NO SHALL existir.
-
-#### Scenario: Acceso a ruta eliminada
-- **WHEN** un usuario intenta acceder a `/accounts/complete-profile/`
-- **THEN** el sistema retorna un error 404
-
-### Requirement: Middleware actualizado
-El middleware `EnsureProfileMiddleware` NO SHALL redirigir a `complete_profile`. El middleware solo verificarÃ¡ que el usuario estÃ© autenticado para proteger rutas requiriendo login.
-
-#### Scenario: Usuario autenticated accede al dashboard
-- **WHEN** un usuario autenticado accede al dashboard
-- **THEN** el sistema muestra el dashboard sin redirecciones adicionales
-
-### Requirement: Banner de onboarding para usuarios legacy
-El dashboard SHALL mostrar un banner para usuarios que no tengan nombre o apellido configurado, permitiÃ©ndoles actualizar estos campos.
-
-#### Scenario: Usuario sin nombre ve el banner
-- **WHEN** un usuario autenticado accede al dashboard y no tiene nombre o apellido
-- **THEN** el sistema muestra un banner con campos para nombre y apellido y un botÃ³n guardar
-
-#### Scenario: Usuario con nombre no ve el banner
-- **WHEN** un usuario autenticado accede al dashboard y tiene nombre y apellido
-- **THEN** el sistema no muestra el banner de onboarding
-
-### Requirement: Registro captura título profesional y sector
-El formulario de registro SHALL capturar los campos 	itle (cargo/título profesional) y sector (sector profesional) durante el wizard de registro. Estos valores SHALL guardarse directamente en UserProfile.title y UserProfile.sector_name.
-
-#### Scenario: Registro exitoso con título y sector
-- **WHEN** un usuario completa el wizard de 3 pasos con email, contraseña, nombre, apellido, título y sector
-- **THEN** el sistema crea la cuenta, el UserProfile, y guarda 	itle y sector_name en el perfil
-
-#### Scenario: Registro con título y sector opcionales
-- **WHEN** un usuario omite los campos título y/o sector en el paso 3
-- **THEN** el sistema crea la cuenta normalmente con 	itle y sector_name vacíos
-- **AND** el usuario puede completarlos después desde el dashboard
+#### Scenario: Sector selected from dropdown
+- **WHEN** the user reaches step 3 of the registration wizard
+- **THEN** the system displays a dropdown with SectorTag options from the global dictionary
+- **AND** free text input is not allowed for sector

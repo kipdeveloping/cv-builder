@@ -1,62 +1,37 @@
-﻿# User Profile Specification
+﻿# accounts/user-profile Specification
 
 ## Purpose
 
-Manages user profile data including photo upload, bio field, and visibility controls, displayed on the public talent wall.
+Defines the UserProfile model that extends User with professional information including photo, bio, visibility settings, sector classification, and language proficiency.
 
 ## Requirements
 
 ### Requirement: UserProfile model with photo, bio, and visibility
-The system SHALL maintain a UserProfile linked one-to-one with each User, containing a photo field, bio text field, is_public boolean, sector_name text, and professional title. The profile SHALL NOT reference Resume or SectorTag via foreign keys.
+The system SHALL maintain a UserProfile linked one-to-one with each User, containing a photo field, bio text field, and is_public boolean. The profile SHALL use SectorTag foreign key for sector classification. The `sector_name` field is REMOVED.
 
 #### Scenario: Profile created on user registration
 - **WHEN** a new user registers
 - **THEN** a UserProfile is automatically created with empty photo and bio fields
 - **AND** `is_public` defaults to false
-- **AND** `sector_name` and `title` are populated from registration wizard
+- **AND** `sector` FK is set from registration dropdown selection
 
-#### Scenario: Profile stores sector as text
-- **WHEN** user completes registration with sector field
-- **THEN** the sector value is stored in `UserProfile.sector_name` (CharField)
-- **AND** no SectorTag foreign key is created or referenced
+#### Scenario: Profile stores sector via FK
+- **WHEN** user completes registration with sector dropdown
+- **THEN** the sector value is stored in `UserProfile.sector` (ForeignKey to SectorTag)
+- **AND** the `sector_name` field no longer exists
 
-#### Scenario: Profile stores professional title
-- **WHEN** user completes registration with title field
-- **THEN** the title value is stored in `UserProfile.title` (CharField)
+### Requirement: Title syncs with headline
+The system SHALL synchronize `title` and `headline` fields. When one is saved and the other is empty, the empty field SHALL be populated with the saved value.
 
-### Requirement: Photo upload from dashboard
-The system SHALL allow users to upload or change their profile photo from the dashboard interface.
+#### Scenario: Title saved when headline is empty
+- **WHEN** user saves a title value AND `headline` is empty
+- **THEN** `headline` is set to the same value as `title`
 
-#### Scenario: Successful photo upload
-- **WHEN** user selects a valid image file (jpg, png, webp) under 5MB
-- **THEN** system saves the photo and displays it in the dashboard and on the public profile page
+#### Scenario: Headline saved when title is empty
+- **WHEN** user saves a headline value AND `title` is empty
+- **THEN** `title` is set to the same value as `headline`
 
-#### Scenario: Photo upload with invalid file type
-- **WHEN** user attempts to upload a file that is not jpg, png, or webp
-- **THEN** system rejects the upload with an error message indicating allowed formats
-
-#### Scenario: Photo upload exceeds size limit
-- **WHEN** user attempts to upload a file larger than 5MB
-- **THEN** system rejects the upload with an error message indicating the size limit
-
-### Requirement: Bio field for talent wall display
-The system SHALL store a bio text in the UserProfile that is displayed on the talent wall cards.
-
-#### Scenario: User edits bio
-- **WHEN** user updates their bio text in the dashboard
-- **THEN** system saves the bio and it appears on their talent wall card (if profile is public)
-
-### Requirement: Photo required for public profile visibility
-The system SHALL prevent users from making their profile public unless they have uploaded a profile photo.
-
-#### Scenario: Toggle public without photo
-- **WHEN** user attempts to set `is_public=true` without a profile photo
-- **THEN** system blocks the toggle and prompts user to upload a photo first
-
-### Requirement: Profile visibility toggle
-The system SHALL provide an API endpoint for toggling the `is_public` field on UserProfile.
-
-#### Scenario: Toggle visibility via API
-- **WHEN** authenticated user POSTs to /accounts/toggle-visibility/
-- **THEN** system toggles the `is_public` field on the user's profile
-- **AND** returns the new visibility state
+#### Scenario: Both fields remain independently editable
+- **WHEN** user edits either `title` or `headline`
+- **THEN** only the edited field changes
+- **AND** the other field retains its value
