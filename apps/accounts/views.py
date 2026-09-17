@@ -77,9 +77,17 @@ def logout_view(request):
 def dashboard_view(request):
     from .models import EMPLOYMENT_TYPE_CHOICES
     profile = request.user.profile
+    LANG_NAMES = {
+        'es': 'Espanol', 'en': 'Ingles', 'pt': 'Portugues',
+        'fr': 'Frances', 'de': 'Aleman', 'it': 'Italiano',
+        'ja': 'Japones', 'ko': 'Coreano', 'zh': 'Chino',
+        'ru': 'Ruso', 'ar': 'Arabe', 'hi': 'Hindi'
+    }
+    profile_lang_names = [LANG_NAMES.get(code, code) for code in profile.languages.keys()] if isinstance(profile.languages, dict) else []
     return render(request, 'accounts/dashboard.html', {
         'profile': profile,
         'employment_types': EMPLOYMENT_TYPE_CHOICES,
+        'profile_lang_names': profile_lang_names,
     })
 
 

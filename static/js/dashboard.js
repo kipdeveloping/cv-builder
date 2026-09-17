@@ -422,6 +422,7 @@
                         populateSkillsEspecialidadDropdown(data.sector, data.rol, data.especialidad || null);
                     }
                 }
+                document.getElementById('skills-seniority-select').value = data.seniority || '';
                 
                 renderSelectedTags();
                 renderSelectedLanguages();
