@@ -30,9 +30,9 @@ EMPLOYMENT_TYPE_CHOICES = [
 ]
 
 RELOCATE_CHOICES = [
-    ('yes', 'SÃ­'),
+    ('yes', 'Si'),
     ('no', 'No'),
-    ('somewhere', 'SegÃºn destino'),
+    ('somewhere', 'Segun destino'),
 ]
 
 TRAVEL_CHOICES = [
