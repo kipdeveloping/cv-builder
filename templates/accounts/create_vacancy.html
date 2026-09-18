@@ -1,0 +1,109 @@
+﻿{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Crear Vacante" %} - Reclutador{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+        <div class="flex items-center gap-4 mb-6">
+            <a href="{% url 'dashboard' %}" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+            </a>
+            <h1 class="text-2xl font-bold text-gray-900 dark:text-white">{% trans "Crear Nueva Vacante" %}</h1>
+        </div>
+
+        <form id="vacancy-form" class="space-y-6">
+            {% csrf_token %}
+
+            <div>
+                <label for="id_title" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Título del puesto" %} *</label>
+                <input type="text" name="title" id="id_title" required
+                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                    placeholder="{% trans 'Ej: Desarrollador Full Stack Senior' %}">
+            </div>
+
+            <div>
+                <label for="id_description" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Descripción" %} *</label>
+                <textarea name="description" id="id_description" rows="5" required
+                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                    placeholder="{% trans 'Describe las responsabilidades y requisitos del puesto...' %}"></textarea>
+            </div>
+
+            <div>
+                <label for="id_requirements" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Requisitos" %}</label>
+                <textarea name="requirements" id="id_requirements" rows="3"
+                    class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                    placeholder="{% trans 'Un requisito por línea...' %}"></textarea>
+                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">{% trans "Ingresa un requisito por línea" %}</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="id_location" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Ubicación" %}</label>
+                    <input type="text" name="location" id="id_location"
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                        placeholder="{% trans 'Ej: Ciudad de México, México' %}">
+                </div>
+
+                <div>
+                    <label for="id_modality" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Modalidad" %}</label>
+                    <select name="modality" id="id_modality"
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                        <option value="">{% trans "Seleccionar..." %}</option>
+                        <option value="remote">{% trans "Remoto" %}</option>
+                        <option value="hybrid">{% trans "Híbrido" %}</option>
+                        <option value="onsite">{% trans "Presencial" %}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="id_employment_type" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Tipo de empleo" %}</label>
+                    <select name="employment_type" id="id_employment_type"
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                        <option value="">{% trans "Seleccionar..." %}</option>
+                        <option value="full_time">{% trans "Full-time" %}</option>
+                        <option value="part_time">{% trans "Part-time" %}</option>
+                        <option value="contract">{% trans "Contrato" %}</option>
+                        <option value="freelance">{% trans "Freelance" %}</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="id_salary_range" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Rango salarial" %}</label>
+                    <input type="text" name="salary_range" id="id_salary_range"
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                        placeholder="{% trans 'Ej: $30,000 - $50,000 MXN mensuales' %}">
+                </div>
+            </div>
+
+            <div class="flex justify-end gap-3 pt-4">
+                <a href="{% url 'dashboard' %}"
+                    class="px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                    {% trans "Cancelar" %}
+                </a>
+                <button type="submit"
+                    class="px-6 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition">
+                    {% trans "Crear Vacante" %}
+                </button>
+            </div>
+        </form>
+
+        <p class="mt-4 text-xs text-gray-500 dark:text-gray-400 text-center">
+            {% trans "Nota: La funcionalidad de guardado estará disponible próximamente." %}
+        </p>
+    </div>
+</div>
+
+<script>
+document.getElementById('vacancy-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('La funcionalidad de guardado estará disponible próximamente.');
+});
+</script>
+{% endblock %}

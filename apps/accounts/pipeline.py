@@ -1,4 +1,4 @@
-from apps.accounts.models import UserProfile
+﻿from apps.accounts.models import UserProfile, RecruiterProfile
 import requests
 from django.core.files.base import ContentFile
 
@@ -41,13 +41,19 @@ def save_user_profile(backend, user, response, *args, **kwargs):
         user.last_name = last_name
     user.save()
 
-    profile, created = UserProfile.objects.get_or_create(user=user)
+    # Check if user registered as recruiter via session
+    is_recruiter = kwargs.get('request', {}).session.pop('oauth_role', None) == 'recruiter'
+    
+    if is_recruiter:
+        RecruiterProfile.objects.get_or_create(user=user)
+    else:
+        profile, created = UserProfile.objects.get_or_create(user=user)
 
-    if photo_url and not profile.photo:
-        try:
-            resp = requests.get(photo_url)
-            if resp.status_code == 200:
-                photo_name = f'{user.username}_oauth.jpg'
-                profile.photo.save(photo_name, ContentFile(resp.content), save=True)
-        except Exception:
-            pass
+        if photo_url and not profile.photo:
+            try:
+                resp = requests.get(photo_url)
+                if resp.status_code == 200:
+                    photo_name = f'{user.username}_oauth.jpg'
+                    profile.photo.save(photo_name, ContentFile(resp.content), save=True)
+            except Exception:
+                pass

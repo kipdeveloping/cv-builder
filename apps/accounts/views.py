@@ -11,7 +11,7 @@ from django.conf import settings
 from django.utils.http import url_has_allowed_host_and_scheme
 import json
 from .forms import CustomAuthenticationForm, WizardRegistrationForm
-from .models import UserProfile, SectorTag, SectorRol, RolEspecialidad, Tag, ProfileTag
+from .models import UserProfile, SectorTag, SectorRol, RolEspecialidad, Tag, ProfileTag, RecruiterProfile, Vacancy
 
 
 def login_view(request):
@@ -76,6 +76,15 @@ def logout_view(request):
 @login_required
 def dashboard_view(request):
     from .models import EMPLOYMENT_TYPE_CHOICES
+    
+    # Check user role and render appropriate dashboard
+    try:
+        recruiter_profile = RecruiterProfile.objects.get(user=request.user)
+        return recruiter_dashboard_view(request, recruiter_profile)
+    except RecruiterProfile.DoesNotExist:
+        pass
+    
+    # Candidate dashboard
     profile = request.user.profile
     LANG_NAMES = {
         'es': 'Espanol', 'en': 'Ingles', 'pt': 'Portugues',
@@ -88,6 +97,36 @@ def dashboard_view(request):
         'profile': profile,
         'employment_types': EMPLOYMENT_TYPE_CHOICES,
         'profile_lang_names': profile_lang_names,
+    })
+
+
+@login_required
+def recruiter_dashboard_view(request, recruiter_profile=None):
+    if recruiter_profile is None:
+        try:
+            recruiter_profile = RecruiterProfile.objects.get(user=request.user)
+        except RecruiterProfile.DoesNotExist:
+            return redirect('dashboard')
+    
+    vacancies = recruiter_profile.vacancies.all()
+    social_links = recruiter_profile.social_links or {}
+    
+    return render(request, 'accounts/recruiter_dashboard.html', {
+        'recruiter_profile': recruiter_profile,
+        'vacancies': vacancies,
+        'social_links': social_links,
+    })
+
+
+@login_required
+def create_vacancy_view(request):
+    try:
+        recruiter_profile = RecruiterProfile.objects.get(user=request.user)
+    except RecruiterProfile.DoesNotExist:
+        return redirect('dashboard')
+    
+    return render(request, 'accounts/create_vacancy.html', {
+        'recruiter_profile': recruiter_profile,
     })
 
 
@@ -175,6 +214,41 @@ def update_profile_fields_view(request):
         profile.save()
 
         return JsonResponse({'status': 'ok'})
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
+
+
+@login_required
+@require_POST
+def update_recruiter_profile_view(request):
+    try:
+        data = json.loads(request.body)
+        recruiter_profile = RecruiterProfile.objects.get(user=request.user)
+
+        if 'company_description' in data:
+            recruiter_profile.company_description = data['company_description']
+        if 'social_links' in data:
+            recruiter_profile.social_links = data['social_links']
+
+        recruiter_profile.save()
+
+        return JsonResponse({'status': 'ok'})
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
+
+
+@login_required
+@require_POST
+def toggle_recruiter_visibility(request):
+    try:
+        recruiter_profile = RecruiterProfile.objects.get(user=request.user)
+        recruiter_profile.is_public = not recruiter_profile.is_public
+        recruiter_profile.save()
+
+        return JsonResponse({
+            'status': 'ok',
+            'is_public': recruiter_profile.is_public
+        })
     except Exception as e:
         return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
 

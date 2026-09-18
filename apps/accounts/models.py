@@ -1,4 +1,4 @@
-﻿from django.db import models
+from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 
@@ -39,6 +39,22 @@ TRAVEL_CHOICES = [
     ('none', 'No'),
     ('occasional', 'Ocasional'),
     ('frequent', 'Frecuente'),
+]
+
+ROLE_CHOICES = [
+    ('candidate', 'Candidato'),
+    ('recruiter', 'Reclutador'),
+]
+
+COMPANY_TYPE_CHOICES = [
+    ('empresa', 'Empresa'),
+    ('particular', 'Particular'),
+]
+
+VACANCY_STATUS_CHOICES = [
+    ('active', 'Activa'),
+    ('closed', 'Cerrada'),
+    ('draft', 'Borrador'),
 ]
 
 
@@ -89,6 +105,7 @@ class UserProfile(models.Model):
     ]
     seniority = models.CharField(max_length=20, choices=SENIORITY_CHOICES, blank=True, default='')
     languages = models.JSONField(default=dict, blank=True)
+    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='candidate')
 
     def __str__(self):
         return f'Profile of {self.user.email}'
@@ -181,13 +198,49 @@ class ProfileTag(models.Model):
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
     tag_type = models.CharField(max_length=4, choices=TAG_TYPE_CHOICES, default='nice')
 
-    class Meta:
-        unique_together = ('profile', 'tag')
-        verbose_name = 'Profile Tag'
-        verbose_name_plural = 'Profile Tags'
+    
+
+
+class RecruiterProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='recruiter_profile')
+    company_name = models.CharField(max_length=200)
+    company_logo = models.ImageField(upload_to='company_logos/', blank=True, null=True)
+    company_sector = models.ForeignKey(SectorTag, on_delete=models.SET_NULL, null=True, blank=True)
+    company_description = models.TextField(blank=True, default='')
+    company_type = models.CharField(max_length=20, choices=COMPANY_TYPE_CHOICES, blank=True, default='')
+    work_modality = models.CharField(max_length=20, choices=LOCATION_FLEX_CHOICES, blank=True, default='')
+    company_website = models.URLField(blank=True, default='')
+    is_public = models.BooleanField(default=False)
+    social_links = models.JSONField(default=dict, blank=True)
 
     def __str__(self):
-        return f"{self.profile} - {self.tag.name_es} ({self.tag_type})"
+        return f'Recruiter: {self.company_name}'
+
+    class Meta:
+        verbose_name = 'Recruiter Profile'
+        verbose_name_plural = 'Recruiter Profiles'
+
+
+class Vacancy(models.Model):
+    recruiter_profile = models.ForeignKey(RecruiterProfile, on_delete=models.CASCADE, related_name='vacancies')
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    requirements = models.JSONField(default=default_list, blank=True)
+    location = models.CharField(max_length=200, blank=True, default='')
+    modality = models.CharField(max_length=20, choices=LOCATION_FLEX_CHOICES, blank=True, default='')
+    salary_range = models.CharField(max_length=100, blank=True, default='')
+    employment_type = models.CharField(max_length=20, choices=EMPLOYMENT_TYPE_CHOICES, blank=True, default='')
+    status = models.CharField(max_length=20, choices=VACANCY_STATUS_CHOICES, default='draft')
+    applications_count = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.title} - {self.recruiter_profile.company_name}'
+
+    class Meta:
+        verbose_name = 'Vacancy'
+        verbose_name_plural = 'Vacancies'
 
 
 

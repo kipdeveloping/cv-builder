@@ -133,6 +133,14 @@ DATA_UPLOAD_MAX_MEMORY_SIZE = 5 * 1024 * 1024
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'noreply@cvbuilder.com'
 
+# Blocked email domains for corporate email validation
+BLOCKED_EMAIL_DOMAINS = [
+    'gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com',
+    'live.com', 'aol.com', 'icloud.com', 'mail.com',
+    'protonmail.com', 'zoho.com', 'yandex.com', 'qq.com',
+    '163.com', '126.com', 'gmx.com', 'fastmail.com',
+]
+
 # Python Social Auth settings
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'dashboard'
 SOCIAL_AUTH_LOGIN_ERROR_URL = 'login'
