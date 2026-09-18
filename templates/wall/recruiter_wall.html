@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Tablón de Empresas" %} - CV Builder{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <div class="text-center">
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-white">{% trans "Tablón de Empresas" %}</h1>
+        <p class="text-gray-600 dark:text-gray-400 mt-2">{% trans "Descubre empresas y reclutadores en diferentes sectores." %}</p>
+    </div>
+
+    <!-- Filters Panel -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            <!-- Sector Multi-Select -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Sector" %}</label>
+                <div id="sector-chips" class="flex flex-wrap gap-2 mb-2"></div>
+                <div class="relative">
+                    <input type="text" id="sector-input" placeholder="{% trans 'Buscar sector...' %}"
+                        class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                    <div id="sector-suggestions" class="hidden absolute z-10 w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg mt-1 max-h-48 overflow-y-auto"></div>
+                </div>
+            </div>
+
+            <!-- Modality Checkboxes -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Modalidad" %}</label>
+                <div class="space-y-2">
+                    <label class="flex items-center">
+                        <input type="checkbox" id="modality-remote" value="remote" class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">{% trans "Remoto" %}</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" id="modality-hybrid" value="hybrid" class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">{% trans "Hibrido" %}</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" id="modality-onsite" value="onsite" class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">{% trans "Presencial" %}</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Company Type Radio -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Tipo de Reclutador" %}</label>
+                <div class="space-y-2">
+                    <label class="flex items-center">
+                        <input type="radio" name="company_type" value="" checked class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">{% trans "Todos" %}</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" name="company_type" value="empresa" class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">{% trans "Empresa Directa" %}</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" name="company_type" value="particular" class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">{% trans "Reclutador Independiente" %}</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clear Filters -->
+        <div class="mt-4 flex justify-end">
+            <button id="clear-filters" class="px-4 py-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300">
+                {% trans "Limpiar filtros" %}
+            </button>
+        </div>
+    </div>
+
+    <div id="loading" class="hidden text-center py-8">
+        <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">{% trans "Cargando..." %}</p>
+    </div>
+
+    <div id="recruiter-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    </div>
+
+    <div id="no-results" class="hidden text-center py-12">
+        <svg class="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <p class="text-gray-500 dark:text-gray-400">{% trans "No se encontraron empresas con estos filtros." %}</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/recruiter_wall.js' %}?v=1"></script>
+<script>
+    const recruiterWallApiUrl = '{% url "recruiter_wall_api" %}';
+    const tagsApiUrl = '{% url "get_tags" %}';
+</script>
+{% endblock %}

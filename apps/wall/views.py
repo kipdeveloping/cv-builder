@@ -1,7 +1,7 @@
 ﻿from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from django.db.models import Q
-from apps.accounts.models import SectorTag, SectorRol, RolEspecialidad, Tag, UserProfile, ProfileTag
+from apps.accounts.models import SectorTag, SectorRol, RolEspecialidad, Tag, UserProfile, ProfileTag, RecruiterProfile
 
 
 def landing_view(request):
@@ -148,6 +148,49 @@ def wall_api_view(request):
     return JsonResponse({'profiles': profile_list})
 
 
+def recruiter_wall_view(request):
+    return render(request, 'wall/recruiter_wall.html')
+
+
+def recruiter_wall_api_view(request):
+    lang = request.LANGUAGE_CODE if hasattr(request, 'LANGUAGE_CODE') else 'es'
+
+    profiles = RecruiterProfile.objects.filter(is_public=True).select_related(
+        'user', 'company_sector'
+    )
+
+    sector_slugs = request.GET.getlist('sector[]')
+    modality_values = request.GET.getlist('modality[]')
+    company_type = request.GET.get('company_type')
+
+    if sector_slugs:
+        profiles = profiles.filter(company_sector__slug__in=sector_slugs)
+
+    if modality_values:
+        profiles = profiles.filter(work_modality__in=modality_values)
+
+    if company_type:
+        profiles = profiles.filter(company_type=company_type)
+
+    profile_list = []
+    for profile in profiles:
+        user = profile.user
+        profile_list.append({
+            'id': profile.id,
+            'user_id': user.id,
+            'company_name': profile.company_name,
+            'company_logo': profile.company_logo.url if profile.company_logo else None,
+            'sector': profile.company_sector.get_name(lang) if profile.company_sector else '',
+            'company_type': profile.company_type,
+            'work_modality': profile.work_modality,
+            'company_description': profile.company_description or '',
+            'company_website': profile.company_website or '',
+            'social_links': profile.social_links or {},
+        })
+
+    return JsonResponse({'profiles': profile_list})
+
+
 def get_tags_api(request):
     lang = request.LANGUAGE_CODE if hasattr(request, 'LANGUAGE_CODE') else 'es'
     tags = SectorTag.objects.all()
@@ -178,3 +221,5 @@ def get_all_tags_api(request):
     } for tag in tags[:50]]
 
     return JsonResponse({'tags': tag_list})
+
+

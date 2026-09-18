@@ -164,6 +164,27 @@ def update_bio_view(request):
     return redirect('dashboard')
 
 
+
+def recruiter_profile_view(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    try:
+        recruiter_profile = RecruiterProfile.objects.get(user=user)
+    except RecruiterProfile.DoesNotExist:
+        from django.http import Http404
+        raise Http404
+
+    if not recruiter_profile.is_public:
+        from django.http import Http404
+        raise Http404
+
+    vacancies = recruiter_profile.vacancies.filter(status='active')
+
+    return render(request, 'accounts/recruiter_profile.html', {
+        'profile_user': user,
+        'recruiter_profile': recruiter_profile,
+        'vacancies': vacancies,
+    })
+
 def profile_view(request, user_id):
     from django.http import Http404
     user = get_object_or_404(User, id=user_id)

@@ -10,4 +10,6 @@ urlpatterns = [
     path('api/tags/', views.get_tags_api, name='get_tags'),
     path('api/tags/hierarchy/', views.get_tag_hierarchy, name='get_tag_hierarchy'),
     path('api/tags/all/', views.get_all_tags_api, name='get_all_tags'),
+    path('tablon-empresas/', views.recruiter_wall_view, name='recruiter_wall'),
+    path('api/wall/recruiters/', views.recruiter_wall_api_view, name='recruiter_wall_api'),
 ]
