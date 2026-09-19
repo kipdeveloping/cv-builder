@@ -76,36 +76,36 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-6">
             <!-- Sector Dropdown -->
             <div>
-                <label for="sector-filter" class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">
+                <label for="sector-filter" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-200 mb-2">
                     1. {% trans "Sector" %}
                 </label>
                 <div class="relative">
-                    <select id="sector-filter" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-750 text-gray-900 dark:text-white text-sm shadow-sm transition">
-                        <option value="">{% trans "Todos los sectores" %}</option>
+                    <select id="sector-filter" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm shadow-sm transition">
+                        <option value="" class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">{% trans "Todos los sectores" %}</option>
                     </select>
                 </div>
             </div>
 
             <!-- Role Dropdown -->
             <div>
-                <label for="rol-filter" class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">
+                <label for="rol-filter" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-200 mb-2">
                     2. {% trans "Rol" %}
                 </label>
                 <div class="relative">
-                    <select id="rol-filter" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-750 text-gray-900 dark:text-white text-sm shadow-sm transition">
-                        <option value="">{% trans "Todos los roles" %}</option>
+                    <select id="rol-filter" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm shadow-sm transition">
+                        <option value="" class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">{% trans "Todos los roles" %}</option>
                     </select>
                 </div>
             </div>
 
             <!-- Specialty Dropdown -->
             <div>
-                <label for="especialidad-filter" class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">
+                <label for="especialidad-filter" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-200 mb-2">
                     3. {% trans "Especialidad" %}
                 </label>
                 <div class="relative">
-                    <select id="especialidad-filter" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-750 text-gray-900 dark:text-white text-sm shadow-sm transition">
-                        <option value="">{% trans "Todas las especialidades" %}</option>
+                    <select id="especialidad-filter" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm shadow-sm transition">
+                        <option value="" class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">{% trans "Todas las especialidades" %}</option>
                     </select>
                 </div>
             </div>
@@ -128,12 +128,12 @@
             <div id="tags-section" class="hidden mt-4 space-y-4 pt-2">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <!-- Must Tags (AND) -->
-                    <div class="p-4 rounded-xl bg-gray-50/80 dark:bg-gray-750/70 border border-gray-200/60 dark:border-gray-700/60">
+                    <div class="p-4 rounded-xl bg-gray-50/80 dark:bg-gray-700/60 border border-gray-200/60 dark:border-gray-600/60">
                         <div class="flex items-center justify-between mb-2">
                             <label class="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">
                                 {% trans "Obligatorios (AND)" %}
                             </label>
-                            <span class="text-[11px] text-gray-500">{% trans "El perfil debe tener todos" %}</span>
+                            <span class="text-[11px] text-gray-500 dark:text-gray-400">{% trans "El perfil debe tener todos" %}</span>
                         </div>
                         <div class="flex flex-wrap gap-2 mb-2" id="must-tags-chips"></div>
                         <div class="relative">
@@ -144,12 +144,12 @@
                     </div>
 
                     <!-- Nice Tags (OR) -->
-                    <div class="p-4 rounded-xl bg-gray-50/80 dark:bg-gray-750/70 border border-gray-200/60 dark:border-gray-700/60">
+                    <div class="p-4 rounded-xl bg-gray-50/80 dark:bg-gray-700/60 border border-gray-200/60 dark:border-gray-600/60">
                         <div class="flex items-center justify-between mb-2">
                             <label class="text-xs font-bold uppercase tracking-wide text-purple-700 dark:text-purple-300">
                                 {% trans "Deseables (OR)" %}
                             </label>
-                            <span class="text-[11px] text-gray-500">{% trans "Aumentan el score de afinidad" %}</span>
+                            <span class="text-[11px] text-gray-500 dark:text-gray-400">{% trans "Aumentan el score de afinidad" %}</span>
                         </div>
                         <div class="flex flex-wrap gap-2 mb-2" id="nice-tags-chips"></div>
                         <div class="relative">
@@ -178,26 +178,26 @@
             <div id="advanced-section" class="hidden mt-4 pt-2">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
-                        <label for="seniority-filter" class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">
+                        <label for="seniority-filter" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-200 mb-2">
                             {% trans "Nivel de Seniority" %}
                         </label>
-                        <select id="seniority-filter" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-750 text-gray-900 dark:text-white text-sm shadow-sm transition">
-                            <option value="">{% trans "Todos los niveles" %}</option>
-                            <option value="junior">Junior</option>
-                            <option value="semi_senior">Semi-Senior</option>
-                            <option value="senior">Senior</option>
-                            <option value="lead">Lead</option>
+                        <select id="seniority-filter" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm shadow-sm transition">
+                            <option value="" class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">{% trans "Todos los niveles" %}</option>
+                            <option value="junior" class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">Junior</option>
+                            <option value="semi_senior" class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">Semi-Senior</option>
+                            <option value="senior" class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">Senior</option>
+                            <option value="lead" class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">Lead</option>
                         </select>
                     </div>
                     <div>
-                        <label for="location-filter" class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">
+                        <label for="location-filter" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-200 mb-2">
                             {% trans "Modalidad de Trabajo" %}
                         </label>
-                        <select id="location-filter" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-750 text-gray-900 dark:text-white text-sm shadow-sm transition">
-                            <option value="">{% trans "Todas las modalidades" %}</option>
-                            <option value="remote">{% trans "Remoto" %}</option>
-                            <option value="hybrid">{% trans "Híbrido" %}</option>
-                            <option value="onsite">{% trans "Presencial" %}</option>
+                        <select id="location-filter" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm shadow-sm transition">
+                            <option value="" class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">{% trans "Todas las modalidades" %}</option>
+                            <option value="remote" class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">{% trans "Remoto" %}</option>
+                            <option value="hybrid" class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">{% trans "Híbrido" %}</option>
+                            <option value="onsite" class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">{% trans "Presencial" %}</option>
                         </select>
                     </div>
                 </div>

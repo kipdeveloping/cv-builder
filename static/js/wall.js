@@ -86,18 +86,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function populateSectorDropdown() {
-        sectorFilter.innerHTML = '<option value="">' + escapeHtml(i18n.allSectors) + '</option>';
+        sectorFilter.innerHTML = '<option value="" class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">' + escapeHtml(i18n.allSectors) + '</option>';
         hierarchy.forEach(sector => {
             const option = document.createElement('option');
             option.value = sector.slug;
             option.textContent = sector.name;
+            option.className = 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white';
             sectorFilter.appendChild(option);
         });
     }
 
     function populateRoleDropdown(sectorSlug) {
-        rolFilter.innerHTML = '<option value="">' + escapeHtml(i18n.allRoles) + '</option>';
-        especialidadFilter.innerHTML = '<option value="">' + escapeHtml(i18n.allSpecialties) + '</option>';
+        rolFilter.innerHTML = '<option value="" class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">' + escapeHtml(i18n.allRoles) + '</option>';
+        especialidadFilter.innerHTML = '<option value="" class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">' + escapeHtml(i18n.allSpecialties) + '</option>';
 
         if (!sectorSlug) return;
 
@@ -108,12 +109,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const option = document.createElement('option');
             option.value = role.slug;
             option.textContent = role.name;
+            option.className = 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white';
             rolFilter.appendChild(option);
         });
     }
 
     function populateEspecialidadDropdown(sectorSlug, rolSlug) {
-        especialidadFilter.innerHTML = '<option value="">' + escapeHtml(i18n.allSpecialties) + '</option>';
+        especialidadFilter.innerHTML = '<option value="" class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">' + escapeHtml(i18n.allSpecialties) + '</option>';
 
         if (!sectorSlug || !rolSlug) return;
 
@@ -127,6 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const option = document.createElement('option');
             option.value = esp.slug;
             option.textContent = esp.name;
+            option.className = 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white';
             especialidadFilter.appendChild(option);
         });
     }
