@@ -8,7 +8,7 @@
 <div class="max-w-lg mx-auto">
     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
         <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-2 text-center">{% trans "Crear Cuenta" %}</h1>
-        <p class="text-gray-500 dark:text-gray-400 text-center mb-6" id="step-subtitle">{% trans "Paso 1 de 4 - ¿Qué buscas?" %}</p>
+        <p class="text-gray-500 dark:text-gray-400 text-center mb-6" id="step-subtitle">{% trans "Paso 1 de 4 - Â¿QuÃ© buscas?" %}</p>
 
         {% if form.errors %}
         <div class="bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-700 text-red-700 dark:text-red-200 px-4 py-3 rounded-lg mb-6">
@@ -32,17 +32,17 @@
 
             <!-- Step 1: Role Selection -->
             <div class="step step-1">
-                <p class="text-center text-gray-600 dark:text-gray-400 mb-6">{% trans "¿Qué estás buscando en la plataforma?" %}</p>
+                <p class="text-center text-gray-600 dark:text-gray-400 mb-6">{% trans "Â¿QuÃ© estÃ¡s buscando en la plataforma?" %}</p>
                 <div class="grid grid-cols-2 gap-4">
                     <button type="button" onclick="selectRole('candidate')" id="role-candidate"
                         class="role-btn p-6 border-2 border-gray-300 dark:border-gray-600 rounded-xl hover:border-indigo-500 dark:hover:border-indigo-500 transition text-center">
-                        <div class="text-4xl mb-2">??</div>
+                        <div class="text-4xl mb-2">&#x1F4BC;</div>
                         <div class="font-semibold text-gray-900 dark:text-white">{% trans "Busco Trabajo" %}</div>
                         <div class="text-sm text-gray-500 dark:text-gray-400">{% trans "Candidato" %}</div>
                     </button>
                     <button type="button" onclick="selectRole('recruiter')" id="role-recruiter"
                         class="role-btn p-6 border-2 border-gray-300 dark:border-gray-600 rounded-xl hover:border-indigo-500 dark:hover:border-indigo-500 transition text-center">
-                        <div class="text-4xl mb-2">??</div>
+                        <div class="text-4xl mb-2">&#x1F50D;</div>
                         <div class="font-semibold text-gray-900 dark:text-white">{% trans "Busco Talento" %}</div>
                         <div class="text-sm text-gray-500 dark:text-gray-400">{% trans "Reclutador" %}</div>
                     </button>
@@ -63,20 +63,20 @@
                 </div>
 
                 <div>
-                    <label for="id_password1" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Contraseña" %}</label>
+                    <label for="id_password1" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "ContraseÃ±a" %}</label>
                     <input type="password" name="password1" id="id_password1" required
                         class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                        placeholder="••••••••">
+                        placeholder="Â•Â•Â•Â•Â•Â•Â•Â•">
                     <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                        {% trans "Mínimo 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial." %}
+                        {% trans "MÃ­nimo 8 caracteres, 1 mayÃºscula, 1 nÃºmero y 1 carÃ¡cter especial." %}
                     </p>
                 </div>
 
                 <div>
-                    <label for="id_password2" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Confirmar contraseña" %}</label>
+                    <label for="id_password2" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Confirmar contraseÃ±a" %}</label>
                     <input type="password" name="password2" id="id_password2" required
                         class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                        placeholder="••••••••">
+                        placeholder="Â•Â•Â•Â•Â•Â•Â•Â•">
                 </div>
 
                 <!-- OAuth buttons -->
@@ -86,7 +86,7 @@
                             <div class="w-full border-t border-gray-300 dark:border-gray-600"></div>
                         </div>
                         <div class="relative flex justify-center text-sm">
-                            <span class="px-2 bg-white dark:bg-gray-800 text-gray-500">{% trans "O continúa con" %}</span>
+                            <span class="px-2 bg-white dark:bg-gray-800 text-gray-500">{% trans "O continÃºa con" %}</span>
                         </div>
                     </div>
                     <div class="mt-4 grid grid-cols-2 gap-3" id="oauth-buttons">
@@ -205,7 +205,7 @@
                             </label>
                             <label class="flex items-center gap-2">
                                 <input type="radio" name="work_modality" value="hybrid" class="text-indigo-600 focus:ring-indigo-500">
-                                <span class="text-gray-700 dark:text-gray-300">{% trans "Híbrido" %}</span>
+                                <span class="text-gray-700 dark:text-gray-300">{% trans "HÃ­brido" %}</span>
                             </label>
                             <label class="flex items-center gap-2">
                                 <input type="radio" name="work_modality" value="onsite" class="text-indigo-600 focus:ring-indigo-500">
@@ -222,10 +222,10 @@
                     </div>
 
                     <div>
-                        <label for="id_company_description" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Descripción (opcional)" %}</label>
+                        <label for="id_company_description" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "DescripciÃ³n (opcional)" %}</label>
                         <textarea name="company_description" id="id_company_description" rows="3"
                             class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                            placeholder="{% trans 'Cuéntanos sobre tu empresa...' %}"></textarea>
+                            placeholder="{% trans 'CuÃ©ntanos sobre tu empresa...' %}"></textarea>
                     </div>
                 </div>
             </div>
@@ -233,7 +233,7 @@
             <div class="flex justify-between items-center pt-2">
                 <button type="button" id="btn-prev"
                     class="hidden px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
-                    {% trans "Atrás" %}
+                    {% trans "AtrÃ¡s" %}
                 </button>
                 <div class="flex-1"></div>
                 <button type="button" id="btn-next"
@@ -255,8 +255,8 @@
         </div>
 
         <p class="mt-6 text-center text-gray-600 dark:text-gray-400">
-            {% trans "¿Ya tienes cuenta?" %}
-            <a href="{% url 'login' %}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-semibold">{% trans "Inicia sesión" %}</a>
+            {% trans "Â¿Ya tienes cuenta?" %}
+            <a href="{% url 'login' %}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-semibold">{% trans "Inicia sesiÃ³n" %}</a>
         </p>
     </div>
 </div>
