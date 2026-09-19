@@ -1,16 +1,16 @@
-{% extends 'base.html' %}
+﻿{% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}CV Builder - {% trans "Crea tu CV profesional" %}{% endblock %}
+{% block title %}TalentStack - {% trans "Haz visible tu potencial" %}{% endblock %}
 
 {% block content %}
 <div class="space-y-16">
     <section class="text-center py-16">
         <h1 class="text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            {% trans "Crea tu CV profesional" %}
+            {% trans "Haz visible tu potencial" %}
         </h1>
         <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-            {% trans "Diseña CVs impresionantes con plantillas profesionales. Publica en nuestro tablón de talentos y conecta con oportunidades." %}
+            {% trans "La plataforma que redefine el CV tradicional en un perfil profesional interactivo." %}
         </p>
         <div class="flex justify-center space-x-4">
             {% if user.is_authenticated %}
@@ -19,47 +19,49 @@
                     {% trans "Mi Dashboard" %}
                 </a>
             {% else %}
-                <a href="{% url 'register' %}"
+                <a href="{% url 'register' %}?role=candidate"
                     class="bg-indigo-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-indigo-700 transition duration-200">
-                    {% trans "Comenzar ahora" %}
+                    {% trans "Registrarme como Candidato" %}
                 </a>
-                <a href="{% url 'login' %}"
+                <a href="{% url 'register' %}?role=recruiter"
                     class="bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 px-8 py-4 rounded-lg font-semibold text-lg border-2 border-indigo-600 dark:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-gray-700 transition duration-200">
-                    {% trans "Ya tengo cuenta" %}
+                    {% trans "Registrarme como Reclutador" %}
                 </a>
             {% endif %}
         </div>
         <p class="mt-4 text-gray-500 dark:text-gray-400">
-            <a href="{% url 'wall' %}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 underline">
-                {% trans "O explora el tablón como invitado" %}
-            </a>
+            {% if user.is_authenticated %}
+                {% if user.profile.role == 'recruiter' %}
+                    <a href="{% url 'wall' %}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 underline">
+                        {% trans "Explorar tablón de candidatos" %} &rarr;
+                    </a>
+                {% else %}
+                    <a href="{% url 'recruiter_wall' %}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 underline">
+                        {% trans "Explorar tablón de reclutadores" %} &rarr;
+                    </a>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'wall' %}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 underline">
+                    {% trans "Explorar tablón público sin registro" %} &rarr;
+                </a>
+            {% endif %}
         </p>
     </section>
 
     <section class="py-16">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">
-            {% trans "¿Por qué CV Builder?" %}
+            {% trans "¿Por qué TalentStack?" %}
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="text-center p-6">
                 <div class="w-16 h-16 bg-indigo-100 dark:bg-indigo-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg class="w-8 h-8 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">{% trans "3 Plantillas profesionales" %}</h3>
-                <p class="text-gray-600 dark:text-gray-400">{% trans "Elige entre diseños clásico, moderno y creativo para destacar tu perfil." %}</p>
-            </div>
-            <div class="text-center p-6">
-                <div class="w-16 h-16 bg-indigo-100 dark:bg-indigo-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-8 h-8 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">{% trans "Editor visual" %}</h3>
-                <p class="text-gray-600 dark:text-gray-400">{% trans "Edita directamente en la plantilla con autoguardado automático." %}</p>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">{% trans "Perfiles Interactivos" %}</h3>
+                <p class="text-gray-600 dark:text-gray-400">{% trans "Presenta tu experiencia, seniority, disponibilidad y red de habilidades en una página pública optimizada para compartir." %}</p>
             </div>
             <div class="text-center p-6">
                 <div class="w-16 h-16 bg-indigo-100 dark:bg-indigo-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -68,19 +70,40 @@
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">{% trans "Tablón de talentos" %}</h3>
-                <p class="text-gray-600 dark:text-gray-400">{% trans "Publica tu CV y descubre profesionales por sector." %}</p>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">{% trans "Búsqueda Avanzada y Scoring" %}</h3>
+                <p class="text-gray-600 dark:text-gray-400">{% trans "Filtra perfiles o empresas por sector, especialidades concretas, modalidad de trabajo y más. Encuentra exactamente la combinación que necesitas." %}</p>
+            </div>
+            <div class="text-center p-6">
+                <div class="w-16 h-16 bg-indigo-100 dark:bg-indigo-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">{% trans "Un espacio doble" %}</h3>
+                <p class="text-gray-600 dark:text-gray-400">{% trans "Los profesionales exploran ofertas y empresas públicas; los reclutadores gestionan vacantes y contactan directo con los candidatos." %}</p>
             </div>
         </div>
     </section>
 
     <section class="bg-indigo-600 dark:bg-indigo-700 rounded-2xl p-12 text-center text-white">
-        <h2 class="text-3xl font-bold mb-4">{% trans "¿Listo para crear tu CV?" %}</h2>
-        <p class="text-xl mb-8 opacity-90">{% trans "Únete a nuestra comunidad de profesionales." %}</p>
-        {% if not user.is_authenticated %}
+        <h2 class="text-3xl font-bold mb-4">{% trans "¿Listo para impulsar tu carrera o escalar tu equipo?" %}</h2>
+        {% if user.is_authenticated %}
+        <div class="flex justify-center space-x-4 mb-0">
+            <a href="{% url 'wall' %}"
+                class="bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200">
+                {% trans "Ir a tablón de trabajadores" %}
+            </a>
+            <a href="{% url 'recruiter_wall' %}"
+                class="bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200">
+                {% trans "Ir a tablón de reclutadores" %}
+            </a>
+        </div>
+        {% else %}
+        <p class="text-xl mb-8 opacity-90">{% trans "Crea tu perfil en minutos o explora nuestro directorio de empresas y talentos." %}</p>
         <a href="{% url 'register' %}"
             class="bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200">
-            {% trans "Crear cuenta gratis" %}
+            {% trans "Crear una cuenta gratis" %}
         </a>
         {% endif %}
     </section>

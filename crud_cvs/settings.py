@@ -131,7 +131,7 @@ FILE_UPLOAD_MAX_MEMORY_SIZE = 5 * 1024 * 1024
 DATA_UPLOAD_MAX_MEMORY_SIZE = 5 * 1024 * 1024
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'noreply@cvbuilder.com'
+DEFAULT_FROM_EMAIL = 'noreply@talentstack.com'
 
 # Blocked email domains for corporate email validation
 BLOCKED_EMAIL_DOMAINS = [

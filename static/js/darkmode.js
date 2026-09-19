@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             html.classList.remove('dark');
         }
-        if (persist) localStorage.setItem('cvbuilder_theme', theme);
+        if (persist) localStorage.setItem('talentstack_theme', theme);
         syncIcons();
     }
 
-    var saved = localStorage.getItem('cvbuilder_theme');
+    var saved = localStorage.getItem('talentstack_theme');
     if (saved !== 'dark' && saved !== 'light') {
         var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         setTheme(prefersDark ? 'dark' : 'light', false);

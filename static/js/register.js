@@ -87,6 +87,15 @@
         }
     });
 
-    // Initialize
-    updateUI();
+    // Check URL for role parameter and skip to step 2 if present
+    const urlParams = new URLSearchParams(window.location.search);
+    const roleParam = urlParams.get('role');
+    if (roleParam === 'candidate' || roleParam === 'recruiter') {
+        selectRole(roleParam);
+        currentStep = 2;
+        updateUI();
+    } else {
+        // Initialize
+        updateUI();
+    }
 });

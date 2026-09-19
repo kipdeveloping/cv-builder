@@ -1,15 +1,212 @@
-ï»¿# CV Builder
+# TalentStack
 
-Plataforma para crear currÃ­culums interactivos basados en plantillas y publicarlos en un tablÃ³n de talento pÃºblico.
+Plataforma web para crear perfiles profesionales interactivos y conectar talento con empresas. Permite a los candidatos crear y publicar sus perfiles, y a los reclutadores discover talento y publicar vacantes.
 
-## CaracterÃ­sticas
+## Características principales
 
-- **3 Plantillas profesionales**: ClÃ¡sico, Moderno y Creativo
-- **Editor visual**: EdiciÃ³n directa en la plantilla con autoguardado
-- **TablÃ³n de talentos**: Explora CVs publicados por sector
-- **BilingÃ¼e**: Interfaz en espaÃ±ol e inglÃ©s
-- **ValidaciÃ³n robusta**: ContraseÃ±a segura, validaciÃ³n de archivos
-- **Login OAuth**: AutenticaciÃ³n con Google, GitHub y LinkedIn
+### Para candidatos (trabajadores)
+
+- **Dashboard personalizado**: Panel de control con acceso rápido a todas las funciones del perfil
+- **Perfil profesional público**: Página de perfil en /candidato/<id>/ con foto, bio, experiencia, proyectos y habilidades
+- **Control de visibilidad**: Decide si tu perfil es público o privado
+- **Tags de habilidades**: Etiqueta tu perfil con tecnologías y skills (obligatorios y deseables)
+- **Información laboral**: Estado de búsqueda, disponibilidad, tipo de empleo, disponibilidad para mudarse/viajar
+- **Seniority y sector**: Clasifica tu nivel (Junior, Semi-Senior, Senior, Lead) y sector profesional
+- **Idiomas**: Registra los idiomas que hablas y su nivel
+- **Links sociales**: LinkedIn, GitHub, Twitter, Portfolio
+- **Contacto directo**: Formulario de contacto para que reclutadores se comuniquen contigo
+
+### Para reclutadores (empresas)
+
+- **Dashboard de reclutador**: Panel especializado para gestión de vacantes
+- **Perfil de empresa público**: Página de perfil en /empresa/<id>/ con logo, descripción y vacantes activas
+- **Gestión de vacantes**: Crear, editar y publicar ofertas laborales
+- **Información de empresa**: Nombre, logo, sector, tipo (Empresa Directa o Reclutador Independiente), modalidad de trabajo
+- **Control de visibilidad**: Decide si el perfil de empresa es público o privado
+- **Links sociales**: LinkedIn, Twitter de la empresa
+
+### Tablón de talentos (para candidatos)
+
+- **Exploración de perfiles**: Grid de tarjetas con perfiles de candidatos públicos
+- **Filtros avanzados**:
+  - Sector (jerarquía: Sector > Rol > Especialidad)
+  - Tags obligatorios (AND) y deseables (OR)
+  - Seniority (Junior, Semi-Senior, Senior, Lead)
+  - Modalidad (Remoto, Híbrido, Presencial)
+- **Scoring de relevancia**: Los perfiles se ordenan por relevancia según los filtros aplicados
+- **Navegación rápida**: Click en tarjeta para ver perfil completo
+
+### Tablón de empresas (para reclutadores)
+
+- **Exploración de empresas**: Grid de tarjetas con perfiles de empresas públicas
+- **Filtros facetados**:
+  - Sector (multi-select con búsqueda)
+  - Modalidad (checkboxes OR: Remoto, Híbrido, Presencial)
+  - Tipo de reclutador (radio: Todos, Empresa Directa, Reclutador Independiente)
+- **Navegación rápida**: Click en tarjeta para ver perfil de empresa y vacantes
+
+### Autenticación y seguridad
+
+- **Registro con wizard**: Formulario paso a paso con selección de rol (Candidato o Reclutador)
+- **Login OAuth**: Autenticación con Google, GitHub y LinkedIn
+- **Restricciones OAuth**: Solo Google y LinkedIn disponibles para reclutadores (correos corporativos)
+- **Validación de contraseña**: Mínimo 8 caracteres, 1 mayúscula, 1 número, 1 carácter especial
+- **Recuperación de contraseña**: Flujo completo de reset por email
+- **Cambio de contraseña**: Desde la configuración de cuenta
+
+### Internacionalización
+
+- **Bilingüe**: Interfaz completa en español e inglés
+- **Cambio de idioma**: Selector de idioma en el navbar
+- **Contenido bilingüe**: Sectores, roles, especialidades y tags en ambos idiomas
+
+### Diseño y UX
+
+- **Dark mode**: Toggle de tema claro/oscuro con persistencia en localStorage
+- **Responsive**: Diseño adaptable a desktop, tablet y móvil
+- **Tailwind CSS v4**: Estilos modernos con utility-first CSS
+- **Iconos SVG**: Iconos inline para mejor rendimiento
+
+## Rutas principales
+
+| Ruta | Descripción |
+|------|-------------|
+| / | Landing page |
+| /tablon/ | Tablón de talentos (candidatos) |
+| /tablon-empresas/ | Tablón de empresas (reclutadores) |
+| /candidato/<id>/ | Perfil público de candidato |
+| /empresa/<id>/ | Perfil público de empresa |
+| /accounts/login/ | Inicio de sesión |
+| /accounts/register/ | Registro de usuario |
+| /accounts/dashboard/ | Dashboard (candidato o reclutador) |
+| /accounts/settings/ | Configuración de cuenta |
+| /admin/ | Panel de administración Django |
+
+## API Endpoints
+
+| Endpoint | Método | Descripción |
+|----------|--------|-------------|
+| /api/wall/profiles/ | GET | Perfiles de candidatos con filtros |
+| /api/wall/recruiters/ | GET | Perfiles de empresas con filtros facetados |
+| /api/tags/ | GET | Lista de sectores |
+| /api/tags/hierarchy/ | GET | Jerarquía completa Sector > Rol > Especialidad > Tags |
+| /api/tags/all/ | GET | Todos los tags con búsqueda |
+| /accounts/api/profile/tags/ | GET | Tags del perfil del usuario actual |
+| /accounts/api/profile/tags/save/ | POST | Guardar tags del perfil |
+
+## Estructura del proyecto
+
+`
+crud-cvs/
++-- manage.py
++-- requirements.txt
++-- package.json
++-- crud_cvs/                    # Configuración del proyecto Django
+¦   +-- settings.py
+¦   +-- urls.py
+¦   +-- wsgi.py
++-- apps/
+¦   +-- accounts/                # Autenticación, perfiles y gestión de usuarios
+¦   ¦   +-- models.py           # UserProfile, RecruiterProfile, Vacancy, SectorTag, Tag
+¦   ¦   +-- views.py            # Vistas de auth, dashboard, perfiles
+¦   ¦   +-- urls.py             # Rutas de cuentas
+¦   ¦   +-- forms.py            # Formularios de registro y login
+¦   ¦   +-- pipeline.py         # Pipeline de OAuth
+¦   ¦   +-- signals.py          # Señales de Django
+¦   +-- wall/                    # Tablón público
+¦       +-- views.py            # Vistas del tablón y APIs
+¦       +-- urls.py             # Rutas del tablón
++-- templates/                   # Plantillas HTML
+¦   +-- base.html               # Template base con navbar
+¦   +-- landing.html            # Página de inicio
+¦   +-- accounts/
+¦   ¦   +-- dashboard.html      # Dashboard de candidato
+¦   ¦   +-- recruiter_dashboard.html  # Dashboard de reclutador
+¦   ¦   +-- profile.html        # Perfil público de candidato
+¦   ¦   +-- recruiter_profile.html    # Perfil público de empresa
+¦   ¦   +-- login.html
+¦   ¦   +-- register.html
+¦   ¦   +-- account_settings.html
+¦   +-- wall/
+¦       +-- wall.html           # Tablón de talentos
+¦       +-- recruiter_wall.html # Tablón de empresas
++-- static/
+¦   +-- src/input.css           # Fuente de Tailwind CSS
+¦   +-- css/output.css          # CSS compilado
+¦   +-- js/
+¦       +-- wall.js             # Lógica del tablón de talentos
+¦       +-- recruiter_wall.js   # Lógica del tablón de empresas
+¦       +-- profile.js          # Lógica de perfil
+¦       +-- darkmode.js         # Toggle de tema
+¦       +-- language.js         # Selector de idioma
++-- media/                       # Archivos subidos por usuarios
+¦   +-- photos/                 # Fotos de perfil
+¦   +-- company_logos/          # Logos de empresa
++-- locale/                      # Traducciones
++-- fixtures/                    # Datos iniciales
+¦   +-- templates.json
+¦   +-- sectors.json
++-- openspec/                    # Documentación de especificaciones
+    +-- specs/                  # Specs del proyecto
+    +-- changes/                # Historial de cambios
+`
+
+## Modelos de datos
+
+### UserProfile (Candidatos)
+- user - Relación OneToOne con User de Django
+- photo - Foto de perfil
+- io, headline - Biografía y titular
+- is_public - Visibilidad del perfil
+- sector, 
+ol, especialidad - Clasificación profesional
+- seniority - Nivel (Junior, Semi-Senior, Senior, Lead)
+- location_flex - Modalidad preferida (Remoto, Híbrido, Presencial)
+- search_status - Estado de búsqueda
+- vailability - Disponibilidad
+- employment_type - Tipo de empleo deseado
+- experience, projects - Experiencia y proyectos (JSON)
+- social_links - Redes sociales (JSON)
+- languages - Idiomas (JSON)
+
+### RecruiterProfile (Empresas)
+- user - Relación OneToOne con User de Django
+- company_name - Nombre de la empresa
+- company_logo - Logo de la empresa
+- company_sector - Sector de la empresa
+- company_type - Tipo (Empresa Directa o Particular)
+- work_modality - Modalidad de trabajo
+- company_description - Descripción de la empresa
+- company_website - Sitio web
+- is_public - Visibilidad del perfil
+- social_links - Redes sociales (JSON)
+
+### Vacancy (Vacantes)
+- 
+ecruiter_profile - Relación con RecruiterProfile
+- 	itle, description - Título y descripción
+- 
+equirements - Requisitos (JSON)
+- location, modality - Ubicación y modalidad
+- salary_range - Rango salarial
+- employment_type - Tipo de empleo
+- status - Estado (Activa, Cerrada, Borrador)
+
+### SectorTag, SectorRol, RolEspecialidad, Tag
+- Sistema jerárquico de clasificación: Sector > Rol > Especialidad > Tags
+- Bilingüe (name_es, name_en)
+- Tags con categorías (Lenguaje, Framework, Herramienta, Soft Skill)
+
+## Tecnologías utilizadas
+
+- **Backend**: Django 4.2+
+- **Frontend**: HTML5, Tailwind CSS v4, JavaScript vanilla
+- **Base de datos**: SQLite (desarrollo) / PostgreSQL (producción)
+- **Autenticación**: Django built-in + python-social-auth
+- **Internacionalización**: Django gettext (i18n)
+- **Imágenes**: Pillow
+- **Formularios**: django-crispy-forms + crispy-bootstrap5
+- **Variables de entorno**: python-decouple
 
 ## Requisitos
 
@@ -17,13 +214,14 @@ Plataforma para crear currÃ­culums interactivos basados en plantillas y publicar
 - Node.js 18+
 - pip
 - npm
+- gettext (para traducciones)
 
-## InstalaciÃ³n
+## Instalación
 
 ### 1. Clonar el repositorio
 
 `ash
-git clone <url-del-repositorio>
+git clone https://github.com/kipdeveloping/cv-builder.git
 cd crud-cvs
 `
 
@@ -35,27 +233,20 @@ source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
 `
 
-### 3. Instalar dependencias de Python
+### 3. Instalar dependencias
 
 `ash
 pip install -r requirements.txt
-`
-
-### 4. Instalar dependencias de Node.js
-
-`ash
 npm install
 `
 
-### 5. Configurar variables de entorno
-
-Copia el archivo de ejemplo y configura tus credenciales:
+### 4. Configurar variables de entorno
 
 `ash
 cp .env.example .env
 `
 
-Edita el archivo .env con tus credenciales:
+Edita .env con tus credenciales:
 
 `env
 # Django
@@ -75,133 +266,54 @@ LINKEDIN_CLIENT_ID=tu_linkedin_client_id
 LINKEDIN_CLIENT_SECRET=tu_linkedin_client_secret
 `
 
-**Nota**: Si no configuras las credenciales OAuth, los botones de redes sociales se mostrarÃ¡n pero no funcionarÃ¡n. Puedes usar el login con email y contraseÃ±a normal.
-
-### 6. Configurar la base de datos
+### 5. Configurar la base de datos
 
 `ash
 python manage.py migrate
-`
-
-### 7. Cargar datos iniciales
-
-`ash
 python manage.py loaddata fixtures/templates.json fixtures/sectors.json
 `
 
-### 8. Crear usuario administrador (opcional)
-
-`ash
-python manage.py createsuperuser
-`
-
-### 9. Compilar traducciones (requiere gettext)
-
-`ash
-python manage.py compilemessages
-`
-
-### 10. Compilar CSS con Tailwind
+### 6. Compilar assets y traducciones
 
 `ash
 npm run build:prod
+python manage.py compilemessages
 `
 
-### 11. Ejecutar el servidor de desarrollo
+### 7. Ejecutar el servidor
 
 `ash
 python manage.py runserver
 `
 
-Visita http://127.0.0.1:8000/ para ver la aplicaciÃ³n.
+Visita http://127.0.0.1:8000/
 
-## ConfiguraciÃ³n de OAuth (Opcional)
-
-Para habilitar el login con redes sociales, necesitas crear aplicaciones OAuth en cada proveedor:
+## Configuración de OAuth (Opcional)
 
 ### Google OAuth
 
 1. Ve a [Google Cloud Console](https://console.cloud.google.com/)
-2. Crea un nuevo proyecto o selecciona uno existente
+2. Crea un proyecto y habilita "Google+ API"
 3. Ve a "APIs & Services" > "Credentials"
-4. Crea un "OAuth 2.0 Client ID"
-5. Configura el "Authorized redirect URIs": http://localhost:8000/complete/google-oauth2/
-6. Copia el Client ID y Client Secret en tu .env
+4. Crea "OAuth 2.0 Client ID"
+5. Authorized redirect URIs: http://localhost:8000/complete/google-oauth2/
+6. Copia Client ID y Secret en .env
 
 ### GitHub OAuth
 
 1. Ve a [GitHub Developer Settings](https://github.com/settings/developers)
-2. Crea un "New OAuth App"
-3. Configura el "Authorization callback URL": http://localhost:8000/complete/github/
-4. Copia el Client ID y Client Secret en tu .env
+2. Crea "New OAuth App"
+3. Authorization callback URL: http://localhost:8000/complete/github/
+4. Copia Client ID y Secret en .env
 
 ### LinkedIn OAuth
 
 1. Ve a [LinkedIn Developer Portal](https://www.linkedin.com/developers/)
-2. Crea una nueva aplicaciÃ³n
-3. Ve a "Auth" y agrega el "Authorized redirect URL": http://localhost:8000/complete/linkedin-oauth2/
-4. Copia el Client ID y Client Secret en tu .env
+2. Crea una aplicación
+3. Auth > Authorized redirect URL: http://localhost:8000/complete/linkedin-oauth2/
+4. Copia Client ID y Secret en .env
 
-## Estructura del proyecto
-
-`
-crud-cvs/
-â”œâ”€â”€ manage.py
-â”œâ”€â”€ requirements.txt
-â”œâ”€â”€ package.json
-â”œâ”€â”€ crud_cvs/                 # ConfiguraciÃ³n del proyecto
-â”œâ”€â”€ apps/
-â”‚   â”œâ”€â”€ accounts/             # AutenticaciÃ³n y perfil
-â”‚   â”œâ”€â”€ resumes/              # LÃ³gica de CVs
-â”‚   â””â”€â”€ wall/                 # TablÃ³n pÃºblico
-â”œâ”€â”€ templates/                # Plantillas HTML
-â”œâ”€â”€ static/
-â”‚   â”œâ”€â”€ src/input.css         # Fuente de Tailwind
-â”‚   â”œâ”€â”€ css/output.css        # CSS compilado
-â”‚   â”œâ”€â”€ css/templates/        # Estilos por plantilla
-â”‚   â””â”€â”€ js/                   # JavaScript
-â”œâ”€â”€ media/photos/             # Fotos de usuario
-â”œâ”€â”€ locale/                   # Traducciones
-â”œâ”€â”€ fixtures/                 # Datos iniciales
-â””â”€â”€ .env.example              # Plantilla de variables de entorno
-`
-
-## Uso
-
-### Crear una cuenta
-
-1. Haz clic en "Registrarse"
-2. Ingresa tu email y contraseÃ±a
-3. La contraseÃ±a debe tener: 8+ caracteres, 1 mayÃºscula, 1 nÃºmero, 1 carÃ¡cter especial
-
-### Crear un CV
-
-1. Ve al Dashboard
-2. Haz clic en "Crear nuevo CV"
-3. Selecciona una plantilla
-4. Edita los campos directamente en la plantilla
-5. Los cambios se guardan automÃ¡ticamente
-
-### Publicar un CV
-
-1. En el editor, haz clic en "Publicar"
-2. Selecciona los sectores correspondientes
-3. Elige el sector principal
-4. Confirma la publicaciÃ³n
-
-### Explorar el tablÃ³n
-
-1. Ve a "TablÃ³n de TecnologÃ­as"
-2. Usa los filtros por sector
-3. Haz clic en una tarjeta para ver el CV completo
-
-## TecnologÃ­as utilizadas
-
-- **Backend**: Django 4.2
-- **Frontend**: HTML, Tailwind CSS v4, JavaScript vanilla
-- **Base de datos**: SQLite
-- **AutenticaciÃ³n**: Django built-in + python-social-auth
-- **i18n**: Django gettext
+**Nota**: Si no configuras OAuth, los botones de redes sociales se mostrarán pero no funcionarán. Puedes usar login con email y contraseña.
 
 ## Licencia
 
