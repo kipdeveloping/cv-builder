@@ -51,27 +51,28 @@ msgstr "Le mot de passe doit contenir au moins un chiffre."
 #: .\apps\accounts\forms.py:70
 #, python-brace-format
 msgid ""
-"La contraseña debe contener al menos un carácter especial (!@#$%^&*(),.?\":"
-"{}|<>)."
+"La contraseña debe contener al menos un carácter especial "
+"(!@#$%^&*(),.?\":{}|<>)."
 msgstr ""
-"Le mot de passe doit contenir au moins un caractère spécial (!@#$%^&*(),.?\":"
-"{}|<>)."
+"Le mot de passe doit contenir au moins un caractère spécial "
+"(!@#$%^&*(),.?\":{}|<>)."
 
 #: .\apps\accounts\forms.py:87 .\apps\accounts\forms.py:106
 #: .\templates\accounts\complete_profile.html:29
-#: .\templates\accounts\dashboard.html:13 .\templates\accounts\register.html:61
+#: .\templates\accounts\dashboard.html:13
+#: .\templates\accounts\register.html:61
 #: .\templates\resumes\templates\_section_references.html:14
 msgid "Nombre"
 msgstr "Prénom"
 
 #: .\apps\accounts\forms.py:95 .\apps\accounts\forms.py:115
 #: .\templates\accounts\complete_profile.html:37
-#: .\templates\accounts\dashboard.html:15 .\templates\accounts\register.html:68
+#: .\templates\accounts\dashboard.html:15
+#: .\templates\accounts\register.html:68
 msgid "Apellido"
 msgstr "Nom de famille"
 
 #: .\apps\accounts\forms.py:124 .\templates\accounts\register.html:77
-#, fuzzy
 #| msgid "Título profesional"
 msgid "Cargo / Título profesional"
 msgstr "Titre professionnel"
@@ -126,7 +127,6 @@ msgid "El formato del email no es valido."
 msgstr "Le format de l'e-mail est invalide."
 
 #: .\apps\accounts\views.py:347
-#, fuzzy
 #| msgid "Bio actualizada correctamente."
 msgid "Perfil completado correctamente."
 msgstr "Bio mise à jour avec succès."
@@ -145,13 +145,11 @@ msgid "Informacion de Cuenta"
 msgstr "Informations du compte"
 
 #: .\templates\accounts\account_settings.html:15
-#, fuzzy
 #| msgid "Email"
 msgid "Email:"
 msgstr "Email"
 
 #: .\templates\accounts\account_settings.html:16
-#, fuzzy
 #| msgid "Nombre"
 msgid "Nombre:"
 msgstr "Prénom"
@@ -193,19 +191,16 @@ msgid "Vincular"
 msgstr "Associer"
 
 #: .\templates\accounts\account_settings.html:102
-#, fuzzy
 #| msgid "Volver al dashboard"
 msgid "Volver al Dashboard"
 msgstr "Retour au tableau de bord"
 
 #: .\templates\accounts\complete_profile.html:4
-#, fuzzy
 #| msgid "Completa tu perfil profesional"
 msgid "Completar perfil"
 msgstr "Complétez votre profil professionnel"
 
 #: .\templates\accounts\complete_profile.html:9
-#, fuzzy
 #| msgid "Completa tu perfil profesional"
 msgid "Completa tu perfil"
 msgstr "Complétez votre profil professionnel"
@@ -215,7 +210,6 @@ msgid "Cuéntanos un poco sobre ti para personalizar tu experiencia."
 msgstr "Parlez-nous un peu de vous pour personnaliser votre expérience."
 
 #: .\templates\accounts\complete_profile.html:14
-#, fuzzy
 #| msgid "Por favor, corrige los errores."
 msgid "Por favor, corrige los errores:"
 msgstr "Veuillez corriger les erreurs."
@@ -223,11 +217,10 @@ msgstr "Veuillez corriger les erreurs."
 #: .\templates\accounts\complete_profile.html:32
 #: .\templates\accounts\profile.html:347 .\templates\accounts\register.html:64
 msgid "Tu nombre"
-msgstr "Votre prénom"
+msgstr "Votre nom"
 
 #: .\templates\accounts\complete_profile.html:40
 #: .\templates\accounts\register.html:71
-#, fuzzy
 #| msgid "Tus apellidos"
 msgid "Tu apellido"
 msgstr "Votre nom de famille"
@@ -241,14 +234,14 @@ msgid "Dashboard"
 msgstr "Tableau de bord"
 
 #: .\templates\accounts\dashboard.html:10
-#, fuzzy
 #| msgid "CV Builder"
 msgid "Bienvenido a CV Builder"
 msgstr "CV Builder"
 
 #: .\templates\accounts\dashboard.html:11
 msgid "Para completar tu perfil, necesitamos tu nombre y apellido."
-msgstr "Pour compléter votre profil, nous avons besoin de votre prénom et nom."
+msgstr ""
+"Pour compléter votre profil, nous avons besoin de votre prénom et nom."
 
 #: .\templates\accounts\dashboard.html:19
 #: .\templates\accounts\dashboard.html:310
@@ -259,10 +252,9 @@ msgstr "Pour compléter votre profil, nous avons besoin de votre prénom et nom.
 #: .\templates\accounts\dashboard.html:516
 #: .\templates\accounts\dashboard.html:608
 #: .\templates\accounts\dashboard.html:654
-#, fuzzy
 #| msgid "Guardar bio"
 msgid "Guardar"
-msgstr "Enregistrer la bio"
+msgstr "Enregistrer"
 
 #: .\templates\accounts\dashboard.html:33 .\templates\accounts\profile.html:24
 #: .\templates\resumes\templates\classic.html:6
@@ -272,10 +264,9 @@ msgid "Foto de perfil"
 msgstr "Photo de profil"
 
 #: .\templates\accounts\dashboard.html:85
-#, fuzzy
 #| msgid "Editar"
 msgid "Editar estado"
-msgstr "Modifier"
+msgstr "Modifier le statut"
 
 #: .\templates\accounts\dashboard.html:92 .\templates\accounts\profile.html:64
 #: .\templates\resumes\templates\_section_skills.html:3
@@ -291,26 +282,30 @@ msgstr "Compétences"
 msgid "Editar"
 msgstr "Modifier"
 
-#: .\templates\accounts\dashboard.html:107 .\templates\accounts\profile.html:74
-#, fuzzy
+#: .\templates\accounts\dashboard.html:107
+#: .\templates\accounts\profile.html:74
 #| msgid "Habilidades"
 msgid "Sin habilidades"
 msgstr "Compétences"
 
-#: .\templates\accounts\dashboard.html:115 .\templates\accounts\profile.html:81
+#: .\templates\accounts\dashboard.html:115
+#: .\templates\accounts\profile.html:81
 msgid "Bio"
 msgstr "Bio"
 
 #: .\templates\accounts\dashboard.html:129
-#: .\templates\accounts\dashboard.html:416 .\templates\accounts\profile.html:88
+#: .\templates\accounts\dashboard.html:416
+#: .\templates\accounts\profile.html:88
 msgid "Preferencias de trabajo"
-msgstr "Préférences de travail"
+msgstr "Préférences de Travail"
 
-#: .\templates\accounts\dashboard.html:137 .\templates\accounts\profile.html:92
+#: .\templates\accounts\dashboard.html:137
+#: .\templates\accounts\profile.html:92
 msgid "Tipo de empleo:"
 msgstr "Type d'emploi :"
 
-#: .\templates\accounts\dashboard.html:141 .\templates\accounts\profile.html:98
+#: .\templates\accounts\dashboard.html:141
+#: .\templates\accounts\profile.html:98
 msgid "Salario esperado:"
 msgstr "Salaire souhaité :"
 
@@ -331,10 +326,9 @@ msgstr "Mes CV"
 
 #: .\templates\accounts\dashboard.html:167
 #: .\templates\accounts\profile.html:138
-#, fuzzy
 #| msgid "Experiencia"
 msgid "Experiencia y Proyectos"
-msgstr "Expérience"
+msgstr "Expérience et Projets"
 
 #: .\templates\accounts\dashboard.html:170
 #: .\templates\resumes\templates\creative.html:38
@@ -344,7 +338,7 @@ msgstr "Ajouter"
 #: .\templates\accounts\dashboard.html:251
 #: .\templates\accounts\profile.html:180
 msgid "Redes Sociales"
-msgstr "Réseaux sociaux"
+msgstr "Réseaux Sociaux"
 
 #: .\templates\accounts\dashboard.html:283
 #: .\templates\accounts\profile.html:207
@@ -352,16 +346,14 @@ msgid "Sin redes sociales configuradas"
 msgstr "Aucun réseau social configuré"
 
 #: .\templates\accounts\dashboard.html:294
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar foto"
-msgstr "Mis à jour :"
+msgstr "Mettre à jour la photo"
 
 #: .\templates\accounts\dashboard.html:305
-#, fuzzy
 #| msgid "JPG, PNG o WebP. Máximo 5MB."
 msgid "JPG, PNG o WebP. Maximo 5MB."
-msgstr "JPG, PNG ou WebP. Maximum 5MB."
+msgstr "JPG, PNG ou WebP. Maximum 5 Mo."
 
 #: .\templates\accounts\dashboard.html:308
 #: .\templates\accounts\dashboard.html:332
@@ -376,38 +368,33 @@ msgid "Cancelar"
 msgstr "Annuler"
 
 #: .\templates\accounts\dashboard.html:320
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar titular"
-msgstr "Mis à jour :"
+msgstr "Mettre à jour le titre"
 
 #: .\templates\accounts\dashboard.html:329
-#, fuzzy
 #| msgid "Ej: Desarrollador Web"
 msgid "Ej: Desarrollador Full Stack Senior"
-msgstr "Ex : Développeur Web"
+msgstr "Ex : Développeur Full Stack Sénior"
 
 #: .\templates\accounts\dashboard.html:343
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar bio"
-msgstr "Mis à jour :"
+msgstr "Mettre à jour la biographie"
 
 #: .\templates\accounts\dashboard.html:352
-#, fuzzy
 #| msgid "Cuéntanos sobre ti..."
 msgid "Cuentanos sobre ti..."
 msgstr "Parlez-nous de vous..."
 
 #: .\templates\accounts\dashboard.html:366
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar estado"
-msgstr "Mis à jour :"
+msgstr "Mettre à jour le statut"
 
 #: .\templates\accounts\dashboard.html:375
 msgid "Estado de busqueda"
-msgstr "Statut de recherche"
+msgstr "Statut de recherche d'emploi"
 
 #: .\templates\accounts\dashboard.html:377
 #: .\templates\accounts\dashboard.html:386
@@ -415,7 +402,7 @@ msgstr "Statut de recherche"
 #: .\templates\accounts\dashboard.html:446
 #: .\templates\accounts\dashboard.html:455
 msgid "No especificado"
-msgstr "Non précisé"
+msgstr "Non spécifié"
 
 #: .\templates\accounts\dashboard.html:378
 msgid "Buscando activamente"
@@ -423,11 +410,11 @@ msgstr "En recherche active"
 
 #: .\templates\accounts\dashboard.html:379
 msgid "Abierto a ofertas"
-msgstr "Ouvert aux offres"
+msgstr "À l'écoute du marché"
 
 #: .\templates\accounts\dashboard.html:380
 msgid "No buscando"
-msgstr "Ne recherche pas"
+msgstr "Pas en recherche"
 
 #: .\templates\accounts\dashboard.html:384
 msgid "Disponibilidad"
@@ -451,11 +438,11 @@ msgstr "Négociable"
 
 #: .\templates\accounts\dashboard.html:394
 msgid "Preferencia de ubicacion"
-msgstr "Préférence de localisation"
+msgstr "Préférence de lieu de travail"
 
 #: .\templates\accounts\dashboard.html:397
 msgid "Remoto"
-msgstr "Distanciel"
+msgstr "Télétravail"
 
 #: .\templates\accounts\dashboard.html:398
 msgid "Hibrido"
@@ -499,31 +486,26 @@ msgid "Disponible para viajar"
 msgstr "Prêt à voyager"
 
 #: .\templates\accounts\dashboard.html:457
-#, fuzzy
 #| msgid "Opcional"
 msgid "Ocasional"
-msgstr "Facultatif"
+msgstr "Occasionnel"
 
 #: .\templates\accounts\dashboard.html:458
-#, fuzzy
 #| msgid "Crea tu cuenta"
 msgid "Frecuente"
-msgstr "Créez votre compte"
+msgstr "Fréquent"
 
 #: .\templates\accounts\dashboard.html:475
-#, fuzzy
 #| msgid "Habilidades"
 msgid "Editar habilidades"
 msgstr "Compétences"
 
 #: .\templates\accounts\dashboard.html:486
-#, fuzzy
 #| msgid "Agregar habilidad"
 msgid "Nueva habilidad"
 msgstr "Ajouter une compétence"
 
 #: .\templates\accounts\dashboard.html:498
-#, fuzzy
 #| msgid "Sector principal:"
 msgid "Principal"
 msgstr "Secteur principal :"
@@ -547,10 +529,9 @@ msgstr "Créer un nouveau CV"
 #: .\templates\accounts\dashboard.html:584
 #: .\templates\resumes\templates\_section_experience.html:22
 msgid "Agregar experiencia"
-msgstr "Ajouter de l'expérience"
+msgstr "Ajouter une expérience"
 
 #: .\templates\accounts\dashboard.html:594
-#, fuzzy
 #| msgid "Título del puesto"
 msgid "Titulo del puesto"
 msgstr "Titre du poste"
@@ -578,7 +559,7 @@ msgstr "Modifier les réseaux sociaux"
 #: .\templates\accounts\login.html:4 .\templates\accounts\login.html:46
 #: .\templates\base.html:75
 msgid "Entrar"
-msgstr "Se connecter"
+msgstr "Connexion"
 
 #: .\templates\accounts\login.html:9
 msgid "Iniciar Sesión"
@@ -593,7 +574,6 @@ msgid "¿Olvidaste tu contraseña?"
 msgstr "Mot de passe oublié ?"
 
 #: .\templates\accounts\login.html:62
-#, fuzzy
 #| msgid "Continúa con"
 msgid "O continúa con"
 msgstr "Continuer avec"
@@ -620,19 +600,16 @@ msgstr "Ceci est votre profil public"
 
 #: .\templates\accounts\profile.html:12
 #: .\templates\registration\password_change_done.html:13
-#, fuzzy
 #| msgid "Volver al dashboard"
 msgid "Ir al Dashboard"
-msgstr "Retour au tableau de bord"
+msgstr "Aller au Tableau de Bord"
 
 #: .\templates\accounts\profile.html:122
-#, fuzzy
 #| msgid "Contacto"
 msgid "Contactar"
 msgstr "Contact"
 
 #: .\templates\accounts\profile.html:131
-#, fuzzy
 #| msgid "Aún no tienes CVs creados."
 msgid "Este candidato no tiene CVs publicados."
 msgstr "Ce candidat n'a pas de CV publié."
@@ -664,7 +641,6 @@ msgstr "Prix et distinctions"
 
 #: .\templates\accounts\profile.html:289
 #: .\templates\resumes\templates\_section_publications.html:3
-#, fuzzy
 #| msgid "Publicado"
 msgid "Publicaciones"
 msgstr "Publié"
@@ -676,26 +652,23 @@ msgstr "Centres d'intérêt"
 
 #: .\templates\accounts\profile.html:317
 #: .\templates\resumes\templates\_section_references.html:3
-#, fuzzy
 #| msgid "Experiencia"
 msgid "Referencias"
 msgstr "Expérience"
 
 #: .\templates\accounts\profile.html:338
-#, fuzzy
 #| msgid "Contacto"
 msgid "Contactar a"
-msgstr "Contact"
+msgstr "Contacter"
 
 #: .\templates\accounts\profile.html:350
 msgid "Nombre completo"
 msgstr "Nom complet"
 
 #: .\templates\accounts\profile.html:353
-#, fuzzy
 #| msgid "Email"
 msgid "Tu email"
-msgstr "Email"
+msgstr "Votre e-mail"
 
 #: .\templates\accounts\profile.html:356
 msgid "tu@email.com"
@@ -715,9 +688,10 @@ msgstr "Envoyer"
 
 #: .\templates\accounts\register.html:5 .\templates\base.html:76
 msgid "Registrarse"
-msgstr "S'inscrire"
+msgstr "Inscription"
 
-#: .\templates\accounts\register.html:10 .\templates\accounts\register.html:103
+#: .\templates\accounts\register.html:10
+#: .\templates\accounts\register.html:103
 msgid "Crear Cuenta"
 msgstr "Créer un compte"
 
@@ -763,7 +737,7 @@ msgstr "Connectez-vous"
 
 #: .\templates\base.html:30
 msgid "Tablón"
-msgstr "Mur"
+msgstr "Tableau"
 
 #: .\templates\base.html:33
 msgid "Cambiar tema"
@@ -858,7 +832,6 @@ msgid "Contraseña actualizada"
 msgstr "Mot de passe mis à jour"
 
 #: .\templates\registration\password_change_done.html:10
-#, fuzzy
 #| msgid "Foto actualizada correctamente."
 msgid "Tu contraseña ha sido cambiada correctamente."
 msgstr "Photo mise à jour avec succès."
@@ -872,7 +845,6 @@ msgid "Actualizar contraseña"
 msgstr "Mettre à jour le mot de passe"
 
 #: .\templates\registration\password_reset_complete.html:4
-#, fuzzy
 #| msgid "Contraseña"
 msgid "Contraseña restablecida"
 msgstr "Mot de passe"
@@ -880,10 +852,10 @@ msgstr "Mot de passe"
 #: .\templates\registration\password_reset_complete.html:10
 msgid "Tu contraseña ha sido restablecida. Ya puedes iniciar sesión."
 msgstr ""
-"Votre mot de passe a été réinitialisé. Vous pouvez maintenant vous connecter."
+"Votre mot de passe a été réinitialisé. Vous pouvez maintenant vous "
+"connecter."
 
 #: .\templates\registration\password_reset_confirm.html:4
-#, fuzzy
 #| msgid "Contraseña"
 msgid "Nueva contraseña"
 msgstr "Mot de passe"
@@ -925,14 +897,14 @@ msgid ""
 "Si existe una cuenta con ese email, te hemos enviado instrucciones para "
 "restablecer tu contraseña."
 msgstr ""
-"Si un compte existe avec cet e-mail, nous vous avons envoyé des instructions "
-"pour réinitialiser votre mot de passe."
+"Si un compte existe avec cet e-mail, nous vous avons envoyé des instructions"
+" pour réinitialiser votre mot de passe."
 
 #: .\templates\registration\password_reset_email.html:3
 msgid "Recibimos una solicitud para restablecer tu contraseña en CV Builder."
 msgstr ""
-"Nous avons reçu une demande de réinitialisation de votre mot de passe sur CV "
-"Builder."
+"Nous avons reçu une demande de réinitialisation de votre mot de passe sur CV"
+" Builder."
 
 #: .\templates\registration\password_reset_email.html:5
 msgid "Haz clic en el siguiente enlace para elegir una nueva contraseña:"
@@ -1034,7 +1006,6 @@ msgid "Año"
 msgstr "Année"
 
 #: .\templates\resumes\templates\_section_awards.html:20
-#, fuzzy
 #| msgid "Agregar experiencia"
 msgid "Agregar premio"
 msgstr "Ajouter de l'expérience"
@@ -1044,13 +1015,11 @@ msgid "Nombre de la certificación"
 msgstr "Nom de la certification"
 
 #: .\templates\resumes\templates\_section_certifications.html:14
-#, fuzzy
 #| msgid "Institución"
 msgid "Institución o plataforma"
 msgstr "Institution"
 
 #: .\templates\resumes\templates\_section_certifications.html:20
-#, fuzzy
 #| msgid "Agregar educación"
 msgid "Agregar certificación"
 msgstr "Ajouter une formation"
@@ -1092,7 +1061,6 @@ msgid "Lectura"
 msgstr "Lecture"
 
 #: .\templates\resumes\templates\_section_interests.html:13
-#, fuzzy
 #| msgid "Agregar"
 msgid "Agregar interés"
 msgstr "Ajouter"
@@ -1106,7 +1074,6 @@ msgid "Nivel"
 msgstr "Niveau"
 
 #: .\templates\resumes\templates\_section_languages.html:18
-#, fuzzy
 #| msgid "Agregar habilidad"
 msgid "Agregar idioma"
 msgstr "Ajouter une compétence"
@@ -1120,7 +1087,6 @@ msgid "Nombre del proyecto"
 msgstr "Nom du projet"
 
 #: .\templates\resumes\templates\_section_projects.html:14
-#, fuzzy
 #| msgid "Descripción de tus responsabilidades..."
 msgid "Descripción del proyecto..."
 msgstr "Description de vos responsabilités..."
@@ -1131,13 +1097,11 @@ msgid "https://..."
 msgstr "https://..."
 
 #: .\templates\resumes\templates\_section_projects.html:20
-#, fuzzy
 #| msgid "Agregar experiencia"
 msgid "Agregar proyecto"
-msgstr "Ajouter de l'expérience"
+msgstr "Ajouter un projet"
 
 #: .\templates\resumes\templates\_section_publications.html:14
-#, fuzzy
 #| msgid "Título del puesto"
 msgid "Título de la publicación"
 msgstr "Titre du poste"
@@ -1147,13 +1111,11 @@ msgid "Medio o revista"
 msgstr "Média ou revue"
 
 #: .\templates\resumes\templates\_section_publications.html:22
-#, fuzzy
 #| msgid "Agregar educación"
 msgid "Agregar publicación"
 msgstr "Ajouter une formation"
 
 #: .\templates\resumes\templates\_section_references.html:15
-#, fuzzy
 #| msgid "Cargando..."
 msgid "Cargo"
 msgstr "Chargement..."
@@ -1163,7 +1125,6 @@ msgid "email o teléfono"
 msgstr "e-mail ou téléphone"
 
 #: .\templates\resumes\templates\_section_references.html:22
-#, fuzzy
 #| msgid "Agregar experiencia"
 msgid "Agregar referencia"
 msgstr "Ajouter de l'expérience"
@@ -1195,7 +1156,6 @@ msgid "Describe tu labor..."
 msgstr "Décrivez votre travail..."
 
 #: .\templates\resumes\templates\_section_volunteering.html:22
-#, fuzzy
 #| msgid "Agregar habilidad"
 msgid "Agregar voluntariado"
 msgstr "Ajouter une compétence"
@@ -1242,6 +1202,1081 @@ msgstr "Chargement..."
 msgid "No se encontraron CVs en esta categoría."
 msgstr "Aucun CV trouvé dans cette catégorie."
 
+msgid "Mis Habilidades"
+msgstr "Mes Compétences"
+
+msgid "Perfil público"
+msgstr "Profil public"
+
+msgid "Perfil publico"
+msgstr "Profil public"
+
+msgid "Activa para que tu perfil sea visible en el tablón"
+msgstr "Activez pour que votre profil soit visible sur le tableau"
+
+msgid "Debes subir una foto de perfil para hacer tu perfil público."
+msgstr ""
+"Vous devez télécharger une photo de profil pour rendre votre profil public."
+
+msgid "Debes subir una foto de perfil para hacer tu perfil publico."
+msgstr ""
+"Vous devez télécharger une photo de profil pour rendre votre profil public."
+
+msgid "Sin titular"
+msgstr "Sans titre"
+
+msgid "Sin biografia"
+msgstr "Aucune biographie"
+
+msgid "Sin biografía"
+msgstr "Aucune biographie"
+
+msgid "Sector:"
+msgstr "Secteur :"
+
+msgid "Rol:"
+msgstr "Rôle :"
+
+msgid "Especialidad:"
+msgstr "Spécialité :"
+
+msgid "Seniority:"
+msgstr "Séniorité :"
+
+msgid "Idiomas:"
+msgstr "Langues :"
+
+msgid "Tags:"
+msgstr "Tags :"
+
+msgid "Sin experiencia ni proyectos agregados"
+msgstr "Aucune expérience ni projet ajouté"
+
+msgid "Cargo / Puesto"
+msgstr "Poste / Fonction"
+
+msgid "Empresa o Cliente"
+msgstr "Entreprise ou Client"
+
+msgid "Logotipo de la empresa (Opcional)"
+msgstr "Logo de l'entreprise (Optionnel)"
+
+msgid "Captura o imagen del proyecto (Opcional)"
+msgstr "Capture d'écran ou image du projet (Optionnel)"
+
+msgid "Haz clic para subir"
+msgstr "Cliquez pour télécharger"
+
+msgid "el logo o imagen"
+msgstr "le logo ou l'image"
+
+msgid "la captura del proyecto"
+msgstr "la capture du projet"
+
+msgid "Logotipo cargado"
+msgstr "Logo téléchargé"
+
+msgid "Imagen cargada"
+msgstr "Image téléchargée"
+
+msgid "Listo para guardar"
+msgstr "Prêt à enregistrer"
+
+msgid "Eliminar"
+msgstr "Supprimer"
+
+msgid "Ver"
+msgstr "Voir"
+
+msgid "Editar Habilidades"
+msgstr "Modifier les Compétences"
+
+msgid "Editar experiencia"
+msgstr "Modifier l'expérience"
+
+msgid "Editar proyecto"
+msgstr "Modifier le projet"
+
+msgid "Estado de búsqueda"
+msgstr "Statut de recherche d'emploi"
+
+msgid "Preferencia de ubicación"
+msgstr "Préférence de lieu de travail"
+
+msgid "Cuéntanos sobre ti..."
+msgstr "Parlez-nous de vous..."
+
+msgid "JPG, PNG o WebP. Máximo 5MB."
+msgstr "JPG, PNG ou WebP. Maximum 5 Mo."
+
+msgid "URL del proyecto (Opcional)"
+msgstr "URL du projet (Optionnel)"
+
+msgid "Describe el proyecto y las tecnologías usadas..."
+msgstr "Décrivez le projet et les technologies utilisées..."
+
+msgid "Describe tus responsabilidades y logros..."
+msgstr "Décrivez vos responsabilités et réalisations..."
+
+msgid "Seleccionar..."
+msgstr "Sélectionner..."
+
+msgid "Seleccionar idioma..."
+msgstr "Sélectionner la langue..."
+
+msgid "Buscar tag..."
+msgstr "Rechercher un tag..."
+
+msgid "Híbrido"
+msgstr "Hybride"
+
+msgid "Segun destino"
+msgstr "Selon la destination"
+
+msgid "Full-time"
+msgstr "Temps plein"
+
+msgid "Part-time"
+msgstr "Temps partiel"
+
+msgid "Contrato"
+msgstr "Contrat"
+
+msgid "Freelance"
+msgstr "Freelance"
+
+msgid "Si"
+msgstr "Oui"
+
+msgid "Junior"
+msgstr "Junior"
+
+msgid "Semi-Senior"
+msgstr "Intermédiaire"
+
+msgid "Senior"
+msgstr "Sénior"
+
+msgid "Lead"
+msgstr "Lead"
+
+msgid "Español"
+msgstr "Espagnol"
+
+msgid "Inglés"
+msgstr "Anglais"
+
+msgid "Portugués"
+msgstr "Portugais"
+
+msgid "Francés"
+msgstr "Français"
+
+msgid "Alemán"
+msgstr "Allemand"
+
+msgid "Italiano"
+msgstr "Italien"
+
+msgid "Japonés"
+msgstr "Japonais"
+
+msgid "Coreano"
+msgstr "Coréen"
+
+msgid "Chino"
+msgstr "Chinois"
+
+msgid "Ruso"
+msgstr "Russe"
+
+msgid "Árabe"
+msgstr "Arabe"
+
+msgid "Hindi"
+msgstr "Hindi"
+
+msgid "Proyecto"
+msgstr "Projet"
+
+msgid "Periodo"
+msgstr "Période"
+
+msgid "Descripción"
+msgstr "Description"
+
+msgid "Rol"
+msgstr "Rôle"
+
+msgid "Especialidad"
+msgstr "Spécialité"
+
+msgid "Seniority"
+msgstr "Séniorité"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "Perfil Profesional"
+msgstr "Profil Professionnel"
+
+msgid "Para trabajadores"
+msgstr "Pour les professionnels"
+
+msgid "Para reclutadores"
+msgstr "Pour les recruteurs"
+
+msgid "¿Deseas eliminar esta experiencia laboral?"
+msgstr "Voulez-vous supprimer cette expérience professionnelle ?"
+
+msgid "¿Deseas eliminar este proyecto?"
+msgstr "Voulez-vous supprimer ce projet ?"
+
+msgid "Ej: Desarrollador Full Stack"
+msgstr "Ex : Développeur Full Stack"
+
+msgid "Ej: Tech Solutions"
+msgstr "Ex : Tech Solutions"
+
+msgid "2021 - Presente"
+msgstr "2021 - Présent"
+
+msgid "Ej: App de Delivery"
+msgstr "Ex : App de Livraison"
+
+msgid "Ej: Proyecto Personal"
+msgstr "Ex : Projet Personnel"
+
+msgid "2023"
+msgstr "2023"
+
+msgid "Acerca de mí"
+msgstr "À propos de moi"
+
+msgid "Activa"
+msgstr "Active"
+
+msgid "Activa para que tu empresa sea visible en el directorio"
+msgstr "Activez pour que votre entreprise soit visible dans l'annuaire"
+
+msgid "Actualizar descripción"
+msgstr "Mettre à jour la description"
+
+msgid "Al menos un carácter especial (!@#$%^&*...)"
+msgstr "Au moins un caractère spécial (!@#$%^&*...)"
+
+msgid "Buscar sector..."
+msgstr "Rechercher un secteur..."
+
+msgid "Busco Talento"
+msgstr "Je recrute"
+
+msgid "Busco Trabajo"
+msgstr "Je cherche un emploi"
+
+msgid "Búsqueda Avanzada y Scoring"
+msgstr "Recherche avancée et scoring"
+
+msgid "Candidato"
+msgstr "Candidat"
+
+msgid "Contactar con Candidato"
+msgstr "Contacter le Candidat"
+
+msgid ""
+"Crea tu perfil en minutos o explora nuestro directorio de empresas y "
+"talentos."
+msgstr ""
+"Créez votre profil en quelques minutes ou explorez notre répertoire "
+"d'entreprises et de talents."
+
+msgid "Crear Nueva Vacante"
+msgstr "Créer une nouvelle offre"
+
+msgid "Crear Vacante"
+msgstr "Créer une offre"
+
+msgid "Crear una cuenta gratis"
+msgstr "Créer un compte gratuit"
+
+msgid "Cuéntanos sobre tu empresa..."
+msgstr "Parlez-nous de votre entreprise..."
+
+msgid "Debe ser un correo corporativo (no Gmail, Yahoo, Hotmail, etc)."
+msgstr ""
+"Doit être une adresse e-mail professionnelle (pas Gmail, Yahoo, Hotmail, "
+"etc.)."
+
+msgid "Describe las responsabilidades y requisitos del puesto..."
+msgstr "Décrivez les responsabilités et exigences du poste..."
+
+msgid "Descubre empresas y reclutadores en diferentes sectores."
+msgstr "Découvrez des entreprises et recruteurs dans divers secteurs."
+
+msgid "Explorar tablón de candidatos"
+msgstr "Explorer le tableau des candidats"
+
+msgid "Explorar tablón de reclutadores"
+msgstr "Explorer le tableau des recruteurs"
+
+msgid "Explorar tablón público sin registro"
+msgstr "Explorer le tableau public sans inscription"
+
+msgid "Inicia sesión aquí"
+msgstr "Connectez-vous ici"
+
+msgid "Ir a tablón de reclutadores"
+msgstr "Aller au tableau des recruteurs"
+
+msgid "Ir a tablón de trabajadores"
+msgstr "Aller au tableau des talents"
+
+msgid ""
+"La plataforma que redefine el CV tradicional en un perfil profesional "
+"interactivo."
+msgstr ""
+"La plateforme qui transforme le CV traditionnel en profil professionnel "
+"interactif."
+
+msgid "Limpiar filtros"
+msgstr "Effacer les filtres"
+
+msgid "Nombre de Empresa"
+msgstr "Nom de l'entreprise"
+
+msgid "Nombre de tu empresa"
+msgstr "Nom de votre entreprise"
+
+msgid "Nombre y apellidos"
+msgstr "Nom et prénom"
+
+msgid "Registrarme como Candidato"
+msgstr "S'inscrire comme Candidat"
+
+msgid "Registrarme como Reclutador"
+msgstr "S'inscrire comme Recruteur"
+
+msgid "Requisitos de la contraseña:"
+msgstr "Exigences du mot de passe :"
+
+msgid "Sitio Web"
+msgstr "Site Web"
+
+msgid "Sobre la empresa"
+msgstr "À propos de l'entreprise"
+
+msgid "Ubicación"
+msgstr "Lieu"
+
+msgid "¿Listo para impulsar tu carrera o escalar tu equipo?"
+msgstr "Prêt à booster votre carrière ou agrandir votre équipe ?"
+
+msgid "¿Por qué TalentStack?"
+msgstr "Pourquoi TalentStack ?"
+
+msgid "¿Qué estás buscando en la plataforma?"
+msgstr "Que recherchez-vous sur la plateforme ?"
+
+msgid "¿Ya tienes una cuenta con Google, GitHub o LinkedIn?"
+msgstr "Avez-vous déjà un compte avec Google, GitHub ou LinkedIn ?"
+
+msgid "Descripción (opcional)"
+msgstr "Description (facultatif)"
+
+msgid "Deseables (OR)"
+msgstr "Souhaitables (OU)"
+
+msgid "Ej: $30,000 - $50,000 MXN mensuales"
+msgstr "Ex : 30 000 $ - 50 000 $ MXN par mois"
+
+msgid "Ej: Ciudad de México, México"
+msgstr "Ex : Mexico, Mexique"
+
+msgid "Empresa Directa"
+msgstr "Entreprise Directe"
+
+msgid "Enviar Mensaje"
+msgstr "Envoyer le Message"
+
+msgid "Escribe tu propuesta o mensaje para el candidato..."
+msgstr "Écrivez votre proposition ou message pour le candidat..."
+
+msgid "Especialidad y Habilidades"
+msgstr "Spécialité et Compétences"
+
+msgid "Experiencia Laboral"
+msgstr "Expérience Professionnelle"
+
+msgid "Ficha de Datos"
+msgstr "Fiche de Données"
+
+msgid ""
+"Filtra perfiles o empresas por sector, especialidades concretas, modalidad "
+"de trabajo y más. Encuentra exactamente la combinación que necesitas."
+msgstr ""
+"Filtrez les profils ou entreprises par secteur, spécialités, modalité de "
+"travail et plus. Trouvez exactement la combinaison dont vous avez besoin."
+
+msgid "Filtros Avanzados"
+msgstr "Filtres Avancés"
+
+msgid "Haz visible tu potencial"
+msgstr "Rendez votre potentiel visible"
+
+msgid "Ingresa un requisito por línea"
+msgstr "Entrez une condition par ligne"
+
+msgid "Logo de empresa"
+msgstr "Logo de l'entreprise"
+
+msgid "Logo de la empresa"
+msgstr "Logo de l'entreprise"
+
+msgid ""
+"Los profesionales exploran ofertas y empresas públicas; los reclutadores "
+"gestionan vacantes y contactan directo con los candidatos."
+msgstr ""
+"Les professionnels explorent les offres et entreprises publiques ; les "
+"recruteurs gèrent les postes et contactent directement les candidats."
+
+msgid "Mis Ofertas / Vacantes"
+msgstr "Mes Offres / Postes"
+
+msgid "Modalidad"
+msgstr "Modalité"
+
+msgid "Modalidad:"
+msgstr "Modalité :"
+
+msgid "No hay vacantes activas por el momento."
+msgstr "Il n'y a aucun poste actif pour le moment."
+
+msgid "No se encontraron empresas con estos filtros."
+msgstr "Aucune entreprise trouvée avec ces filtres."
+
+msgid "No se encontraron perfiles con estos filtros."
+msgstr "Aucun profil trouvé avec ces filtres."
+
+msgid "No tienes vacantes publicadas"
+msgstr "Vous n'avez aucun poste publié"
+
+msgid "Nota: La funcionalidad de guardado estará disponible próximamente."
+msgstr "Remarque : La fonction de sauvegarde sera bientôt disponible."
+
+msgid "Obligatorios (AND)"
+msgstr "Obligatoires (ET)"
+
+msgid "Particular"
+msgstr "Particulier"
+
+msgid "Paso 1 de 4 – ¿Qué buscas?"
+msgstr "Étape 1 sur 4 – Que cherchez-vous ?"
+
+msgid "Perfiles Interactivos"
+msgstr "Profils Interactifs"
+
+msgid "Preferencias de Trabajo"
+msgstr "Préférences de Travail"
+
+msgid ""
+"Presenta tu experiencia, seniority, disponibilidad y red de habilidades en "
+"una página pública optimizada para compartir."
+msgstr ""
+"Présentez votre expérience, séniorité, disponibilité et réseau de "
+"compétences sur une page publique optimisée pour le partage."
+
+msgid "Proyectos Destacados"
+msgstr "Projets Phares"
+
+msgid "Rango salarial"
+msgstr "Fourchette salariale"
+
+msgid "Reclutador"
+msgstr "Recruteur"
+
+msgid "Reclutador Independiente"
+msgstr "Recruteur Indépendant"
+
+msgid "Redes Sociales y Portafolio"
+msgstr "Réseaux Sociaux et Portfolio"
+
+msgid "Redes y Enlaces"
+msgstr "Réseaux et Liens"
+
+msgid "Requisitos"
+msgstr "Conditions requises"
+
+msgid "Sin enlaces externos configurados."
+msgstr "Aucun lien externe configuré."
+
+msgid "Sitio Web (opcional)"
+msgstr "Site web (facultatif)"
+
+msgid "Sitio Web:"
+msgstr "Site web :"
+
+msgid "Sobre Nosotros"
+msgstr "À Propos de Nous"
+
+msgid "Tablón de Empresas"
+msgstr "Tableau des Entreprises"
+
+msgid "Tags (Opcionales)"
+msgstr "Tags (Facultatif)"
+
+msgid "Tecnologías"
+msgstr "Technologies"
+
+msgid "Tipo de Empresa"
+msgstr "Type d'Entreprise"
+
+msgid "Tipo de Reclutador"
+msgstr "Type de Recruteur"
+
+msgid "Tipo:"
+msgstr "Type :"
+
+msgid "Todas"
+msgstr "Toutes"
+
+msgid "Trayectoria laboral y proyectos destacados"
+msgstr "Parcours professionnel et projets phares"
+
+msgid "Ubicación:"
+msgstr "Emplacement :"
+
+msgid "Un espacio doble"
+msgstr "Un double espace"
+
+msgid "Un requisito por línea..."
+msgstr "Une condition par ligne..."
+
+msgid "Vacantes Activas"
+msgstr "Postes Actifs"
+
+msgid "Ver proyecto"
+msgstr "Voir le projet"
+
+msgid ""
+"Vista previa: así es como los reclutadores y empresas ven tu perfil público."
+msgstr ""
+"Aperçu : voici comment les recruteurs et entreprises voient votre profil "
+"public."
+
+msgid "candidatos"
+msgstr "candidats"
+
+msgid "tu@empresa.com"
+msgstr "vous@entreprise.com"
+
+msgid "Sin biografía disponible"
+msgstr "Aucune biographie disponible"
+
+msgid "Paso 1 de 4 — ¿Qué buscas?"
+msgstr "Étape 1 sur 4 — Que cherchez-vous ?"
+
+msgid "Agregar tag"
+msgstr "Ajouter un tag"
+
+msgid "Añadir"
+msgstr "Ajouter"
+
+msgid "Buscar o agregar tag (ej: Python, React, Git)..."
+msgstr "Rechercher ou ajouter un tag (ex : Python, React, Git)..."
+
+msgid "Escribe y presiona Enter o haz clic en + para añadir."
+msgstr "Tapez et appuyez sur Entrée ou cliquez sur + pour ajouter."
+
+msgid "No hay idiomas seleccionados"
+msgstr "Aucune langue sélectionnée"
+
+msgid "No hay tags seleccionados"
+msgstr "Aucun tag sélectionné"
+
+msgid "Nuevo tag"
+msgstr "Nouveau tag"
+
+msgid "100% Gratuito para candidatos"
+msgstr "100% Gratuit pour les candidats"
+
+msgid "Afinidad con vacantes técnicas"
+msgstr "Affinité avec les postes techniques"
+
+msgid "Alcance internacional"
+msgstr "Portée internationale"
+
+msgid "Arquitectura de microservicios y liderazgo de equipo técnico."
+msgstr "Architecture de microservices et direction d'équipe technique."
+
+msgid "Backend Python"
+msgstr "Backend Python"
+
+msgid "Búsqueda y filtrado"
+msgstr "Recherche et filtrage"
+
+msgid "CV Tradicional (PDF)"
+msgstr "CV Traditionnel (PDF)"
+
+msgid "CV Tradicional en PDF"
+msgstr "CV Traditionnel en PDF"
+
+msgid "Cero métricas de visualización ni interés de empresas"
+msgstr "Zéro métrique de vue et aucun suivi de l'intérêt des entreprises"
+
+msgid "Cero visibilidad"
+msgstr "Zéro visibilité"
+
+msgid "Compara la experiencia"
+msgstr "Comparez l'expérience"
+
+msgid "Contactar directamente"
+msgstr "Contacter directement"
+
+msgid "Contacto directo"
+msgstr "Contact direct"
+
+msgid "Contacto directo con reclutadores"
+msgstr "Contact direct avec les recruteurs"
+
+msgid "Contacto directo sin intermediarios"
+msgstr "Contact direct sans intermédiaires"
+
+msgid "Contacto directo y seguro vía email"
+msgstr "Contact direct et sécurisé par e-mail"
+
+msgid "Contacto y respuesta"
+msgstr "Contact et réponse"
+
+msgid ""
+"Crea tu perfil en minutos, comparte tu enlace personalizado y haz visible tu"
+" potencial ante las mejores oportunidades."
+msgstr ""
+"Créez votre profil en quelques minutes, partagez votre lien personnalisé et "
+"rendez votre potentiel visible aux meilleures opportunités."
+
+msgid "Crear mi cuenta gratuita"
+msgstr "Créer mon compte gratuit"
+
+msgid "Crear mi perfil interactivo"
+msgstr "Créer mon profil interactif"
+
+msgid "Criterio"
+msgstr "Critère"
+
+msgid "Código fuente"
+msgstr "Code source"
+
+msgid "Data & IA"
+msgstr "Données & IA"
+
+msgid "Demostración de habilidades"
+msgstr "Démonstration des compétences"
+
+msgid "Desactualizado el mismo día en que se descarga"
+msgstr "Obsolète le jour même de son téléchargement"
+
+msgid "Desarrollo Web"
+msgstr "Développement Web"
+
+msgid "Descargar resumen"
+msgstr "Télécharger le résumé"
+
+msgid "Dinámico, responsivo y enriquecido con medios"
+msgstr "Dynamique, réactif et enrichi de médias"
+
+msgid "Diseñado para hacer destacar tu valor real en el mercado"
+msgstr "Conçu pour mettre en valeur votre véritable valeur marchande"
+
+msgid "Diseño & UX"
+msgstr "Design & UX"
+
+msgid "Disponible para nuevas ofertas"
+msgstr "À l'écoute de nouvelles opportunités"
+
+msgid "Doble Ecosistema Conectado"
+msgstr "Double Écosystème Connecté"
+
+msgid "Documento estático de 2 páginas"
+msgstr "Document statique de 2 pages"
+
+msgid ""
+"Dos tablones sincronizados: profesionales mostrando su talento y "
+"reclutadores publicando oportunidades con total transparencia."
+msgstr ""
+"Deux tableaux synchronisés : des professionnels montrant leur talent et des "
+"recruteurs publiant des opportunités en toute transparence."
+
+msgid ""
+"El CV tradicional en PDF ha muerto. Construye un perfil dinámico con "
+"taxonomía en 4 niveles, portafolio multimedia y contacto directo con "
+"reclutadores globales."
+msgstr ""
+"Le CV traditionnel en PDF est mort. Créez un profil dynamique avec une "
+"taxonomie en 4 niveaux, un portfolio multimédia et un contact direct avec "
+"les recruteurs du monde entier."
+
+msgid "El contraste entre el viejo modelo y la nueva era profesional"
+msgstr "Le contraste entre l'ancien modèle et la nouvelle ère professionnelle"
+
+msgid "Enlaces a proyectos y demos que nadie abre"
+msgstr "Des liens vers des projets et des démos que personne n'ouvre"
+
+msgid "Enlaces muertos"
+msgstr "Liens morts"
+
+msgid "Enterrado en la bandeja"
+msgstr "Enterré dans la boîte de réception"
+
+msgid "Enterrado en un buzón junto a cientos de archivos idénticos"
+msgstr ""
+"Enterré dans une boîte de réception avec des centaines de fichiers "
+"identiques"
+
+msgid "Español (Nativo), Inglés (C1 Avanzado)"
+msgstr "Espagnol (Natif), Anglais (C1 Avancé)"
+
+msgid "Especialidades y tecnologías destacadas en este sector:"
+msgstr "Spécialités et technologies mises en avant dans ce secteur :"
+
+msgid "Experiencia reciente"
+msgstr "Expérience récente"
+
+msgid "Explorador de Talento en Tiempo Real"
+msgstr "Explorateur de Talents en Temps Réel"
+
+msgid "Explorar tablón de empresas"
+msgstr "Explorer le tableau des entreprises"
+
+msgid "Explorar tablón de talento"
+msgstr "Explorer le tableau des talents"
+
+msgid "Explorar tablón público"
+msgstr "Explorer le tableau public"
+
+msgid "Explorar todos los perfiles de este sector"
+msgstr "Explorer tous les profils de ce secteur"
+
+msgid "Filtra por sector y descubre las especialidades más demandadas hoy"
+msgstr ""
+"Filtrez par secteur et découvrez les spécialités les plus recherchées "
+"aujourd'hui"
+
+msgid "Finanzas"
+msgstr "Finance"
+
+msgid "Formato y diseño"
+msgstr "Format et design"
+
+msgid "Haz visible tu talento con un"
+msgstr "Rendez votre talent visible avec un"
+
+msgid "Idiomas disponibles"
+msgstr "Langues disponibles"
+
+msgid "Imágenes, links y repositorio directo"
+msgstr "Images, liens et dépôt direct"
+
+msgid "Ir a mi Dashboard"
+msgstr "Aller à mon Tableau de Bord"
+
+msgid "La diferencia es contundente"
+msgstr "La différence est frappante"
+
+msgid "La evolución del currículum profesional"
+msgstr "L'évolution du CV professionnel"
+
+msgid "Lectura manual o filtros ATS opacos"
+msgstr "Lecture manuelle ou filtres ATS opaques"
+
+msgid "Listas de texto sin verificación visual"
+msgstr "Listes de texte sans preuve visuelle"
+
+msgid "Marketing & Growth"
+msgstr "Marketing & Growth"
+
+msgid "Matching Transparente y Cero Spam"
+msgstr "Matching Transparent et Zéro Spam"
+
+msgid ""
+"Muestra capturas de proyectos, demos funcionales y repositorios de código. "
+"Demuestra lo que sabes hacer."
+msgstr ""
+"Présentez des captures d'écran de projets, des démos fonctionnelles et des "
+"dépôts de code. Prouvez votre savoir-faire."
+
+msgid "Niveles de clasificación"
+msgstr "Niveaux de classification"
+
+msgid "Obsoleto de inmediato"
+msgstr "Obsolète immédiatement"
+
+msgid ""
+"Olvídate de palabras clave sueltas. Clasificamos perfiles mediante Sector, "
+"Rol, Especialidad y Tags para un matching quirúrgico."
+msgstr ""
+"Oubliez les mots-clés épars. Nous classons les profils par Secteur, Rôle, "
+"Spécialité et Tags pour un matching chirurgical."
+
+msgid "Perfil Vivo TalentStack"
+msgstr "Profil Vivant TalentStack"
+
+msgid "Portafolio Multimedia Integrado"
+msgstr "Portfolio Multimédia Intégré"
+
+msgid "Portafolio en vivo con demos y repositorios"
+msgstr "Portfolio en direct avec démos et dépôts"
+
+msgid "Presencia Global en 12 Idiomas"
+msgstr "Présence Mondiale en 12 Langues"
+
+msgid "Profesionales conectados"
+msgstr "Professionnels connectés"
+
+msgid "Proyectos interactivos"
+msgstr "Projets interactifs"
+
+msgid "Rechazado por filtro ATS"
+msgstr "Rejeté par le filtre ATS"
+
+msgid "Remoto / Disponible a nivel global"
+msgstr "Télétravail / Disponible dans le monde entier"
+
+msgid "Rígido, estático y limitado a 2 páginas"
+msgstr "Rigide, statique et limité à 2 pages"
+
+msgid "Semanas de silencio por correo"
+msgstr "Des semaines de silence par e-mail"
+
+msgid "Senior Full-Stack & Cloud Engineer"
+msgstr "Ingénieur Senior Full-Stack & Cloud"
+
+msgid ""
+"Sin algoritmos opacos ni comisiones abusivas. Filtra perfiles por "
+"disponibilidad real y contacta sin rodeos."
+msgstr ""
+"Pas d'algorithmes opaques ni de frais abusifs. Filtrez les profils par "
+"disponibilité réelle et contactez directement."
+
+msgid "Sin coste para profesionales"
+msgstr "Sans frais pour les professionnels"
+
+msgid "Superpoderes de TalentStack"
+msgstr "Les Super-Pouvoirs de TalentStack"
+
+msgid "Tablón de Candidatos"
+msgstr "Tableau des Candidats"
+
+msgid "Tablón de Reclutadores"
+msgstr "Tableau des Recruteurs"
+
+msgid "Taxonomía Estructurada en 4 Capas"
+msgstr "Taxonomie Structurée en 4 Niveaux"
+
+msgid "Taxonomía de Precisión"
+msgstr "Taxonomie de Précision"
+
+msgid "Taxonomía de precisión en 4 capas"
+msgstr "Taxonomie de précision en 4 niveaux"
+
+msgid "Taxonomía inteligente en 4 capas"
+msgstr "Taxonomie intelligente en 4 niveaux"
+
+msgid "Tecnología"
+msgstr "Technologie"
+
+msgid "Tecnologías y competencias destacadas"
+msgstr "Technologies et compétences mises en avant"
+
+msgid "Texto plano sin interactividad ni demostración práctica"
+msgstr "Texte brut sans interactivité ni démonstration pratique"
+
+msgid "Traducción automática a 12 idiomas"
+msgstr "Traduction automatique en 12 langues"
+
+msgid "Traducción nativa en 12 idiomas"
+msgstr "Traduction native en 12 langues"
+
+msgid ""
+"Tu perfil y su taxonomía se traducen automáticamente para conectar con "
+"oportunidades en todo el mundo sin barreras."
+msgstr ""
+"Votre profil et sa taxonomie sont traduits automatiquement pour vous "
+"connecter aux opportunités mondiales sans obstacles."
+
+msgid "Un PDF por cada idioma a traducir"
+msgstr "Un PDF pour chaque langue à traduire"
+
+msgid "Ver demo en vivo"
+msgstr "Voir la démo en direct"
+
+msgid "Vista interactiva"
+msgstr "Vue interactive"
+
+msgid "perfil profesional interactivo"
+msgstr "profil professionnel interactif"
+
+msgid ""
+"¡Simulación interactiva! En un perfil real, este botón abre el canal de "
+"contacto directo con el candidato."
+msgstr ""
+"Simulation interactive ! Sur un profil réel, ce bouton ouvre le canal de "
+"contact direct avec le candidat."
+
+msgid "¿Buscas contratar talento?"
+msgstr "Vous cherchez à recruter des talents ?"
+
+msgid "¿Listo para dar el salto al perfil interactivo?"
+msgstr "Prêt à franchir le pas vers le profil interactif ?"
+
+msgid "¿Por qué un perfil interactivo supera a cualquier PDF?"
+msgstr "Pourquoi un profil interactif surpasse-t-il n'importe quel PDF ?"
+
+msgid "Aumentan el score de afinidad"
+msgstr "Augmentent le score d'affinité"
+
+msgid "Buscando empresas y reclutadores..."
+msgstr "Recherche d'entreprises et de recruteurs..."
+
+msgid "Buscando profesionales..."
+msgstr "Recherche de professionnels..."
+
+msgid "Buscar sector (ej: Tecnología, Salud)..."
+msgstr "Rechercher un secteur (ex : Technologie, Santé)..."
+
+msgid "Cargando empresas..."
+msgstr "Chargement des entreprises..."
+
+msgid "Cargando perfiles..."
+msgstr "Chargement des profils..."
+
+msgid ""
+"Descubre organizaciones y reclutadores que buscan talento activamente con "
+"total transparencia."
+msgstr ""
+"Découvrez des organisations et des recruteurs recherchant activement des "
+"talents en toute transparence."
+
+msgid "Disponible"
+msgstr "Disponible"
+
+msgid "El perfil debe tener todos"
+msgstr "Le profil doit tous les avoir"
+
+msgid ""
+"Encuentra empresas por sector, modalidad de trabajo o tipo de reclutador."
+msgstr ""
+"Trouvez des entreprises par secteur, modalité de travail ou type de "
+"recruteur."
+
+msgid "Escribe para buscar tag (ej: Docker, AWS)..."
+msgstr "Tapez pour rechercher un tag (ex : Docker, AWS)..."
+
+msgid "Escribe para buscar tag (ej: Python, React)..."
+msgstr "Tapez pour rechercher un tag (ex : Python, React)..."
+
+msgid ""
+"Explora perfiles verificados con taxonomía de precisión, habilidades reales "
+"y contacto directo."
+msgstr ""
+"Explorez des profils vérifiés avec une taxonomie de précision, des "
+"compétences réelles et un contact direct."
+
+msgid ""
+"Filtra en cascada por Sector, Rol, Especialidad y competencias específicas."
+msgstr ""
+"Filtrez en cascade par Secteur, Rôle, Spécialité et compétences spécifiques."
+
+msgid "Filtros Adicionales (Seniority y Modalidad)"
+msgstr "Filtres Supplémentaires (Séniorité et Modalité)"
+
+msgid "Filtros de Búsqueda Taxonómica"
+msgstr "Filtres de Recherche Taxonomique"
+
+msgid "Filtros de Empresas y Vacantes"
+msgstr "Filtres d'Entreprises et de Postes"
+
+msgid "Match"
+msgstr "Match"
+
+msgid "Modalidad de Trabajo"
+msgstr "Modalité de Travail"
+
+msgid "Nivel de Seniority"
+msgstr "Niveau de Séniorité"
+
+msgid "No se encontraron empresas con estos filtros"
+msgstr "Aucune entreprise trouvée avec ces filtres"
+
+msgid "No se encontraron perfiles con estos filtros"
+msgstr "Aucun profil trouvé avec ces filtres"
+
+msgid "Obligatorios / Deseables"
+msgstr "Obligatoires / Souhaitables"
+
+msgid "Para reclutadores (Empresas)"
+msgstr "Pour les recruteurs (Entreprises)"
+
+msgid "Para trabajadores (Candidatos)"
+msgstr "Pour les talents (Candidats)"
+
+msgid ""
+"Prueba relajando algunos criterios de búsqueda o limpiando los filtros para "
+"ver más resultados."
+msgstr ""
+"Essayez d'élargir certains critères de recherche ou d'effacer les filtres "
+"pour voir plus de résultats."
+
+msgid "Restablecer todos los filtros"
+msgstr "Réinitialiser tous les filtres"
+
+msgid "Sectores de Contratación"
+msgstr "Secteurs de Recrutement"
+
+msgid "Sin descripción"
+msgstr "Aucune description"
+
+msgid "Tags y Tecnologías Clave"
+msgstr "Tags et Technologies Clés"
+
+msgid "Todas las especialidades"
+msgstr "Toutes les spécialités"
+
+msgid "Todas las modalidades"
+msgstr "Toutes les modalités"
+
+msgid "Todos los niveles"
+msgstr "Tous les niveaux"
+
+msgid "Todos los roles"
+msgstr "Tous les rôles"
+
+msgid "Todos los sectores"
+msgstr "Tous les secteurs"
+
+msgid "Todos los tipos"
+msgstr "Tous les types"
+
+msgid "Ver empresa y vacantes"
+msgstr "Voir l'entreprise et les postes"
+
+msgid "Ver perfil interactivo"
+msgstr "Voir le profil interactif"
+
+msgid "empresa encontrada"
+msgstr "entreprise trouvée"
+
+msgid "empresas encontradas"
+msgstr "entreprises trouvées"
+
+msgid "más"
+msgstr "de plus"
+
+msgid "profesional encontrado"
+msgstr "professionnel trouvé"
+
+msgid "profesionales encontrados"
+msgstr "professionnels trouvés"
+
 #~ msgid "Mi Perfil"
 #~ msgstr "Mon profil"
 
@@ -1276,10 +2311,10 @@ msgstr "Aucun CV trouvé dans cette catégorie."
 #~ msgstr "Au moins un caractère spécial (!@#$%^&*())"
 
 #~ msgid "Al menos un número"
-#~ msgstr "Au moins un nombre"
+#~ msgstr "Au moins un chiffre"
 
 #~ msgid "Al menos una letra mayúscula"
-#~ msgstr "Au moins une lettre majuscule"
+#~ msgstr "Au moins une majuscule"
 
 #~ msgid "Cuenta"
 #~ msgstr "Compte"
@@ -1303,11 +2338,11 @@ msgstr "Aucun CV trouvé dans cette catégorie."
 #~ "La contraseña debe tener al menos 8 caracteres, 1 mayúscula, 1 número y 1 "
 #~ "carácter especial."
 #~ msgstr ""
-#~ "Le mot de passe doit comporter au moins 8 caractères, 1 majuscule, 1 "
-#~ "chiffre et 1 caractère spécial."
+#~ "Le mot de passe doit comporter au moins 8 caractères, 1 majuscule, 1 chiffre"
+#~ " et 1 caractère spécial."
 
 #~ msgid "Mínimo 8 caracteres"
-#~ msgstr "8 caractères minimum"
+#~ msgstr "Au moins 8 caractères"
 
 #~ msgid "Perfil profesional"
 #~ msgstr "Profil professionnel"

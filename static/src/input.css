@@ -2,6 +2,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @source "../../templates/**/*.html";
 @source "../../apps/**/*.py";
+@source "../../static/js/**/*.js";
 
 @utility scrollbar-hide {
   -ms-overflow-style: none;

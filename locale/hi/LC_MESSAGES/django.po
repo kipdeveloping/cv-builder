@@ -53,20 +53,22 @@ msgstr "पासवर्ड में कम से कम एक संख्
 #: .\apps\accounts\forms.py:70
 #, python-brace-format
 msgid ""
-"La contraseña debe contener al menos un carácter especial (!@#$%^&*(),.?\":"
-"{}|<>)."
+"La contraseña debe contener al menos un carácter especial "
+"(!@#$%^&*(),.?\":{}|<>)."
 msgstr "पासवर्ड में कम से कम एक विशेष वर्ण होना चाहिए (!@#$%^&*(),.?\":{}|<>)."
 
 #: .\apps\accounts\forms.py:87 .\apps\accounts\forms.py:106
 #: .\templates\accounts\complete_profile.html:29
-#: .\templates\accounts\dashboard.html:13 .\templates\accounts\register.html:61
+#: .\templates\accounts\dashboard.html:13
+#: .\templates\accounts\register.html:61
 #: .\templates\resumes\templates\_section_references.html:14
 msgid "Nombre"
 msgstr "पहला नाम"
 
 #: .\apps\accounts\forms.py:95 .\apps\accounts\forms.py:115
 #: .\templates\accounts\complete_profile.html:37
-#: .\templates\accounts\dashboard.html:15 .\templates\accounts\register.html:68
+#: .\templates\accounts\dashboard.html:15
+#: .\templates\accounts\register.html:68
 msgid "Apellido"
 msgstr "अंतिम नाम"
 
@@ -206,7 +208,7 @@ msgstr "कृपया त्रुटियाँ ठीक करें:"
 #: .\templates\accounts\complete_profile.html:32
 #: .\templates\accounts\profile.html:347 .\templates\accounts\register.html:64
 msgid "Tu nombre"
-msgstr "आपका पहला नाम"
+msgstr "आपका नाम"
 
 #: .\templates\accounts\complete_profile.html:40
 #: .\templates\accounts\register.html:71
@@ -246,7 +248,7 @@ msgstr "सहेजें"
 #: .\templates\resumes\templates\creative.html:6
 #: .\templates\resumes\templates\modern.html:5
 msgid "Foto de perfil"
-msgstr "प्रोफ़ाइल फोटो"
+msgstr "प्रोफ़ाइल फ़ोटो"
 
 #: .\templates\accounts\dashboard.html:85
 msgid "Editar estado"
@@ -266,24 +268,29 @@ msgstr "कौशल"
 msgid "Editar"
 msgstr "संपादित करें"
 
-#: .\templates\accounts\dashboard.html:107 .\templates\accounts\profile.html:74
+#: .\templates\accounts\dashboard.html:107
+#: .\templates\accounts\profile.html:74
 msgid "Sin habilidades"
 msgstr "कोई कौशल नहीं"
 
-#: .\templates\accounts\dashboard.html:115 .\templates\accounts\profile.html:81
+#: .\templates\accounts\dashboard.html:115
+#: .\templates\accounts\profile.html:81
 msgid "Bio"
 msgstr "बायो"
 
 #: .\templates\accounts\dashboard.html:129
-#: .\templates\accounts\dashboard.html:416 .\templates\accounts\profile.html:88
+#: .\templates\accounts\dashboard.html:416
+#: .\templates\accounts\profile.html:88
 msgid "Preferencias de trabajo"
-msgstr "कार्य प्राथमिकताएँ"
+msgstr "काम की प्राथमिकताएं"
 
-#: .\templates\accounts\dashboard.html:137 .\templates\accounts\profile.html:92
+#: .\templates\accounts\dashboard.html:137
+#: .\templates\accounts\profile.html:92
 msgid "Tipo de empleo:"
-msgstr "रोज़गार का प्रकार:"
+msgstr "रोजगार प्रकार:"
 
-#: .\templates\accounts\dashboard.html:141 .\templates\accounts\profile.html:98
+#: .\templates\accounts\dashboard.html:141
+#: .\templates\accounts\profile.html:98
 msgid "Salario esperado:"
 msgstr "अपेक्षित वेतन:"
 
@@ -295,7 +302,7 @@ msgstr "स्थानांतरण के लिए तैयार:"
 #: .\templates\accounts\dashboard.html:149
 #: .\templates\accounts\profile.html:110
 msgid "Disponible para viajar:"
-msgstr "यात्रा के लिए तैयार:"
+msgstr "यात्रा के लिए उपलब्ध:"
 
 #: .\templates\accounts\dashboard.html:158
 #: .\templates\accounts\dashboard.html:525
@@ -305,7 +312,7 @@ msgstr "मेरे सीवी"
 #: .\templates\accounts\dashboard.html:167
 #: .\templates\accounts\profile.html:138
 msgid "Experiencia y Proyectos"
-msgstr "अनुभव और परियोजनाएँ"
+msgstr "अनुभव और परियोजनाएं"
 
 #: .\templates\accounts\dashboard.html:170
 #: .\templates\resumes\templates\creative.html:38
@@ -315,20 +322,20 @@ msgstr "जोड़ें"
 #: .\templates\accounts\dashboard.html:251
 #: .\templates\accounts\profile.html:180
 msgid "Redes Sociales"
-msgstr "सोशल लिंक"
+msgstr "सोशल नेटवर्क"
 
 #: .\templates\accounts\dashboard.html:283
 #: .\templates\accounts\profile.html:207
 msgid "Sin redes sociales configuradas"
-msgstr "कोई सोशल लिंक कॉन्फ़िगर नहीं"
+msgstr "कोई सोशल लिंक कॉन्फ़िगर नहीं है"
 
 #: .\templates\accounts\dashboard.html:294
 msgid "Actualizar foto"
-msgstr "फोटो अपडेट करें"
+msgstr "फ़ोटो अपडेट करें"
 
 #: .\templates\accounts\dashboard.html:305
 msgid "JPG, PNG o WebP. Maximo 5MB."
-msgstr "JPG, PNG या WebP। अधिकतम 5MB।"
+msgstr "JPG, PNG या WebP. अधिकतम 5MB."
 
 #: .\templates\accounts\dashboard.html:308
 #: .\templates\accounts\dashboard.html:332
@@ -344,11 +351,11 @@ msgstr "रद्द करें"
 
 #: .\templates\accounts\dashboard.html:320
 msgid "Actualizar titular"
-msgstr "उपाधि अपडेट करें"
+msgstr "शीर्षक अपडेट करें"
 
 #: .\templates\accounts\dashboard.html:329
 msgid "Ej: Desarrollador Full Stack Senior"
-msgstr "उदा: सीनियर फुल स्टैक डेवलपर"
+msgstr "उदा: वरिष्ठ फुल स्टैक डेवलपर"
 
 #: .\templates\accounts\dashboard.html:343
 msgid "Actualizar bio"
@@ -356,7 +363,7 @@ msgstr "बायो अपडेट करें"
 
 #: .\templates\accounts\dashboard.html:352
 msgid "Cuentanos sobre ti..."
-msgstr "अपने बारे में बताएँ..."
+msgstr "अपने बारे में बताएं..."
 
 #: .\templates\accounts\dashboard.html:366
 msgid "Actualizar estado"
@@ -364,7 +371,7 @@ msgstr "स्थिति अपडेट करें"
 
 #: .\templates\accounts\dashboard.html:375
 msgid "Estado de busqueda"
-msgstr "नौकरी खोज स्थिति"
+msgstr "नौकरी खोज की स्थिति"
 
 #: .\templates\accounts\dashboard.html:377
 #: .\templates\accounts\dashboard.html:386
@@ -372,19 +379,19 @@ msgstr "नौकरी खोज स्थिति"
 #: .\templates\accounts\dashboard.html:446
 #: .\templates\accounts\dashboard.html:455
 msgid "No especificado"
-msgstr "निर्दिष्ट नहीं"
+msgstr "अनिर्दिष्ट"
 
 #: .\templates\accounts\dashboard.html:378
 msgid "Buscando activamente"
-msgstr "सक्रिय रूप से खोज रहा हूँ"
+msgstr "सक्रिय रूप से तलाश में"
 
 #: .\templates\accounts\dashboard.html:379
 msgid "Abierto a ofertas"
-msgstr "प्रस्तावों के लिए खुला"
+msgstr "अवसरों के लिए तैयार"
 
 #: .\templates\accounts\dashboard.html:380
 msgid "No buscando"
-msgstr "खोज नहीं रहा"
+msgstr "तलाश नहीं कर रहे"
 
 #: .\templates\accounts\dashboard.html:384
 msgid "Disponibilidad"
@@ -392,7 +399,7 @@ msgstr "उपलब्धता"
 
 #: .\templates\accounts\dashboard.html:387
 msgid "Inmediata"
-msgstr "तुरंत"
+msgstr "तत्काल"
 
 #: .\templates\accounts\dashboard.html:388
 msgid "2 semanas"
@@ -404,11 +411,11 @@ msgstr "1 महीना"
 
 #: .\templates\accounts\dashboard.html:390
 msgid "Negociable"
-msgstr "बातचीत योग्य"
+msgstr "परक्राम्य"
 
 #: .\templates\accounts\dashboard.html:394
 msgid "Preferencia de ubicacion"
-msgstr "स्थान प्राथमिकता"
+msgstr "कार्यस्थल प्राथमिकता"
 
 #: .\templates\accounts\dashboard.html:397
 msgid "Remoto"
@@ -424,7 +431,7 @@ msgstr "ऑन-साइट"
 
 #: .\templates\accounts\dashboard.html:425
 msgid "Tipo de empleo"
-msgstr "रोज़गार का प्रकार"
+msgstr "रोज़गार प्रकार"
 
 #: .\templates\accounts\dashboard.html:438
 msgid "Salario esperado"
@@ -449,7 +456,7 @@ msgstr "नहीं"
 
 #: .\templates\accounts\dashboard.html:449
 msgid "Según destino"
-msgstr "गंतव्य पर निर्भर"
+msgstr "स्थान पर निर्भर"
 
 #: .\templates\accounts\dashboard.html:453
 msgid "Disponible para viajar"
@@ -457,7 +464,7 @@ msgstr "यात्रा के लिए तैयार"
 
 #: .\templates\accounts\dashboard.html:457
 msgid "Ocasional"
-msgstr "कभी-कभी"
+msgstr "कभी-कभार"
 
 #: .\templates\accounts\dashboard.html:458
 msgid "Frecuente"
@@ -523,7 +530,7 @@ msgstr "सोशल लिंक संपादित करें"
 #: .\templates\accounts\login.html:4 .\templates\accounts\login.html:46
 #: .\templates\base.html:75
 msgid "Entrar"
-msgstr "लॉग इन करें"
+msgstr "लॉग इन"
 
 #: .\templates\accounts\login.html:9
 msgid "Iniciar Sesión"
@@ -545,7 +552,9 @@ msgstr "या जारी रखें"
 msgid ""
 "El login con redes sociales no está configurado. Consulta el README para "
 "configurar las credenciales OAuth."
-msgstr "सोशल लॉगिन कॉन्फ़िगर नहीं है। OAuth क्रेडेंशियल कॉन्फ़िगर करने के लिए README देखें।"
+msgstr ""
+"सोशल लॉगिन कॉन्फ़िगर नहीं है। OAuth क्रेडेंशियल कॉन्फ़िगर करने के लिए README"
+" देखें।"
 
 #: .\templates\accounts\login.html:108
 msgid "¿No tienes cuenta?"
@@ -562,7 +571,7 @@ msgstr "यह आपकी सार्वजनिक प्रोफ़ाइ
 #: .\templates\accounts\profile.html:12
 #: .\templates\registration\password_change_done.html:13
 msgid "Ir al Dashboard"
-msgstr "डैशबोर्ड पर जाएँ"
+msgstr "डैशबोर्ड पर जाएं"
 
 #: .\templates\accounts\profile.html:122
 msgid "Contactar"
@@ -642,9 +651,10 @@ msgstr "भेजें"
 
 #: .\templates\accounts\register.html:5 .\templates\base.html:76
 msgid "Registrarse"
-msgstr "पंजीकरण करें"
+msgstr "साइन अप"
 
-#: .\templates\accounts\register.html:10 .\templates\accounts\register.html:103
+#: .\templates\accounts\register.html:10
+#: .\templates\accounts\register.html:103
 msgid "Crear Cuenta"
 msgstr "खाता बनाएँ"
 
@@ -690,7 +700,7 @@ msgstr "लॉग इन करें"
 
 #: .\templates\base.html:30
 msgid "Tablón"
-msgstr "दीवार"
+msgstr "बोर्ड"
 
 #: .\templates\base.html:33
 msgid "Cambiar tema"
@@ -713,8 +723,8 @@ msgid ""
 "Diseña CVs impresionantes con plantillas profesionales. Publica en nuestro "
 "tablón de talentos y conecta con oportunidades."
 msgstr ""
-"पेशेवर टेम्पलेट्स के साथ शानदार सीवी डिज़ाइन करें। हमारे टैलेंट वॉल पर प्रकाशित करें और अवसरों "
-"से जुड़ें।"
+"पेशेवर टेम्पलेट्स के साथ शानदार सीवी डिज़ाइन करें। हमारे टैलेंट वॉल पर "
+"प्रकाशित करें और अवसरों से जुड़ें।"
 
 #: .\templates\landing.html:19
 msgid "Mi Dashboard"
@@ -743,7 +753,9 @@ msgstr "3 पेशेवर टेम्पलेट्स"
 #: .\templates\landing.html:52
 msgid ""
 "Elige entre diseños clásico, moderno y creativo para destacar tu perfil."
-msgstr "अपनी प्रोफ़ाइल को उभारने के लिए क्लासिक, आधुनिक और रचनात्मक डिज़ाइन में से चुनें।"
+msgstr ""
+"अपनी प्रोफ़ाइल को उभारने के लिए क्लासिक, आधुनिक और रचनात्मक डिज़ाइन में से "
+"चुनें।"
 
 #: .\templates\landing.html:61
 msgid "Editor visual"
@@ -783,7 +795,6 @@ msgid "Contraseña actualizada"
 msgstr "पासवर्ड अपडेट हो गया"
 
 #: .\templates\registration\password_change_done.html:10
-#, fuzzy
 #| msgid "Foto actualizada correctamente."
 msgid "Tu contraseña ha sido cambiada correctamente."
 msgstr "फोटो सफलतापूर्वक अपडेट हुई।"
@@ -797,7 +808,6 @@ msgid "Actualizar contraseña"
 msgstr "पासवर्ड अपडेट करें"
 
 #: .\templates\registration\password_reset_complete.html:4
-#, fuzzy
 #| msgid "Contraseña"
 msgid "Contraseña restablecida"
 msgstr "पासवर्ड"
@@ -807,7 +817,6 @@ msgid "Tu contraseña ha sido restablecida. Ya puedes iniciar sesión."
 msgstr "आपका पासवर्ड रीसेट हो गया। अब आप लॉग इन कर सकते हैं।"
 
 #: .\templates\registration\password_reset_confirm.html:4
-#, fuzzy
 #| msgid "Contraseña"
 msgid "Nueva contraseña"
 msgstr "पासवर्ड"
@@ -846,7 +855,9 @@ msgstr "अपना ईमेल जाँचें"
 msgid ""
 "Si existe una cuenta con ese email, te hemos enviado instrucciones para "
 "restablecer tu contraseña."
-msgstr "यदि उस ईमेल के साथ खाता मौजूद है, तो हमने पासवर्ड रीसेट करने के निर्देश भेज दिए हैं।"
+msgstr ""
+"यदि उस ईमेल के साथ खाता मौजूद है, तो हमने पासवर्ड रीसेट करने के निर्देश भेज "
+"दिए हैं।"
 
 #: .\templates\registration\password_reset_email.html:3
 msgid "Recibimos una solicitud para restablecer tu contraseña en CV Builder."
@@ -860,7 +871,8 @@ msgstr "नया पासवर्ड चुनने के लिए नि�
 msgid ""
 "Si no solicitaste este cambio, ignora este email. Tu contraseña no cambiará."
 msgstr ""
-"यदि आपने यह बदलाव नहीं माँगा, तो इस ईमेल को अनदेखा करें। आपका पासवर्ड नहीं बदलेगा।"
+"यदि आपने यह बदलाव नहीं माँगा, तो इस ईमेल को अनदेखा करें। आपका पासवर्ड नहीं "
+"बदलेगा।"
 
 #: .\templates\registration\password_reset_form.html:4
 #: .\templates\registration\password_reset_form.html:9
@@ -1131,3 +1143,1078 @@ msgstr "लोड हो रहा है..."
 #: .\templates\wall\wall.html:43
 msgid "No se encontraron CVs en esta categoría."
 msgstr "इस श्रेणी में कोई सीवी नहीं मिला।"
+
+msgid "Mis Habilidades"
+msgstr "मेरे कौशल"
+
+msgid "Perfil público"
+msgstr "सार्वजनिक प्रोफ़ाइल"
+
+msgid "Perfil publico"
+msgstr "सार्वजनिक प्रोफ़ाइल"
+
+msgid "Activa para que tu perfil sea visible en el tablón"
+msgstr "बोर्ड पर अपनी प्रोफ़ाइल दिखाने के लिए सक्रिय करें"
+
+msgid "Debes subir una foto de perfil para hacer tu perfil público."
+msgstr "प्रोफ़ाइल सार्वजनिक करने के लिए फ़ोटो अपलोड करना आवश्यक है।"
+
+msgid "Debes subir una foto de perfil para hacer tu perfil publico."
+msgstr "प्रोफ़ाइल सार्वजनिक करने के लिए फ़ोटो अपलोड करना आवश्यक है।"
+
+msgid "Sin titular"
+msgstr "कोई शीर्षक नहीं"
+
+msgid "Sin biografia"
+msgstr "कोई बायो उपलब्ध नहीं"
+
+msgid "Sin biografía"
+msgstr "कोई बायो उपलब्ध नहीं"
+
+msgid "Sector:"
+msgstr "क्षेत्र:"
+
+msgid "Rol:"
+msgstr "भूमिका:"
+
+msgid "Especialidad:"
+msgstr "विशेषज्ञता:"
+
+msgid "Seniority:"
+msgstr "अनुभव स्तर:"
+
+msgid "Idiomas:"
+msgstr "भाषाएँ:"
+
+msgid "Tags:"
+msgstr "टैग:"
+
+msgid "Sin experiencia ni proyectos agregados"
+msgstr "अभी तक कोई अनुभव या परियोजना नहीं जोड़ी गई"
+
+msgid "Cargo / Puesto"
+msgstr "पद / भूमिका"
+
+msgid "Empresa o Cliente"
+msgstr "कंपनी या ग्राहक"
+
+msgid "Logotipo de la empresa (Opcional)"
+msgstr "कंपनी का लोगो (वैकल्पिक)"
+
+msgid "Captura o imagen del proyecto (Opcional)"
+msgstr "परियोजना का स्क्रीनशॉट या छवि (वैकल्पिक)"
+
+msgid "Haz clic para subir"
+msgstr "अपलोड करने के लिए क्लिक करें"
+
+msgid "el logo o imagen"
+msgstr "लोगो या छवि"
+
+msgid "la captura del proyecto"
+msgstr "परियोजना स्क्रीनशॉट"
+
+msgid "Logotipo cargado"
+msgstr "लोगो अपलोड हो गया"
+
+msgid "Imagen cargada"
+msgstr "छवि अपलोड हो गई"
+
+msgid "Listo para guardar"
+msgstr "सहेजने के लिए तैयार"
+
+msgid "Eliminar"
+msgstr "हटाएं"
+
+msgid "Ver"
+msgstr "देखें"
+
+msgid "Editar Habilidades"
+msgstr "कौशल संपादित करें"
+
+msgid "Editar experiencia"
+msgstr "अनुभव संपादित करें"
+
+msgid "Editar proyecto"
+msgstr "परियोजना संपादित करें"
+
+msgid "Estado de búsqueda"
+msgstr "नौकरी खोज की स्थिति"
+
+msgid "Preferencia de ubicación"
+msgstr "कार्यस्थल प्राथमिकता"
+
+msgid "Cuéntanos sobre ti..."
+msgstr "अपने बारे में बताएं..."
+
+msgid "JPG, PNG o WebP. Máximo 5MB."
+msgstr "JPG, PNG या WebP. अधिकतम 5MB."
+
+msgid "URL del proyecto (Opcional)"
+msgstr "परियोजना URL (वैकल्पिक)"
+
+msgid "Describe el proyecto y las tecnologías usadas..."
+msgstr "परियोजना और उपयोग की गई तकनीकों का वर्णन करें..."
+
+msgid "Describe tus responsabilidades y logros..."
+msgstr "अपनी जिम्मेदारियों और उपलब्धियों का वर्णन करें..."
+
+msgid "Seleccionar..."
+msgstr "चुनें..."
+
+msgid "Seleccionar idioma..."
+msgstr "भाषा चुनें..."
+
+msgid "Buscar tag..."
+msgstr "टैग खोजें..."
+
+msgid "Híbrido"
+msgstr "हाइब्रिड"
+
+msgid "Segun destino"
+msgstr "स्थान पर निर्भर"
+
+msgid "Full-time"
+msgstr "पूर्णकालिक"
+
+msgid "Part-time"
+msgstr "अंशकालिक"
+
+msgid "Contrato"
+msgstr "अनुबंध"
+
+msgid "Freelance"
+msgstr "फ्रीलांस"
+
+msgid "Si"
+msgstr "हाँ"
+
+msgid "Junior"
+msgstr "जूनियर"
+
+msgid "Semi-Senior"
+msgstr "मध्यम स्तर"
+
+msgid "Senior"
+msgstr "वरिष्ठ"
+
+msgid "Lead"
+msgstr "लीड"
+
+msgid "Español"
+msgstr "स्पैनिश"
+
+msgid "Inglés"
+msgstr "अंग्रेज़ी"
+
+msgid "Portugués"
+msgstr "पुर्तगाली"
+
+msgid "Francés"
+msgstr "फ्रेंच"
+
+msgid "Alemán"
+msgstr "जर्मन"
+
+msgid "Italiano"
+msgstr "इतालवी"
+
+msgid "Japonés"
+msgstr "जापानी"
+
+msgid "Coreano"
+msgstr "कोरियाई"
+
+msgid "Chino"
+msgstr "चीनी"
+
+msgid "Ruso"
+msgstr "रूसी"
+
+msgid "Árabe"
+msgstr "अरबी"
+
+msgid "Hindi"
+msgstr "हिन्दी"
+
+msgid "Proyecto"
+msgstr "परियोजना"
+
+msgid "Periodo"
+msgstr "अवधि"
+
+msgid "Descripción"
+msgstr "विवरण"
+
+msgid "Rol"
+msgstr "भूमिका"
+
+msgid "Especialidad"
+msgstr "विशेषज्ञता"
+
+msgid "Seniority"
+msgstr "अनुभव स्तर"
+
+msgid "Tags"
+msgstr "टैग"
+
+msgid "Perfil Profesional"
+msgstr "व्यावसायिक प्रोफ़ाइल"
+
+msgid "Para trabajadores"
+msgstr "पेशेवरों के लिए"
+
+msgid "Para reclutadores"
+msgstr "नियोक्ताओं के लिए"
+
+msgid "¿Deseas eliminar esta experiencia laboral?"
+msgstr "क्या आप इस कार्य अनुभव को हटाना चाहते हैं?"
+
+msgid "¿Deseas eliminar este proyecto?"
+msgstr "क्या आप इस परियोजना को हटाना चाहते हैं?"
+
+msgid "Ej: Desarrollador Full Stack"
+msgstr "उदा: फुल स्टैक डेवलपर"
+
+msgid "Ej: Tech Solutions"
+msgstr "उदा: टेक सॉल्यूशंस"
+
+msgid "2021 - Presente"
+msgstr "2021 - वर्तमान"
+
+msgid "Ej: App de Delivery"
+msgstr "उदा: डिलीवरी ऐप"
+
+msgid "Ej: Proyecto Personal"
+msgstr "उदा: व्यक्तिगत परियोजना"
+
+msgid "2023"
+msgstr "2023"
+
+msgid "Acerca de mí"
+msgstr "मेरे बारे में"
+
+msgid "Activa"
+msgstr "सक्रिय"
+
+msgid "Activa para que tu empresa sea visible en el directorio"
+msgstr "निर्देशिका में कंपनी दिखाने के लिए सक्रिय करें"
+
+msgid "Actualizar descripción"
+msgstr "विवरण अपडेट करें"
+
+msgid "Al menos un carácter especial (!@#$%^&*...)"
+msgstr "कम से कम एक विशेष वर्ण (!@#$%^&*...)"
+
+msgid "Al menos un número"
+msgstr "कम से कम एक संख्या"
+
+msgid "Al menos una letra mayúscula"
+msgstr "कम से कम एक बड़ा अक्षर"
+
+msgid "Buscar sector..."
+msgstr "क्षेत्र खोजें..."
+
+msgid "Busco Talento"
+msgstr "प्रतिभा तलाश रहे हैं"
+
+msgid "Busco Trabajo"
+msgstr "काम तलाश रहे हैं"
+
+msgid "Búsqueda Avanzada y Scoring"
+msgstr "उन्नत खोज और स्कोरिंग"
+
+msgid "Candidato"
+msgstr "उम्मीदवार"
+
+msgid "Contactar con Candidato"
+msgstr "उम्मीदवार से संपर्क करें"
+
+msgid ""
+"Crea tu perfil en minutos o explora nuestro directorio de empresas y "
+"talentos."
+msgstr ""
+"मिनटों में अपनी प्रोफ़ाइल बनाएं या कंपनियों और प्रतिभाओं की निर्देशिका "
+"देखें।"
+
+msgid "Crear Nueva Vacante"
+msgstr "नई रिक्ति बनाएं"
+
+msgid "Crear Vacante"
+msgstr "रिक्ति बनाएं"
+
+msgid "Crear una cuenta gratis"
+msgstr "मुफ़्त खाता बनाएं"
+
+msgid "Cuéntanos sobre tu empresa..."
+msgstr "अपनी कंपनी के बारे में बताएं..."
+
+msgid "Debe ser un correo corporativo (no Gmail, Yahoo, Hotmail, etc)."
+msgstr "कॉर्पोरेट ईमेल होना आवश्यक है (Gmail, Yahoo, Hotmail आदि नहीं)।"
+
+msgid "Describe las responsabilidades y requisitos del puesto..."
+msgstr "पद की जिम्मेदारियों और आवश्यकताओं का वर्णन करें..."
+
+msgid "Descubre empresas y reclutadores en diferentes sectores."
+msgstr "विभिन्न क्षेत्रों की कंपनियों और नियोक्ताओं को खोजें।"
+
+msgid "Explorar tablón de candidatos"
+msgstr "उम्मीदवार बोर्ड देखें"
+
+msgid "Explorar tablón de reclutadores"
+msgstr "नियोक्ता बोर्ड देखें"
+
+msgid "Explorar tablón público sin registro"
+msgstr "बिना पंजीकरण के सार्वजनिक बोर्ड देखें"
+
+msgid "Inicia sesión aquí"
+msgstr "यहाँ लॉग इन करें"
+
+msgid "Ir a tablón de reclutadores"
+msgstr "नियोक्ता बोर्ड पर जाएं"
+
+msgid "Ir a tablón de trabajadores"
+msgstr "प्रतिभा बोर्ड पर जाएं"
+
+msgid ""
+"La plataforma que redefine el CV tradicional en un perfil profesional "
+"interactivo."
+msgstr "पारंपरिक सीवी को एक इंटरैक्टिव पेशेवर प्रोफ़ाइल में बदलने वाला मंच।"
+
+msgid "Limpiar filtros"
+msgstr "फ़िल्टर साफ़ करें"
+
+msgid "Mínimo 8 caracteres"
+msgstr "कम से कम 8 वर्ण"
+
+msgid "Nombre de Empresa"
+msgstr "कंपनी का नाम"
+
+msgid "Nombre de tu empresa"
+msgstr "आपकी कंपनी का नाम"
+
+msgid "Nombre y apellidos"
+msgstr "पूरा नाम"
+
+msgid "Registrarme como Candidato"
+msgstr "उम्मीदवार के रूप में पंजीकरण करें"
+
+msgid "Registrarme como Reclutador"
+msgstr "नियोक्ता के रूप में पंजीकरण करें"
+
+msgid "Requisitos de la contraseña:"
+msgstr "पासवर्ड की आवश्यकताएं:"
+
+msgid "Sitio Web"
+msgstr "वेबसाइट"
+
+msgid "Sobre la empresa"
+msgstr "कंपनी के बारे में"
+
+msgid "Ubicación"
+msgstr "स्थान"
+
+msgid "¿Listo para impulsar tu carrera o escalar tu equipo?"
+msgstr "क्या आप अपने करियर को बढ़ावा देने या टीम बढ़ाने के लिए तैयार हैं?"
+
+msgid "¿Por qué TalentStack?"
+msgstr "TalentStack क्यों?"
+
+msgid "¿Qué estás buscando en la plataforma?"
+msgstr "आप इस मंच पर क्या खोज रहे हैं?"
+
+msgid "¿Ya tienes una cuenta con Google, GitHub o LinkedIn?"
+msgstr "क्या आपके पास पहले से Google, GitHub या LinkedIn खाता है?"
+
+msgid "Anterior"
+msgstr "पिछला"
+
+msgid "Descripción (opcional)"
+msgstr "विवरण (वैकल्पिक)"
+
+msgid "Deseables (OR)"
+msgstr "वांछनीय (OR)"
+
+msgid "Ej: $30,000 - $50,000 MXN mensuales"
+msgstr "उदा: $30,000 - $50,000 MXN मासिक"
+
+msgid "Ej: Ciudad de México, México"
+msgstr "उदा: मेक्सिको सिटी, मेक्सिको"
+
+msgid "Empresa Directa"
+msgstr "प्रत्यक्ष कंपनी"
+
+msgid "Enviar Mensaje"
+msgstr "संदेश भेजें"
+
+msgid "Escribe tu propuesta o mensaje para el candidato..."
+msgstr "उम्मीदवार के लिए अपना प्रस्ताव या संदेश लिखें..."
+
+msgid "Especialidad y Habilidades"
+msgstr "विशेषज्ञता और कौशल"
+
+msgid "Experiencia Laboral"
+msgstr "कार्य अनुभव"
+
+msgid "Ficha de Datos"
+msgstr "डेटा शीट"
+
+msgid ""
+"Filtra perfiles o empresas por sector, especialidades concretas, modalidad "
+"de trabajo y más. Encuentra exactamente la combinación que necesitas."
+msgstr ""
+"क्षेत्र, विशिष्ट विशेषज्ञता, कार्य शैली आदि के आधार पर प्रोफ़ाइल या कंपनियों"
+" को फ़िल्टर करें। बिल्कुल सही संयोजन पाएं।"
+
+msgid "Filtros Avanzados"
+msgstr "उन्नत फ़िल्टर"
+
+msgid "Haz visible tu potencial"
+msgstr "अपनी क्षमता को दृश्यमान बनाएं"
+
+msgid "Ingresa un requisito por línea"
+msgstr "प्रति पंक्ति एक आवश्यकता दर्ज करें"
+
+msgid "Logo de empresa"
+msgstr "कंपनी का लोगो"
+
+msgid "Logo de la empresa"
+msgstr "कंपनी का लोगो"
+
+msgid ""
+"Los profesionales exploran ofertas y empresas públicas; los reclutadores "
+"gestionan vacantes y contactan directo con los candidatos."
+msgstr ""
+"पेशेवर खुली नौकरियों और कंपनियों की खोज करते हैं; रिक्रूटर्स रिक्तियों का "
+"प्रबंधन करते हैं और उम्मीदवारों से सीधा संपर्क करते हैं।"
+
+msgid "Mis Ofertas / Vacantes"
+msgstr "मेरे ऑफ़र / रिक्तियां"
+
+msgid "Modalidad"
+msgstr "कार्य शैली"
+
+msgid "Modalidad:"
+msgstr "कार्य शैली:"
+
+msgid "No hay vacantes activas por el momento."
+msgstr "इस समय कोई सक्रिय रिक्ति नहीं है।"
+
+msgid "No se encontraron empresas con estos filtros."
+msgstr "इन फ़िल्टरों के साथ कोई कंपनी नहीं मिली।"
+
+msgid "No se encontraron perfiles con estos filtros."
+msgstr "इन फ़िल्टरों के साथ कोई प्रोफ़ाइल नहीं मिली।"
+
+msgid "No tienes vacantes publicadas"
+msgstr "आपकी कोई प्रकाशित रिक्ति नहीं है"
+
+msgid "Nota: La funcionalidad de guardado estará disponible próximamente."
+msgstr "नोट: सहेजने की सुविधा जल्द ही उपलब्ध होगी।"
+
+msgid "Obligatorios (AND)"
+msgstr "अनिवार्य (AND)"
+
+msgid "Particular"
+msgstr "व्यक्तिगत"
+
+msgid "Paso 1 de 4 – ¿Qué buscas?"
+msgstr "चरण 1 का 4 – आप क्या ढूंढ रहे हैं?"
+
+msgid "Perfiles Interactivos"
+msgstr "इंटरैक्टिव प्रोफाइल"
+
+msgid "Preferencias de Trabajo"
+msgstr "कार्य प्राथमिकताएं"
+
+msgid ""
+"Presenta tu experiencia, seniority, disponibilidad y red de habilidades en "
+"una página pública optimizada para compartir."
+msgstr ""
+"साझा करने के लिए अनुकूलित सार्वजनिक पृष्ठ पर अपना अनुभव, स्तर, उपलब्धता और "
+"कौशल प्रस्तुत करें।"
+
+msgid "Proyectos Destacados"
+msgstr "प्रमुख परियोजनाएं"
+
+msgid "Rango salarial"
+msgstr "वेतन सीमा"
+
+msgid "Reclutador"
+msgstr "भर्तीकर्ता"
+
+msgid "Reclutador Independiente"
+msgstr "स्वतंत्र भर्तीकर्ता"
+
+msgid "Redes Sociales y Portafolio"
+msgstr "सोशल मीडिया और पोर्टफोलियो"
+
+msgid "Redes y Enlaces"
+msgstr "नेटवर्क और लिंक"
+
+msgid "Requisitos"
+msgstr "आवश्यकताएं"
+
+msgid "Sin enlaces externos configurados."
+msgstr "कोई बाहरी लिंक कॉन्फ़िगर नहीं है।"
+
+msgid "Sitio Web (opcional)"
+msgstr "वेबसाइट (वैकल्पिक)"
+
+msgid "Sitio Web:"
+msgstr "वेबसाइट:"
+
+msgid "Sobre Nosotros"
+msgstr "हमारे बारे में"
+
+msgid "Tablón de Empresas"
+msgstr "कंपनी बोर्ड"
+
+msgid "Tags (Opcionales)"
+msgstr "टैग (वैकल्पिक)"
+
+msgid "Tecnologías"
+msgstr "प्रौद्योगिकियां"
+
+msgid "Tipo de Empresa"
+msgstr "कंपनी का प्रकार"
+
+msgid "Tipo de Reclutador"
+msgstr "भर्तीकर्ता प्रकार"
+
+msgid "Tipo:"
+msgstr "प्रकार:"
+
+msgid "Todas"
+msgstr "सभी"
+
+msgid "Trayectoria laboral y proyectos destacados"
+msgstr "कार्य इतिहास और प्रमुख परियोजनाएं"
+
+msgid "Ubicación:"
+msgstr "स्थान:"
+
+msgid "Un espacio doble"
+msgstr "एक दोहरा स्थान"
+
+msgid "Un requisito por línea..."
+msgstr "प्रति पंक्ति एक आवश्यकता..."
+
+msgid "Vacantes Activas"
+msgstr "सक्रिय रिक्तियां"
+
+msgid "Ver proyecto"
+msgstr "परियोजना देखें"
+
+msgid ""
+"Vista previa: así es como los reclutadores y empresas ven tu perfil público."
+msgstr ""
+"पूर्वावलोकन: रिक्रूटर्स और कंपनियाँ आपकी सार्वजनिक प्रोफ़ाइल को इस प्रकार "
+"देखते हैं।"
+
+msgid "candidatos"
+msgstr "उम्मीदवार"
+
+msgid "tu@empresa.com"
+msgstr "you@company.com"
+
+msgid "Sin biografía disponible"
+msgstr "कोई बायो उपलब्ध नहीं"
+
+msgid "Paso 1 de 4 — ¿Qué buscas?"
+msgstr "चरण 1 का 4 — आप क्या ढूंढ रहे हैं?"
+
+msgid "Agregar tag"
+msgstr "टैग जोड़ें"
+
+msgid "Añadir"
+msgstr "जोड़ें"
+
+msgid "Buscar o agregar tag (ej: Python, React, Git)..."
+msgstr "टैग खोजें या जोड़ें (उदा: Python, React, Git)..."
+
+msgid "Escribe y presiona Enter o haz clic en + para añadir."
+msgstr "टाइप करें और Enter दबाएं या जोड़ने के लिए + पर क्लिक करें।"
+
+msgid "No hay idiomas seleccionados"
+msgstr "कोई भाषा चयनित नहीं"
+
+msgid "No hay tags seleccionados"
+msgstr "कोई टैग चयनित नहीं"
+
+msgid "Nuevo tag"
+msgstr "नया टैग"
+
+msgid "100% Gratuito para candidatos"
+msgstr "उम्मीदवारों के लिए 100% मुफ़्त"
+
+msgid "Afinidad con vacantes técnicas"
+msgstr "तकनीकी रिक्तियों के साथ मिलान स्कोर"
+
+msgid "Alcance internacional"
+msgstr "अंतर्राष्ट्रीय पहुंच"
+
+msgid "Arquitectura de microservicios y liderazgo de equipo técnico."
+msgstr "माइक्रोसर्विस आर्किटेक्चर और तकनीकी टीम नेतृत्व।"
+
+msgid "Backend Python"
+msgstr "पायथन बैकएंड"
+
+msgid "Búsqueda y filtrado"
+msgstr "खोज और फ़िल्टरिंग"
+
+msgid "CV Tradicional (PDF)"
+msgstr "पारंपरिक सीवी (PDF)"
+
+msgid "CV Tradicional en PDF"
+msgstr "पारंपरिक PDF बायोडाटा"
+
+msgid "Cero métricas de visualización ni interés de empresas"
+msgstr "शून्य व्यू मेट्रिक्स और कंपनियों की रुचि की कोई जानकारी नहीं"
+
+msgid "Cero visibilidad"
+msgstr "शून्य दृश्यता"
+
+msgid "Compara la experiencia"
+msgstr "अनुभव की तुलना करें"
+
+msgid "Contactar directamente"
+msgstr "सीधे संपर्क करें"
+
+msgid "Contacto directo"
+msgstr "प्रत्यक्ष संपर्क"
+
+msgid "Contacto directo con reclutadores"
+msgstr "भर्तीकर्ताओं से सीधा संपर्क"
+
+msgid "Contacto directo sin intermediarios"
+msgstr "बिचौलियों के बिना सीधा संपर्क"
+
+msgid "Contacto directo y seguro vía email"
+msgstr "ईमेल द्वारा सीधा और सुरक्षित संपर्क"
+
+msgid "Contacto y respuesta"
+msgstr "संपर्क और प्रतिक्रिया"
+
+msgid ""
+"Crea tu perfil en minutos, comparte tu enlace personalizado y haz visible tu"
+" potencial ante las mejores oportunidades."
+msgstr ""
+"मिनटों में अपनी प्रोफ़ाइल बनाएं, अपना कस्टम लिंक साझा करें और सर्वोत्तम "
+"अवसरों के सामने अपनी क्षमता को दृश्यमान बनाएं।"
+
+msgid "Crear mi cuenta gratuita"
+msgstr "मेरा मुफ़्त खाता बनाएं"
+
+msgid "Crear mi perfil interactivo"
+msgstr "मेरी इंटरैक्टिव प्रोफ़ाइल बनाएं"
+
+msgid "Criterio"
+msgstr "मानदंड"
+
+msgid "Código fuente"
+msgstr "स्रोत कोड"
+
+msgid "Data & IA"
+msgstr "डेटा और एआई"
+
+msgid "Demostración de habilidades"
+msgstr "कौशल प्रदर्शन"
+
+msgid "Desactualizado el mismo día en que se descarga"
+msgstr "डाउनलोड होते ही पुराना हो जाता है"
+
+msgid "Desarrollo Web"
+msgstr "वेब विकास"
+
+msgid "Descargar resumen"
+msgstr "सारांश डाउनलोड करें"
+
+msgid "Dinámico, responsivo y enriquecido con medios"
+msgstr "गतिशील, उत्तरदायी और मीडिया से समृद्ध"
+
+msgid "Diseñado para hacer destacar tu valor real en el mercado"
+msgstr "बाजार में आपके वास्तविक मूल्य को उजागर करने के लिए डिज़ाइन किया गया"
+
+msgid "Diseño & UX"
+msgstr "डिज़ाइन और यूएक्स"
+
+msgid "Disponible para nuevas ofertas"
+msgstr "नए अवसरों के लिए उपलब्ध"
+
+msgid "Doble Ecosistema Conectado"
+msgstr "जुड़ा हुआ दोहरा इकोसिस्टम"
+
+msgid "Documento estático de 2 páginas"
+msgstr "स्थैतिक 2-पृष्ठ दस्तावेज़"
+
+msgid ""
+"Dos tablones sincronizados: profesionales mostrando su talento y "
+"reclutadores publicando oportunidades con total transparencia."
+msgstr ""
+"दो समन्वयित बोर्ड: पेशेवर अपनी प्रतिभा का प्रदर्शन करते हैं और भर्तीकर्ता "
+"पूर्ण पारदर्शिता के साथ अवसर पोस्ट करते हैं।"
+
+msgid ""
+"El CV tradicional en PDF ha muerto. Construye un perfil dinámico con "
+"taxonomía en 4 niveles, portafolio multimedia y contacto directo con "
+"reclutadores globales."
+msgstr ""
+"पारंपरिक PDF बायोडाटा अब पुराना हो चुका है। 4-स्तरीय वर्गीकरण, मल्टीमीडिया "
+"पोर्टफोलियो और वैश्विक भर्तीकर्ताओं से सीधे संपर्क के साथ एक गतिशील "
+"प्रोफ़ाइल बनाएं।"
+
+msgid "El contraste entre el viejo modelo y la nueva era profesional"
+msgstr "The contrast between the old model and the new professional era"
+
+msgid "Enlaces a proyectos y demos que nadie abre"
+msgstr "परियोजना और डेमो लिंक जिन्हें कोई नहीं खोलता"
+
+msgid "Enlaces muertos"
+msgstr "मृत लिंक"
+
+msgid "Enterrado en la bandeja"
+msgstr "इनबॉक्स में दबा हुआ"
+
+msgid "Enterrado en un buzón junto a cientos de archivos idénticos"
+msgstr "सैकड़ों समान फ़ाइलों के साथ इनबॉक्स में दबा हुआ"
+
+msgid "Español (Nativo), Inglés (C1 Avanzado)"
+msgstr "स्पैनिश (मूल), अंग्रेज़ी (C1 उन्नत)"
+
+msgid "Especialidades y tecnologías destacadas en este sector:"
+msgstr "इस क्षेत्र में प्रमुख विशेषताएं और प्रौद्योगिकियां:"
+
+msgid "Experiencia reciente"
+msgstr "हाल का अनुभव"
+
+msgid "Explorador de Talento en Tiempo Real"
+msgstr "वास्तविक समय प्रतिभा खोजकर्ता"
+
+msgid "Explorar tablón de empresas"
+msgstr "कंपनी बोर्ड देखें"
+
+msgid "Explorar tablón de talento"
+msgstr "प्रतिभा बोर्ड देखें"
+
+msgid "Explorar tablón público"
+msgstr "सार्वजनिक बोर्ड देखें"
+
+msgid "Explorar todos los perfiles de este sector"
+msgstr "इस क्षेत्र के सभी प्रोफाइल देखें"
+
+msgid "Filtra por sector y descubre las especialidades más demandadas hoy"
+msgstr ""
+"क्षेत्र के अनुसार फ़िल्टर करें और आज की सबसे अधिक मांग वाली विशेषज्ञताओं की "
+"खोज करें"
+
+msgid "Finanzas"
+msgstr "वित्त"
+
+msgid "Formato y diseño"
+msgstr "प्रारूप और डिज़ाइन"
+
+msgid "Haz visible tu talento con un"
+msgstr "अपनी प्रतिभा को दृश्यमान बनाएं"
+
+msgid "Idiomas disponibles"
+msgstr "उपलब्ध भाषाएँ"
+
+msgid "Imágenes, links y repositorio directo"
+msgstr "छवियां, लिंक और प्रत्यक्ष रिपॉजिटरी"
+
+msgid "Ir a mi Dashboard"
+msgstr "मेरे डैशबोर्ड पर जाएं"
+
+msgid "La diferencia es contundente"
+msgstr "अंतर स्पष्ट है"
+
+msgid "La evolución del currículum profesional"
+msgstr "पेशेवर बायोडाटा का विकास"
+
+msgid "Lectura manual o filtros ATS opacos"
+msgstr "मैन्युअल पढ़ना या अपारदर्शी ATS फ़िल्टर"
+
+msgid "Listas de texto sin verificación visual"
+msgstr "दृश्य प्रमाण के बिना सादे पाठ की सूचियाँ"
+
+msgid "Marketing & Growth"
+msgstr "मार्केटिंग और विकास"
+
+msgid "Matching Transparente y Cero Spam"
+msgstr "पारदर्शी मिलान और शून्य स्पैम"
+
+msgid ""
+"Muestra capturas de proyectos, demos funcionales y repositorios de código. "
+"Demuestra lo que sabes hacer."
+msgstr ""
+"परियोजना स्क्रीनशॉट, कार्यात्मक डेमो और कोड रिपॉजिटरी दिखाएं। साबित करें कि "
+"आप क्या कर सकते हैं।"
+
+msgid "Niveles de clasificación"
+msgstr "वर्गीकरण स्तर"
+
+msgid "Obsoleto de inmediato"
+msgstr "तुरंत पुराना"
+
+msgid ""
+"Olvídate de palabras clave sueltas. Clasificamos perfiles mediante Sector, "
+"Rol, Especialidad y Tags para un matching quirúrgico."
+msgstr ""
+"अलग-थलग कीवर्ड भूल जाइए। हम सटीक मिलान के लिए सेक्टर, भूमिका, विशेषता और टैग"
+" द्वारा प्रोफाइल को वर्गीकृत करते हैं।"
+
+msgid "Perfil Vivo TalentStack"
+msgstr "टैलेंटस्टैक लाइव प्रोफ़ाइल"
+
+msgid "Portafolio Multimedia Integrado"
+msgstr "एकीकृत मल्टीमीडिया पोर्टफोलियो"
+
+msgid "Portafolio en vivo con demos y repositorios"
+msgstr "डेमो और रिपॉजिटरी के साथ लाइव पोर्टफोलियो"
+
+msgid "Presencia Global en 12 Idiomas"
+msgstr "12 भाषाओं में वैश्विक उपस्थिति"
+
+msgid "Profesionales conectados"
+msgstr "जुड़े हुए पेशेवर"
+
+msgid "Proyectos interactivos"
+msgstr "इंटरैक्टिव परियोजनाएं"
+
+msgid "Rechazado por filtro ATS"
+msgstr "ATS फ़िल्टर द्वारा अस्वीकृत"
+
+msgid "Remoto / Disponible a nivel global"
+msgstr "रिमोट / विश्व स्तर पर उपलब्ध"
+
+msgid "Rígido, estático y limitado a 2 páginas"
+msgstr "कठोर, स्थिर और 2 पृष्ठों तक सीमित"
+
+msgid "Semanas de silencio por correo"
+msgstr "ईमेल पर हफ़्तों की चुप्पी"
+
+msgid "Senior Full-Stack & Cloud Engineer"
+msgstr "वरिष्ठ फुल-स्टैक और क्लाउड इंजीनियर"
+
+msgid ""
+"Sin algoritmos opacos ni comisiones abusivas. Filtra perfiles por "
+"disponibilidad real y contacta sin rodeos."
+msgstr ""
+"कोई अपारदर्शी एल्गोरिदम या अनुचित शुल्क नहीं। वास्तविक उपलब्धता के आधार पर "
+"प्रोफाइल फ़िल्टर करें और सीधे संपर्क करें।"
+
+msgid "Sin coste para profesionales"
+msgstr "पेशेवरों के लिए कोई लागत नहीं"
+
+msgid "Superpoderes de TalentStack"
+msgstr "टैलेंटस्टैक की महाशक्तियाँ"
+
+msgid "Tablón de Candidatos"
+msgstr "उम्मीदवार बोर्ड"
+
+msgid "Tablón de Reclutadores"
+msgstr "भर्तीकर्ता बोर्ड"
+
+msgid "Taxonomía Estructurada en 4 Capas"
+msgstr "संरचित 4-स्तरीय वर्गीकरण"
+
+msgid "Taxonomía de Precisión"
+msgstr "सटीक वर्गीकरण"
+
+msgid "Taxonomía de precisión en 4 capas"
+msgstr "4 परतों में सटीक वर्गीकरण"
+
+msgid "Taxonomía inteligente en 4 capas"
+msgstr "4 परतों में बुद्धिमान वर्गीकरण"
+
+msgid "Tecnología"
+msgstr "प्रौद्योगिकी"
+
+msgid "Tecnologías y competencias destacadas"
+msgstr "प्रमुख प्रौद्योगिकियां और कौशल"
+
+msgid "Texto plano sin interactividad ni demostración práctica"
+msgstr "इंटरैक्टिविटी या व्यावहारिक प्रदर्शन के बिना सादा पाठ"
+
+msgid "Traducción automática a 12 idiomas"
+msgstr "12 भाषाओं में स्वचालित अनुवाद"
+
+msgid "Traducción nativa en 12 idiomas"
+msgstr "12 भाषाओं में मूल अनुवाद"
+
+msgid ""
+"Tu perfil y su taxonomía se traducen automáticamente para conectar con "
+"oportunidades en todo el mundo sin barreras."
+msgstr ""
+"आपकी प्रोफ़ाइल और उसका वर्गीकरण बाधाओं के बिना दुनिया भर के अवसरों से जुड़ने"
+" के लिए स्वचालित रूप से अनुवादित होता है।"
+
+msgid "Un PDF por cada idioma a traducir"
+msgstr "अनुवाद करने के लिए प्रत्येक भाषा के लिए एक अलग PDF"
+
+msgid "Ver demo en vivo"
+msgstr "लाइव डेमो देखें"
+
+msgid "Vista interactiva"
+msgstr "इंटरैक्टिव दृश्य"
+
+msgid "perfil profesional interactivo"
+msgstr "इंटरैक्टिव पेशेवर प्रोफ़ाइल"
+
+msgid ""
+"¡Simulación interactiva! En un perfil real, este botón abre el canal de "
+"contacto directo con el candidato."
+msgstr ""
+"इंटरैक्टिव पूर्वावलोकन! वास्तविक प्रोफ़ाइल में, यह बटन उम्मीदवार के साथ सीधा"
+" संपर्क खोलता है।"
+
+msgid "¿Buscas contratar talento?"
+msgstr "क्या आप प्रतिभा को नियुक्त करना चाहते हैं?"
+
+msgid "¿Listo para dar el salto al perfil interactivo?"
+msgstr "क्या आप इंटरैक्टिव प्रोफ़ाइल की ओर कदम बढ़ाने के लिए तैयार हैं?"
+
+msgid "¿Por qué un perfil interactivo supera a cualquier PDF?"
+msgstr "एक इंटरैक्टिव प्रोफ़ाइल किसी भी PDF से बेहतर क्यों है?"
+
+msgid "Aumentan el score de afinidad"
+msgstr "समानता स्कोर बढ़ाते हैं"
+
+msgid "Buscando empresas y reclutadores..."
+msgstr "कंपनियों और भर्तीकर्ताओं की खोज की जा रही है..."
+
+msgid "Buscando profesionales..."
+msgstr "पेशेवरों की खोज की जा रही है..."
+
+msgid "Buscar sector (ej: Tecnología, Salud)..."
+msgstr "क्षेत्र खोजें (उदा: प्रौद्योगिकी, स्वास्थ्य)..."
+
+msgid "Cargando empresas..."
+msgstr "कंपनियां लोड हो रही हैं..."
+
+msgid "Cargando perfiles..."
+msgstr "प्रोफ़ाइल लोड हो रही हैं..."
+
+msgid ""
+"Descubre organizaciones y reclutadores que buscan talento activamente con "
+"total transparencia."
+msgstr ""
+"पूर्ण पारदर्शिता के साथ सक्रिय रूप से प्रतिभा की तलाश कर रहे संगठनों और "
+"भर्तीकर्ताओं की खोज करें।"
+
+msgid "Disponible"
+msgstr "उपलब्ध"
+
+msgid "El perfil debe tener todos"
+msgstr "प्रोफ़ाइल में सभी होने चाहिए"
+
+msgid ""
+"Encuentra empresas por sector, modalidad de trabajo o tipo de reclutador."
+msgstr "क्षेत्र, कार्य पद्धति या भर्तीकर्ता प्रकार के आधार पर कंपनियां खोजें।"
+
+msgid "Escribe para buscar tag (ej: Docker, AWS)..."
+msgstr "टैग खोजने के लिए टाइप करें (उदा: Docker, AWS)..."
+
+msgid "Escribe para buscar tag (ej: Python, React)..."
+msgstr "टैग खोजने के लिए टाइप करें (उदा: Python, React)..."
+
+msgid ""
+"Explora perfiles verificados con taxonomía de precisión, habilidades reales "
+"y contacto directo."
+msgstr ""
+"सटीक वर्गीकरण, वास्तविक कौशल और सीधे संपर्क के साथ सत्यापित प्रोफाइल का "
+"अन्वेषण करें।"
+
+msgid ""
+"Filtra en cascada por Sector, Rol, Especialidad y competencias específicas."
+msgstr "सेक्टर, भूमिका, विशेषता और विशिष्ट दक्षताओं द्वारा फ़िल्टर करें।"
+
+msgid "Filtros Adicionales (Seniority y Modalidad)"
+msgstr "अतिरिक्त फ़िल्टर (वरिष्ठता और कार्य पद्धति)"
+
+msgid "Filtros de Búsqueda Taxonómica"
+msgstr "वर्गीकरण खोज फ़िल्टर"
+
+msgid "Filtros de Empresas y Vacantes"
+msgstr "कंपनी और रिक्ति फ़िल्टर"
+
+msgid "Match"
+msgstr "मिलान"
+
+msgid "Modalidad de Trabajo"
+msgstr "कार्य पद्धति"
+
+msgid "Nivel de Seniority"
+msgstr "वरिष्ठता स्तर"
+
+msgid "No se encontraron empresas con estos filtros"
+msgstr "इन फ़िल्टर के साथ कोई कंपनी नहीं मिली"
+
+msgid "No se encontraron perfiles con estos filtros"
+msgstr "इन फ़िल्टर के साथ कोई प्रोफ़ाइल नहीं मिली"
+
+msgid "Obligatorios / Deseables"
+msgstr "अनिवार्य / वांछनीय"
+
+msgid "Para reclutadores (Empresas)"
+msgstr "भर्तीकर्ताओं के लिए (कंपनियां)"
+
+msgid "Para trabajadores (Candidatos)"
+msgstr "प्रतिभाओं के लिए (उम्मीदवार)"
+
+msgid ""
+"Prueba relajando algunos criterios de búsqueda o limpiando los filtros para "
+"ver más resultados."
+msgstr ""
+"अधिक परिणाम देखने के लिए कुछ खोज मानदंड कम करें या फ़िल्टर रीसेट करें।"
+
+msgid "Restablecer todos los filtros"
+msgstr "सभी फ़िल्टर रीसेट करें"
+
+msgid "Sectores de Contratación"
+msgstr "भर्ती क्षेत्र"
+
+msgid "Sin descripción"
+msgstr "कोई विवरण नहीं"
+
+msgid "Tags y Tecnologías Clave"
+msgstr "टैग और प्रमुख प्रौद्योगिकियां"
+
+msgid "Todas las especialidades"
+msgstr "सभी विशेषताएं"
+
+msgid "Todas las modalidades"
+msgstr "सभी पद्धतियां"
+
+msgid "Todos los niveles"
+msgstr "सभी स्तर"
+
+msgid "Todos los roles"
+msgstr "सभी भूमिकाएं"
+
+msgid "Todos los sectores"
+msgstr "सभी क्षेत्र"
+
+msgid "Todos los tipos"
+msgstr "सभी प्रकार"
+
+msgid "Ver empresa y vacantes"
+msgstr "कंपनी और रिक्तियां देखें"
+
+msgid "Ver perfil interactivo"
+msgstr "इंटरैक्टिव प्रोफ़ाइल देखें"
+
+msgid "empresa encontrada"
+msgstr "कंपनी मिली"
+
+msgid "empresas encontradas"
+msgstr "कंपनियां मिलीं"
+
+msgid "más"
+msgstr "और"
+
+msgid "profesional encontrado"
+msgstr "पेशेवर मिला"
+
+msgid "profesionales encontrados"
+msgstr "पेशेवर मिले"

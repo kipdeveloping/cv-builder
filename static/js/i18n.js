@@ -914,11 +914,14 @@ const LANG_NAMES = {
 };
 
 function getLanguage() {
+    const htmlLang = (document.documentElement.lang || '').split('-')[0].toLowerCase();
+    if (htmlLang && I18N[htmlLang]) {
+        localStorage.setItem('language', htmlLang);
+        return htmlLang;
+    }
     const saved = localStorage.getItem('language');
     if (saved && I18N[saved]) return saved;
-    const lang = document.documentElement.lang || 'es';
-    const code = lang.split('-')[0];
-    return I18N[code] ? code : 'es';
+    return 'es';
 }
 
 function setLanguage(code) {

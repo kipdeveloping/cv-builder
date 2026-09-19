@@ -51,25 +51,26 @@ msgstr "密码必须至少包含一个数字。"
 #: .\apps\accounts\forms.py:70
 #, python-brace-format
 msgid ""
-"La contraseña debe contener al menos un carácter especial (!@#$%^&*(),.?\":"
-"{}|<>)."
+"La contraseña debe contener al menos un carácter especial "
+"(!@#$%^&*(),.?\":{}|<>)."
 msgstr "密码必须包含至少一个特殊字符 (!@#$%^&*(),.?\":{}|<>)。"
 
 #: .\apps\accounts\forms.py:87 .\apps\accounts\forms.py:106
 #: .\templates\accounts\complete_profile.html:29
-#: .\templates\accounts\dashboard.html:13 .\templates\accounts\register.html:61
+#: .\templates\accounts\dashboard.html:13
+#: .\templates\accounts\register.html:61
 #: .\templates\resumes\templates\_section_references.html:14
 msgid "Nombre"
 msgstr "名字"
 
 #: .\apps\accounts\forms.py:95 .\apps\accounts\forms.py:115
 #: .\templates\accounts\complete_profile.html:37
-#: .\templates\accounts\dashboard.html:15 .\templates\accounts\register.html:68
+#: .\templates\accounts\dashboard.html:15
+#: .\templates\accounts\register.html:68
 msgid "Apellido"
 msgstr "姓氏"
 
 #: .\apps\accounts\forms.py:124 .\templates\accounts\register.html:77
-#, fuzzy
 #| msgid "Título profesional"
 msgid "Cargo / Título profesional"
 msgstr "职业头衔"
@@ -123,7 +124,6 @@ msgid "El formato del email no es valido."
 msgstr "邮箱格式无效。"
 
 #: .\apps\accounts\views.py:347
-#, fuzzy
 #| msgid "Bio actualizada correctamente."
 msgid "Perfil completado correctamente."
 msgstr "个人简介更新成功。"
@@ -142,13 +142,11 @@ msgid "Informacion de Cuenta"
 msgstr "账户信息"
 
 #: .\templates\accounts\account_settings.html:15
-#, fuzzy
 #| msgid "Email"
 msgid "Email:"
 msgstr "邮箱"
 
 #: .\templates\accounts\account_settings.html:16
-#, fuzzy
 #| msgid "Nombre"
 msgid "Nombre:"
 msgstr "名字"
@@ -190,19 +188,16 @@ msgid "Vincular"
 msgstr "关联"
 
 #: .\templates\accounts\account_settings.html:102
-#, fuzzy
 #| msgid "Volver al dashboard"
 msgid "Volver al Dashboard"
 msgstr "返回仪表盘"
 
 #: .\templates\accounts\complete_profile.html:4
-#, fuzzy
 #| msgid "Completa tu perfil profesional"
 msgid "Completar perfil"
 msgstr "完善您的职业信息"
 
 #: .\templates\accounts\complete_profile.html:9
-#, fuzzy
 #| msgid "Completa tu perfil profesional"
 msgid "Completa tu perfil"
 msgstr "完善您的职业信息"
@@ -212,7 +207,6 @@ msgid "Cuéntanos un poco sobre ti para personalizar tu experiencia."
 msgstr "请告诉我们一些关于你的信息，以便个性化你的体验。"
 
 #: .\templates\accounts\complete_profile.html:14
-#, fuzzy
 #| msgid "Por favor, corrige los errores."
 msgid "Por favor, corrige los errores:"
 msgstr "请修正错误。"
@@ -220,11 +214,10 @@ msgstr "请修正错误。"
 #: .\templates\accounts\complete_profile.html:32
 #: .\templates\accounts\profile.html:347 .\templates\accounts\register.html:64
 msgid "Tu nombre"
-msgstr "您的名字"
+msgstr "您的姓名"
 
 #: .\templates\accounts\complete_profile.html:40
 #: .\templates\accounts\register.html:71
-#, fuzzy
 #| msgid "Tus apellidos"
 msgid "Tu apellido"
 msgstr "您的姓氏"
@@ -235,10 +228,9 @@ msgstr "继续"
 
 #: .\templates\accounts\dashboard.html:5 .\templates\base.html:72
 msgid "Dashboard"
-msgstr "仪表盘"
+msgstr "控制台"
 
 #: .\templates\accounts\dashboard.html:10
-#, fuzzy
 #| msgid "CV Builder"
 msgid "Bienvenido a CV Builder"
 msgstr "简历生成器"
@@ -256,23 +248,21 @@ msgstr "要完善个人资料，我们需要你的姓名。"
 #: .\templates\accounts\dashboard.html:516
 #: .\templates\accounts\dashboard.html:608
 #: .\templates\accounts\dashboard.html:654
-#, fuzzy
 #| msgid "Guardar bio"
 msgid "Guardar"
-msgstr "保存简介"
+msgstr "保存"
 
 #: .\templates\accounts\dashboard.html:33 .\templates\accounts\profile.html:24
 #: .\templates\resumes\templates\classic.html:6
 #: .\templates\resumes\templates\creative.html:6
 #: .\templates\resumes\templates\modern.html:5
 msgid "Foto de perfil"
-msgstr "头像"
+msgstr "个人头像"
 
 #: .\templates\accounts\dashboard.html:85
-#, fuzzy
 #| msgid "Editar"
 msgid "Editar estado"
-msgstr "编辑"
+msgstr "编辑状态"
 
 #: .\templates\accounts\dashboard.html:92 .\templates\accounts\profile.html:64
 #: .\templates\resumes\templates\_section_skills.html:3
@@ -288,38 +278,42 @@ msgstr "技能"
 msgid "Editar"
 msgstr "编辑"
 
-#: .\templates\accounts\dashboard.html:107 .\templates\accounts\profile.html:74
-#, fuzzy
+#: .\templates\accounts\dashboard.html:107
+#: .\templates\accounts\profile.html:74
 #| msgid "Habilidades"
 msgid "Sin habilidades"
 msgstr "技能"
 
-#: .\templates\accounts\dashboard.html:115 .\templates\accounts\profile.html:81
+#: .\templates\accounts\dashboard.html:115
+#: .\templates\accounts\profile.html:81
 msgid "Bio"
-msgstr "个人简介"
+msgstr "简介"
 
 #: .\templates\accounts\dashboard.html:129
-#: .\templates\accounts\dashboard.html:416 .\templates\accounts\profile.html:88
+#: .\templates\accounts\dashboard.html:416
+#: .\templates\accounts\profile.html:88
 msgid "Preferencias de trabajo"
 msgstr "工作偏好"
 
-#: .\templates\accounts\dashboard.html:137 .\templates\accounts\profile.html:92
+#: .\templates\accounts\dashboard.html:137
+#: .\templates\accounts\profile.html:92
 msgid "Tipo de empleo:"
-msgstr "雇佣类型："
+msgstr "工作类型:"
 
-#: .\templates\accounts\dashboard.html:141 .\templates\accounts\profile.html:98
+#: .\templates\accounts\dashboard.html:141
+#: .\templates\accounts\profile.html:98
 msgid "Salario esperado:"
 msgstr "期望薪资："
 
 #: .\templates\accounts\dashboard.html:145
 #: .\templates\accounts\profile.html:104
 msgid "Disponible para mudarse:"
-msgstr "愿意搬迁："
+msgstr "愿意外派迁移:"
 
 #: .\templates\accounts\dashboard.html:149
 #: .\templates\accounts\profile.html:110
 msgid "Disponible para viajar:"
-msgstr "愿意出差："
+msgstr "出差意愿:"
 
 #: .\templates\accounts\dashboard.html:158
 #: .\templates\accounts\dashboard.html:525
@@ -328,10 +322,9 @@ msgstr "我的简历"
 
 #: .\templates\accounts\dashboard.html:167
 #: .\templates\accounts\profile.html:138
-#, fuzzy
 #| msgid "Experiencia"
 msgid "Experiencia y Proyectos"
-msgstr "工作经验"
+msgstr "经历与项目"
 
 #: .\templates\accounts\dashboard.html:170
 #: .\templates\resumes\templates\creative.html:38
@@ -341,24 +334,22 @@ msgstr "添加"
 #: .\templates\accounts\dashboard.html:251
 #: .\templates\accounts\profile.html:180
 msgid "Redes Sociales"
-msgstr "社交链接"
+msgstr "社交网络"
 
 #: .\templates\accounts\dashboard.html:283
 #: .\templates\accounts\profile.html:207
 msgid "Sin redes sociales configuradas"
-msgstr "未配置社交链接"
+msgstr "暂未配置社交链接"
 
 #: .\templates\accounts\dashboard.html:294
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar foto"
-msgstr "更新于："
+msgstr "更新照片"
 
 #: .\templates\accounts\dashboard.html:305
-#, fuzzy
 #| msgid "JPG, PNG o WebP. Máximo 5MB."
 msgid "JPG, PNG o WebP. Maximo 5MB."
-msgstr "JPG、PNG或WebP格式。最大5MB。"
+msgstr "JPG、PNG 或 WebP。最大 5MB。"
 
 #: .\templates\accounts\dashboard.html:308
 #: .\templates\accounts\dashboard.html:332
@@ -373,34 +364,29 @@ msgid "Cancelar"
 msgstr "取消"
 
 #: .\templates\accounts\dashboard.html:320
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar titular"
-msgstr "更新于："
+msgstr "更新头衔"
 
 #: .\templates\accounts\dashboard.html:329
-#, fuzzy
 #| msgid "Ej: Desarrollador Web"
 msgid "Ej: Desarrollador Full Stack Senior"
-msgstr "例如：网页开发者"
+msgstr "例如：资深全栈工程师"
 
 #: .\templates\accounts\dashboard.html:343
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar bio"
-msgstr "更新于："
+msgstr "更新个人简介"
 
 #: .\templates\accounts\dashboard.html:352
-#, fuzzy
 #| msgid "Cuéntanos sobre ti..."
 msgid "Cuentanos sobre ti..."
 msgstr "介绍一下你自己..."
 
 #: .\templates\accounts\dashboard.html:366
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar estado"
-msgstr "更新于："
+msgstr "更新状态"
 
 #: .\templates\accounts\dashboard.html:375
 msgid "Estado de busqueda"
@@ -416,31 +402,31 @@ msgstr "未指定"
 
 #: .\templates\accounts\dashboard.html:378
 msgid "Buscando activamente"
-msgstr "正在积极求职"
+msgstr "积极寻找机会"
 
 #: .\templates\accounts\dashboard.html:379
 msgid "Abierto a ofertas"
-msgstr "欢迎机会"
+msgstr "对机会持开放态度"
 
 #: .\templates\accounts\dashboard.html:380
 msgid "No buscando"
-msgstr "不求职"
+msgstr "暂不考虑机会"
 
 #: .\templates\accounts\dashboard.html:384
 msgid "Disponibilidad"
-msgstr "可入职时间"
+msgstr "到岗时间"
 
 #: .\templates\accounts\dashboard.html:387
 msgid "Inmediata"
-msgstr "立即"
+msgstr "立即到岗"
 
 #: .\templates\accounts\dashboard.html:388
 msgid "2 semanas"
-msgstr "2周"
+msgstr "2周内"
 
 #: .\templates\accounts\dashboard.html:389
 msgid "1 mes"
-msgstr "1个月"
+msgstr "1个月内"
 
 #: .\templates\accounts\dashboard.html:390
 msgid "Negociable"
@@ -448,11 +434,11 @@ msgstr "可协商"
 
 #: .\templates\accounts\dashboard.html:394
 msgid "Preferencia de ubicacion"
-msgstr "地点偏好"
+msgstr "工作地点偏好"
 
 #: .\templates\accounts\dashboard.html:397
 msgid "Remoto"
-msgstr "远程"
+msgstr "远程办公"
 
 #: .\templates\accounts\dashboard.html:398
 msgid "Hibrido"
@@ -460,7 +446,7 @@ msgstr "混合办公"
 
 #: .\templates\accounts\dashboard.html:399
 msgid "Presencial"
-msgstr "坐班"
+msgstr "现场办公"
 
 #: .\templates\accounts\dashboard.html:425
 msgid "Tipo de empleo"
@@ -489,38 +475,33 @@ msgstr "否"
 
 #: .\templates\accounts\dashboard.html:449
 msgid "Según destino"
-msgstr "视目的地而定"
+msgstr "视地点而定"
 
 #: .\templates\accounts\dashboard.html:453
 msgid "Disponible para viajar"
 msgstr "愿意出差"
 
 #: .\templates\accounts\dashboard.html:457
-#, fuzzy
 #| msgid "Opcional"
 msgid "Ocasional"
-msgstr "可选"
+msgstr "偶尔出差"
 
 #: .\templates\accounts\dashboard.html:458
-#, fuzzy
 #| msgid "Crea tu cuenta"
 msgid "Frecuente"
-msgstr "创建您的账户"
+msgstr "频繁出差"
 
 #: .\templates\accounts\dashboard.html:475
-#, fuzzy
 #| msgid "Habilidades"
 msgid "Editar habilidades"
 msgstr "技能"
 
 #: .\templates\accounts\dashboard.html:486
-#, fuzzy
 #| msgid "Agregar habilidad"
 msgid "Nueva habilidad"
 msgstr "添加技能"
 
 #: .\templates\accounts\dashboard.html:498
-#, fuzzy
 #| msgid "Sector principal:"
 msgid "Principal"
 msgstr "主要领域："
@@ -544,10 +525,9 @@ msgstr "创建新简历"
 #: .\templates\accounts\dashboard.html:584
 #: .\templates\resumes\templates\_section_experience.html:22
 msgid "Agregar experiencia"
-msgstr "添加工作经验"
+msgstr "添加经历"
 
 #: .\templates\accounts\dashboard.html:594
-#, fuzzy
 #| msgid "Título del puesto"
 msgid "Titulo del puesto"
 msgstr "职位名称"
@@ -590,7 +570,6 @@ msgid "¿Olvidaste tu contraseña?"
 msgstr "忘记密码？"
 
 #: .\templates\accounts\login.html:62
-#, fuzzy
 #| msgid "Continúa con"
 msgid "O continúa con"
 msgstr "使用以下方式继续"
@@ -615,19 +594,16 @@ msgstr "这是你的公开主页"
 
 #: .\templates\accounts\profile.html:12
 #: .\templates\registration\password_change_done.html:13
-#, fuzzy
 #| msgid "Volver al dashboard"
 msgid "Ir al Dashboard"
 msgstr "返回仪表盘"
 
 #: .\templates\accounts\profile.html:122
-#, fuzzy
 #| msgid "Contacto"
 msgid "Contactar"
 msgstr "联系方式"
 
 #: .\templates\accounts\profile.html:131
-#, fuzzy
 #| msgid "Aún no tienes CVs creados."
 msgid "Este candidato no tiene CVs publicados."
 msgstr "该候选人没有已发布的简历。"
@@ -659,7 +635,6 @@ msgstr "奖项与荣誉"
 
 #: .\templates\accounts\profile.html:289
 #: .\templates\resumes\templates\_section_publications.html:3
-#, fuzzy
 #| msgid "Publicado"
 msgid "Publicaciones"
 msgstr "已发布"
@@ -671,26 +646,23 @@ msgstr "兴趣爱好"
 
 #: .\templates\accounts\profile.html:317
 #: .\templates\resumes\templates\_section_references.html:3
-#, fuzzy
 #| msgid "Experiencia"
 msgid "Referencias"
 msgstr "工作经验"
 
 #: .\templates\accounts\profile.html:338
-#, fuzzy
 #| msgid "Contacto"
 msgid "Contactar a"
-msgstr "联系方式"
+msgstr "联系"
 
 #: .\templates\accounts\profile.html:350
 msgid "Nombre completo"
 msgstr "姓名"
 
 #: .\templates\accounts\profile.html:353
-#, fuzzy
 #| msgid "Email"
 msgid "Tu email"
-msgstr "邮箱"
+msgstr "您的电子邮箱"
 
 #: .\templates\accounts\profile.html:356
 msgid "tu@email.com"
@@ -698,7 +670,7 @@ msgstr "you@email.com"
 
 #: .\templates\accounts\profile.html:359
 msgid "Mensaje"
-msgstr "留言"
+msgstr "留言内容"
 
 #: .\templates\accounts\profile.html:362
 msgid "Escribe tu mensaje..."
@@ -712,7 +684,8 @@ msgstr "发送"
 msgid "Registrarse"
 msgstr "注册"
 
-#: .\templates\accounts\register.html:10 .\templates\accounts\register.html:103
+#: .\templates\accounts\register.html:10
+#: .\templates\accounts\register.html:103
 msgid "Crear Cuenta"
 msgstr "创建账户"
 
@@ -758,7 +731,7 @@ msgstr "登录"
 
 #: .\templates\base.html:30
 msgid "Tablón"
-msgstr "公告墙"
+msgstr "展示板"
 
 #: .\templates\base.html:33
 msgid "Cambiar tema"
@@ -766,7 +739,7 @@ msgstr "切换主题"
 
 #: .\templates\base.html:73
 msgid "Salir"
-msgstr "退出"
+msgstr "退出登录"
 
 #: .\templates\base.html:89
 msgid "Todos los derechos reservados."
@@ -849,7 +822,6 @@ msgid "Contraseña actualizada"
 msgstr "密码已更新"
 
 #: .\templates\registration\password_change_done.html:10
-#, fuzzy
 #| msgid "Foto actualizada correctamente."
 msgid "Tu contraseña ha sido cambiada correctamente."
 msgstr "照片更新成功。"
@@ -863,7 +835,6 @@ msgid "Actualizar contraseña"
 msgstr "更新密码"
 
 #: .\templates\registration\password_reset_complete.html:4
-#, fuzzy
 #| msgid "Contraseña"
 msgid "Contraseña restablecida"
 msgstr "密码"
@@ -873,7 +844,6 @@ msgid "Tu contraseña ha sido restablecida. Ya puedes iniciar sesión."
 msgstr "密码已重置。你现在可以登录了。"
 
 #: .\templates\registration\password_reset_confirm.html:4
-#, fuzzy
 #| msgid "Contraseña"
 msgid "Nueva contraseña"
 msgstr "密码"
@@ -1013,7 +983,6 @@ msgid "Año"
 msgstr "年份"
 
 #: .\templates\resumes\templates\_section_awards.html:20
-#, fuzzy
 #| msgid "Agregar experiencia"
 msgid "Agregar premio"
 msgstr "添加工作经验"
@@ -1023,13 +992,11 @@ msgid "Nombre de la certificación"
 msgstr "证书名称"
 
 #: .\templates\resumes\templates\_section_certifications.html:14
-#, fuzzy
 #| msgid "Institución"
 msgid "Institución o plataforma"
 msgstr "院校"
 
 #: .\templates\resumes\templates\_section_certifications.html:20
-#, fuzzy
 #| msgid "Agregar educación"
 msgid "Agregar certificación"
 msgstr "添加教育经历"
@@ -1052,7 +1019,7 @@ msgstr "添加教育经历"
 
 #: .\templates\resumes\templates\_section_experience.html:3
 msgid "Experiencia"
-msgstr "工作经验"
+msgstr "经历"
 
 #: .\templates\resumes\templates\_section_experience.html:14
 msgid "Título del puesto"
@@ -1071,7 +1038,6 @@ msgid "Lectura"
 msgstr "阅读"
 
 #: .\templates\resumes\templates\_section_interests.html:13
-#, fuzzy
 #| msgid "Agregar"
 msgid "Agregar interés"
 msgstr "添加"
@@ -1085,7 +1051,6 @@ msgid "Nivel"
 msgstr "水平"
 
 #: .\templates\resumes\templates\_section_languages.html:18
-#, fuzzy
 #| msgid "Agregar habilidad"
 msgid "Agregar idioma"
 msgstr "添加技能"
@@ -1099,7 +1064,6 @@ msgid "Nombre del proyecto"
 msgstr "项目名称"
 
 #: .\templates\resumes\templates\_section_projects.html:14
-#, fuzzy
 #| msgid "Descripción de tus responsabilidades..."
 msgid "Descripción del proyecto..."
 msgstr "描述您的职责..."
@@ -1110,13 +1074,11 @@ msgid "https://..."
 msgstr "https://..."
 
 #: .\templates\resumes\templates\_section_projects.html:20
-#, fuzzy
 #| msgid "Agregar experiencia"
 msgid "Agregar proyecto"
-msgstr "添加工作经验"
+msgstr "添加项目"
 
 #: .\templates\resumes\templates\_section_publications.html:14
-#, fuzzy
 #| msgid "Título del puesto"
 msgid "Título de la publicación"
 msgstr "职位名称"
@@ -1126,13 +1088,11 @@ msgid "Medio o revista"
 msgstr "媒体或期刊"
 
 #: .\templates\resumes\templates\_section_publications.html:22
-#, fuzzy
 #| msgid "Agregar educación"
 msgid "Agregar publicación"
 msgstr "添加教育经历"
 
 #: .\templates\resumes\templates\_section_references.html:15
-#, fuzzy
 #| msgid "Cargando..."
 msgid "Cargo"
 msgstr "加载中..."
@@ -1142,7 +1102,6 @@ msgid "email o teléfono"
 msgstr "邮箱或电话"
 
 #: .\templates\resumes\templates\_section_references.html:22
-#, fuzzy
 #| msgid "Agregar experiencia"
 msgid "Agregar referencia"
 msgstr "添加工作经验"
@@ -1174,7 +1133,6 @@ msgid "Describe tu labor..."
 msgstr "描述你的工作..."
 
 #: .\templates\resumes\templates\_section_volunteering.html:22
-#, fuzzy
 #| msgid "Agregar habilidad"
 msgid "Agregar voluntariado"
 msgstr "添加技能"
@@ -1221,6 +1179,1035 @@ msgstr "加载中..."
 msgid "No se encontraron CVs en esta categoría."
 msgstr "此类别中未找到简历。"
 
+msgid "Mis Habilidades"
+msgstr "我的技能"
+
+msgid "Perfil público"
+msgstr "公开个人资料"
+
+msgid "Perfil publico"
+msgstr "公开个人资料"
+
+msgid "Activa para que tu perfil sea visible en el tablón"
+msgstr "开启后个人资料将在展示板上可见"
+
+msgid "Debes subir una foto de perfil para hacer tu perfil público."
+msgstr "必须上传个人头像才能公开资料。"
+
+msgid "Debes subir una foto de perfil para hacer tu perfil publico."
+msgstr "必须上传个人头像才能公开资料。"
+
+msgid "Sin titular"
+msgstr "暂无头衔"
+
+msgid "Sin biografia"
+msgstr "暂无简介"
+
+msgid "Sin biografía"
+msgstr "暂无简介"
+
+msgid "Sector:"
+msgstr "行业:"
+
+msgid "Rol:"
+msgstr "角色:"
+
+msgid "Especialidad:"
+msgstr "专业领域:"
+
+msgid "Seniority:"
+msgstr "资历级别:"
+
+msgid "Idiomas:"
+msgstr "语言:"
+
+msgid "Tags:"
+msgstr "标签:"
+
+msgid "Sin experiencia ni proyectos agregados"
+msgstr "暂未添加任何经历或项目"
+
+msgid "Cargo / Puesto"
+msgstr "职位 / 岗位"
+
+msgid "Empresa o Cliente"
+msgstr "公司或客户"
+
+msgid "Logotipo de la empresa (Opcional)"
+msgstr "公司徽标（可选）"
+
+msgid "Captura o imagen del proyecto (Opcional)"
+msgstr "项目截图或图片（可选）"
+
+msgid "Haz clic para subir"
+msgstr "点击上传"
+
+msgid "el logo o imagen"
+msgstr "徽标或图片"
+
+msgid "la captura del proyecto"
+msgstr "项目截图"
+
+msgid "Logotipo cargado"
+msgstr "徽标已上传"
+
+msgid "Imagen cargada"
+msgstr "图片已上传"
+
+msgid "Listo para guardar"
+msgstr "准备保存"
+
+msgid "Eliminar"
+msgstr "删除"
+
+msgid "Ver"
+msgstr "查看"
+
+msgid "Editar Habilidades"
+msgstr "编辑技能"
+
+msgid "Editar experiencia"
+msgstr "编辑经历"
+
+msgid "Editar proyecto"
+msgstr "编辑项目"
+
+msgid "Estado de búsqueda"
+msgstr "求职状态"
+
+msgid "Preferencia de ubicación"
+msgstr "工作地点偏好"
+
+msgid "Cuéntanos sobre ti..."
+msgstr "介绍一下你自己..."
+
+msgid "JPG, PNG o WebP. Máximo 5MB."
+msgstr "JPG、PNG 或 WebP。最大 5MB。"
+
+msgid "URL del proyecto (Opcional)"
+msgstr "项目网址（可选）"
+
+msgid "Describe el proyecto y las tecnologías usadas..."
+msgstr "描述该项目以及所使用的技术..."
+
+msgid "Describe tus responsabilidades y logros..."
+msgstr "描述你的职责和成就..."
+
+msgid "Seleccionar..."
+msgstr "请选择..."
+
+msgid "Seleccionar idioma..."
+msgstr "选择语言..."
+
+msgid "Buscar tag..."
+msgstr "搜索标签..."
+
+msgid "Híbrido"
+msgstr "混合办公"
+
+msgid "Segun destino"
+msgstr "视地点而定"
+
+msgid "Full-time"
+msgstr "全职"
+
+msgid "Part-time"
+msgstr "兼职"
+
+msgid "Contrato"
+msgstr "合同工"
+
+msgid "Freelance"
+msgstr "自由职业"
+
+msgid "Si"
+msgstr "是"
+
+msgid "Junior"
+msgstr "初级"
+
+msgid "Semi-Senior"
+msgstr "中级"
+
+msgid "Senior"
+msgstr "资深"
+
+msgid "Lead"
+msgstr "专家/主管"
+
+msgid "Español"
+msgstr "西班牙语"
+
+msgid "Inglés"
+msgstr "英语"
+
+msgid "Portugués"
+msgstr "葡萄牙语"
+
+msgid "Francés"
+msgstr "法语"
+
+msgid "Alemán"
+msgstr "德语"
+
+msgid "Italiano"
+msgstr "意大利语"
+
+msgid "Japonés"
+msgstr "日语"
+
+msgid "Coreano"
+msgstr "韩语"
+
+msgid "Chino"
+msgstr "中文"
+
+msgid "Ruso"
+msgstr "俄语"
+
+msgid "Árabe"
+msgstr "阿拉伯语"
+
+msgid "Hindi"
+msgstr "印地语"
+
+msgid "Proyecto"
+msgstr "项目"
+
+msgid "Periodo"
+msgstr "时间段"
+
+msgid "Descripción"
+msgstr "描述"
+
+msgid "Rol"
+msgstr "角色"
+
+msgid "Especialidad"
+msgstr "专业领域"
+
+msgid "Seniority"
+msgstr "资历级别"
+
+msgid "Tags"
+msgstr "标签"
+
+msgid "Perfil Profesional"
+msgstr "专业人才主页"
+
+msgid "Para trabajadores"
+msgstr "面向求职者"
+
+msgid "Para reclutadores"
+msgstr "面向招聘方"
+
+msgid "¿Deseas eliminar esta experiencia laboral?"
+msgstr "确定要删除此工作经历吗？"
+
+msgid "¿Deseas eliminar este proyecto?"
+msgstr "确定要删除此项目吗？"
+
+msgid "Ej: Desarrollador Full Stack"
+msgstr "例如：全栈开发工程师"
+
+msgid "Ej: Tech Solutions"
+msgstr "例如：科技创新有限公司"
+
+msgid "2021 - Presente"
+msgstr "2021 - 至今"
+
+msgid "Ej: App de Delivery"
+msgstr "例如：外卖配送应用"
+
+msgid "Ej: Proyecto Personal"
+msgstr "例如：个人项目"
+
+msgid "2023"
+msgstr "2023"
+
+msgid "Acerca de mí"
+msgstr "关于我"
+
+msgid "Activa"
+msgstr "生效中"
+
+msgid "Activa para que tu empresa sea visible en el directorio"
+msgstr "开启后企业将在目录中可见"
+
+msgid "Actualizar descripción"
+msgstr "更新描述"
+
+msgid "Al menos un carácter especial (!@#$%^&*...)"
+msgstr "至少包含一个特殊字符（!@#$%^&*...）"
+
+msgid "Buscar sector..."
+msgstr "搜索行业..."
+
+msgid "Busco Talento"
+msgstr "招募人才"
+
+msgid "Busco Trabajo"
+msgstr "寻找工作"
+
+msgid "Búsqueda Avanzada y Scoring"
+msgstr "高级搜索与匹配评分"
+
+msgid "Candidato"
+msgstr "候选人"
+
+msgid "Contactar con Candidato"
+msgstr "联系候选人"
+
+msgid ""
+"Crea tu perfil en minutos o explora nuestro directorio de empresas y "
+"talentos."
+msgstr "几分钟内创建您的个人资料，或探索我们的企业与人才名录。"
+
+msgid "Crear Nueva Vacante"
+msgstr "创建新职位"
+
+msgid "Crear Vacante"
+msgstr "发布职位"
+
+msgid "Crear una cuenta gratis"
+msgstr "免费注册账号"
+
+msgid "Cuéntanos sobre tu empresa..."
+msgstr "介绍一下您的公司..."
+
+msgid "Debe ser un correo corporativo (no Gmail, Yahoo, Hotmail, etc)."
+msgstr "必须使用企业邮箱（不支持 Gmail、Yahoo、Hotmail 等公共邮箱）。"
+
+msgid "Describe las responsabilidades y requisitos del puesto..."
+msgstr "描述该职位的职责和要求..."
+
+msgid "Descubre empresas y reclutadores en diferentes sectores."
+msgstr "发现不同行业的企业与招聘方。"
+
+msgid "Explorar tablón de candidatos"
+msgstr "浏览人才板"
+
+msgid "Explorar tablón de reclutadores"
+msgstr "浏览企业职位板"
+
+msgid "Explorar tablón público sin registro"
+msgstr "无需注册直接浏览公开展示板"
+
+msgid "Inicia sesión aquí"
+msgstr "在此登录"
+
+msgid "Ir a tablón de reclutadores"
+msgstr "前往招聘展示板"
+
+msgid "Ir a tablón de trabajadores"
+msgstr "前往求职人才板"
+
+msgid ""
+"La plataforma que redefine el CV tradicional en un perfil profesional "
+"interactivo."
+msgstr "将传统简历升级为互动式职业名片的全新平台。"
+
+msgid "Limpiar filtros"
+msgstr "清除筛选"
+
+msgid "Nombre de Empresa"
+msgstr "公司名称"
+
+msgid "Nombre de tu empresa"
+msgstr "贵公司名称"
+
+msgid "Nombre y apellidos"
+msgstr "姓名"
+
+msgid "Registrarme como Candidato"
+msgstr "注册为求职人才"
+
+msgid "Registrarme como Reclutador"
+msgstr "注册为招聘方"
+
+msgid "Requisitos de la contraseña:"
+msgstr "密码要求："
+
+msgid "Sitio Web"
+msgstr "官方网站"
+
+msgid "Sobre la empresa"
+msgstr "关于公司"
+
+msgid "Ubicación"
+msgstr "所在地"
+
+msgid "¿Listo para impulsar tu carrera o escalar tu equipo?"
+msgstr "准备好提升您的职业生涯或组建强大团队了吗？"
+
+msgid "¿Por qué TalentStack?"
+msgstr "为什么选择 TalentStack？"
+
+msgid "¿Qué estás buscando en la plataforma?"
+msgstr "您在寻找什么？"
+
+msgid "¿Ya tienes una cuenta con Google, GitHub o LinkedIn?"
+msgstr "已有 Google、GitHub 或 LinkedIn 账号？"
+
+msgid "Descripción (opcional)"
+msgstr "描述 (可选)"
+
+msgid "Deseables (OR)"
+msgstr "加分项 (OR)"
+
+msgid "Ej: $30,000 - $50,000 MXN mensuales"
+msgstr "例: 每月 $30,000 - $50,000 MXN"
+
+msgid "Ej: Ciudad de México, México"
+msgstr "例: 墨西哥城，墨西哥"
+
+msgid "Empresa Directa"
+msgstr "直聘企业"
+
+msgid "Enviar Mensaje"
+msgstr "发送消息"
+
+msgid "Escribe tu propuesta o mensaje para el candidato..."
+msgstr "输入您给候选人的提议或消息..."
+
+msgid "Especialidad y Habilidades"
+msgstr "专业与技能"
+
+msgid "Experiencia Laboral"
+msgstr "工作经历"
+
+msgid "Ficha de Datos"
+msgstr "数据卡片"
+
+msgid ""
+"Filtra perfiles o empresas por sector, especialidades concretas, modalidad "
+"de trabajo y más. Encuentra exactamente la combinación que necesitas."
+msgstr "按行业、具体专业领域、工作模式等筛选个人资料或企业。精准找到符合需求的匹配项。"
+
+msgid "Filtros Avanzados"
+msgstr "高级筛选"
+
+msgid "Haz visible tu potencial"
+msgstr "展现你的潜能"
+
+msgid "Ingresa un requisito por línea"
+msgstr "每行输入一条要求"
+
+msgid "Logo de empresa"
+msgstr "企业标志"
+
+msgid "Logo de la empresa"
+msgstr "企业标志"
+
+msgid ""
+"Los profesionales exploran ofertas y empresas públicas; los reclutadores "
+"gestionan vacantes y contactan directo con los candidatos."
+msgstr "专业人才探索公开职位与企业；招聘人员管理职位并直接与候选人联系。"
+
+msgid "Mis Ofertas / Vacantes"
+msgstr "我的职位 / 招聘"
+
+msgid "Modalidad"
+msgstr "工作模式"
+
+msgid "Modalidad:"
+msgstr "工作模式:"
+
+msgid "No hay vacantes activas por el momento."
+msgstr "目前暂无活跃职位。"
+
+msgid "No se encontraron empresas con estos filtros."
+msgstr "未找到符合筛选条件的企业。"
+
+msgid "No se encontraron perfiles con estos filtros."
+msgstr "未找到符合筛选条件的人才资料。"
+
+msgid "No tienes vacantes publicadas"
+msgstr "您尚未发布职位"
+
+msgid "Nota: La funcionalidad de guardado estará disponible próximamente."
+msgstr "提示: 保存功能即将上线。"
+
+msgid "Obligatorios (AND)"
+msgstr "必填项 (AND)"
+
+msgid "Particular"
+msgstr "个人"
+
+msgid "Paso 1 de 4 – ¿Qué buscas?"
+msgstr "第 1 步 / 共 4 步 – 您在寻找什么？"
+
+msgid "Perfiles Interactivos"
+msgstr "互动个人档案"
+
+msgid "Preferencias de Trabajo"
+msgstr "求职意向与偏好"
+
+msgid ""
+"Presenta tu experiencia, seniority, disponibilidad y red de habilidades en "
+"una página pública optimizada para compartir."
+msgstr "在专为分享优化的公开主页上，展示您的经验、资历、可到岗时间和技能网络。"
+
+msgid "Proyectos Destacados"
+msgstr "重点项目"
+
+msgid "Rango salarial"
+msgstr "薪资范围"
+
+msgid "Reclutador"
+msgstr "招聘顾问"
+
+msgid "Reclutador Independiente"
+msgstr "独立猎头/招聘顾问"
+
+msgid "Redes Sociales y Portafolio"
+msgstr "社交网络与作品集"
+
+msgid "Redes y Enlaces"
+msgstr "网络与链接"
+
+msgid "Requisitos"
+msgstr "职位要求"
+
+msgid "Sin enlaces externos configurados."
+msgstr "未配置外部链接。"
+
+msgid "Sitio Web (opcional)"
+msgstr "网站 (可选)"
+
+msgid "Sitio Web:"
+msgstr "网站:"
+
+msgid "Sobre Nosotros"
+msgstr "关于我们"
+
+msgid "Tablón de Empresas"
+msgstr "企业展板"
+
+msgid "Tags (Opcionales)"
+msgstr "标签 (可选)"
+
+msgid "Tecnologías"
+msgstr "技能技术"
+
+msgid "Tipo de Empresa"
+msgstr "企业性质"
+
+msgid "Tipo de Reclutador"
+msgstr "招聘人类型"
+
+msgid "Tipo:"
+msgstr "类型:"
+
+msgid "Todas"
+msgstr "全部"
+
+msgid "Trayectoria laboral y proyectos destacados"
+msgstr "工作轨迹与精选项目"
+
+msgid "Ubicación:"
+msgstr "地点:"
+
+msgid "Un espacio doble"
+msgstr "双重空间"
+
+msgid "Un requisito por línea..."
+msgstr "每行一个要求..."
+
+msgid "Vacantes Activas"
+msgstr "活跃职位"
+
+msgid "Ver proyecto"
+msgstr "查看项目"
+
+msgid ""
+"Vista previa: así es como los reclutadores y empresas ven tu perfil público."
+msgstr "预览：这是招聘人员和企业查看您公开主页的样式。"
+
+msgid "candidatos"
+msgstr "候选人"
+
+msgid "tu@empresa.com"
+msgstr "you@company.com"
+
+msgid "Sin biografía disponible"
+msgstr "暂无简介"
+
+msgid "Paso 1 de 4 — ¿Qué buscas?"
+msgstr "第 1 步 / 共 4 步 — 您在寻找什么？"
+
+msgid "Agregar tag"
+msgstr "添加标签"
+
+msgid "Añadir"
+msgstr "添加"
+
+msgid "Buscar o agregar tag (ej: Python, React, Git)..."
+msgstr "搜索或添加标签 (例: Python, React, Git)..."
+
+msgid "Escribe y presiona Enter o haz clic en + para añadir."
+msgstr "输入后按 Enter 或点击 + 添加。"
+
+msgid "No hay idiomas seleccionados"
+msgstr "未选择语言"
+
+msgid "No hay tags seleccionados"
+msgstr "未选择标签"
+
+msgid "Nuevo tag"
+msgstr "新标签"
+
+msgid "100% Gratuito para candidatos"
+msgstr "求职者100%免费"
+
+msgid "Afinidad con vacantes técnicas"
+msgstr "与技术职位的契合度"
+
+msgid "Alcance internacional"
+msgstr "全球影响力"
+
+msgid "Arquitectura de microservicios y liderazgo de equipo técnico."
+msgstr "微服务架构与技术团队领导。"
+
+msgid "Backend Python"
+msgstr "Python 后端"
+
+msgid "Búsqueda y filtrado"
+msgstr "搜索与筛选"
+
+msgid "CV Tradicional (PDF)"
+msgstr "传统简历 (PDF)"
+
+msgid "CV Tradicional en PDF"
+msgstr "传统 PDF 简历"
+
+msgid "Cero métricas de visualización ni interés de empresas"
+msgstr "零浏览数据，无法得知企业关注度"
+
+msgid "Cero visibilidad"
+msgstr "零可见度"
+
+msgid "Compara la experiencia"
+msgstr "对比使用体验"
+
+msgid "Contactar directamente"
+msgstr "直接联系"
+
+msgid "Contacto directo"
+msgstr "直接联络"
+
+msgid "Contacto directo con reclutadores"
+msgstr "与招聘人员直接沟通"
+
+msgid "Contacto directo sin intermediarios"
+msgstr "无中介直接联络"
+
+msgid "Contacto directo y seguro vía email"
+msgstr "通过邮件安全直接联络"
+
+msgid "Contacto y respuesta"
+msgstr "联系与响应"
+
+msgid ""
+"Crea tu perfil en minutos, comparte tu enlace personalizado y haz visible tu"
+" potencial ante las mejores oportunidades."
+msgstr "几分钟内创建您的个人资料，分享专属链接，向顶尖机遇展现您的全部潜力。"
+
+msgid "Crear mi cuenta gratuita"
+msgstr "创建我的免费账户"
+
+msgid "Crear mi perfil interactivo"
+msgstr "创建我的互动主页"
+
+msgid "Criterio"
+msgstr "评估维度"
+
+msgid "Código fuente"
+msgstr "源码仓库"
+
+msgid "Data & IA"
+msgstr "数据与人工智能"
+
+msgid "Demostración de habilidades"
+msgstr "技能展示与验证"
+
+msgid "Desactualizado el mismo día en que se descarga"
+msgstr "下载当天即告过时"
+
+msgid "Desarrollo Web"
+msgstr "Web 开发"
+
+msgid "Descargar resumen"
+msgstr "下载概览"
+
+msgid "Dinámico, responsivo y enriquecido con medios"
+msgstr "动态、响应式且富有富媒体展现"
+
+msgid "Diseñado para hacer destacar tu valor real en el mercado"
+msgstr "专为凸显您在就业市场的真实价值而设计"
+
+msgid "Diseño & UX"
+msgstr "设计与用户体验"
+
+msgid "Disponible para nuevas ofertas"
+msgstr "求职中 / 开放新机会"
+
+msgid "Doble Ecosistema Conectado"
+msgstr "双向联通生态"
+
+msgid "Documento estático de 2 páginas"
+msgstr "死板的2页纸质文档"
+
+msgid ""
+"Dos tablones sincronizados: profesionales mostrando su talento y "
+"reclutadores publicando oportunidades con total transparencia."
+msgstr "双重同步大厅：专业人才展示卓越能力，招聘方以极致透明度发布优质职位。"
+
+msgid ""
+"El CV tradicional en PDF ha muerto. Construye un perfil dinámico con "
+"taxonomía en 4 niveles, portafolio multimedia y contacto directo con "
+"reclutadores globales."
+msgstr "传统的 PDF 简历已成过往。构建具备4级精准分类、富媒体作品集并能与全球招聘官直接联络的动态主页。"
+
+msgid "El contraste entre el viejo modelo y la nueva era profesional"
+msgstr "旧模式与新职场时代的鲜明对比"
+
+msgid "Enlaces a proyectos y demos que nadie abre"
+msgstr "无人点击的项目和演示链接"
+
+msgid "Enlaces muertos"
+msgstr "失效无用链接"
+
+msgid "Enterrado en la bandeja"
+msgstr "淹没在收件箱中"
+
+msgid "Enterrado en un buzón junto a cientos de archivos idénticos"
+msgstr "与成百上千份千篇一律的文件一同沉睡在邮箱里"
+
+msgid "Español (Nativo), Inglés (C1 Avanzado)"
+msgstr "西班牙语 (母语), 英语 (C1 高级)"
+
+msgid "Especialidades y tecnologías destacadas en este sector:"
+msgstr "该行业的热门专长与关键技术："
+
+msgid "Experiencia reciente"
+msgstr "近期经历"
+
+msgid "Explorador de Talento en Tiempo Real"
+msgstr "实时人才探索器"
+
+msgid "Explorar tablón de empresas"
+msgstr "浏览企业招聘大厅"
+
+msgid "Explorar tablón de talento"
+msgstr "探索人才大厅"
+
+msgid "Explorar tablón público"
+msgstr "探索公开大厅"
+
+msgid "Explorar todos los perfiles de este sector"
+msgstr "探索该领域的所有人才主页"
+
+msgid "Filtra por sector y descubre las especialidades más demandadas hoy"
+msgstr "按行业筛选，洞察当下最具市场需求的专业方向"
+
+msgid "Finanzas"
+msgstr "金融财务"
+
+msgid "Formato y diseño"
+msgstr "格式与设计"
+
+msgid "Haz visible tu talento con un"
+msgstr "让您的才能脱颖而出："
+
+msgid "Idiomas disponibles"
+msgstr "支持的语言"
+
+msgid "Imágenes, links y repositorio directo"
+msgstr "配图、在线链接与直接代码仓库"
+
+msgid "Ir a mi Dashboard"
+msgstr "前往我的仪表盘"
+
+msgid "La diferencia es contundente"
+msgstr "优势一目了然"
+
+msgid "La evolución del currículum profesional"
+msgstr "专业职业履历的全面进化"
+
+msgid "Lectura manual o filtros ATS opacos"
+msgstr "繁琐的人工初筛或黑盒 ATS 机器过滤"
+
+msgid "Listas de texto sin verificación visual"
+msgstr "毫无视觉实证的枯燥纯文本罗列"
+
+msgid "Marketing & Growth"
+msgstr "市场营销与增长"
+
+msgid "Matching Transparente y Cero Spam"
+msgstr "透明匹配与零垃圾骚扰"
+
+msgid ""
+"Muestra capturas de proyectos, demos funcionales y repositorios de código. "
+"Demuestra lo que sabes hacer."
+msgstr "展示项目实图截图、在线运行演示与代码仓库，用真实成果证明您的实力。"
+
+msgid "Niveles de clasificación"
+msgstr "分类层级"
+
+msgid "Obsoleto de inmediato"
+msgstr "迅速过时"
+
+msgid ""
+"Olvídate de palabras clave sueltas. Clasificamos perfiles mediante Sector, "
+"Rol, Especialidad y Tags para un matching quirúrgico."
+msgstr "告别散乱无序的关键词搜索。我们通过行业、角色、专长与标签精准分类，实现手术级精准契合。"
+
+msgid "Perfil Vivo TalentStack"
+msgstr "TalentStack 动态主页"
+
+msgid "Portafolio Multimedia Integrado"
+msgstr "一体化富媒体作品集"
+
+msgid "Portafolio en vivo con demos y repositorios"
+msgstr "配有在线演示与代码仓库的活态作品集"
+
+msgid "Presencia Global en 12 Idiomas"
+msgstr "支持12种语言的全球影响力"
+
+msgid "Profesionales conectados"
+msgstr "入驻的专业人才"
+
+msgid "Proyectos interactivos"
+msgstr "互动项目展示"
+
+msgid "Rechazado por filtro ATS"
+msgstr "遭 ATS 筛选器直接过滤淘汰"
+
+msgid "Remoto / Disponible a nivel global"
+msgstr "远程 / 全球随时就绪"
+
+msgid "Rígido, estático y limitado a 2 páginas"
+msgstr "僵硬死板、形式静态且受限于2页纸"
+
+msgid "Semanas de silencio por correo"
+msgstr "投递后数周杳无音讯"
+
+msgid "Senior Full-Stack & Cloud Engineer"
+msgstr "资深全栈与云架构工程师"
+
+msgid ""
+"Sin algoritmos opacos ni comisiones abusivas. Filtra perfiles por "
+"disponibilidad real y contacta sin rodeos."
+msgstr "没有黑盒算法或不合理抽成。根据真实可用状态筛选人才，零障碍直接对接。"
+
+msgid "Sin coste para profesionales"
+msgstr "专业人才完全免费"
+
+msgid "Superpoderes de TalentStack"
+msgstr "TalentStack 核心超能力"
+
+msgid "Tablón de Candidatos"
+msgstr "人才大厅"
+
+msgid "Tablón de Reclutadores"
+msgstr "企业招聘大厅"
+
+msgid "Taxonomía Estructurada en 4 Capas"
+msgstr "结构化4层精准分类"
+
+msgid "Taxonomía de Precisión"
+msgstr "高精度分类系统"
+
+msgid "Taxonomía de precisión en 4 capas"
+msgstr "4层高精度技术分类"
+
+msgid "Taxonomía inteligente en 4 capas"
+msgstr "智能4层精准分类"
+
+msgid "Tecnología"
+msgstr "科技技术"
+
+msgid "Tecnologías y competencias destacadas"
+msgstr "核心技能与重点技术"
+
+msgid "Texto plano sin interactividad ni demostración práctica"
+msgstr "缺乏互动与实操证明的纯文本"
+
+msgid "Traducción automática a 12 idiomas"
+msgstr "自动适配12种语言翻译"
+
+msgid "Traducción nativa en 12 idiomas"
+msgstr "12种语言原生级翻译"
+
+msgid ""
+"Tu perfil y su taxonomía se traducen automáticamente para conectar con "
+"oportunidades en todo el mundo sin barreras."
+msgstr "您的主页与技能分类将自动翻译，跨越语言障碍，畅联全球顶尖工作机遇。"
+
+msgid "Un PDF por cada idioma a traducir"
+msgstr "每种语言都需单独维护一份 PDF"
+
+msgid "Ver demo en vivo"
+msgstr "查看在线演示"
+
+msgid "Vista interactiva"
+msgstr "交互式预览"
+
+msgid "perfil profesional interactivo"
+msgstr "互动式专业人才主页"
+
+msgid ""
+"¡Simulación interactiva! En un perfil real, este botón abre el canal de "
+"contacto directo con el candidato."
+msgstr "交互模拟体验！在真实主页中，点击此按钮可直接与候选人建立联系。"
+
+msgid "¿Buscas contratar talento?"
+msgstr "正在寻找优秀人才？"
+
+msgid "¿Listo para dar el salto al perfil interactivo?"
+msgstr "准备好跨入互动式主页时代了吗？"
+
+msgid "¿Por qué un perfil interactivo supera a cualquier PDF?"
+msgstr "为什么互动式主页彻底超越传统的 PDF？"
+
+msgid "Aumentan el score de afinidad"
+msgstr "提高契合度评分"
+
+msgid "Buscando empresas y reclutadores..."
+msgstr "正在搜索企业与招聘人员..."
+
+msgid "Buscando profesionales..."
+msgstr "正在搜索专业人才..."
+
+msgid "Buscar sector (ej: Tecnología, Salud)..."
+msgstr "搜索行业 (例: 科技技术、医疗健康)..."
+
+msgid "Cargando empresas..."
+msgstr "正在加载企业..."
+
+msgid "Cargando perfiles..."
+msgstr "正在加载个人资料..."
+
+msgid ""
+"Descubre organizaciones y reclutadores que buscan talento activamente con "
+"total transparencia."
+msgstr "在极致透明的生态中，探索正在积极招揽人才的优质企业与招聘官。"
+
+msgid "Disponible"
+msgstr "可联系"
+
+msgid "El perfil debe tener todos"
+msgstr "个人资料必须全部具备"
+
+msgid ""
+"Encuentra empresas por sector, modalidad de trabajo o tipo de reclutador."
+msgstr "按所属行业、工作模式或招聘者类型精准发现目标企业。"
+
+msgid "Escribe para buscar tag (ej: Docker, AWS)..."
+msgstr "输入以搜索标签 (例: Docker, AWS)..."
+
+msgid "Escribe para buscar tag (ej: Python, React)..."
+msgstr "输入以搜索标签 (例: Python, React)..."
+
+msgid ""
+"Explora perfiles verificados con taxonomía de precisión, habilidades reales "
+"y contacto directo."
+msgstr "探索具备高精度结构化分类、实战技能与直接联络通道的真实人才主页。"
+
+msgid ""
+"Filtra en cascada por Sector, Rol, Especialidad y competencias específicas."
+msgstr "按行业、角色、专长及特定技能层层级联筛选。"
+
+msgid "Filtros Adicionales (Seniority y Modalidad)"
+msgstr "附加筛选条件 (年资级别与工作模式)"
+
+msgid "Filtros de Búsqueda Taxonómica"
+msgstr "分类搜索筛选器"
+
+msgid "Filtros de Empresas y Vacantes"
+msgstr "企业与职位筛选器"
+
+msgid "Match"
+msgstr "契合度"
+
+msgid "Modalidad de Trabajo"
+msgstr "工作模式"
+
+msgid "Nivel de Seniority"
+msgstr "年资级别"
+
+msgid "No se encontraron empresas con estos filtros"
+msgstr "未找到符合条件的企业"
+
+msgid "No se encontraron perfiles con estos filtros"
+msgstr "未找到符合条件的个人资料"
+
+msgid "Obligatorios / Deseables"
+msgstr "必须 / 加分"
+
+msgid "Para reclutadores (Empresas)"
+msgstr "企业与招聘方大厅"
+
+msgid "Para trabajadores (Candidatos)"
+msgstr "专业人才求职大厅"
+
+msgid ""
+"Prueba relajando algunos criterios de búsqueda o limpiando los filtros para "
+"ver más resultados."
+msgstr "尝试放宽部分筛选要求或重置筛选条件以浏览更多结果。"
+
+msgid "Restablecer todos los filtros"
+msgstr "重置全部筛选条件"
+
+msgid "Sectores de Contratación"
+msgstr "招聘行业领域"
+
+msgid "Sin descripción"
+msgstr "暂无描述"
+
+msgid "Tags y Tecnologías Clave"
+msgstr "标签与核心技术栈"
+
+msgid "Todas las especialidades"
+msgstr "所有专业方向"
+
+msgid "Todas las modalidades"
+msgstr "所有工作模式"
+
+msgid "Todos los niveles"
+msgstr "所有经验级别"
+
+msgid "Todos los roles"
+msgstr "所有职位角色"
+
+msgid "Todos los sectores"
+msgstr "所有行业"
+
+msgid "Todos los tipos"
+msgstr "所有类型"
+
+msgid "Ver empresa y vacantes"
+msgstr "查看企业主页与热招职位"
+
+msgid "Ver perfil interactivo"
+msgstr "查看互动人才主页"
+
+msgid "empresa encontrada"
+msgstr "家企业"
+
+msgid "empresas encontradas"
+msgstr "家企业"
+
+msgid "más"
+msgstr "项"
+
+msgid "profesional encontrado"
+msgstr "位专业人才"
+
+msgid "profesionales encontrados"
+msgstr "位专业人才"
+
 #~ msgid "Mi Perfil"
 #~ msgstr "我的资料"
 
@@ -1243,7 +2230,7 @@ msgstr "此类别中未找到简历。"
 #~ msgstr "创建我的第一份简历"
 
 #~ msgid "Anterior"
-#~ msgstr "上一个"
+#~ msgstr "上一页"
 
 #~ msgid "Las contraseñas no coinciden."
 #~ msgstr "密码不匹配。"
@@ -1255,10 +2242,10 @@ msgstr "此类别中未找到简历。"
 #~ msgstr "至少一个特殊字符 (!@#$%^&*())"
 
 #~ msgid "Al menos un número"
-#~ msgstr "至少一个数字"
+#~ msgstr "至少包含一个数字"
 
 #~ msgid "Al menos una letra mayúscula"
-#~ msgstr "至少一个大写字母"
+#~ msgstr "至少包含一个大写字母"
 
 #~ msgid "Cuenta"
 #~ msgstr "账户"
@@ -1284,7 +2271,7 @@ msgstr "此类别中未找到简历。"
 #~ msgstr "密码必须至少 8 个字符，包含 1 个大写字母、1 个数字和 1 个特殊字符。"
 
 #~ msgid "Mínimo 8 caracteres"
-#~ msgstr "最少 8 个字符"
+#~ msgstr "至少8个字符"
 
 #~ msgid "Perfil profesional"
 #~ msgstr "职业信息"

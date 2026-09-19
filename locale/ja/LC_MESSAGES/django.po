@@ -51,27 +51,26 @@ msgstr "パスワードには数字を少なくとも 1 つ含める必要があ
 #: .\apps\accounts\forms.py:70
 #, python-brace-format
 msgid ""
-"La contraseña debe contener al menos un carácter especial (!@#$%^&*(),.?\":"
-"{}|<>)."
-msgstr ""
-"パスワードには少なくとも1つの特殊文字を含める必要があります (!@#$%^&*(),.?\":"
-"{}|<>)。"
+"La contraseña debe contener al menos un carácter especial "
+"(!@#$%^&*(),.?\":{}|<>)."
+msgstr "パスワードには少なくとも1つの特殊文字を含める必要があります (!@#$%^&*(),.?\":{}|<>)。"
 
 #: .\apps\accounts\forms.py:87 .\apps\accounts\forms.py:106
 #: .\templates\accounts\complete_profile.html:29
-#: .\templates\accounts\dashboard.html:13 .\templates\accounts\register.html:61
+#: .\templates\accounts\dashboard.html:13
+#: .\templates\accounts\register.html:61
 #: .\templates\resumes\templates\_section_references.html:14
 msgid "Nombre"
 msgstr "名"
 
 #: .\apps\accounts\forms.py:95 .\apps\accounts\forms.py:115
 #: .\templates\accounts\complete_profile.html:37
-#: .\templates\accounts\dashboard.html:15 .\templates\accounts\register.html:68
+#: .\templates\accounts\dashboard.html:15
+#: .\templates\accounts\register.html:68
 msgid "Apellido"
 msgstr "姓"
 
 #: .\apps\accounts\forms.py:124 .\templates\accounts\register.html:77
-#, fuzzy
 #| msgid "Título profesional"
 msgid "Cargo / Título profesional"
 msgstr "職業称号"
@@ -125,7 +124,6 @@ msgid "El formato del email no es valido."
 msgstr "メールの形式が正しくありません。"
 
 #: .\apps\accounts\views.py:347
-#, fuzzy
 #| msgid "Bio actualizada correctamente."
 msgid "Perfil completado correctamente."
 msgstr "プロフィールが更新されました。"
@@ -144,13 +142,11 @@ msgid "Informacion de Cuenta"
 msgstr "アカウント情報"
 
 #: .\templates\accounts\account_settings.html:15
-#, fuzzy
 #| msgid "Email"
 msgid "Email:"
 msgstr "メールアドレス"
 
 #: .\templates\accounts\account_settings.html:16
-#, fuzzy
 #| msgid "Nombre"
 msgid "Nombre:"
 msgstr "名"
@@ -192,30 +188,25 @@ msgid "Vincular"
 msgstr "連携"
 
 #: .\templates\accounts\account_settings.html:102
-#, fuzzy
 #| msgid "Volver al dashboard"
 msgid "Volver al Dashboard"
 msgstr "ダッシュボードに戻る"
 
 #: .\templates\accounts\complete_profile.html:4
-#, fuzzy
 #| msgid "Completa tu perfil profesional"
 msgid "Completar perfil"
 msgstr "職業プロフィールを完成させてください"
 
 #: .\templates\accounts\complete_profile.html:9
-#, fuzzy
 #| msgid "Completa tu perfil profesional"
 msgid "Completa tu perfil"
 msgstr "職業プロフィールを完成させてください"
 
 #: .\templates\accounts\complete_profile.html:10
 msgid "Cuéntanos un poco sobre ti para personalizar tu experiencia."
-msgstr ""
-"あなたの経験をパーソナライズするために、あなたについて少し教えてください。"
+msgstr "あなたの経験をパーソナライズするために、あなたについて少し教えてください。"
 
 #: .\templates\accounts\complete_profile.html:14
-#, fuzzy
 #| msgid "Por favor, corrige los errores."
 msgid "Por favor, corrige los errores:"
 msgstr "エラーを修正してください。"
@@ -223,11 +214,10 @@ msgstr "エラーを修正してください。"
 #: .\templates\accounts\complete_profile.html:32
 #: .\templates\accounts\profile.html:347 .\templates\accounts\register.html:64
 msgid "Tu nombre"
-msgstr "あなたの名"
+msgstr "氏名"
 
 #: .\templates\accounts\complete_profile.html:40
 #: .\templates\accounts\register.html:71
-#, fuzzy
 #| msgid "Tus apellidos"
 msgid "Tu apellido"
 msgstr "あなたの姓"
@@ -241,7 +231,6 @@ msgid "Dashboard"
 msgstr "ダッシュボード"
 
 #: .\templates\accounts\dashboard.html:10
-#, fuzzy
 #| msgid "CV Builder"
 msgid "Bienvenido a CV Builder"
 msgstr "履歴書ビルダー"
@@ -259,10 +248,9 @@ msgstr "プロフィールを完成させるには、名前と姓が必要です
 #: .\templates\accounts\dashboard.html:516
 #: .\templates\accounts\dashboard.html:608
 #: .\templates\accounts\dashboard.html:654
-#, fuzzy
 #| msgid "Guardar bio"
 msgid "Guardar"
-msgstr "自己紹介を保存"
+msgstr "保存"
 
 #: .\templates\accounts\dashboard.html:33 .\templates\accounts\profile.html:24
 #: .\templates\resumes\templates\classic.html:6
@@ -272,10 +260,9 @@ msgid "Foto de perfil"
 msgstr "プロフィール写真"
 
 #: .\templates\accounts\dashboard.html:85
-#, fuzzy
 #| msgid "Editar"
 msgid "Editar estado"
-msgstr "編集"
+msgstr "ステータスを編集"
 
 #: .\templates\accounts\dashboard.html:92 .\templates\accounts\profile.html:64
 #: .\templates\resumes\templates\_section_skills.html:3
@@ -291,33 +278,37 @@ msgstr "スキル"
 msgid "Editar"
 msgstr "編集"
 
-#: .\templates\accounts\dashboard.html:107 .\templates\accounts\profile.html:74
-#, fuzzy
+#: .\templates\accounts\dashboard.html:107
+#: .\templates\accounts\profile.html:74
 #| msgid "Habilidades"
 msgid "Sin habilidades"
 msgstr "スキル"
 
-#: .\templates\accounts\dashboard.html:115 .\templates\accounts\profile.html:81
+#: .\templates\accounts\dashboard.html:115
+#: .\templates\accounts\profile.html:81
 msgid "Bio"
 msgstr "自己紹介"
 
 #: .\templates\accounts\dashboard.html:129
-#: .\templates\accounts\dashboard.html:416 .\templates\accounts\profile.html:88
+#: .\templates\accounts\dashboard.html:416
+#: .\templates\accounts\profile.html:88
 msgid "Preferencias de trabajo"
-msgstr "勤務希望条件"
+msgstr "勤務設定"
 
-#: .\templates\accounts\dashboard.html:137 .\templates\accounts\profile.html:92
+#: .\templates\accounts\dashboard.html:137
+#: .\templates\accounts\profile.html:92
 msgid "Tipo de empleo:"
 msgstr "雇用形態:"
 
-#: .\templates\accounts\dashboard.html:141 .\templates\accounts\profile.html:98
+#: .\templates\accounts\dashboard.html:141
+#: .\templates\accounts\profile.html:98
 msgid "Salario esperado:"
 msgstr "希望給与:"
 
 #: .\templates\accounts\dashboard.html:145
 #: .\templates\accounts\profile.html:104
 msgid "Disponible para mudarse:"
-msgstr "転居可能:"
+msgstr "転勤・移住可能:"
 
 #: .\templates\accounts\dashboard.html:149
 #: .\templates\accounts\profile.html:110
@@ -331,10 +322,9 @@ msgstr "マイ履歴書"
 
 #: .\templates\accounts\dashboard.html:167
 #: .\templates\accounts\profile.html:138
-#, fuzzy
 #| msgid "Experiencia"
 msgid "Experiencia y Proyectos"
-msgstr "職歴"
+msgstr "職歴とプロジェクト"
 
 #: .\templates\accounts\dashboard.html:170
 #: .\templates\resumes\templates\creative.html:38
@@ -349,19 +339,17 @@ msgstr "ソーシャルリンク"
 #: .\templates\accounts\dashboard.html:283
 #: .\templates\accounts\profile.html:207
 msgid "Sin redes sociales configuradas"
-msgstr "ソーシャルリンク未設定"
+msgstr "ソーシャルリンクが設定されていません"
 
 #: .\templates\accounts\dashboard.html:294
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar foto"
-msgstr "更新日："
+msgstr "写真を更新"
 
 #: .\templates\accounts\dashboard.html:305
-#, fuzzy
 #| msgid "JPG, PNG o WebP. Máximo 5MB."
 msgid "JPG, PNG o WebP. Maximo 5MB."
-msgstr "JPG、PNG、WebP形式。最大5MB。"
+msgstr "JPG、PNG、またはWebP。最大5MB。"
 
 #: .\templates\accounts\dashboard.html:308
 #: .\templates\accounts\dashboard.html:332
@@ -376,34 +364,29 @@ msgid "Cancelar"
 msgstr "キャンセル"
 
 #: .\templates\accounts\dashboard.html:320
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar titular"
-msgstr "更新日："
+msgstr "肩書を更新"
 
 #: .\templates\accounts\dashboard.html:329
-#, fuzzy
 #| msgid "Ej: Desarrollador Web"
 msgid "Ej: Desarrollador Full Stack Senior"
-msgstr "例：Web開発者"
+msgstr "例: シニアフルスタックエンジニア"
 
 #: .\templates\accounts\dashboard.html:343
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar bio"
-msgstr "更新日："
+msgstr "自己紹介を更新"
 
 #: .\templates\accounts\dashboard.html:352
-#, fuzzy
 #| msgid "Cuéntanos sobre ti..."
 msgid "Cuentanos sobre ti..."
-msgstr "あなたについて教えてください..."
+msgstr "自己紹介を記入してください..."
 
 #: .\templates\accounts\dashboard.html:366
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar estado"
-msgstr "更新日："
+msgstr "ステータスを更新"
 
 #: .\templates\accounts\dashboard.html:375
 msgid "Estado de busqueda"
@@ -419,23 +402,23 @@ msgstr "未指定"
 
 #: .\templates\accounts\dashboard.html:378
 msgid "Buscando activamente"
-msgstr "積極的に求職中"
+msgstr "積極的に転職活動中"
 
 #: .\templates\accounts\dashboard.html:379
 msgid "Abierto a ofertas"
-msgstr "オファー受付中"
+msgstr "良い案件があれば検討"
 
 #: .\templates\accounts\dashboard.html:380
 msgid "No buscando"
-msgstr "求職中ではない"
+msgstr "転職希望なし"
 
 #: .\templates\accounts\dashboard.html:384
 msgid "Disponibilidad"
-msgstr "対応時期"
+msgstr "就業開始可能日"
 
 #: .\templates\accounts\dashboard.html:387
 msgid "Inmediata"
-msgstr "即日"
+msgstr "即時"
 
 #: .\templates\accounts\dashboard.html:388
 msgid "2 semanas"
@@ -447,11 +430,11 @@ msgstr "1ヶ月"
 
 #: .\templates\accounts\dashboard.html:390
 msgid "Negociable"
-msgstr "応相談"
+msgstr "相談可能"
 
 #: .\templates\accounts\dashboard.html:394
 msgid "Preferencia de ubicacion"
-msgstr "勤務地の希望"
+msgstr "勤務地設定"
 
 #: .\templates\accounts\dashboard.html:397
 msgid "Remoto"
@@ -499,31 +482,26 @@ msgid "Disponible para viajar"
 msgstr "出張可能"
 
 #: .\templates\accounts\dashboard.html:457
-#, fuzzy
 #| msgid "Opcional"
 msgid "Ocasional"
-msgstr "任意"
+msgstr "時々"
 
 #: .\templates\accounts\dashboard.html:458
-#, fuzzy
 #| msgid "Crea tu cuenta"
 msgid "Frecuente"
-msgstr "アカウントを作成"
+msgstr "頻繁"
 
 #: .\templates\accounts\dashboard.html:475
-#, fuzzy
 #| msgid "Habilidades"
 msgid "Editar habilidades"
 msgstr "スキル"
 
 #: .\templates\accounts\dashboard.html:486
-#, fuzzy
 #| msgid "Agregar habilidad"
 msgid "Nueva habilidad"
 msgstr "スキルを追加"
 
 #: .\templates\accounts\dashboard.html:498
-#, fuzzy
 #| msgid "Sector principal:"
 msgid "Principal"
 msgstr "主な分野："
@@ -550,7 +528,6 @@ msgid "Agregar experiencia"
 msgstr "職歴を追加"
 
 #: .\templates\accounts\dashboard.html:594
-#, fuzzy
 #| msgid "Título del puesto"
 msgid "Titulo del puesto"
 msgstr "役職"
@@ -559,7 +536,7 @@ msgstr "役職"
 #: .\templates\resumes\templates\_section_experience.html:15
 #: .\templates\resumes\templates\_section_references.html:16
 msgid "Empresa"
-msgstr "会社"
+msgstr "企業"
 
 #: .\templates\accounts\dashboard.html:598
 #: .\templates\resumes\templates\_section_experience.html:16
@@ -586,15 +563,13 @@ msgstr "ログイン"
 
 #: .\templates\accounts\login.html:23
 msgid "Email o contraseña incorrectos. Por favor, inténtalo de nuevo."
-msgstr ""
-"メールアドレスまたはパスワードが正しくありません。もう一度お試しください。"
+msgstr "メールアドレスまたはパスワードが正しくありません。もう一度お試しください。"
 
 #: .\templates\accounts\login.html:52
 msgid "¿Olvidaste tu contraseña?"
 msgstr "パスワードをお忘れですか？"
 
 #: .\templates\accounts\login.html:62
-#, fuzzy
 #| msgid "Continúa con"
 msgid "O continúa con"
 msgstr "で続ける"
@@ -603,9 +578,7 @@ msgstr "で続ける"
 msgid ""
 "El login con redes sociales no está configurado. Consulta el README para "
 "configurar las credenciales OAuth."
-msgstr ""
-"ソーシャルログインが設定されていません。OAuth認証情報の設定方法はREADMEを参照"
-"してください。"
+msgstr "ソーシャルログインが設定されていません。OAuth認証情報の設定方法はREADMEを参照してください。"
 
 #: .\templates\accounts\login.html:108
 msgid "¿No tienes cuenta?"
@@ -621,19 +594,16 @@ msgstr "これはあなたの公開プロフィールです"
 
 #: .\templates\accounts\profile.html:12
 #: .\templates\registration\password_change_done.html:13
-#, fuzzy
 #| msgid "Volver al dashboard"
 msgid "Ir al Dashboard"
-msgstr "ダッシュボードに戻る"
+msgstr "ダッシュボードへ戻る"
 
 #: .\templates\accounts\profile.html:122
-#, fuzzy
 #| msgid "Contacto"
 msgid "Contactar"
 msgstr "お問い合わせ"
 
 #: .\templates\accounts\profile.html:131
-#, fuzzy
 #| msgid "Aún no tienes CVs creados."
 msgid "Este candidato no tiene CVs publicados."
 msgstr "この候補者は公開された履歴書がありません。"
@@ -665,7 +635,6 @@ msgstr "受賞・表彰"
 
 #: .\templates\accounts\profile.html:289
 #: .\templates\resumes\templates\_section_publications.html:3
-#, fuzzy
 #| msgid "Publicado"
 msgid "Publicaciones"
 msgstr "公開済み"
@@ -677,23 +646,20 @@ msgstr "趣味・関心"
 
 #: .\templates\accounts\profile.html:317
 #: .\templates\resumes\templates\_section_references.html:3
-#, fuzzy
 #| msgid "Experiencia"
 msgid "Referencias"
 msgstr "職歴"
 
 #: .\templates\accounts\profile.html:338
-#, fuzzy
 #| msgid "Contacto"
 msgid "Contactar a"
-msgstr "お問い合わせ"
+msgstr "連絡先:"
 
 #: .\templates\accounts\profile.html:350
 msgid "Nombre completo"
 msgstr "氏名"
 
 #: .\templates\accounts\profile.html:353
-#, fuzzy
 #| msgid "Email"
 msgid "Tu email"
 msgstr "メールアドレス"
@@ -716,9 +682,10 @@ msgstr "送信"
 
 #: .\templates\accounts\register.html:5 .\templates\base.html:76
 msgid "Registrarse"
-msgstr "登録"
+msgstr "新規登録"
 
-#: .\templates\accounts\register.html:10 .\templates\accounts\register.html:103
+#: .\templates\accounts\register.html:10
+#: .\templates\accounts\register.html:103
 msgid "Crear Cuenta"
 msgstr "アカウント作成"
 
@@ -764,11 +731,11 @@ msgstr "ログイン"
 
 #: .\templates\base.html:30
 msgid "Tablón"
-msgstr "掲示板"
+msgstr "ボード"
 
 #: .\templates\base.html:33
 msgid "Cambiar tema"
-msgstr "テーマを変更"
+msgstr "テーマを切り替え"
 
 #: .\templates\base.html:73
 msgid "Salir"
@@ -786,9 +753,7 @@ msgstr "プロフェッショナルな CV を作成"
 msgid ""
 "Diseña CVs impresionantes con plantillas profesionales. Publica en nuestro "
 "tablón de talentos y conecta con oportunidades."
-msgstr ""
-"プロフェッショナルなテンプレートで印象的な CV を作成。才能ボードに公開して"
-"チャンスにつながりましょう。"
+msgstr "プロフェッショナルなテンプレートで印象的な CV を作成。才能ボードに公開してチャンスにつながりましょう。"
 
 #: .\templates\landing.html:19
 msgid "Mi Dashboard"
@@ -817,9 +782,7 @@ msgstr "3 つのプロフェッショナルなテンプレート"
 #: .\templates\landing.html:52
 msgid ""
 "Elige entre diseños clásico, moderno y creativo para destacar tu perfil."
-msgstr ""
-"クラシック・モダン・クリエイティブから選んで、あなたのプロフィールを引き立て"
-"ましょう。"
+msgstr "クラシック・モダン・クリエイティブから選んで、あなたのプロフィールを引き立てましょう。"
 
 #: .\templates\landing.html:61
 msgid "Editor visual"
@@ -859,7 +822,6 @@ msgid "Contraseña actualizada"
 msgstr "パスワードを更新しました"
 
 #: .\templates\registration\password_change_done.html:10
-#, fuzzy
 #| msgid "Foto actualizada correctamente."
 msgid "Tu contraseña ha sido cambiada correctamente."
 msgstr "写真が更新されました。"
@@ -873,7 +835,6 @@ msgid "Actualizar contraseña"
 msgstr "パスワードを更新"
 
 #: .\templates\registration\password_reset_complete.html:4
-#, fuzzy
 #| msgid "Contraseña"
 msgid "Contraseña restablecida"
 msgstr "パスワード"
@@ -883,7 +844,6 @@ msgid "Tu contraseña ha sido restablecida. Ya puedes iniciar sesión."
 msgstr "パスワードが再設定されました。ログインできます。"
 
 #: .\templates\registration\password_reset_confirm.html:4
-#, fuzzy
 #| msgid "Contraseña"
 msgid "Nueva contraseña"
 msgstr "パスワード"
@@ -904,9 +864,7 @@ msgstr "パスワードを保存"
 msgid ""
 "El enlace de restablecimiento no es válido o ya ha sido usado. Solicita uno "
 "nuevo."
-msgstr ""
-"再設定リンクが無効か、すでに使用されています。新しいリンクをリクエストしてく"
-"ださい。"
+msgstr "再設定リンクが無効か、すでに使用されています。新しいリンクをリクエストしてください。"
 
 #: .\templates\registration\password_reset_confirm.html:41
 msgid "Solicitar nuevo enlace"
@@ -924,9 +882,7 @@ msgstr "メールを確認してください"
 msgid ""
 "Si existe una cuenta con ese email, te hemos enviado instrucciones para "
 "restablecer tu contraseña."
-msgstr ""
-"そのメールアドレスのアカウントが存在する場合、パスワード再設定の手順を送信し"
-"ました。"
+msgstr "そのメールアドレスのアカウントが存在する場合、パスワード再設定の手順を送信しました。"
 
 #: .\templates\registration\password_reset_email.html:3
 msgid "Recibimos una solicitud para restablecer tu contraseña en CV Builder."
@@ -939,9 +895,7 @@ msgstr "以下のリンクをクリックして新しいパスワードを設定
 #: .\templates\registration\password_reset_email.html:9
 msgid ""
 "Si no solicitaste este cambio, ignora este email. Tu contraseña no cambiará."
-msgstr ""
-"この変更をリクエストしていない場合は、このメールを無視してください。パスワー"
-"ドは変更されません。"
+msgstr "この変更をリクエストしていない場合は、このメールを無視してください。パスワードは変更されません。"
 
 #: .\templates\registration\password_reset_form.html:4
 #: .\templates\registration\password_reset_form.html:9
@@ -1004,8 +958,7 @@ msgstr "テンプレートを選択"
 
 #: .\templates\resumes\select_template.html:9
 msgid "Selecciona el diseño que mejor se adapte a tu estilo profesional."
-msgstr ""
-"あなたのプロフェッショナルなスタイルに最適なデザインを選択してください。"
+msgstr "あなたのプロフェッショナルなスタイルに最適なデザインを選択してください。"
 
 #: .\templates\resumes\select_template.html:68
 msgid "Seleccionar"
@@ -1030,7 +983,6 @@ msgid "Año"
 msgstr "年"
 
 #: .\templates\resumes\templates\_section_awards.html:20
-#, fuzzy
 #| msgid "Agregar experiencia"
 msgid "Agregar premio"
 msgstr "職歴を追加"
@@ -1040,13 +992,11 @@ msgid "Nombre de la certificación"
 msgstr "資格名"
 
 #: .\templates\resumes\templates\_section_certifications.html:14
-#, fuzzy
 #| msgid "Institución"
 msgid "Institución o plataforma"
 msgstr "教育機関"
 
 #: .\templates\resumes\templates\_section_certifications.html:20
-#, fuzzy
 #| msgid "Agregar educación"
 msgid "Agregar certificación"
 msgstr "学歴を追加"
@@ -1088,7 +1038,6 @@ msgid "Lectura"
 msgstr "読書"
 
 #: .\templates\resumes\templates\_section_interests.html:13
-#, fuzzy
 #| msgid "Agregar"
 msgid "Agregar interés"
 msgstr "追加"
@@ -1102,7 +1051,6 @@ msgid "Nivel"
 msgstr "レベル"
 
 #: .\templates\resumes\templates\_section_languages.html:18
-#, fuzzy
 #| msgid "Agregar habilidad"
 msgid "Agregar idioma"
 msgstr "スキルを追加"
@@ -1116,7 +1064,6 @@ msgid "Nombre del proyecto"
 msgstr "プロジェクト名"
 
 #: .\templates\resumes\templates\_section_projects.html:14
-#, fuzzy
 #| msgid "Descripción de tus responsabilidades..."
 msgid "Descripción del proyecto..."
 msgstr "担当業務の説明..."
@@ -1127,13 +1074,11 @@ msgid "https://..."
 msgstr "https://..."
 
 #: .\templates\resumes\templates\_section_projects.html:20
-#, fuzzy
 #| msgid "Agregar experiencia"
 msgid "Agregar proyecto"
-msgstr "職歴を追加"
+msgstr "プロジェクトを追加"
 
 #: .\templates\resumes\templates\_section_publications.html:14
-#, fuzzy
 #| msgid "Título del puesto"
 msgid "Título de la publicación"
 msgstr "役職"
@@ -1143,13 +1088,11 @@ msgid "Medio o revista"
 msgstr "媒体または雑誌"
 
 #: .\templates\resumes\templates\_section_publications.html:22
-#, fuzzy
 #| msgid "Agregar educación"
 msgid "Agregar publicación"
 msgstr "学歴を追加"
 
 #: .\templates\resumes\templates\_section_references.html:15
-#, fuzzy
 #| msgid "Cargando..."
 msgid "Cargo"
 msgstr "読み込み中..."
@@ -1159,7 +1102,6 @@ msgid "email o teléfono"
 msgstr "メールまたは電話"
 
 #: .\templates\resumes\templates\_section_references.html:22
-#, fuzzy
 #| msgid "Agregar experiencia"
 msgid "Agregar referencia"
 msgstr "職歴を追加"
@@ -1191,7 +1133,6 @@ msgid "Describe tu labor..."
 msgstr "あなたの活動を説明してください..."
 
 #: .\templates\resumes\templates\_section_volunteering.html:22
-#, fuzzy
 #| msgid "Agregar habilidad"
 msgid "Agregar voluntariado"
 msgstr "スキルを追加"
@@ -1238,6 +1179,1036 @@ msgstr "読み込み中..."
 msgid "No se encontraron CVs en esta categoría."
 msgstr "このカテゴリでは履歴書が見つかりませんでした。"
 
+msgid "Mis Habilidades"
+msgstr "マイスキル"
+
+msgid "Perfil público"
+msgstr "公開プロフィール"
+
+msgid "Perfil publico"
+msgstr "公開プロフィール"
+
+msgid "Activa para que tu perfil sea visible en el tablón"
+msgstr "ボードでプロフィールを公開するには有効にしてください"
+
+msgid "Debes subir una foto de perfil para hacer tu perfil público."
+msgstr "プロフィールを公開するにはプロフィール写真をアップロードする必要があります。"
+
+msgid "Debes subir una foto de perfil para hacer tu perfil publico."
+msgstr "プロフィールを公開するにはプロフィール写真をアップロードする必要があります。"
+
+msgid "Sin titular"
+msgstr "肩書なし"
+
+msgid "Sin biografia"
+msgstr "自己紹介なし"
+
+msgid "Sin biografía"
+msgstr "自己紹介なし"
+
+msgid "Sector:"
+msgstr "分野:"
+
+msgid "Rol:"
+msgstr "役職:"
+
+msgid "Especialidad:"
+msgstr "専門分野:"
+
+msgid "Seniority:"
+msgstr "経験レベル:"
+
+msgid "Idiomas:"
+msgstr "言語:"
+
+msgid "Tags:"
+msgstr "タグ:"
+
+msgid "Sin experiencia ni proyectos agregados"
+msgstr "職歴やプロジェクトはまだ追加されていません"
+
+msgid "Cargo / Puesto"
+msgstr "役職 / ポジション"
+
+msgid "Empresa o Cliente"
+msgstr "企業またはクライアント"
+
+msgid "Logotipo de la empresa (Opcional)"
+msgstr "企業ロゴ（任意）"
+
+msgid "Captura o imagen del proyecto (Opcional)"
+msgstr "プロジェクトのスクリーンショットまたは画像（任意）"
+
+msgid "Haz clic para subir"
+msgstr "クリックしてアップロード"
+
+msgid "el logo o imagen"
+msgstr "ロゴまたは画像"
+
+msgid "la captura del proyecto"
+msgstr "プロジェクトのスクリーンショット"
+
+msgid "Logotipo cargado"
+msgstr "ロゴがアップロードされました"
+
+msgid "Imagen cargada"
+msgstr "画像がアップロードされました"
+
+msgid "Listo para guardar"
+msgstr "保存の準備完了"
+
+msgid "Eliminar"
+msgstr "削除"
+
+msgid "Ver"
+msgstr "見る"
+
+msgid "Editar Habilidades"
+msgstr "スキルを編集"
+
+msgid "Editar experiencia"
+msgstr "職歴を編集"
+
+msgid "Editar proyecto"
+msgstr "プロジェクトを編集"
+
+msgid "Estado de búsqueda"
+msgstr "求職ステータス"
+
+msgid "Preferencia de ubicación"
+msgstr "勤務地設定"
+
+msgid "Cuéntanos sobre ti..."
+msgstr "自己紹介を記入してください..."
+
+msgid "JPG, PNG o WebP. Máximo 5MB."
+msgstr "JPG、PNG、またはWebP。最大5MB。"
+
+msgid "URL del proyecto (Opcional)"
+msgstr "プロジェクトURL（任意）"
+
+msgid "Describe el proyecto y las tecnologías usadas..."
+msgstr "プロジェクトと使用した技術について説明してください..."
+
+msgid "Describe tus responsabilidades y logros..."
+msgstr "担当業務や成果について説明してください..."
+
+msgid "Seleccionar..."
+msgstr "選択..."
+
+msgid "Seleccionar idioma..."
+msgstr "言語を選択..."
+
+msgid "Buscar tag..."
+msgstr "タグを検索..."
+
+msgid "Híbrido"
+msgstr "ハイブリッド"
+
+msgid "Segun destino"
+msgstr "勤務地による"
+
+msgid "Full-time"
+msgstr "フルタイム"
+
+msgid "Part-time"
+msgstr "パートタイム"
+
+msgid "Contrato"
+msgstr "契約"
+
+msgid "Freelance"
+msgstr "フリーランス"
+
+msgid "Si"
+msgstr "はい"
+
+msgid "Junior"
+msgstr "ジュニア"
+
+msgid "Semi-Senior"
+msgstr "ミドル"
+
+msgid "Senior"
+msgstr "シニア"
+
+msgid "Lead"
+msgstr "リード"
+
+msgid "Español"
+msgstr "スペイン語"
+
+msgid "Inglés"
+msgstr "英語"
+
+msgid "Portugués"
+msgstr "ポルトガル語"
+
+msgid "Francés"
+msgstr "フランス語"
+
+msgid "Alemán"
+msgstr "ドイツ語"
+
+msgid "Italiano"
+msgstr "イタリア語"
+
+msgid "Japonés"
+msgstr "日本語"
+
+msgid "Coreano"
+msgstr "韓国語"
+
+msgid "Chino"
+msgstr "中国語"
+
+msgid "Ruso"
+msgstr "ロシア語"
+
+msgid "Árabe"
+msgstr "アラビア語"
+
+msgid "Hindi"
+msgstr "ヒンディー語"
+
+msgid "Proyecto"
+msgstr "プロジェクト"
+
+msgid "Periodo"
+msgstr "期間"
+
+msgid "Descripción"
+msgstr "説明"
+
+msgid "Rol"
+msgstr "役職"
+
+msgid "Especialidad"
+msgstr "専門分野"
+
+msgid "Seniority"
+msgstr "経験レベル"
+
+msgid "Tags"
+msgstr "タグ"
+
+msgid "Perfil Profesional"
+msgstr "プロフェッショナル プロフィール"
+
+msgid "Para trabajadores"
+msgstr "求職者向け"
+
+msgid "Para reclutadores"
+msgstr "採用担当者向け"
+
+msgid "¿Deseas eliminar esta experiencia laboral?"
+msgstr "この職歴を削除してもよろしいですか？"
+
+msgid "¿Deseas eliminar este proyecto?"
+msgstr "このプロジェクトを削除してもよろしいですか？"
+
+msgid "Ej: Desarrollador Full Stack"
+msgstr "例: フルスタックエンジニア"
+
+msgid "Ej: Tech Solutions"
+msgstr "例: Tech Solutions"
+
+msgid "2021 - Presente"
+msgstr "2021 - 現在"
+
+msgid "Ej: App de Delivery"
+msgstr "例: フードデリバリーアプリ"
+
+msgid "Ej: Proyecto Personal"
+msgstr "例: 個人プロジェクト"
+
+msgid "2023"
+msgstr "2023"
+
+msgid "Acerca de mí"
+msgstr "自己紹介"
+
+msgid "Activa"
+msgstr "有効"
+
+msgid "Activa para que tu empresa sea visible en el directorio"
+msgstr "企業をディレクトリに表示するには有効にしてください"
+
+msgid "Actualizar descripción"
+msgstr "説明を更新"
+
+msgid "Al menos un carácter especial (!@#$%^&*...)"
+msgstr "1文字以上の特殊文字（!@#$%^&*...）"
+
+msgid "Buscar sector..."
+msgstr "分野を検索..."
+
+msgid "Busco Talento"
+msgstr "人材を探す"
+
+msgid "Busco Trabajo"
+msgstr "仕事を探す"
+
+msgid "Búsqueda Avanzada y Scoring"
+msgstr "高度な検索とスコアリング"
+
+msgid "Candidato"
+msgstr "候補者"
+
+msgid "Contactar con Candidato"
+msgstr "候補者に連絡する"
+
+msgid ""
+"Crea tu perfil en minutos o explora nuestro directorio de empresas y "
+"talentos."
+msgstr "数分でプロフィールを作成するか、企業と人材のディレクトリを探索しましょう。"
+
+msgid "Crear Nueva Vacante"
+msgstr "求人を新規作成"
+
+msgid "Crear Vacante"
+msgstr "求人作成"
+
+msgid "Crear una cuenta gratis"
+msgstr "無料アカウント作成"
+
+msgid "Cuéntanos sobre tu empresa..."
+msgstr "貴社について教えてください..."
+
+msgid "Debe ser un correo corporativo (no Gmail, Yahoo, Hotmail, etc)."
+msgstr "会社用メールアドレスを入力してください（Gmail、Yahoo、Hotmailなどは不可）。"
+
+msgid "Describe las responsabilidades y requisitos del puesto..."
+msgstr "職務内容と応募要件について記述してください..."
+
+msgid "Descubre empresas y reclutadores en diferentes sectores."
+msgstr "さまざまな分野の企業や採用担当者を見つけましょう。"
+
+msgid "Explorar tablón de candidatos"
+msgstr "候補者ボードを見る"
+
+msgid "Explorar tablón de reclutadores"
+msgstr "企業ボードを見る"
+
+msgid "Explorar tablón público sin registro"
+msgstr "登録なしで公開ボードを見る"
+
+msgid "Inicia sesión aquí"
+msgstr "こちらからログイン"
+
+msgid "Ir a tablón de reclutadores"
+msgstr "採用企業ボードへ"
+
+msgid "Ir a tablón de trabajadores"
+msgstr "求職者ボードへ"
+
+msgid ""
+"La plataforma que redefine el CV tradicional en un perfil profesional "
+"interactivo."
+msgstr "従来の履歴書をインタラクティブな職務プロフィールへと刷新するプラットフォーム。"
+
+msgid "Limpiar filtros"
+msgstr "フィルターをクリア"
+
+msgid "Nombre de Empresa"
+msgstr "会社名"
+
+msgid "Nombre de tu empresa"
+msgstr "貴社の社名"
+
+msgid "Nombre y apellidos"
+msgstr "氏名（フルネーム）"
+
+msgid "Registrarme como Candidato"
+msgstr "求職者として登録"
+
+msgid "Registrarme como Reclutador"
+msgstr "採用担当者として登録"
+
+msgid "Requisitos de la contraseña:"
+msgstr "パスワード要件:"
+
+msgid "Sitio Web"
+msgstr "ウェブサイト"
+
+msgid "Sobre la empresa"
+msgstr "企業について"
+
+msgid "Ubicación"
+msgstr "所在地"
+
+msgid "¿Listo para impulsar tu carrera o escalar tu equipo?"
+msgstr "キャリアを加速させ、またはチームを拡大する準備はできましたか？"
+
+msgid "¿Por qué TalentStack?"
+msgstr "TalentStackが選ばれる理由"
+
+msgid "¿Qué estás buscando en la plataforma?"
+msgstr "このプラットフォームで何をお探しですか？"
+
+msgid "¿Ya tienes una cuenta con Google, GitHub o LinkedIn?"
+msgstr "Google、GitHub、LinkedInのアカウントをお持ちですか？"
+
+msgid "Descripción (opcional)"
+msgstr "説明 (任意)"
+
+msgid "Deseables (OR)"
+msgstr "望ましい (OR)"
+
+msgid "Ej: $30,000 - $50,000 MXN mensuales"
+msgstr "例: 月額 $30,000 - $50,000 MXN"
+
+msgid "Ej: Ciudad de México, México"
+msgstr "例: メキシコシティ、メキシコ"
+
+msgid "Empresa Directa"
+msgstr "直接企業"
+
+msgid "Enviar Mensaje"
+msgstr "メッセージを送信"
+
+msgid "Escribe tu propuesta o mensaje para el candidato..."
+msgstr "候補者への提案やメッセージを入力してください..."
+
+msgid "Especialidad y Habilidades"
+msgstr "専門とスキル"
+
+msgid "Experiencia Laboral"
+msgstr "職務経験"
+
+msgid "Ficha de Datos"
+msgstr "データシート"
+
+msgid ""
+"Filtra perfiles o empresas por sector, especialidades concretas, modalidad "
+"de trabajo y más. Encuentra exactamente la combinación que necesitas."
+msgstr "業界、専門分野、勤務形態などでプロフィールや企業を絞り込みます。必要な組み合わせを正確に見つけることができます。"
+
+msgid "Filtros Avanzados"
+msgstr "高度なフィルター"
+
+msgid "Haz visible tu potencial"
+msgstr "あなたの可能性を可視化する"
+
+msgid "Ingresa un requisito por línea"
+msgstr "要件を1行につき1つ入力してください"
+
+msgid "Logo de empresa"
+msgstr "会社ロゴ"
+
+msgid "Logo de la empresa"
+msgstr "会社ロゴ"
+
+msgid ""
+"Los profesionales exploran ofertas y empresas públicas; los reclutadores "
+"gestionan vacantes y contactan directo con los candidatos."
+msgstr "専門職は公開された求人や企業を探索し、採用担当者は求人を管理して候補者と直接コンタクトを取ります。"
+
+msgid "Mis Ofertas / Vacantes"
+msgstr "掲載中の求人 / 募集"
+
+msgid "Modalidad"
+msgstr "勤務形態"
+
+msgid "Modalidad:"
+msgstr "勤務形態:"
+
+msgid "No hay vacantes activas por el momento."
+msgstr "現在募集中の求人はありません。"
+
+msgid "No se encontraron empresas con estos filtros."
+msgstr "該当する条件の企業は見つかりませんでした。"
+
+msgid "No se encontraron perfiles con estos filtros."
+msgstr "該当する条件のプロフィールは見つかりませんでした。"
+
+msgid "No tienes vacantes publicadas"
+msgstr "公開中の求人はありません"
+
+msgid "Nota: La funcionalidad de guardado estará disponible próximamente."
+msgstr "注: 保存機能は近日中に利用可能になります。"
+
+msgid "Obligatorios (AND)"
+msgstr "必須 (AND)"
+
+msgid "Particular"
+msgstr "個人"
+
+msgid "Paso 1 de 4 – ¿Qué buscas?"
+msgstr "ステップ 1 / 4 – 何をお探しですか？"
+
+msgid "Perfiles Interactivos"
+msgstr "インタラクティブなプロフィール"
+
+msgid "Preferencias de Trabajo"
+msgstr "勤務の希望条件"
+
+msgid ""
+"Presenta tu experiencia, seniority, disponibilidad y red de habilidades en "
+"una página pública optimizada para compartir."
+msgstr "共有に最適化された公開ページで、経験、シニアレベル、稼働可能性、スキルを提示できます。"
+
+msgid "Proyectos Destacados"
+msgstr "注目のプロジェクト"
+
+msgid "Rango salarial"
+msgstr "給与レンジ"
+
+msgid "Reclutador"
+msgstr "採用担当者"
+
+msgid "Reclutador Independiente"
+msgstr "独立系採用担当者"
+
+msgid "Redes Sociales y Portafolio"
+msgstr "SNS・ポートフォリオ"
+
+msgid "Redes y Enlaces"
+msgstr "リンクとSNS"
+
+msgid "Requisitos"
+msgstr "必要条件"
+
+msgid "Sin enlaces externos configurados."
+msgstr "設定された外部リンクはありません。"
+
+msgid "Sitio Web (opcional)"
+msgstr "ウェブサイト (任意)"
+
+msgid "Sitio Web:"
+msgstr "ウェブサイト:"
+
+msgid "Sobre Nosotros"
+msgstr "私たちについて"
+
+msgid "Tablón de Empresas"
+msgstr "企業ボード"
+
+msgid "Tags (Opcionales)"
+msgstr "タグ (任意)"
+
+msgid "Tecnologías"
+msgstr "使用技術"
+
+msgid "Tipo de Empresa"
+msgstr "企業タイプ"
+
+msgid "Tipo de Reclutador"
+msgstr "採用担当タイプ"
+
+msgid "Tipo:"
+msgstr "タイプ:"
+
+msgid "Todas"
+msgstr "すべて"
+
+msgid "Trayectoria laboral y proyectos destacados"
+msgstr "職歴と注目のプロジェクト"
+
+msgid "Ubicación:"
+msgstr "所在地:"
+
+msgid "Un espacio doble"
+msgstr "2つのスペース"
+
+msgid "Un requisito por línea..."
+msgstr "1行につき1つの要件..."
+
+msgid "Vacantes Activas"
+msgstr "募集中の求人"
+
+msgid "Ver proyecto"
+msgstr "プロジェクトを見る"
+
+msgid ""
+"Vista previa: así es como los reclutadores y empresas ven tu perfil público."
+msgstr "プレビュー: 採用担当者や企業にはこのように公開プロフィールが表示されます。"
+
+msgid "candidatos"
+msgstr "候補者"
+
+msgid "tu@empresa.com"
+msgstr "you@company.com"
+
+msgid "Sin biografía disponible"
+msgstr "自己紹介はありません"
+
+msgid "Paso 1 de 4 — ¿Qué buscas?"
+msgstr "ステップ 1 / 4 — 何をお探しですか？"
+
+msgid "Agregar tag"
+msgstr "タグを追加"
+
+msgid "Añadir"
+msgstr "追加"
+
+msgid "Buscar o agregar tag (ej: Python, React, Git)..."
+msgstr "タグを検索または追加 (例: Python, React, Git)..."
+
+msgid "Escribe y presiona Enter o haz clic en + para añadir."
+msgstr "入力してEnterを押すか、+ をクリックして追加します。"
+
+msgid "No hay idiomas seleccionados"
+msgstr "選択された言語はありません"
+
+msgid "No hay tags seleccionados"
+msgstr "選択されたタグはありません"
+
+msgid "Nuevo tag"
+msgstr "新しいタグ"
+
+msgid "100% Gratuito para candidatos"
+msgstr "候補者は100%無料"
+
+msgid "Afinidad con vacantes técnicas"
+msgstr "技術職とのマッチ度"
+
+msgid "Alcance internacional"
+msgstr "国際的なリーチ"
+
+msgid "Arquitectura de microservicios y liderazgo de equipo técnico."
+msgstr "マイクロサービスアーキテクチャと技術チームのリーダーシップ。"
+
+msgid "Backend Python"
+msgstr "Python バックエンド"
+
+msgid "Búsqueda y filtrado"
+msgstr "検索とフィルタリング"
+
+msgid "CV Tradicional (PDF)"
+msgstr "従来の履歴書 (PDF)"
+
+msgid "CV Tradicional en PDF"
+msgstr "従来のPDF履歴書"
+
+msgid "Cero métricas de visualización ni interés de empresas"
+msgstr "閲覧指標ゼロ、企業からの関心度も不明"
+
+msgid "Cero visibilidad"
+msgstr "視認性ゼロ"
+
+msgid "Compara la experiencia"
+msgstr "体験を比較する"
+
+msgid "Contactar directamente"
+msgstr "直接連絡する"
+
+msgid "Contacto directo"
+msgstr "ダイレクトコンタクト"
+
+msgid "Contacto directo con reclutadores"
+msgstr "採用担当者との直接連絡"
+
+msgid "Contacto directo sin intermediarios"
+msgstr "仲介者抜きの直接連絡"
+
+msgid "Contacto directo y seguro vía email"
+msgstr "安全なメールによる直接コンタクト"
+
+msgid "Contacto y respuesta"
+msgstr "連絡とレスポンス"
+
+msgid ""
+"Crea tu perfil en minutos, comparte tu enlace personalizado y haz visible tu"
+" potencial ante las mejores oportunidades."
+msgstr "数分でプロフィールを作成し、カスタムリンクを共有して、最高の一歩へとポテンシャルを発揮しましょう。"
+
+msgid "Crear mi cuenta gratuita"
+msgstr "無料アカウントを作成"
+
+msgid "Crear mi perfil interactivo"
+msgstr "インタラクティブなプロフィールを作成"
+
+msgid "Criterio"
+msgstr "評価項目"
+
+msgid "Código fuente"
+msgstr "ソースコード"
+
+msgid "Data & IA"
+msgstr "データ & AI"
+
+msgid "Demostración de habilidades"
+msgstr "スキルの実証"
+
+msgid "Desactualizado el mismo día en que se descarga"
+msgstr "ダウンロードしたその日に時代遅れ"
+
+msgid "Desarrollo Web"
+msgstr "ウェブ開発"
+
+msgid "Descargar resumen"
+msgstr "要約をダウンロード"
+
+msgid "Dinámico, responsivo y enriquecido con medios"
+msgstr "動的でレスポンシブ、豊かなメディア表現"
+
+msgid "Diseñado para hacer destacar tu valor real en el mercado"
+msgstr "あなたの真の市場価値を際立たせる設計"
+
+msgid "Diseño & UX"
+msgstr "デザイン & UX"
+
+msgid "Disponible para nuevas ofertas"
+msgstr "新しいオファーを受付中"
+
+msgid "Doble Ecosistema Conectado"
+msgstr "相互接続されたデュアルエコシステム"
+
+msgid "Documento estático de 2 páginas"
+msgstr "静的な2ページのドキュメント"
+
+msgid ""
+"Dos tablones sincronizados: profesionales mostrando su talento y "
+"reclutadores publicando oportunidades con total transparencia."
+msgstr "同期された2つの掲示板：才能を披露するプロフェッショナルと、高い透明性で求人を掲載する採用担当者。"
+
+msgid ""
+"El CV tradicional en PDF ha muerto. Construye un perfil dinámico con "
+"taxonomía en 4 niveles, portafolio multimedia y contacto directo con "
+"reclutadores globales."
+msgstr ""
+"従来のPDF履歴書の時代は終わりました。4段階の分類、マルチメディアポートフォリオ、グローバル採用担当者との直接コンタクトを備えた動的プロフィールを構築しましょう。"
+
+msgid "El contraste entre el viejo modelo y la nueva era profesional"
+msgstr "旧モデルと新たなプロフェッショナル時代との鮮明な対比"
+
+msgid "Enlaces a proyectos y demos que nadie abre"
+msgstr "誰もクリックしないプロジェクトやデモのリンク"
+
+msgid "Enlaces muertos"
+msgstr "機能しないリンク"
+
+msgid "Enterrado en la bandeja"
+msgstr "受信トレイに埋もれる"
+
+msgid "Enterrado en un buzón junto a cientos de archivos idénticos"
+msgstr "何百もの同じようなファイルと一緒に受信トレイに埋もれる"
+
+msgid "Español (Nativo), Inglés (C1 Avanzado)"
+msgstr "スペイン語 (ネイティブ), 英語 (C1 上級)"
+
+msgid "Especialidades y tecnologías destacadas en este sector:"
+msgstr "この分野で注目の専門職とテクノロジー:"
+
+msgid "Experiencia reciente"
+msgstr "最近の経歴"
+
+msgid "Explorador de Talento en Tiempo Real"
+msgstr "リアルタイムタレントエクスプローラー"
+
+msgid "Explorar tablón de empresas"
+msgstr "企業掲示板を見る"
+
+msgid "Explorar tablón de talento"
+msgstr "タレント掲示板を見る"
+
+msgid "Explorar tablón público"
+msgstr "公開掲示板を見る"
+
+msgid "Explorar todos los perfiles de este sector"
+msgstr "この分野の全プロフィールを見る"
+
+msgid "Filtra por sector y descubre las especialidades más demandadas hoy"
+msgstr "分野で絞り込み、今最も求められている専門職を発見"
+
+msgid "Finanzas"
+msgstr "ファイナンス"
+
+msgid "Formato y diseño"
+msgstr "形式とデザイン"
+
+msgid "Haz visible tu talento con un"
+msgstr "あなたの才能を可視化する"
+
+msgid "Idiomas disponibles"
+msgstr "対応言語数"
+
+msgid "Imágenes, links y repositorio directo"
+msgstr "画像、リンク、直接リポジトリ連携"
+
+msgid "Ir a mi Dashboard"
+msgstr "マイダッシュボードへ"
+
+msgid "La diferencia es contundente"
+msgstr "違いは一目瞭然"
+
+msgid "La evolución del currículum profesional"
+msgstr "プロフェッショナル履歴書の進化形"
+
+msgid "Lectura manual o filtros ATS opacos"
+msgstr "手動での確認、または不透明なATS自動選考"
+
+msgid "Listas de texto sin verificación visual"
+msgstr "視覚的な実証のないテキストの箇条書き"
+
+msgid "Marketing & Growth"
+msgstr "マーケティング & グロース"
+
+msgid "Matching Transparente y Cero Spam"
+msgstr "透明なマッチングとスパムゼロ"
+
+msgid ""
+"Muestra capturas de proyectos, demos funcionales y repositorios de código. "
+"Demuestra lo que sabes hacer."
+msgstr "プロジェクトのスクリーンショット、動作デモ、コードリポジトリを公開。あなたの実力を証明しましょう。"
+
+msgid "Niveles de clasificación"
+msgstr "分類レベル"
+
+msgid "Obsoleto de inmediato"
+msgstr "すぐに陳腐化"
+
+msgid ""
+"Olvídate de palabras clave sueltas. Clasificamos perfiles mediante Sector, "
+"Rol, Especialidad y Tags para un matching quirúrgico."
+msgstr "孤立したキーワード検索はもう不要。分野、役割、専門領域、タグの組み合わせで精密なマッチングを実現します。"
+
+msgid "Perfil Vivo TalentStack"
+msgstr "TalentStack ライブプロフィール"
+
+msgid "Portafolio Multimedia Integrado"
+msgstr "統合マルチメディアポートフォリオ"
+
+msgid "Portafolio en vivo con demos y repositorios"
+msgstr "デモやリポジトリを備えたライブポートフォリオ"
+
+msgid "Presencia Global en 12 Idiomas"
+msgstr "12言語によるグローバル展開"
+
+msgid "Profesionales conectados"
+msgstr "接続されたプロフェッショナル"
+
+msgid "Proyectos interactivos"
+msgstr "インタラクティブなプロジェクト"
+
+msgid "Rechazado por filtro ATS"
+msgstr "ATS自動フィルターで不通過"
+
+msgid "Remoto / Disponible a nivel global"
+msgstr "リモート / グローバル対応可能"
+
+msgid "Rígido, estático y limitado a 2 páginas"
+msgstr "硬直的で静的、たった2ページに制限"
+
+msgid "Semanas de silencio por correo"
+msgstr "メール送信後の何週間もの沈黙"
+
+msgid "Senior Full-Stack & Cloud Engineer"
+msgstr "シニア フルスタック & クラウドエンジニア"
+
+msgid ""
+"Sin algoritmos opacos ni comisiones abusivas. Filtra perfiles por "
+"disponibilidad real y contacta sin rodeos."
+msgstr "不透明なアルゴリズムや不当な手数料なし。実際の稼働状況で絞り込み、直接アプローチできます。"
+
+msgid "Sin coste para profesionales"
+msgstr "プロフェッショナル利用料ゼロ"
+
+msgid "Superpoderes de TalentStack"
+msgstr "TalentStack の強み"
+
+msgid "Tablón de Candidatos"
+msgstr "候補者掲示板"
+
+msgid "Tablón de Reclutadores"
+msgstr "採用担当者掲示板"
+
+msgid "Taxonomía Estructurada en 4 Capas"
+msgstr "4層構造の分類体系"
+
+msgid "Taxonomía de Precisión"
+msgstr "高精度分類システム"
+
+msgid "Taxonomía de precisión en 4 capas"
+msgstr "4層による高精度な分類"
+
+msgid "Taxonomía inteligente en 4 capas"
+msgstr "インテリジェントな4層分類"
+
+msgid "Tecnología"
+msgstr "テクノロジー"
+
+msgid "Tecnologías y competencias destacadas"
+msgstr "注目のスキルとテクノロジー"
+
+msgid "Texto plano sin interactividad ni demostración práctica"
+msgstr "双方向性も実際のデモもない平坦なテキスト"
+
+msgid "Traducción automática a 12 idiomas"
+msgstr "12言語への自動翻訳"
+
+msgid "Traducción nativa en 12 idiomas"
+msgstr "12言語のネイティブ翻訳"
+
+msgid ""
+"Tu perfil y su taxonomía se traducen automáticamente para conectar con "
+"oportunidades en todo el mundo sin barreras."
+msgstr "プロフィールと分類が自動翻訳され、言葉の壁を越えて世界中のチャンスとつながります。"
+
+msgid "Un PDF por cada idioma a traducir"
+msgstr "言語ごとに別々のPDFを用意する必要あり"
+
+msgid "Ver demo en vivo"
+msgstr "ライブデモを見る"
+
+msgid "Vista interactiva"
+msgstr "インタラクティブビュー"
+
+msgid "perfil profesional interactivo"
+msgstr "インタラクティブな専門プロフィール"
+
+msgid ""
+"¡Simulación interactiva! En un perfil real, este botón abre el canal de "
+"contacto directo con el candidato."
+msgstr "インタラクティブ体験！実際のプロフィールでは、このボタンから候補者に直接メッセージを送信できます。"
+
+msgid "¿Buscas contratar talento?"
+msgstr "優秀な人材の採用をお考えですか？"
+
+msgid "¿Listo para dar el salto al perfil interactivo?"
+msgstr "インタラクティブなプロフィールへ進化しませんか？"
+
+msgid "¿Por qué un perfil interactivo supera a cualquier PDF?"
+msgstr "なぜインタラクティブなプロフィールはあらゆるPDFに勝るのか？"
+
+msgid "Aumentan el score de afinidad"
+msgstr "適合スコアを加算"
+
+msgid "Buscando empresas y reclutadores..."
+msgstr "企業と採用担当者を検索中..."
+
+msgid "Buscando profesionales..."
+msgstr "プロフェッショナルを検索中..."
+
+msgid "Buscar sector (ej: Tecnología, Salud)..."
+msgstr "分野を検索 (例: テクノロジー、医療)..."
+
+msgid "Cargando empresas..."
+msgstr "企業を読み込み中..."
+
+msgid "Cargando perfiles..."
+msgstr "プロフィールを読み込み中..."
+
+msgid ""
+"Descubre organizaciones y reclutadores que buscan talento activamente con "
+"total transparencia."
+msgstr "完全な透明性のもとで積極的に人材を募集している企業や採用担当者を見つけましょう。"
+
+msgid "Disponible"
+msgstr "対応可能"
+
+msgid "El perfil debe tener todos"
+msgstr "プロフィールの必須項目"
+
+msgid ""
+"Encuentra empresas por sector, modalidad de trabajo o tipo de reclutador."
+msgstr "分野、勤務形態、採用担当者のタイプで企業を検索。"
+
+msgid "Escribe para buscar tag (ej: Docker, AWS)..."
+msgstr "入力してタグを検索 (例: Docker, AWS)..."
+
+msgid "Escribe para buscar tag (ej: Python, React)..."
+msgstr "入力してタグを検索 (例: Python, React)..."
+
+msgid ""
+"Explora perfiles verificados con taxonomía de precisión, habilidades reales "
+"y contacto directo."
+msgstr "高精度分類、実証されたスキル、直接コンタクトを備えた確認済みプロフィールを検索。"
+
+msgid ""
+"Filtra en cascada por Sector, Rol, Especialidad y competencias específicas."
+msgstr "分野、役割、専門領域、特定スキルで段階的に絞り込み。"
+
+msgid "Filtros Adicionales (Seniority y Modalidad)"
+msgstr "追加フィルター (経験レベル & 勤務形態)"
+
+msgid "Filtros de Búsqueda Taxonómica"
+msgstr "分類検索フィルター"
+
+msgid "Filtros de Empresas y Vacantes"
+msgstr "企業・求人フィルター"
+
+msgid "Match"
+msgstr "マッチ"
+
+msgid "Modalidad de Trabajo"
+msgstr "勤務形態"
+
+msgid "Nivel de Seniority"
+msgstr "経験・役職レベル"
+
+msgid "No se encontraron empresas con estos filtros"
+msgstr "該当する企業が見つかりませんでした"
+
+msgid "No se encontraron perfiles con estos filtros"
+msgstr "該当するプロフィールが見つかりませんでした"
+
+msgid "Obligatorios / Deseables"
+msgstr "必須 / 歓迎"
+
+msgid "Para reclutadores (Empresas)"
+msgstr "採用担当者向け (企業)"
+
+msgid "Para trabajadores (Candidatos)"
+msgstr "求職者向け (タレント)"
+
+msgid ""
+"Prueba relajando algunos criterios de búsqueda o limpiando los filtros para "
+"ver más resultados."
+msgstr "検索条件を緩和するか、フィルターをリセットして再検索してみてください。"
+
+msgid "Restablecer todos los filtros"
+msgstr "すべてのフィルターをリセット"
+
+msgid "Sectores de Contratación"
+msgstr "採用分野"
+
+msgid "Sin descripción"
+msgstr "説明なし"
+
+msgid "Tags y Tecnologías Clave"
+msgstr "タグと主要テクノロジー"
+
+msgid "Todas las especialidades"
+msgstr "すべての専門領域"
+
+msgid "Todas las modalidades"
+msgstr "すべての勤務形態"
+
+msgid "Todos los niveles"
+msgstr "すべてのレベル"
+
+msgid "Todos los roles"
+msgstr "すべての役割"
+
+msgid "Todos los sectores"
+msgstr "すべての分野"
+
+msgid "Todos los tipos"
+msgstr "すべてのタイプ"
+
+msgid "Ver empresa y vacantes"
+msgstr "企業と求人情報を見る"
+
+msgid "Ver perfil interactivo"
+msgstr "インタラクティブなプロフィールを見る"
+
+msgid "empresa encontrada"
+msgstr "件の企業が見つかりました"
+
+msgid "empresas encontradas"
+msgstr "件の企業が見つかりました"
+
+msgid "más"
+msgstr "件"
+
+msgid "profesional encontrado"
+msgstr "名のプロフェッショナルが見つかりました"
+
+msgid "profesionales encontrados"
+msgstr "名のプロフェッショナルが見つかりました"
+
 #~ msgid "Mi Perfil"
 #~ msgstr "マイプロフィール"
 
@@ -1272,10 +2243,10 @@ msgstr "このカテゴリでは履歴書が見つかりませんでした。"
 #~ msgstr "特殊文字を1つ以上 (!@#$%^&*())"
 
 #~ msgid "Al menos un número"
-#~ msgstr "数字を1つ以上"
+#~ msgstr "1文字以上の数字"
 
 #~ msgid "Al menos una letra mayúscula"
-#~ msgstr "大文字を1つ以上"
+#~ msgstr "1文字以上の大文字"
 
 #~ msgid "Cuenta"
 #~ msgstr "アカウント"
@@ -1298,9 +2269,7 @@ msgstr "このカテゴリでは履歴書が見つかりませんでした。"
 #~ msgid ""
 #~ "La contraseña debe tener al menos 8 caracteres, 1 mayúscula, 1 número y 1 "
 #~ "carácter especial."
-#~ msgstr ""
-#~ "パスワードは8文字以上で、大文字1文字、数字1文字、特殊文字1文字を含む必要が"
-#~ "あります。"
+#~ msgstr "パスワードは8文字以上で、大文字1文字、数字1文字、特殊文字1文字を含む必要があります。"
 
 #~ msgid "Mínimo 8 caracteres"
 #~ msgstr "8文字以上"
@@ -1339,9 +2308,7 @@ msgstr "このカテゴリでは履歴書が見つかりませんでした。"
 #~ msgstr "登録を完了するには、職業プロフィールを完成させてください。"
 
 #~ msgid "Selecciona al menos un campo (título o sector) para continuar."
-#~ msgstr ""
-#~ "続行するには、少なくとも1つの項目（職業称号または分野）を選択してくださ"
-#~ "い。"
+#~ msgstr "続行するには、少なくとも1つの項目（職業称号または分野）を選択してください。"
 
 #~ msgid "Debes seleccionar al menos un campo (título o sector)."
 #~ msgstr "少なくとも1つの項目（職業称号または分野）を選択する必要があります。"

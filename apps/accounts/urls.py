@@ -1,4 +1,4 @@
-﻿from django.urls import path, reverse_lazy
+from django.urls import path, reverse_lazy
 from django.contrib.auth import views as auth_views
 from . import views
 
@@ -9,6 +9,7 @@ urlpatterns = [
     path('dashboard/', views.dashboard_view, name='dashboard'),
     path('settings/', views.account_settings_view, name='account_settings'),
     path('upload-photo/', views.upload_photo_view, name='upload_photo'),
+    path('upload-media/', views.upload_media_view, name='upload_media'),
     path('update-bio/', views.update_bio_view, name='update_bio'),
     path('update-profile/', views.update_profile_fields_view, name='update_profile_fields'),
     path('update-recruiter-profile/', views.update_recruiter_profile_view, name='update_recruiter_profile'),

@@ -1,1340 +1,998 @@
-﻿{% extends 'base.html' %}
-
+{% extends 'base.html' %}
 {% load i18n %}
-
 {% load static %}
 
-
-
-{% block title %}{% trans "Dashboard" %} - Perfil Profesional{% endblock %}
-
-
+{% block title %}{% trans "Dashboard" %} - {% trans "Perfil Profesional" %}{% endblock %}
 
 {% block content %}
-
-
-
-
-
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
     <!-- SIDEBAR -->
-
     <div class="lg:col-span-4 space-y-6">
 
         <!-- Photo & Identity -->
-
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
-
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xs hover:shadow-md border border-gray-100 dark:border-gray-700/60 p-6 transition-all duration-300">
             <div class="text-center mb-4">
-
-                <div class="relative inline-block">
-
+                <div class="relative inline-block group">
                     {% if profile.photo %}
-
                         <img src="{{ profile.photo.url }}" alt="{% trans 'Foto de perfil' %}"
-
-                            class="w-32 h-32 rounded-full object-cover mx-auto border-4 border-indigo-100 dark:border-indigo-900/50">
-
+                            class="w-32 h-32 rounded-full object-cover mx-auto border-4 border-indigo-100 dark:border-indigo-900/60 ring-2 ring-indigo-500/20 transition-transform duration-300 group-hover:scale-[1.02]">
                     {% else %}
-
-                        <div class="w-32 h-32 rounded-full bg-gray-200 dark:bg-gray-700 mx-auto flex items-center justify-center">
-
-                            <svg class="w-16 h-16 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
+                        <div class="w-32 h-32 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-800 mx-auto flex items-center justify-center border-4 border-indigo-100 dark:border-indigo-900/60 ring-2 ring-indigo-500/20">
+                            <svg class="w-16 h-16 text-indigo-300 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-
                                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-
                             </svg>
-
                         </div>
-
                     {% endif %}
-
                     <button onclick="openModal('photo-modal')"
-
-                        class="absolute bottom-0 right-0 bg-indigo-600 dark:bg-indigo-500 text-white p-2 rounded-full hover:bg-indigo-700 dark:hover:bg-indigo-400 shadow-lg">
-
+                        class="absolute bottom-0 right-0 bg-indigo-600 dark:bg-indigo-500 text-white p-2.5 rounded-full hover:bg-indigo-700 dark:hover:bg-indigo-400 shadow-md hover:scale-110 active:scale-95 transition-all duration-200"
+                        title="{% trans 'Actualizar foto' %}">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-
                                 d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
-
                         </svg>
-
                     </button>
-
                 </div>
-
-                <h2 class="text-xl font-bold text-gray-900 dark:text-white mt-4">
-
+                <h2 class="text-xl font-bold text-gray-900 dark:text-white mt-4 tracking-tight">
                     {{ user.get_full_name|default:user.email }}
-
                 </h2>
-
-                <p class="text-gray-600 dark:text-gray-400 text-sm" id="headline-display">
-
-                    {{ profile.headline|default:"Sin titular" }}
-
-                    <button onclick="openModal('headline-modal')" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 ml-1">
-
-                        <svg class="w-3 h-3 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1" id="headline-display">
+                    {% if profile.headline %}{{ profile.headline }}{% else %}{% trans "Sin titular" %}{% endif %}
+                    <button onclick="openModal('headline-modal')" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 ml-1.5 inline-flex items-center transition-colors" title="{% trans 'Actualizar titular' %}">
+                        <svg class="w-3.5 h-3.5 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-
                                 d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
-
                         </svg>
-
                     </button>
-
                 </p>
-
             </div>
 
-
-
             <!-- Status Badges -->
-
             <div class="flex flex-wrap gap-2 justify-center mb-4">
-
                 {% if profile.search_status %}
-
-                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 text-xs font-semibold rounded-full">
-
+                    <span class="inline-flex items-center px-3 py-1 bg-blue-50 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-xs font-semibold rounded-full border border-blue-200/70 dark:border-blue-800/50 shadow-xs">
+                        {% if profile.search_status == 'active' %}
+                            <span class="relative flex h-2 w-2 mr-1.5">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                            </span>
+                        {% endif %}
                         {{ profile.get_search_status_display }}
-
                     </span>
-
                 {% endif %}
-
                 {% if profile.availability %}
-
-                    <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 text-xs font-semibold rounded-full">
-
+                    <span class="inline-flex items-center px-3 py-1 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-xs font-semibold rounded-full border border-emerald-200/70 dark:border-emerald-800/40 shadow-xs">
                         {{ profile.get_availability_display }}
-
                     </span>
-
                 {% endif %}
-
                 {% if profile.location_flex %}
-
-                    <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 text-xs font-semibold rounded-full">
-
+                    <span class="inline-flex items-center px-3 py-1 bg-purple-50 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 text-xs font-semibold rounded-full border border-purple-200/70 dark:border-purple-800/40 shadow-xs">
                         {{ profile.get_location_flex_display }}
-
                     </span>
-
                 {% endif %}
-
             </div>
 
             <button onclick="openModal('status-modal')"
-
-                class="w-full text-center text-sm text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-semibold">
-
+                class="w-full text-center text-sm text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-semibold py-1.5 rounded-lg hover:bg-indigo-50 dark:hover:bg-gray-700/50 transition-colors">
                 {% trans "Editar estado" %}
-
             </button>
-
         </div>
-
-
 
         <!-- Bio -->
-
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
-
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xs hover:shadow-md border border-gray-100 dark:border-gray-700/60 p-6 transition-all duration-300">
             <div class="flex justify-between items-center mb-4">
-
                 <h3 class="font-semibold text-gray-900 dark:text-white">{% trans "Bio" %}</h3>
-
                 <button onclick="openModal('bio-modal')"
-
-                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-semibold">
-
+                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-semibold hover:underline">
                     {% trans "Editar" %}
-
                 </button>
-
             </div>
-
-            <p class="text-gray-700 dark:text-gray-300 text-sm" id="bio-display">
-
-                {{ profile.bio|default:"Sin biografia" }}
-
+            <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed" id="bio-display">
+                {% if profile.bio %}{{ profile.bio }}{% else %}{% trans "Sin biografía" %}{% endif %}
             </p>
-
         </div>
-
-
 
         <!-- Mis Habilidades -->
-
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
-
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xs hover:shadow-md border border-gray-100 dark:border-gray-700/60 p-6 transition-all duration-300">
             <div class="flex justify-between items-center mb-4">
-
                 <h3 class="font-semibold text-gray-900 dark:text-white">{% trans "Mis Habilidades" %}</h3>
-
                 <button onclick="openSkillsModal()"
-
-                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-semibold">
-
+                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-semibold hover:underline">
                     {% trans "Editar" %}
-
                 </button>
-
             </div>
-
-            <div class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-
-                <p>
-
+            <div class="space-y-2.5 text-sm text-gray-700 dark:text-gray-300">
+                <p class="flex justify-between items-baseline">
                     <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Sector:" %}</span>
-
-                    <span id="skills-sector-display">{% if profile.sector %}{{ profile.sector.name_es }}{% else %}<span class="text-gray-400">—</span>{% endif %}</span>
-
+                    <span id="skills-sector-display" class="font-medium text-gray-900 dark:text-gray-100">{% if profile.sector %}{{ profile.sector.display_name }}{% else %}<span class="text-gray-400">—</span>{% endif %}</span>
                 </p>
-
-                <p>
-
+                <p class="flex justify-between items-baseline">
                     <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Rol:" %}</span>
-
-                    <span id="skills-rol-display">{% if profile.rol %}{{ profile.rol.name_es }}{% else %}<span class="text-gray-400">—</span>{% endif %}</span>
-
+                    <span id="skills-rol-display" class="font-medium text-gray-900 dark:text-gray-100">{% if profile.rol %}{{ profile.rol.display_name }}{% else %}<span class="text-gray-400">—</span>{% endif %}</span>
                 </p>
-
-                <p>
-
+                <p class="flex justify-between items-baseline">
                     <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Especialidad:" %}</span>
-
-                    <span id="skills-especialidad-display">{% if profile.especialidad %}{{ profile.especialidad.name_es }}{% else %}<span class="text-gray-400">—</span>{% endif %}</span>
-
+                    <span id="skills-especialidad-display" class="font-medium text-gray-900 dark:text-gray-100">{% if profile.especialidad %}{{ profile.especialidad.display_name }}{% else %}<span class="text-gray-400">—</span>{% endif %}</span>
                 </p>
-
-                <p>
-
+                <p class="flex justify-between items-baseline">
                     <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Seniority:" %}</span>
-
-                    <span id="skills-seniority-display">{% if profile.seniority %}{{ profile.get_seniority_display }}{% else %}<span class="text-gray-400">—</span>{% endif %}</span>
-
+                    <span id="skills-seniority-display" class="font-medium text-gray-900 dark:text-gray-100">{% if profile.seniority %}{{ profile.get_seniority_display }}{% else %}<span class="text-gray-400">—</span>{% endif %}</span>
                 </p>
-
-                <p>
-
+                <p class="flex justify-between items-baseline">
                     <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Idiomas:" %}</span>
-
-                    <span id="skills-languages-display">
-
-                        {% if profile.languages %}
-
-                            {% for lang_name in profile_lang_names %}
-
-                                {{ lang_name }}{% if not forloop.last %}, {% endif %}
-
-                            {% endfor %}
-
+                    <span id="skills-languages-display" class="font-medium text-gray-900 dark:text-gray-100">
+                        {% if profile_lang_names %}
+                            {{ profile_lang_names|join:", " }}
                         {% else %}
-
                             <span class="text-gray-400">—</span>
-
                         {% endif %}
-
                     </span>
-
                 </p>
-
-                <div>
-
-                    <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Tags:" %}</span>
-
-                    <div id="skills-tags-display" class="flex flex-wrap gap-1 mt-1">
-
+                <div class="pt-1">
+                    <span class="font-medium text-gray-500 dark:text-gray-400 block mb-1.5">{% trans "Tags:" %}</span>
+                    <div id="skills-tags-display" class="flex flex-wrap gap-1.5">
                         {% for pt in profile.tags.all %}
-
-                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200">
-
-                                {{ pt.tag.name_es }}
-
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-50 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-800/40 shadow-xs hover:bg-indigo-100 transition-colors">
+                                {{ pt.tag.display_name }}
                             </span>
-
+                        {% empty %}
+                            <span class="text-gray-400 text-xs">—</span>
                         {% endfor %}
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
-
 
         <!-- Preferencias de trabajo -->
-
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
-
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xs hover:shadow-md border border-gray-100 dark:border-gray-700/60 p-6 transition-all duration-300">
             <div class="flex justify-between items-center mb-4">
-
                 <h3 class="font-semibold text-gray-900 dark:text-white">{% trans "Preferencias de trabajo" %}</h3>
-
                 <button onclick="openModal('work-modal')"
-
-                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-semibold">
-
+                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-semibold hover:underline">
                     {% trans "Editar" %}
-
                 </button>
-
             </div>
-
-            <div class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-
-                <p>
-
+            <div class="space-y-2.5 text-sm text-gray-700 dark:text-gray-300">
+                <p class="flex justify-between items-baseline">
                     <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Tipo de empleo:" %}</span>
-
-                    {% if profile.employment_type %}{{ profile.get_employment_types_display }}{% else %}<span class="text-gray-400">—</span>{% endif %}
-
+                    <span class="font-medium text-gray-900 dark:text-gray-100 text-right">{% if profile.employment_type %}{{ profile.get_employment_types_display }}{% else %}<span class="text-gray-400">—</span>{% endif %}</span>
                 </p>
-
-                <p>
-
+                <p class="flex justify-between items-baseline">
                     <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Disponible para mudarse:" %}</span>
-
-                    {% if profile.willing_to_relocate %}{{ profile.get_willing_to_relocate_display }}{% else %}<span class="text-gray-400">—</span>{% endif %}
-
+                    <span class="font-medium text-gray-900 dark:text-gray-100">{% if profile.willing_to_relocate %}{{ profile.get_willing_to_relocate_display }}{% else %}<span class="text-gray-400">—</span>{% endif %}</span>
                 </p>
-
-                <p>
-
+                <p class="flex justify-between items-baseline">
                     <span class="font-medium text-gray-500 dark:text-gray-400">{% trans "Disponible para viajar:" %}</span>
-
-                    {% if profile.travel_availability %}{{ profile.get_travel_availability_display }}{% else %}<span class="text-gray-400">—</span>{% endif %}
-
+                    <span class="font-medium text-gray-900 dark:text-gray-100">{% if profile.travel_availability %}{{ profile.get_travel_availability_display }}{% else %}<span class="text-gray-400">—</span>{% endif %}</span>
                 </p>
-
             </div>
-
         </div>
 
-
-
     </div>
-
 
 
     <!-- MAIN AREA -->
-
     <div class="lg:col-span-8 space-y-6">
 
-        <!-- Experience/Projects Carousel -->
-
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
-
-            <div class="flex justify-between items-center mb-4">
-
-                <h3 class="font-semibold text-gray-900 dark:text-white">{% trans "Experiencia y Proyectos" %}</h3>
-
-                <button onclick="openModal('experience-modal')"
-
-                    class="bg-indigo-600 dark:bg-indigo-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400">
-
-                    + {% trans "Agregar" %}
-
-                </button>
-
+        <!-- Experience and Projects Card -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xs hover:shadow-md border border-gray-100 dark:border-gray-700/60 p-6 transition-all duration-300">
+            <div class="flex flex-wrap justify-between items-center gap-3 mb-5">
+                <div>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg tracking-tight">{% trans "Experiencia y Proyectos" %}</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{% trans "Trayectoria laboral y proyectos destacados" %}</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="openAddExperienceModal()"
+                        class="bg-indigo-600 dark:bg-indigo-500 text-white px-3.5 py-2 rounded-xl text-sm font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400 hover:scale-[1.02] active:scale-95 transition-all shadow-xs inline-flex items-center gap-1.5">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        <span>{% trans "Experiencia" %}</span>
+                    </button>
+                    <button onclick="openAddProjectModal()"
+                        class="bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-900/50 border border-purple-200/80 dark:border-purple-800/60 px-3.5 py-2 rounded-xl text-sm font-semibold hover:scale-[1.02] active:scale-95 transition-all shadow-xs inline-flex items-center gap-1.5">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        <span>{% trans "Proyecto" %}</span>
+                    </button>
+                </div>
             </div>
-
-            
 
             <div class="relative">
-
                 {% if experience|length > 0 or projects|length > 0 %}
-
                 <div id="carousel-container" class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory">
-
+                    <!-- Experience Cards -->
                     {% for exp in experience %}
-
-                    <div class="flex-none w-80 bg-gray-50 dark:bg-gray-700 rounded-xl p-4 snap-start carousel-card" data-index="{{ forloop.counter0 }}">
-
-                        <div class="flex justify-between items-start mb-2">
-
-                            <h4 class="font-semibold text-gray-900 dark:text-white">{{ exp.title }}</h4>
-
-                            <div class="flex gap-1">
-
-                                <button onclick="editExperience({{ forloop.counter0 }})"
-
-                                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 p-1 edit-exp-btn">
-
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-
-                                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
-
-                                    </svg>
-
-                                </button>
-
-                                <button onclick="deleteExperience({{ forloop.counter0 }})"
-
-                                    class="text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 p-1 delete-exp-btn">
-
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-
-                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-
-                                    </svg>
-
-                                </button>
-
+                    <div class="flex-none w-80 bg-gray-50/90 dark:bg-gray-700/50 border border-gray-200/80 dark:border-gray-600/50 hover:border-indigo-300 dark:hover:border-indigo-500/60 rounded-2xl p-4.5 snap-start carousel-card flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:-translate-y-0.5" data-index="{{ forloop.counter0 }}">
+                        <div>
+                            <div class="flex justify-between items-start mb-3 gap-2">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    {% if exp.image %}
+                                        <img src="{{ exp.image }}" alt="{{ exp.company }}"
+                                            class="w-11 h-11 rounded-xl object-contain bg-white dark:bg-gray-800 p-1 border border-gray-200 dark:border-gray-600 flex-shrink-0 shadow-xs">
+                                    {% else %}
+                                        <div class="w-11 h-11 rounded-xl bg-indigo-50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 flex items-center justify-center flex-shrink-0 border border-indigo-100 dark:border-indigo-800/40 shadow-xs">
+                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                            </svg>
+                                        </div>
+                                    {% endif %}
+                                    <div class="min-w-0">
+                                        <h4 class="font-bold text-gray-900 dark:text-white truncate">{{ exp.title }}</h4>
+                                        <p class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold truncate">{{ exp.company }}</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-1 flex-shrink-0">
+                                    <button onclick="editExperience({{ forloop.counter0 }})"
+                                        class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 p-1.5 rounded-lg hover:bg-white dark:hover:bg-gray-600 transition-colors"
+                                        title="{% trans 'Editar' %}">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                                        </svg>
+                                    </button>
+                                    <button onclick="deleteExperience({{ forloop.counter0 }})"
+                                        class="text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 p-1.5 rounded-lg hover:bg-white dark:hover:bg-gray-600 transition-colors"
+                                        title="{% trans 'Eliminar' %}">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
 
+                            {% if exp.period %}
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mb-2 font-medium">{{ exp.period }}</p>
+                            {% endif %}
+                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{{ exp.description|truncatewords:20 }}</p>
                         </div>
 
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">{{ exp.company }}</p>
-
-                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">{{ exp.period }}</p>
-
-                        <p class="text-sm text-gray-700 dark:text-gray-300">{{ exp.description|truncatewords:20 }}</p>
-
+                        <div class="mt-3 pt-2.5 border-t border-gray-200/80 dark:border-gray-600/80 flex justify-between items-center">
+                            <span class="text-[11px] font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
+                                {% trans "Experiencia" %}
+                            </span>
+                        </div>
                     </div>
-
                     {% endfor %}
 
-                    
-
+                    <!-- Project Cards -->
                     {% for project in projects %}
-
-                    <div class="flex-none w-80 bg-gray-50 dark:bg-gray-700 rounded-xl p-4 snap-start carousel-card" data-type="project" data-index="{{ forloop.counter0 }}">
-
-                        <div class="flex justify-between items-start mb-2">
-
-                            <h4 class="font-semibold text-gray-900 dark:text-white">{{ project.title }}</h4>
-
-                            <div class="flex gap-1">
-
-                                <button onclick="editProject({{ forloop.counter0 }})"
-
-                                    class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 p-1 edit-proj-btn">
-
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-
-                                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
-
-                                    </svg>
-
-                                </button>
-
-                                <button onclick="deleteProject({{ forloop.counter0 }})"
-
-                                    class="text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 p-1 delete-proj-btn">
-
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-
-                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-
-                                    </svg>
-
-                                </button>
-
+                    <div class="flex-none w-80 bg-gray-50/90 dark:bg-gray-700/50 border border-gray-200/80 dark:border-gray-600/50 hover:border-purple-300 dark:hover:border-purple-500/60 rounded-2xl p-4.5 snap-start carousel-card flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:-translate-y-0.5" data-type="project" data-index="{{ forloop.counter0 }}">
+                        <div>
+                            <div class="flex justify-between items-start mb-3 gap-2">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    {% if project.image %}
+                                        <img src="{{ project.image }}" alt="{{ project.title }}"
+                                            class="w-11 h-11 rounded-xl object-cover bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 flex-shrink-0 shadow-xs">
+                                    {% else %}
+                                        <div class="w-11 h-11 rounded-xl bg-purple-50 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 flex items-center justify-center flex-shrink-0 border border-purple-100 dark:border-purple-800/40 shadow-xs">
+                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                            </svg>
+                                        </div>
+                                    {% endif %}
+                                    <div class="min-w-0">
+                                        <h4 class="font-bold text-gray-900 dark:text-white truncate">{{ project.title }}</h4>
+                                        {% if project.company %}
+                                            <p class="text-xs text-purple-600 dark:text-purple-400 font-semibold truncate">{{ project.company }}</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="flex gap-1 flex-shrink-0">
+                                    <button onclick="editProject({{ forloop.counter0 }})"
+                                        class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 p-1.5 rounded-lg hover:bg-white dark:hover:bg-gray-600 transition-colors"
+                                        title="{% trans 'Editar' %}">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                                        </svg>
+                                    </button>
+                                    <button onclick="deleteProject({{ forloop.counter0 }})"
+                                        class="text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 p-1.5 rounded-lg hover:bg-white dark:hover:bg-gray-600 transition-colors"
+                                        title="{% trans 'Eliminar' %}">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
 
+                            {% if project.period %}
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mb-2 font-medium">{{ project.period }}</p>
+                            {% endif %}
+                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{{ project.description|truncatewords:20 }}</p>
                         </div>
 
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">{{ project.company }}</p>
-
-                        <p class="text-sm text-gray-700 dark:text-gray-300">{{ project.description|truncatewords:20 }}</p>
-
+                        <div class="mt-3 pt-2.5 border-t border-gray-200/80 dark:border-gray-600/80 flex justify-between items-center">
+                            <span class="text-[11px] font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider">
+                                {% trans "Proyecto" %}
+                            </span>
+                            {% if project.url %}
+                                <a href="{{ project.url }}" target="_blank"
+                                    class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">
+                                    <span>{% trans "Ver" %}</span>
+                                    <span>↗</span>
+                                </a>
+                            {% endif %}
+                        </div>
                     </div>
-
                     {% endfor %}
-
                 </div>
-
                 {% else %}
-
                 <p class="text-gray-500 dark:text-gray-400 text-sm py-4">{% trans "Sin experiencia ni proyectos agregados" %}</p>
-
                 {% endif %}
-
-                
 
                 {% if experience|length > 0 or projects|length > 0 %}
-
-                <div class="flex justify-center items-center gap-4 mt-4">
-
-                    <button onclick="prevSlide()" class="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600">
-
-                        <svg class="w-5 h-5 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
+                <div class="flex justify-center items-center gap-3 mt-4">
+                    <button onclick="prevSlide()" class="p-2 rounded-xl bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition shadow-xs" title="{% trans 'Anterior' %}">
+                        <svg class="w-4 h-4 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-
                         </svg>
-
                     </button>
-
-                    <span id="carousel-counter" class="text-sm text-gray-500 dark:text-gray-400">1 of {{ experience|length|add:projects|length }}</span>
-
-                    <button onclick="nextSlide()" class="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600">
-
-                        <svg class="w-5 h-5 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
+                    <span id="carousel-counter" class="text-xs font-bold text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700/80 px-3 py-1 rounded-full border border-gray-200 dark:border-gray-600">1 / {{ experience|length|add:projects|length }}</span>
+                    <button onclick="nextSlide()" class="p-2 rounded-xl bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition shadow-xs" title="{% trans 'Siguiente' %}">
+                        <svg class="w-4 h-4 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-
                         </svg>
-
                     </button>
-
                 </div>
-
                 {% endif %}
-
             </div>
-
         </div>
-
-
 
         <!-- Social Links -->
-
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
-
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xs hover:shadow-md border border-gray-100 dark:border-gray-700/60 p-6 transition-all duration-300">
             <div class="flex justify-between items-center mb-4">
-
-                <h3 class="font-semibold text-gray-900 dark:text-white">{% trans "Redes Sociales" %}</h3>
-
+                <h3 class="font-bold text-gray-900 dark:text-white tracking-tight">{% trans "Redes Sociales" %}</h3>
                 <button onclick="openModal('social-modal')"
-
-                    class="bg-indigo-600 dark:bg-indigo-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400">
-
+                    class="bg-indigo-600 dark:bg-indigo-500 text-white px-3.5 py-1.5 rounded-xl text-sm font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400 hover:scale-[1.02] active:scale-95 transition-all shadow-xs">
                     {% trans "Editar" %}
-
                 </button>
-
             </div>
-
             <div class="flex flex-wrap gap-4" id="social-links-container">
-
                 {% if social_links.linkedin %}
-
-                    <a href="{{ social_links.linkedin }}" target="_blank" class="flex items-center gap-2 text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
-
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-
+                    <a href="{{ social_links.linkedin }}" target="_blank" class="flex items-center gap-2 text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium text-sm hover:underline">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                         LinkedIn
-
                     </a>
-
                 {% endif %}
-
                 {% if social_links.github %}
-
-                    <a href="{{ social_links.github }}" target="_blank" class="flex items-center gap-2 text-gray-800 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-
+                    <a href="{{ social_links.github }}" target="_blank" class="flex items-center gap-2 text-gray-800 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium text-sm hover:underline">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                         GitHub
-
                     </a>
-
                 {% endif %}
-
                 {% if social_links.twitter %}
-
-                    <a href="{{ social_links.twitter }}" target="_blank" class="flex items-center gap-2 text-blue-400 dark:text-blue-300 hover:text-blue-500 dark:hover:text-blue-200">
-
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-
+                    <a href="{{ social_links.twitter }}" target="_blank" class="flex items-center gap-2 text-blue-400 dark:text-blue-300 hover:text-blue-500 dark:hover:text-blue-200 font-medium text-sm hover:underline">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                         Twitter/X
-
                     </a>
-
                 {% endif %}
-
                 {% if social_links.portfolio %}
-
-                    <a href="{{ social_links.portfolio }}" target="_blank" class="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300">
-
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-
+                    <a href="{{ social_links.portfolio }}" target="_blank" class="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-medium text-sm hover:underline">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                         Portfolio
-
                     </a>
-
                 {% endif %}
-
                 {% if not social_links.linkedin and not social_links.github and not social_links.twitter and not social_links.portfolio %}
-
-                    <div class="min-h-[60px] flex items-center">
-
+                    <div class="min-h-[40px] flex items-center">
                         <p class="text-gray-500 dark:text-gray-400 text-sm">{% trans "Sin redes sociales configuradas" %}</p>
-
                     </div>
-
                 {% endif %}
-
             </div>
-
         </div>
-
-
 
         <!-- Profile Visibility -->
-
-        <div class="flex items-center gap-3 pl-5 py-3">
-
-            <span class="text-sm text-gray-600 dark:text-gray-400 select-none">{% trans "Perfil publico" %}</span>
-
-            <button type="button" 
-
-                    id="visibility-toggle" 
-
-                    role="switch" 
-
-                    aria-checked="{% if profile.is_public %}true{% else %}false{% endif %}"
-
-                    onclick="toggleVisibility()"
-
-                    class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 {% if profile.is_public %}bg-indigo-600{% else %}bg-gray-300 dark:bg-gray-600{% endif %}">
-
-                <span id="visibility-dot" 
-
-                      class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out {% if profile.is_public %}translate-x-5{% else %}translate-x-0{% endif %}">
-
-                </span>
-
-            </button>
-
-        </div>
-
-        <p class="text-xs text-gray-400 dark:text-gray-500 pl-5 mt-1">{% trans "Activa para que tu perfil sea visible en el tablon" %}</p>
-
-        <p id="visibility-warning" class="text-xs text-red-500 dark:text-red-400 pl-5 hidden">
-
-            {% trans "Debes subir una foto de perfil para hacer tu perfil publico." %}
-
-        </p>
-
-    </div>
-
-</div>
-
-
-
-<!-- Skills Modal -->
-
-<div id="skills-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
-
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 max-w-lg w-full mx-4 max-h-[90vh] overflow-y-auto">
-
-        <div class="flex justify-between items-center mb-4">
-
-            <h3 class="text-lg font-semibold dark:text-white">{% trans "Editar Habilidades" %}</h3>
-
-            <button onclick="closeModal('skills-modal')" class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
-
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-
-                </svg>
-
-            </button>
-
-        </div>
-
-        <div class="space-y-4">
-
-            <div>
-
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Sector" %}</label>
-
-                <select id="skills-sector-select" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
-
-                    <option value="">{% trans "Seleccionar..." %}</option>
-
-                </select>
-
-            </div>
-
-            <div>
-
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Rol" %}</label>
-
-                <select id="skills-rol-select" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
-
-                    <option value="">{% trans "Seleccionar..." %}</option>
-
-                </select>
-
-            </div>
-
-            <div>
-
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Especialidad" %}</label>
-
-                <select id="skills-especialidad-select" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
-
-                    <option value="">{% trans "Seleccionar..." %}</option>
-
-                </select>
-
-            </div>
-
-            <div>
-
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Seniority" %}</label>
-
-                <select id="skills-seniority-select" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
-
-                    <option value="">{% trans "Seleccionar..." %}</option>
-
-                    <option value="junior">Junior</option>
-
-                    <option value="semi_senior">Semi-Senior</option>
-
-                    <option value="senior">Senior</option>
-
-                    <option value="lead">Lead</option>
-
-                </select>
-
-            </div>
-
-            <div>
-
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Tags" %}</label>
-
-                <div id="selected-tags" class="flex flex-wrap gap-2 mb-2"></div>
-
-                <div class="relative">
-
-                    <input type="text" id="tag-search-input" placeholder="Buscar tag..." oninput="searchTags(this.value)"
-
-                        class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
-
-                    <div id="tag-suggestions" class="hidden absolute z-10 w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg mt-1 max-h-48 overflow-y-auto"></div>
-
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xs hover:shadow-md border border-gray-100 dark:border-gray-700/60 p-6 transition-all duration-300">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-base tracking-tight">{% trans "Perfil público" %}</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                        {% trans "Activa para que tu perfil sea visible en el tablón" %}
+                    </p>
                 </div>
-
+                <button type="button" 
+                        id="visibility-toggle" 
+                        role="switch" 
+                        aria-checked="{% if profile.is_public %}true{% else %}false{% endif %}"
+                        onclick="toggleVisibility()"
+                        class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 {% if profile.is_public %}bg-indigo-600{% else %}bg-gray-300 dark:bg-gray-600{% endif %}">
+                    <span id="visibility-dot" 
+                          class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-xs ring-0 transition duration-200 ease-in-out {% if profile.is_public %}translate-x-5{% else %}translate-x-0{% endif %}">
+                    </span>
+                </button>
             </div>
-
-            <div>
-
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Idiomas" %}</label>
-
-                <div id="selected-languages" class="flex flex-wrap gap-2 mb-2"></div>
-
-                <div class="flex gap-2">
-
-                    <select id="language-select" class="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
-                        <option value="">Seleccionar idioma...</option>
-                        <option value="es">Español</option>
-                        <option value="en">Inglés</option>
-                        <option value="pt">Portugués</option>
-                        <option value="fr">Francés</option>
-                        <option value="de">Alemán</option>
-                        <option value="it">Italiano</option>
-                        <option value="ja">Japonés</option>
-                        <option value="ko">Coreano</option>
-                        <option value="zh">Chino</option>
-                        <option value="ru">Ruso</option>
-                        <option value="ar">Árabe</option>
-                        <option value="hi">Hindi</option>
-                    </select>
-
-                    <button type="button" onclick="addLanguage()" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">+</button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="flex justify-end gap-3 mt-6">
-
-            <button onclick="closeModal('skills-modal')"
-
-                class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{% trans "Cancelar" %}</button>
-
-            <button onclick="saveSkills()"
-
-                class="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400">{% trans "Guardar" %}</button>
-
+            <p id="visibility-warning" class="text-xs text-red-500 dark:text-red-400 mt-2 hidden">
+                {% trans "Debes subir una foto de perfil para hacer tu perfil público." %}
+            </p>
         </div>
 
     </div>
 
-</div>
-
-
-
-<!-- Photo Modal -->
-
-<div id="photo-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
-
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 max-w-md w-full mx-4">
-
-        <div class="flex justify-between items-center mb-4">
-
-            <h3 class="text-lg font-semibold dark:text-white">{% trans "Actualizar foto" %}</h3>
-
-            <button onclick="closeModal('photo-modal')" class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
-
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-
-                </svg>
-
-            </button>
-
-        </div>
-
-        <form method="post" action="{% url 'upload_photo' %}" enctype="multipart/form-data" class="space-y-4">
-
-            {% csrf_token %}
-
-            <input type="file" name="photo" accept="image/jpeg,image/png,image/webp"
-
-                class="w-full text-sm text-gray-500 dark:text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
-
-            <p class="text-xs text-gray-500 dark:text-gray-400">{% trans "JPG, PNG o WebP. Maximo 5MB." %}</p>
-
-            <div class="flex justify-end gap-3">
-
-                <button type="button" onclick="closeModal('photo-modal')"
-
-                    class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{% trans "Cancelar" %}</button>
-
-                <button type="submit"
-
-                    class="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400">{% trans "Guardar" %}</button>
-
-            </div>
-
-        </form>
-
-    </div>
 
 </div>
 
-
-
-<!-- Headline Modal -->
-
-<div id="headline-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
-
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 max-w-md w-full mx-4">
-
-        <div class="flex justify-between items-center mb-4">
-
-            <h3 class="text-lg font-semibold dark:text-white">{% trans "Actualizar titular" %}</h3>
-
-            <button onclick="closeModal('headline-modal')" class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
-
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-
-                </svg>
-
-            </button>
-
-        </div>
-
-        <input type="text" id="headline-input" value="{{ profile.headline }}"
-
-            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 mb-4"
-
-            placeholder="{% trans 'Ej: Desarrollador Full Stack Senior' %}">
-
-        <div class="flex justify-end gap-3">
-
-            <button onclick="closeModal('headline-modal')"
-
-                class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{% trans "Cancelar" %}</button>
-
-            <button onclick="saveHeadline()"
-
-                class="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400">{% trans "Guardar" %}</button>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- Bio Modal -->
-
-<div id="bio-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
-
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 max-w-md w-full mx-4">
-
-        <div class="flex justify-between items-center mb-4">
-
-            <h3 class="text-lg font-semibold dark:text-white">{% trans "Actualizar bio" %}</h3>
-
-            <button onclick="closeModal('bio-modal')" class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
-
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-
-                </svg>
-
-            </button>
-
-        </div>
-
-        <textarea id="bio-input" rows="4"
-
-            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 mb-4"
-
-            placeholder="{% trans 'Cuentanos sobre ti...' %}">{{ profile.bio }}</textarea>
-
-        <div class="flex justify-end gap-3">
-
-            <button onclick="closeModal('bio-modal')"
-
-                class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{% trans "Cancelar" %}</button>
-
-            <button onclick="saveBio()"
-
-                class="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400">{% trans "Guardar" %}</button>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- Status Modal -->
-
-<div id="status-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
-
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 max-w-md w-full mx-4">
-
-        <div class="flex justify-between items-center mb-4">
-
-            <h3 class="text-lg font-semibold dark:text-white">{% trans "Actualizar estado" %}</h3>
-
-            <button onclick="closeModal('status-modal')" class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
-
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-
-                </svg>
-
-            </button>
-
-        </div>
-
-        <div class="space-y-4">
-
-            <div>
-
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Estado de busqueda" %}</label>
-
-                <select id="search-status-input" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
-
-                    <option value="">{% trans "No especificado" %}</option>
-
-                    <option value="active" {% if profile.search_status == 'active' %}selected{% endif %}>{% trans "Buscando activamente" %}</option>
-
-                    <option value="passive" {% if profile.search_status == 'passive' %}selected{% endif %}>{% trans "Abierto a ofertas" %}</option>
-
-                    <option value="not_looking" {% if profile.search_status == 'not_looking' %}selected{% endif %}>{% trans "No buscando" %}</option>
-
-                </select>
-
-            </div>
-
-            <div>
-
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Disponibilidad" %}</label>
-
-                <select id="availability-input" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
-
-                    <option value="">{% trans "No especificado" %}</option>
-
-                    <option value="immediate" {% if profile.availability == 'immediate' %}selected{% endif %}>{% trans "Inmediata" %}</option>
-
-                    <option value="2_weeks" {% if profile.availability == '2_weeks' %}selected{% endif %}>{% trans "2 semanas" %}</option>
-
-                    <option value="1_month" {% if profile.availability == '1_month' %}selected{% endif %}>{% trans "1 mes" %}</option>
-
-                    <option value="negotiable" {% if profile.availability == 'negotiable' %}selected{% endif %}>{% trans "Negociable" %}</option>
-
-                </select>
-
-            </div>
-
-            <div>
-
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Preferencia de ubicacion" %}</label>
-
-                <select id="location-flex-input" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
-
-                    <option value="">{% trans "No especificado" %}</option>
-
-                    <option value="remote" {% if profile.location_flex == 'remote' %}selected{% endif %}>{% trans "Remoto" %}</option>
-
-                    <option value="hybrid" {% if profile.location_flex == 'hybrid' %}selected{% endif %}>{% trans "Hibrido" %}</option>
-
-                    <option value="onsite" {% if profile.location_flex == 'onsite' %}selected{% endif %}>{% trans "Presencial" %}</option>
-
-                </select>
-
-            </div>
-
-        </div>
-
-        <div class="flex justify-end gap-3 mt-6">
-
-            <button onclick="closeModal('status-modal')"
-
-                class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{% trans "Cancelar" %}</button>
-
-            <button onclick="saveStatus()"
-
-                class="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400">{% trans "Guardar" %}</button>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- Work Preferences Modal -->
-
-<div id="work-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
-
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 max-w-md w-full mx-4">
-
-        <div class="flex justify-between items-center mb-4">
-
-            <h3 class="text-lg font-semibold dark:text-white">{% trans "Preferencias de trabajo" %}</h3>
-
-            <button onclick="closeModal('work-modal')" class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
-
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-
-                </svg>
-
-            </button>
-
-        </div>
-
-        <div class="space-y-4">
-
-            <div>
-
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Tipo de empleo" %}</label>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="employment-type-input">
-
-                    {% for value, label in employment_types %}
-
-                    <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-
-                        <input type="checkbox" value="{{ value }}"
-
-                            class="rounded border-gray-300 dark:border-gray-600 text-indigo-600 focus:ring-indigo-500"
-
-                            {% if value in profile.employment_type %}checked{% endif %}>
-
-                        {{ label }}
-
-                    </label>
-
-                    {% endfor %}
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Disponible para mudarse" %}</label>
-
-                <select id="relocate-input" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
-
-                    <option value="">{% trans "No especificado" %}</option>
-
-                    <option value="yes" {% if profile.willing_to_relocate == 'yes' %}selected{% endif %}>{% trans "Sí" %}</option>
-
-                    <option value="no" {% if profile.willing_to_relocate == 'no' %}selected{% endif %}>{% trans "No" %}</option>
-
-                    <option value="somewhere" {% if profile.willing_to_relocate == 'somewhere' %}selected{% endif %}>{% trans "Según destino" %}</option>
-
-                </select>
-
-            </div>
-
-            <div>
-
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Disponible para viajar" %}</label>
-
-                <select id="travel-input" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500">
-
-                    <option value="">{% trans "No especificado" %}</option>
-
-                    <option value="none" {% if profile.travel_availability == 'none' %}selected{% endif %}>{% trans "No" %}</option>
-
-                    <option value="occasional" {% if profile.travel_availability == 'occasional' %}selected{% endif %}>{% trans "Ocasional" %}</option>
-
-                    <option value="frequent" {% if profile.travel_availability == 'frequent' %}selected{% endif %}>{% trans "Frecuente" %}</option>
-
-                </select>
-
-            </div>
-
-        </div>
-
-        <div class="flex justify-end gap-3 mt-6">
-
-            <button onclick="closeModal('work-modal')"
-
-                class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{% trans "Cancelar" %}</button>
-
-            <button onclick="saveWorkPrefs()"
-
-                class="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400">{% trans "Guardar" %}</button>
-
-        </div>
-
-    </div>
-
-</div>
-
-
+<!-- ========================================== -->
+<!-- MODALS -->
+<!-- ========================================== -->
 
 <!-- Experience Modal -->
-
-<div id="experience-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
-
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 max-w-lg w-full mx-4">
-
-        <div class="flex justify-between items-center mb-4">
-
-            <h3 class="text-lg font-semibold dark:text-white" id="exp-modal-title">{% trans "Agregar experiencia" %}</h3>
-
-            <button onclick="closeModal('experience-modal')" class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
-
+<div id="experience-modal" class="fixed inset-0 bg-black/50 backdrop-blur-xs hidden items-center justify-center z-50 p-4">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 max-w-lg w-full mx-auto max-h-[90vh] overflow-y-auto border border-gray-100 dark:border-gray-700">
+        <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100 dark:border-gray-700">
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white" id="exp-modal-title">{% trans "Agregar experiencia" %}</h3>
+            <button onclick="closeModal('experience-modal')" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-
                 </svg>
-
             </button>
-
         </div>
 
-        <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 mb-4">
-
-            <div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm">
-
-                <input type="text" id="exp-title-input" class="w-full font-semibold text-gray-900 dark:text-white border-0 border-b border-gray-200 dark:border-gray-600 focus:ring-0 mb-2"
-
-                    placeholder="{% trans 'Titulo del puesto' %}">
-
-                <input type="text" id="exp-company-input" class="w-full text-sm text-gray-600 dark:text-gray-400 border-0 border-b border-gray-200 dark:border-gray-600 focus:ring-0 mb-2"
-
-                    placeholder="{% trans 'Empresa' %}">
-
-                <input type="text" id="exp-period-input" class="w-full text-xs text-gray-500 dark:text-gray-400 border-0 border-b border-gray-200 dark:border-gray-600 focus:ring-0 mb-2"
-
-                    placeholder="{% trans '2020 - Presente' %}">
-
-                <textarea id="exp-description-input" rows="3" class="w-full text-sm text-gray-700 dark:text-gray-300 border-0 focus:ring-0"
-
-                    placeholder="{% trans 'Descripcion...' %}"></textarea>
-
+        <div class="space-y-4">
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">
+                    {% trans "Cargo / Puesto" %} <span class="text-red-500">*</span>
+                </label>
+                <input type="text" id="exp-title-input"
+                    class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 text-sm"
+                    placeholder="{% trans 'Ej: Desarrollador Full Stack' %}">
             </div>
 
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">
+                        {% trans "Empresa" %} <span class="text-red-500">*</span>
+                    </label>
+                    <input type="text" id="exp-company-input"
+                        class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 text-sm"
+                        placeholder="{% trans 'Ej: Tech Solutions' %}">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">
+                        {% trans "Periodo" %}
+                    </label>
+                    <input type="text" id="exp-period-input"
+                        class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 text-sm"
+                        placeholder="{% trans '2021 - Presente' %}">
+                </div>
+            </div>
+
+            <!-- Styled Image Dropzone -->
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">
+                    {% trans "Logotipo de la empresa (Opcional)" %}
+                </label>
+                
+                <!-- Clickable Dropzone -->
+                <div id="exp-image-file-dropzone" 
+                     onclick="document.getElementById('exp-image-file').click()"
+                     class="border-2 border-dashed border-gray-300 dark:border-gray-600 hover:border-indigo-500 dark:hover:border-indigo-400 bg-gray-50 dark:bg-gray-700/40 rounded-xl p-4 text-center cursor-pointer transition">
+                    <div class="flex flex-col items-center justify-center">
+                        <svg class="w-8 h-8 text-indigo-500 dark:text-indigo-400 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 font-medium">
+                            <span class="text-indigo-600 dark:text-indigo-400 font-bold">{% trans "Haz clic para subir" %}</span> {% trans "el logo o imagen" %}
+                        </p>
+                        <p class="text-[11px] text-gray-400 dark:text-gray-500 mt-0.5">PNG, JPG, WebP o SVG (Máx. 5MB)</p>
+                    </div>
+                </div>
+
+                <!-- Hidden Real Input -->
+                <input type="file" id="exp-image-file" class="hidden" accept="image/jpeg,image/png,image/webp,image/svg+xml"
+                    onchange="handleImageUpload('exp-image-file', 'exp-image-url', 'exp-image-preview-container', 'exp-image-preview')">
+                <input type="hidden" id="exp-image-url" value="">
+                <p id="exp-image-file-status" class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold mt-1 hidden"></p>
+
+                <!-- Live Preview -->
+                <div id="exp-image-preview-container" class="hidden mt-2 p-3 bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-between border border-gray-200 dark:border-gray-600">
+                    <div class="flex items-center gap-3">
+                        <img id="exp-image-preview" src="" class="w-12 h-12 rounded-lg object-contain bg-white dark:bg-gray-800 p-1 border border-gray-200 dark:border-gray-600 shadow-xs">
+                        <div>
+                            <span class="text-xs font-semibold text-gray-800 dark:text-gray-200 block">{% trans "Logotipo cargado" %}</span>
+                            <span class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">✓ {% trans "Listo para guardar" %}</span>
+                        </div>
+                    </div>
+                    <button type="button" onclick="removeImage('exp-image-url', 'exp-image-preview-container', 'exp-image-file')"
+                        class="text-xs font-semibold text-red-600 dark:text-red-400 hover:text-red-700 px-3 py-1.5 rounded-lg bg-white dark:bg-gray-800 border border-red-200 dark:border-red-900/40 shadow-xs">
+                        {% trans "Eliminar" %}
+                    </button>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">
+                    {% trans "Descripción" %}
+                </label>
+                <textarea id="exp-description-input" rows="3"
+                    class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 text-sm"
+                    placeholder="{% trans 'Describe tus responsabilidades y logros...' %}"></textarea>
+            </div>
         </div>
 
         <input type="hidden" id="exp-edit-index" value="-1">
 
-        <div class="flex justify-end gap-3">
-
+        <div class="flex justify-end gap-3 mt-6 pt-3 border-t border-gray-100 dark:border-gray-700">
             <button onclick="closeModal('experience-modal')"
-
-                class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{% trans "Cancelar" %}</button>
-
+                class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+                {% trans "Cancelar" %}
+            </button>
             <button onclick="saveExperience()"
-
-                class="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400">{% trans "Guardar" %}</button>
-
+                class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg font-semibold text-sm shadow-sm transition">
+                {% trans "Guardar" %}
+            </button>
         </div>
-
     </div>
-
 </div>
 
-
-
-<!-- Social Links Modal -->
-
-<div id="social-modal" class="fixed inset-0 bg-black/30 hidden items-center justify-center z-50">
-
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 max-w-md w-full mx-4">
-
-        <div class="flex justify-between items-center mb-4">
-
-            <h3 class="text-lg font-semibold dark:text-white">{% trans "Editar redes sociales" %}</h3>
-
-            <button onclick="closeModal('social-modal')" class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
-
+<!-- Project Modal -->
+<div id="project-modal" class="fixed inset-0 bg-black/50 backdrop-blur-xs hidden items-center justify-center z-50 p-4">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 max-w-lg w-full mx-auto max-h-[90vh] overflow-y-auto border border-gray-100 dark:border-gray-700">
+        <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100 dark:border-gray-700">
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white" id="proj-modal-title">{% trans "Agregar proyecto" %}</h3>
+            <button onclick="closeModal('project-modal')" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-
                 </svg>
-
             </button>
-
         </div>
 
         <div class="space-y-4">
-
             <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">
+                    {% trans "Nombre del proyecto" %} <span class="text-red-500">*</span>
+                </label>
+                <input type="text" id="proj-title-input"
+                    class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 text-sm"
+                    placeholder="{% trans 'Ej: App de Delivery' %}">
+            </div>
 
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">LinkedIn</label>
-
-                <input type="url" id="social-linkedin" value="{{ social_links.linkedin|default:'' }}"
-
-                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500"
-
-                    placeholder="https://linkedin.com/in/...">
-
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">
+                        {% trans "Empresa o Cliente" %}
+                    </label>
+                    <input type="text" id="proj-company-input"
+                        class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 text-sm"
+                        placeholder="{% trans 'Ej: Proyecto Personal' %}">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">
+                        {% trans "Periodo" %}
+                    </label>
+                    <input type="text" id="proj-period-input"
+                        class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 text-sm"
+                        placeholder="{% trans '2023' %}">
+                </div>
             </div>
 
             <div>
-
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">GitHub</label>
-
-                <input type="url" id="social-github" value="{{ social_links.github|default:'' }}"
-
-                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500"
-
-                    placeholder="https://github.com/...">
-
-            </div>
-
-            <div>
-
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Twitter/X</label>
-
-                <input type="url" id="social-twitter" value="{{ social_links.twitter|default:'' }}"
-
-                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500"
-
-                    placeholder="https://twitter.com/...">
-
-            </div>
-
-            <div>
-
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Portfolio</label>
-
-                <input type="url" id="social-portfolio" value="{{ social_links.portfolio|default:'' }}"
-
-                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500"
-
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">
+                    {% trans "URL del proyecto (Opcional)" %}
+                </label>
+                <input type="url" id="proj-url-input"
+                    class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 text-sm"
                     placeholder="https://...">
-
             </div>
 
+            <!-- Styled Project Screenshot Dropzone -->
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">
+                    {% trans "Captura o imagen del proyecto (Opcional)" %}
+                </label>
+                
+                <div id="proj-image-file-dropzone" 
+                     onclick="document.getElementById('proj-image-file').click()"
+                     class="border-2 border-dashed border-gray-300 dark:border-gray-600 hover:border-purple-500 dark:hover:border-purple-400 bg-gray-50 dark:bg-gray-700/40 rounded-xl p-4 text-center cursor-pointer transition">
+                    <div class="flex flex-col items-center justify-center">
+                        <svg class="w-8 h-8 text-purple-500 dark:text-purple-400 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <p class="text-xs text-gray-700 dark:text-gray-300 font-medium">
+                            <span class="text-purple-600 dark:text-purple-400 font-bold">{% trans "Haz clic para subir" %}</span> {% trans "la captura del proyecto" %}
+                        </p>
+                        <p class="text-[11px] text-gray-400 dark:text-gray-500 mt-0.5">PNG, JPG, WebP o SVG (Máx. 5MB)</p>
+                    </div>
+                </div>
+
+                <input type="file" id="proj-image-file" class="hidden" accept="image/jpeg,image/png,image/webp,image/svg+xml"
+                    onchange="handleImageUpload('proj-image-file', 'proj-image-url', 'proj-image-preview-container', 'proj-image-preview')">
+                <input type="hidden" id="proj-image-url" value="">
+                <p id="proj-image-file-status" class="text-xs text-purple-600 dark:text-purple-400 font-semibold mt-1 hidden"></p>
+
+                <!-- Live Preview -->
+                <div id="proj-image-preview-container" class="hidden mt-2 p-3 bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-between border border-gray-200 dark:border-gray-600">
+                    <div class="flex items-center gap-3">
+                        <img id="proj-image-preview" src="" class="w-16 h-12 rounded-lg object-cover bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 shadow-xs">
+                        <div>
+                            <span class="text-xs font-semibold text-gray-800 dark:text-gray-200 block">{% trans "Imagen cargada" %}</span>
+                            <span class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">✓ {% trans "Listo para guardar" %}</span>
+                        </div>
+                    </div>
+                    <button type="button" onclick="removeImage('proj-image-url', 'proj-image-preview-container', 'proj-image-file')"
+                        class="text-xs font-semibold text-red-600 dark:text-red-400 hover:text-red-700 px-3 py-1.5 rounded-lg bg-white dark:bg-gray-800 border border-red-200 dark:border-red-900/40 shadow-xs">
+                        {% trans "Eliminar" %}
+                    </button>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">
+                    {% trans "Descripción" %}
+                </label>
+                <textarea id="proj-description-input" rows="3"
+                    class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 text-sm"
+                    placeholder="{% trans 'Describe el proyecto y las tecnologías usadas...' %}"></textarea>
+            </div>
         </div>
 
-        <div class="flex justify-end gap-3 mt-6">
+        <input type="hidden" id="proj-edit-index" value="-1">
 
-            <button onclick="closeModal('social-modal')"
-
-                class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{% trans "Cancelar" %}</button>
-
-            <button onclick="saveSocialLinks()"
-
-                class="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400">{% trans "Guardar" %}</button>
-
+        <div class="flex justify-end gap-3 mt-6 pt-3 border-t border-gray-100 dark:border-gray-700">
+            <button onclick="closeModal('project-modal')"
+                class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+                {% trans "Cancelar" %}
+            </button>
+            <button onclick="saveProject()"
+                class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg font-semibold text-sm shadow-sm transition">
+                {% trans "Guardar" %}
+            </button>
         </div>
-
     </div>
-
 </div>
 
+<!-- Skills Modal -->
+<div id="skills-modal" class="fixed inset-0 bg-black/50 backdrop-blur-xs hidden items-center justify-center z-50 p-4">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 max-w-lg w-full mx-auto max-h-[90vh] overflow-y-auto border border-gray-100 dark:border-gray-700">
+        <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100 dark:border-gray-700">
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white">{% trans "Editar Habilidades" %}</h3>
+            <button onclick="closeModal('skills-modal')" class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
 
+        <div class="space-y-4">
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">{% trans "Sector" %}</label>
+                <select id="skills-sector-select" class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 text-sm">
+                    <option value="">{% trans "Seleccionar..." %}</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">{% trans "Rol" %}</label>
+                <select id="skills-rol-select" class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 text-sm">
+                    <option value="">{% trans "Seleccionar..." %}</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">{% trans "Especialidad" %}</label>
+                <select id="skills-especialidad-select" class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 text-sm">
+                    <option value="">{% trans "Seleccionar..." %}</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">{% trans "Seniority" %}</label>
+                <select id="skills-seniority-select" class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 text-sm">
+                    <option value="">{% trans "Seleccionar..." %}</option>
+                    <option value="junior">Junior</option>
+                    <option value="semi_senior">Semi-Senior</option>
+                    <option value="senior">Senior</option>
+                    <option value="lead">Lead</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">{% trans "Tags" %}</label>
+                <div id="selected-tags" class="flex flex-wrap gap-1.5 mb-2 min-h-[28px]"></div>
+                <div class="flex gap-2">
+                    <div class="relative flex-1">
+                        <input type="text" id="tag-search-input" placeholder="{% trans 'Buscar o agregar tag (ej: Python, React, Git)...' %}"
+                            class="w-full px-3.5 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 text-sm">
+                        <div id="tag-suggestions" class="hidden absolute z-20 w-full bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg mt-1 max-h-48 overflow-y-auto shadow-lg"></div>
+                    </div>
+                    <button type="button" onclick="addCurrentTagInput()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-bold shadow-xs transition" title="{% trans 'Agregar tag' %}">+</button>
+                </div>
+                <p class="text-[11px] text-gray-400 dark:text-gray-500 mt-1">{% trans "Escribe y presiona Enter o haz clic en + para añadir." %}</p>
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">{% trans "Idiomas" %}</label>
+                <div id="selected-languages" class="flex flex-wrap gap-1.5 mb-2 min-h-[28px]"></div>
+                <div class="flex gap-2">
+                    <select id="language-select" class="flex-1 px-3.5 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 text-sm">
+                        <option value="">{% trans "Seleccionar idioma..." %}</option>
+                        <option value="es">{% trans "Español" %}</option>
+                        <option value="en">{% trans "Inglés" %}</option>
+                        <option value="pt">{% trans "Portugués" %}</option>
+                        <option value="fr">{% trans "Francés" %}</option>
+                        <option value="de">{% trans "Alemán" %}</option>
+                        <option value="it">{% trans "Italiano" %}</option>
+                        <option value="ja">{% trans "Japonés" %}</option>
+                        <option value="ko">{% trans "Coreano" %}</option>
+                        <option value="zh">{% trans "Chino" %}</option>
+                        <option value="ru">{% trans "Ruso" %}</option>
+                        <option value="ar">{% trans "Árabe" %}</option>
+                        <option value="hi">{% trans "Hindi" %}</option>
+                    </select>
+                    <button type="button" onclick="addLanguage()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-bold shadow-xs transition" title="{% trans 'Agregar idioma' %}">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-end gap-3 mt-6 pt-3 border-t border-gray-100 dark:border-gray-700">
+            <button onclick="closeModal('skills-modal')"
+                class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{% trans "Cancelar" %}</button>
+            <button onclick="saveSkills()"
+                class="bg-indigo-600 dark:bg-indigo-500 hover:bg-indigo-700 dark:hover:bg-indigo-400 text-white px-6 py-2 rounded-lg font-semibold text-sm shadow-xs transition">{% trans "Guardar" %}</button>
+        </div>
+    </div>
+</div>
+
+<!-- Photo Modal -->
+<div id="photo-modal" class="fixed inset-0 bg-black/50 backdrop-blur-xs hidden items-center justify-center z-50 p-4">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 max-w-md w-full mx-auto border border-gray-100 dark:border-gray-700">
+        <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100 dark:border-gray-700">
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white">{% trans "Actualizar foto" %}</h3>
+            <button onclick="closeModal('photo-modal')" class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <form method="post" action="{% url 'upload_photo' %}" enctype="multipart/form-data" class="space-y-4">
+            {% csrf_token %}
+            <input type="file" name="photo" accept="image/jpeg,image/png,image/webp"
+                class="w-full text-sm text-gray-500 dark:text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 cursor-pointer">
+            <p class="text-xs text-gray-500 dark:text-gray-400">{% trans "JPG, PNG o WebP. Máximo 5MB." %}</p>
+            <div class="flex justify-end gap-3 pt-3 border-t border-gray-100 dark:border-gray-700">
+                <button type="button" onclick="closeModal('photo-modal')"
+                    class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{% trans "Cancelar" %}</button>
+                <button type="submit"
+                    class="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400 text-sm shadow-xs transition">{% trans "Guardar" %}</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Headline Modal -->
+<div id="headline-modal" class="fixed inset-0 bg-black/50 backdrop-blur-xs hidden items-center justify-center z-50 p-4">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 max-w-md w-full mx-auto border border-gray-100 dark:border-gray-700">
+        <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100 dark:border-gray-700">
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white">{% trans "Actualizar titular" %}</h3>
+            <button onclick="closeModal('headline-modal')" class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <input type="text" id="headline-input" value="{{ profile.headline }}"
+            class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 mb-4 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+            placeholder="{% trans 'Ej: Desarrollador Full Stack Senior' %}">
+        <div class="flex justify-end gap-3 pt-3 border-t border-gray-100 dark:border-gray-700">
+            <button onclick="closeModal('headline-modal')"
+                class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{% trans "Cancelar" %}</button>
+            <button onclick="saveHeadline()"
+                class="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400 text-sm shadow-xs transition">{% trans "Guardar" %}</button>
+        </div>
+    </div>
+</div>
+
+<!-- Bio Modal -->
+<div id="bio-modal" class="fixed inset-0 bg-black/50 backdrop-blur-xs hidden items-center justify-center z-50 p-4">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 max-w-md w-full mx-auto border border-gray-100 dark:border-gray-700">
+        <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100 dark:border-gray-700">
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white">{% trans "Actualizar bio" %}</h3>
+            <button onclick="closeModal('bio-modal')" class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <textarea id="bio-input" rows="4"
+            class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 mb-4 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+            placeholder="{% trans 'Cuéntanos sobre ti...' %}">{{ profile.bio }}</textarea>
+        <div class="flex justify-end gap-3 pt-3 border-t border-gray-100 dark:border-gray-700">
+            <button onclick="closeModal('bio-modal')"
+                class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{% trans "Cancelar" %}</button>
+            <button onclick="saveBio()"
+                class="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400 text-sm shadow-xs transition">{% trans "Guardar" %}</button>
+        </div>
+    </div>
+</div>
+
+<!-- Status Modal -->
+<div id="status-modal" class="fixed inset-0 bg-black/50 backdrop-blur-xs hidden items-center justify-center z-50 p-4">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 max-w-md w-full mx-auto border border-gray-100 dark:border-gray-700">
+        <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100 dark:border-gray-700">
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white">{% trans "Actualizar estado" %}</h3>
+            <button onclick="closeModal('status-modal')" class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">{% trans "Estado de búsqueda" %}</label>
+                <select id="search-status-input" class="w-full px-3.5 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                    <option value="">{% trans "No especificado" %}</option>
+                    <option value="active" {% if profile.search_status == 'active' %}selected{% endif %}>{% trans "Buscando activamente" %}</option>
+                    <option value="passive" {% if profile.search_status == 'passive' %}selected{% endif %}>{% trans "Abierto a ofertas" %}</option>
+                    <option value="not_looking" {% if profile.search_status == 'not_looking' %}selected{% endif %}>{% trans "No buscando" %}</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">{% trans "Disponibilidad" %}</label>
+                <select id="availability-input" class="w-full px-3.5 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                    <option value="">{% trans "No especificado" %}</option>
+                    <option value="immediate" {% if profile.availability == 'immediate' %}selected{% endif %}>{% trans "Inmediata" %}</option>
+                    <option value="2_weeks" {% if profile.availability == '2_weeks' %}selected{% endif %}>{% trans "2 semanas" %}</option>
+                    <option value="1_month" {% if profile.availability == '1_month' %}selected{% endif %}>{% trans "1 mes" %}</option>
+                    <option value="negotiable" {% if profile.availability == 'negotiable' %}selected{% endif %}>{% trans "Negociable" %}</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">{% trans "Preferencia de ubicación" %}</label>
+                <select id="location-flex-input" class="w-full px-3.5 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                    <option value="">{% trans "No especificado" %}</option>
+                    <option value="remote" {% if profile.location_flex == 'remote' %}selected{% endif %}>{% trans "Remoto" %}</option>
+                    <option value="hybrid" {% if profile.location_flex == 'hybrid' %}selected{% endif %}>{% trans "Híbrido" %}</option>
+                    <option value="onsite" {% if profile.location_flex == 'onsite' %}selected{% endif %}>{% trans "Presencial" %}</option>
+                </select>
+            </div>
+        </div>
+        <div class="flex justify-end gap-3 mt-6 pt-3 border-t border-gray-100 dark:border-gray-700">
+            <button onclick="closeModal('status-modal')"
+                class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{% trans "Cancelar" %}</button>
+            <button onclick="saveStatus()"
+                class="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400 text-sm shadow-xs transition">{% trans "Guardar" %}</button>
+        </div>
+    </div>
+</div>
+
+<!-- Work Preferences Modal -->
+<div id="work-modal" class="fixed inset-0 bg-black/50 backdrop-blur-xs hidden items-center justify-center z-50 p-4">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 max-w-md w-full mx-auto border border-gray-100 dark:border-gray-700">
+        <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100 dark:border-gray-700">
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white">{% trans "Preferencias de trabajo" %}</h3>
+            <button onclick="closeModal('work-modal')" class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">{% trans "Tipo de empleo" %}</label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="employment-type-input">
+                    {% for value, label in employment_types %}
+                    <label class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-700/50 p-2 rounded-xl border border-gray-200/70 dark:border-gray-600/50 cursor-pointer hover:bg-indigo-50/50 dark:hover:bg-gray-600/50 transition">
+                        <input type="checkbox" value="{{ value }}"
+                            class="rounded border-gray-300 dark:border-gray-600 text-indigo-600 focus:ring-indigo-500"
+                            {% if value in profile.employment_type %}checked{% endif %}>
+                        <span class="text-xs font-medium">{{ label }}</span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">{% trans "Disponible para mudarse" %}</label>
+                <select id="relocate-input" class="w-full px-3.5 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                    <option value="">{% trans "No especificado" %}</option>
+                    <option value="yes" {% if profile.willing_to_relocate == 'yes' %}selected{% endif %}>{% trans "Sí" %}</option>
+                    <option value="no" {% if profile.willing_to_relocate == 'no' %}selected{% endif %}>{% trans "No" %}</option>
+                    <option value="somewhere" {% if profile.willing_to_relocate == 'somewhere' %}selected{% endif %}>{% trans "Según destino" %}</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">{% trans "Disponible para viajar" %}</label>
+                <select id="travel-input" class="w-full px-3.5 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm">
+                    <option value="">{% trans "No especificado" %}</option>
+                    <option value="none" {% if profile.travel_availability == 'none' %}selected{% endif %}>{% trans "No" %}</option>
+                    <option value="occasional" {% if profile.travel_availability == 'occasional' %}selected{% endif %}>{% trans "Ocasional" %}</option>
+                    <option value="frequent" {% if profile.travel_availability == 'frequent' %}selected{% endif %}>{% trans "Frecuente" %}</option>
+                </select>
+            </div>
+        </div>
+        <div class="flex justify-end gap-3 mt-6 pt-3 border-t border-gray-100 dark:border-gray-700">
+            <button onclick="closeModal('work-modal')"
+                class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{% trans "Cancelar" %}</button>
+            <button onclick="saveWorkPrefs()"
+                class="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400 text-sm shadow-xs transition">{% trans "Guardar" %}</button>
+        </div>
+    </div>
+</div>
+
+<!-- Social Links Modal -->
+<div id="social-modal" class="fixed inset-0 bg-black/50 backdrop-blur-xs hidden items-center justify-center z-50 p-4">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 max-w-md w-full mx-auto border border-gray-100 dark:border-gray-700">
+        <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100 dark:border-gray-700">
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white">{% trans "Editar redes sociales" %}</h3>
+            <button onclick="closeModal('social-modal')" class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">LinkedIn</label>
+                <input type="url" id="social-linkedin" value="{{ social_links.linkedin|default:'' }}"
+                    class="w-full px-3.5 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+                    placeholder="https://linkedin.com/in/...">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">GitHub</label>
+                <input type="url" id="social-github" value="{{ social_links.github|default:'' }}"
+                    class="w-full px-3.5 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+                    placeholder="https://github.com/...">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">Twitter/X</label>
+                <input type="url" id="social-twitter" value="{{ social_links.twitter|default:'' }}"
+                    class="w-full px-3.5 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+                    placeholder="https://twitter.com/...">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">Portfolio</label>
+                <input type="url" id="social-portfolio" value="{{ social_links.portfolio|default:'' }}"
+                    class="w-full px-3.5 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+                    placeholder="https://...">
+            </div>
+        </div>
+        <div class="flex justify-end gap-3 mt-6 pt-3 border-t border-gray-100 dark:border-gray-700">
+            <button onclick="closeModal('social-modal')"
+                class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{% trans "Cancelar" %}</button>
+            <button onclick="saveSocialLinks()"
+                class="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-400 text-sm shadow-xs transition">{% trans "Guardar" %}</button>
+        </div>
+    </div>
+</div>
 
 <script>
-
     var urls = {
-
         updateProfile: "{% url 'update_profile_fields' %}",
-
         toggleVisibility: "{% url 'toggle_profile_visibility' %}",
-
         getProfileTags: "{% url 'get_profile_tags' %}",
-
         saveProfileTags: "{% url 'save_profile_tags' %}",
-
         tagHierarchy: "/api/tags/hierarchy/",
-
         allTags: "/api/tags/all/",
-
     };
-
     var profileIsPublic = {{ profile.is_public|yesno:"true,false" }};
-
+    window.i18n = {
+        addExperience: "{% trans 'Agregar experiencia' %}",
+        editExperience: "{% trans 'Editar experiencia' %}",
+        deleteExperienceConfirm: "{% trans '¿Deseas eliminar esta experiencia laboral?' %}",
+        addProject: "{% trans 'Agregar proyecto' %}",
+        editProject: "{% trans 'Editar proyecto' %}",
+        deleteProjectConfirm: "{% trans '¿Deseas eliminar este proyecto?' %}",
+        noHeadline: "{% trans 'Sin titular' %}",
+        noBio: "{% trans 'Sin biografía' %}",
+        addTagPrefix: "{% trans 'Añadir' %}",
+        newTagLabel: "{% trans 'Nuevo tag' %}",
+        noTagsSelected: "{% trans 'No hay tags seleccionados' %}",
+        noLanguagesSelected: "{% trans 'No hay idiomas seleccionados' %}",
+    };
 </script>
 
-<script src="{% static 'js/dashboard.js' %}?v=3"></script>
-
 {{ profile.experience|json_script:"experienceData" }}
-
 {{ profile.projects|json_script:"projectsData" }}
-
 {{ profile.social_links|json_script:"socialLinksData" }}
 
 <script>
-
-    var experienceData = JSON.parse(document.getElementById('experienceData').textContent);
-
-    var projectsData = JSON.parse(document.getElementById('projectsData').textContent);
-
-    var socialLinksData = JSON.parse(document.getElementById('socialLinksData').textContent);
-
+    var experienceData = JSON.parse(document.getElementById('experienceData').textContent || '[]');
+    var projectsData = JSON.parse(document.getElementById('projectsData').textContent || '[]');
+    var socialLinksData = JSON.parse(document.getElementById('socialLinksData').textContent || '{}');
 </script>
 
+<script src="{% static 'js/dashboard.js' %}?v=7"></script>
+
 {% endblock %}
-
-
-
-
-
-
 

@@ -1,4 +1,4 @@
-﻿from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -9,6 +9,8 @@ from django.utils.translation import gettext_lazy as _
 from django.core.mail import send_mail
 from django.conf import settings
 from django.utils.http import url_has_allowed_host_and_scheme
+from django.db import transaction
+from django.utils.text import slugify
 import json
 from .forms import CustomAuthenticationForm, WizardRegistrationForm
 from .models import UserProfile, SectorTag, SectorRol, RolEspecialidad, Tag, ProfileTag, RecruiterProfile, Vacancy
@@ -50,6 +52,14 @@ def register_view(request):
     if request.user.is_authenticated:
         return redirect('dashboard')
 
+    from .models import SectorTag
+    if not SectorTag.objects.exists():
+        from django.core.management import call_command
+        try:
+            call_command('loaddata', 'fixtures/sectors.json')
+        except Exception:
+            pass
+
     if request.method == 'POST':
         form = WizardRegistrationForm(request.POST)
         if form.is_valid():
@@ -62,9 +72,26 @@ def register_view(request):
     else:
         form = WizardRegistrationForm()
 
-    from .models import SectorTag
     sectors = SectorTag.objects.all()
-    return render(request, 'accounts/register.html', {'form': form, 'sectors': sectors})
+    blocked_domains = getattr(settings, 'BLOCKED_EMAIL_DOMAINS', [])
+
+    initial_step = 1
+    if form.is_bound and not form.is_valid():
+        if any(f in form.errors for f in ['email', 'password1', 'password2']):
+            initial_step = 2
+        elif any(f in form.errors for f in ['first_name', 'last_name', 'company_name', 'company_type']):
+            initial_step = 3
+        elif any(f in form.errors for f in ['sector', 'work_modality', 'company_website', 'company_description']):
+            initial_step = 4
+        else:
+            initial_step = 2
+
+    return render(request, 'accounts/register.html', {
+        'form': form,
+        'sectors': sectors,
+        'blocked_domains': json.dumps(blocked_domains),
+        'initial_step': initial_step,
+    })
 
 
 def logout_view(request):
@@ -87,14 +114,23 @@ def dashboard_view(request):
     # Candidate dashboard
     profile = request.user.profile
     LANG_NAMES = {
-        'es': 'Espanol', 'en': 'Ingles', 'pt': 'Portugues',
-        'fr': 'Frances', 'de': 'Aleman', 'it': 'Italiano',
-        'ja': 'Japones', 'ko': 'Coreano', 'zh': 'Chino',
-        'ru': 'Ruso', 'ar': 'Arabe', 'hi': 'Hindi'
+        'es': _('Español'), 'en': _('Inglés'), 'pt': _('Portugués'),
+        'fr': _('Francés'), 'de': _('Alemán'), 'it': _('Italiano'),
+        'ja': _('Japonés'), 'ko': _('Coreano'), 'zh': _('Chino'),
+        'ru': _('Ruso'), 'ar': _('Árabe'), 'hi': _('Hindi')
     }
-    profile_lang_names = [LANG_NAMES.get(code, code) for code in profile.languages.keys()] if isinstance(profile.languages, dict) else []
+    if isinstance(profile.languages, dict):
+        profile_lang_names = [str(LANG_NAMES.get(code, code)) for code in profile.languages.keys() if code]
+    elif isinstance(profile.languages, list):
+        codes = [item['code'] if isinstance(item, dict) else item for item in profile.languages]
+        profile_lang_names = [str(LANG_NAMES.get(code, code)) for code in codes if code]
+    else:
+        profile_lang_names = []
     return render(request, 'accounts/dashboard.html', {
         'profile': profile,
+        'experience': profile.experience or [],
+        'projects': profile.projects or [],
+        'social_links': profile.social_links or {},
         'employment_types': EMPLOYMENT_TYPE_CHOICES,
         'profile_lang_names': profile_lang_names,
     })
@@ -153,6 +189,32 @@ def upload_photo_view(request):
 
 
 @login_required
+@require_POST
+def upload_media_view(request):
+    import os, uuid
+    from django.core.files.storage import default_storage
+    from django.core.files.base import ContentFile
+
+    if 'image' not in request.FILES:
+        return JsonResponse({'status': 'error', 'message': _('No se proporcionó ninguna imagen.')}, status=400)
+
+    image = request.FILES['image']
+    if image.size > 5 * 1024 * 1024:
+        return JsonResponse({'status': 'error', 'message': _('La imagen no puede superar los 5MB.')}, status=400)
+
+    allowed_types = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/svg+xml']
+    if image.content_type not in allowed_types:
+        return JsonResponse({'status': 'error', 'message': _('Formato no permitido. Usa JPG, PNG, WebP o SVG.')}, status=400)
+
+    ext = os.path.splitext(image.name)[1].lower()
+    filename = f"media_items/user_{request.user.id}_{uuid.uuid4().hex[:8]}{ext}"
+    saved_path = default_storage.save(filename, ContentFile(image.read()))
+    url = default_storage.url(saved_path)
+
+    return JsonResponse({'status': 'ok', 'url': url})
+
+
+@login_required
 def update_bio_view(request):
     if request.method == 'POST':
         bio = request.POST.get('bio', '')
@@ -195,9 +257,24 @@ def profile_view(request, user_id):
 
     is_owner = request.user.is_authenticated and request.user == user
 
+    LANG_NAMES = {
+        'es': _('Español'), 'en': _('Inglés'), 'pt': _('Portugués'),
+        'fr': _('Francés'), 'de': _('Alemán'), 'it': _('Italiano'),
+        'ja': _('Japonés'), 'ko': _('Coreano'), 'zh': _('Chino'),
+        'ru': _('Ruso'), 'ar': _('Árabe'), 'hi': _('Hindi')
+    }
+    if isinstance(profile.languages, dict):
+        profile_lang_names = [str(LANG_NAMES.get(code, code)) for code in profile.languages.keys() if code]
+    elif isinstance(profile.languages, list):
+        codes = [item['code'] if isinstance(item, dict) else item for item in profile.languages]
+        profile_lang_names = [str(LANG_NAMES.get(code, code)) for code in codes if code]
+    else:
+        profile_lang_names = []
+
     return render(request, 'accounts/profile.html', {
         'profile_user': user,
         'profile': profile,
+        'profile_lang_names': profile_lang_names,
         'is_owner': is_owner,
     })
 
@@ -297,7 +374,6 @@ def toggle_profile_visibility(request):
         return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
 
 
-@login_required
 @require_POST
 def contact_email_view(request, user_id):
     try:
@@ -375,32 +451,68 @@ def save_profile_tags_view(request):
         data = json.loads(request.body)
         profile = request.user.profile
 
-        if 'sector' in data:
-            profile.sector = SectorTag.objects.get(slug=data['sector']) if data['sector'] else None
-        if 'rol' in data:
-            profile.rol = SectorRol.objects.get(slug=data['rol'], sector__slug=data['sector']) if data['rol'] else None
-        if 'especialidad' in data:
-            profile.especialidad = RolEspecialidad.objects.get(slug=data['especialidad'], sector_rol__slug=data['rol']) if data['especialidad'] else None
-        if 'seniority' in data:
-            profile.seniority = data['seniority']
-        if 'languages' in data:
-            langs = data['languages']
-            if isinstance(langs, list):
-                profile.languages = {l['code']: l.get('level', 'intermediate') for l in langs if l.get('code')}
-            else:
-                profile.languages = langs
+        with transaction.atomic():
+            if 'sector' in data:
+                sector_slug = data.get('sector')
+                profile.sector = SectorTag.objects.filter(slug=sector_slug).first() if sector_slug else None
 
-        profile.save()
+            if 'rol' in data:
+                rol_slug = data.get('rol')
+                if rol_slug and profile.sector:
+                    profile.rol = SectorRol.objects.filter(slug=rol_slug, sector=profile.sector).first()
+                elif rol_slug:
+                    profile.rol = SectorRol.objects.filter(slug=rol_slug).first()
+                else:
+                    profile.rol = None
 
-        if 'tags' in data:
-            ProfileTag.objects.filter(profile=profile).delete()
-            for tag_data in data['tags']:
-                tag = Tag.objects.get(slug=tag_data['slug'])
-                ProfileTag.objects.create(
-                    profile=profile,
-                    tag=tag,
-                    tag_type=tag_data.get('tag_type', 'nice')
-                )
+            if 'especialidad' in data:
+                esp_slug = data.get('especialidad')
+                if esp_slug and profile.rol:
+                    profile.especialidad = RolEspecialidad.objects.filter(slug=esp_slug, sector_rol=profile.rol).first()
+                elif esp_slug:
+                    profile.especialidad = RolEspecialidad.objects.filter(slug=esp_slug).first()
+                else:
+                    profile.especialidad = None
+
+            if 'seniority' in data:
+                profile.seniority = data.get('seniority', '') or ''
+
+            if 'languages' in data:
+                langs = data['languages']
+                if isinstance(langs, list):
+                    lang_dict = {}
+                    for l in langs:
+                        if isinstance(l, dict) and l.get('code'):
+                            lang_dict[l['code']] = l.get('level', 'intermediate')
+                        elif isinstance(l, str) and l.strip():
+                            lang_dict[l.strip()] = 'intermediate'
+                    profile.languages = lang_dict
+                elif isinstance(langs, dict):
+                    profile.languages = langs
+
+            profile.save()
+
+            if 'tags' in data:
+                ProfileTag.objects.filter(profile=profile).delete()
+                for tag_data in data['tags']:
+                    raw_slug = tag_data.get('slug') or ''
+                    raw_name = tag_data.get('name') or raw_slug
+                    slug = (raw_slug or slugify(raw_name)).strip().lower()
+                    name = (raw_name or slug).strip()
+                    if slug:
+                        tag = Tag.objects.filter(slug=slug).first()
+                        if not tag:
+                            tag = Tag.objects.create(
+                                slug=slug,
+                                name_es=name,
+                                name_en=name,
+                                category='otro'
+                            )
+                        ProfileTag.objects.create(
+                            profile=profile,
+                            tag=tag,
+                            tag_type=tag_data.get('tag_type', 'nice')
+                        )
 
         return JsonResponse({'status': 'ok'})
     except Exception as e:
@@ -414,18 +526,24 @@ def get_profile_tags_view(request):
 
         tags = [{
             'slug': pt.tag.slug,
-            'name': pt.tag.name_es,
+            'name': pt.tag.display_name,
             'tag_type': pt.tag_type,
             'category': pt.tag.category
         } for pt in profile.tags.select_related('tag').all()]
 
         lang_names = {
-            'es': 'Espanol', 'en': 'Ingles', 'pt': 'Portugues',
-            'fr': 'Frances', 'de': 'Aleman', 'it': 'Italiano',
-            'ja': 'Japones', 'ko': 'Coreano', 'zh': 'Chino',
-            'ru': 'Ruso', 'ar': 'Arabe', 'hi': 'Hindi'
+            'es': str(_('Español')), 'en': str(_('Inglés')), 'pt': str(_('Portugués')),
+            'fr': str(_('Francés')), 'de': str(_('Alemán')), 'it': str(_('Italiano')),
+            'ja': str(_('Japonés')), 'ko': str(_('Coreano')), 'zh': str(_('Chino')),
+            'ru': str(_('Ruso')), 'ar': str(_('Árabe')), 'hi': str(_('Hindi'))
         }
-        languages = [{'code': k, 'name': lang_names.get(k, k)} for k in profile.languages.keys()] if isinstance(profile.languages, dict) else []
+        if isinstance(profile.languages, dict):
+            languages = [{'code': k, 'name': lang_names.get(k, k)} for k in profile.languages.keys() if k]
+        elif isinstance(profile.languages, list):
+            codes = [item['code'] if isinstance(item, dict) else item for item in profile.languages]
+            languages = [{'code': c, 'name': lang_names.get(c, c)} for c in codes if c]
+        else:
+            languages = []
 
         return JsonResponse({
             'status': 'ok',

@@ -51,22 +51,24 @@ msgstr "La contraseña debe contener al menos un número."
 #: .\apps\accounts\forms.py:70
 #, python-brace-format
 msgid ""
-"La contraseña debe contener al menos un carácter especial (!@#$%^&*(),.?\":"
-"{}|<>)."
+"La contraseña debe contener al menos un carácter especial "
+"(!@#$%^&*(),.?\":{}|<>)."
 msgstr ""
-"La contraseña debe contener al menos un carácter especial (!@#$%^&*(),.?\":"
-"{}|<>)."
+"La contraseña debe contener al menos un carácter especial "
+"(!@#$%^&*(),.?\":{}|<>)."
 
 #: .\apps\accounts\forms.py:87 .\apps\accounts\forms.py:106
 #: .\templates\accounts\complete_profile.html:29
-#: .\templates\accounts\dashboard.html:13 .\templates\accounts\register.html:61
+#: .\templates\accounts\dashboard.html:13
+#: .\templates\accounts\register.html:61
 #: .\templates\resumes\templates\_section_references.html:14
 msgid "Nombre"
 msgstr "Nombre"
 
 #: .\apps\accounts\forms.py:95 .\apps\accounts\forms.py:115
 #: .\templates\accounts\complete_profile.html:37
-#: .\templates\accounts\dashboard.html:15 .\templates\accounts\register.html:68
+#: .\templates\accounts\dashboard.html:15
+#: .\templates\accounts\register.html:68
 msgid "Apellido"
 msgstr "Apellido"
 
@@ -266,24 +268,29 @@ msgstr "Habilidades"
 msgid "Editar"
 msgstr "Editar"
 
-#: .\templates\accounts\dashboard.html:107 .\templates\accounts\profile.html:74
+#: .\templates\accounts\dashboard.html:107
+#: .\templates\accounts\profile.html:74
 msgid "Sin habilidades"
 msgstr "Sin habilidades"
 
-#: .\templates\accounts\dashboard.html:115 .\templates\accounts\profile.html:81
+#: .\templates\accounts\dashboard.html:115
+#: .\templates\accounts\profile.html:81
 msgid "Bio"
 msgstr "Bio"
 
 #: .\templates\accounts\dashboard.html:129
-#: .\templates\accounts\dashboard.html:416 .\templates\accounts\profile.html:88
+#: .\templates\accounts\dashboard.html:416
+#: .\templates\accounts\profile.html:88
 msgid "Preferencias de trabajo"
 msgstr "Preferencias de trabajo"
 
-#: .\templates\accounts\dashboard.html:137 .\templates\accounts\profile.html:92
+#: .\templates\accounts\dashboard.html:137
+#: .\templates\accounts\profile.html:92
 msgid "Tipo de empleo:"
 msgstr "Tipo de empleo:"
 
-#: .\templates\accounts\dashboard.html:141 .\templates\accounts\profile.html:98
+#: .\templates\accounts\dashboard.html:141
+#: .\templates\accounts\profile.html:98
 msgid "Salario esperado:"
 msgstr "Salario esperado:"
 
@@ -571,7 +578,6 @@ msgid "Contactar"
 msgstr "Contactar"
 
 #: .\templates\accounts\profile.html:131
-#, fuzzy
 #| msgid "Aún no tienes CVs creados."
 msgid "Este candidato no tiene CVs publicados."
 msgstr "Este candidato no tiene CVs publicados."
@@ -648,7 +654,8 @@ msgstr "Enviar"
 msgid "Registrarse"
 msgstr "Registrarse"
 
-#: .\templates\accounts\register.html:10 .\templates\accounts\register.html:103
+#: .\templates\accounts\register.html:10
+#: .\templates\accounts\register.html:103
 msgid "Crear Cuenta"
 msgstr "Crear Cuenta"
 
@@ -1136,6 +1143,1083 @@ msgstr "Cargando..."
 #: .\templates\wall\wall.html:43
 msgid "No se encontraron CVs en esta categoría."
 msgstr "No se encontraron CVs en esta categoría."
+
+msgid "Mis Habilidades"
+msgstr "Mis Habilidades"
+
+msgid "Perfil público"
+msgstr "Perfil público"
+
+msgid "Perfil publico"
+msgstr "Perfil público"
+
+msgid "Activa para que tu perfil sea visible en el tablón"
+msgstr "Activa para que tu perfil sea visible en el tablón"
+
+msgid "Debes subir una foto de perfil para hacer tu perfil público."
+msgstr "Debes subir una foto de perfil para hacer tu perfil público."
+
+msgid "Debes subir una foto de perfil para hacer tu perfil publico."
+msgstr "Debes subir una foto de perfil para hacer tu perfil público."
+
+msgid "Sin titular"
+msgstr "Sin titular"
+
+msgid "Sin biografia"
+msgstr "Sin biografía"
+
+msgid "Sin biografía"
+msgstr "Sin biografía"
+
+msgid "Sector:"
+msgstr "Sector:"
+
+msgid "Rol:"
+msgstr "Rol:"
+
+msgid "Especialidad:"
+msgstr "Especialidad:"
+
+msgid "Seniority:"
+msgstr "Seniority:"
+
+msgid "Idiomas:"
+msgstr "Idiomas:"
+
+msgid "Tags:"
+msgstr "Tags:"
+
+msgid "Sin experiencia ni proyectos agregados"
+msgstr "Sin experiencia ni proyectos agregados"
+
+msgid "Cargo / Puesto"
+msgstr "Cargo / Puesto"
+
+msgid "Empresa o Cliente"
+msgstr "Empresa o Cliente"
+
+msgid "Logotipo de la empresa (Opcional)"
+msgstr "Logotipo de la empresa (Opcional)"
+
+msgid "Captura o imagen del proyecto (Opcional)"
+msgstr "Captura o imagen del proyecto (Opcional)"
+
+msgid "Haz clic para subir"
+msgstr "Haz clic para subir"
+
+msgid "el logo o imagen"
+msgstr "el logo o imagen"
+
+msgid "la captura del proyecto"
+msgstr "la captura del proyecto"
+
+msgid "Logotipo cargado"
+msgstr "Logotipo cargado"
+
+msgid "Imagen cargada"
+msgstr "Imagen cargada"
+
+msgid "Listo para guardar"
+msgstr "Listo para guardar"
+
+msgid "Eliminar"
+msgstr "Eliminar"
+
+msgid "Ver"
+msgstr "Ver"
+
+msgid "Editar Habilidades"
+msgstr "Editar Habilidades"
+
+msgid "Editar experiencia"
+msgstr "Editar experiencia"
+
+msgid "Editar proyecto"
+msgstr "Editar proyecto"
+
+msgid "Estado de búsqueda"
+msgstr "Estado de búsqueda"
+
+msgid "Preferencia de ubicación"
+msgstr "Preferencia de ubicación"
+
+msgid "Cuéntanos sobre ti..."
+msgstr "Cuéntanos sobre ti..."
+
+msgid "JPG, PNG o WebP. Máximo 5MB."
+msgstr "JPG, PNG o WebP. Máximo 5MB."
+
+msgid "URL del proyecto (Opcional)"
+msgstr "URL del proyecto (Opcional)"
+
+msgid "Describe el proyecto y las tecnologías usadas..."
+msgstr "Describe el proyecto y las tecnologías usadas..."
+
+msgid "Describe tus responsabilidades y logros..."
+msgstr "Describe tus responsabilidades y logros..."
+
+msgid "Seleccionar..."
+msgstr "Seleccionar..."
+
+msgid "Seleccionar idioma..."
+msgstr "Seleccionar idioma..."
+
+msgid "Buscar tag..."
+msgstr "Buscar tag..."
+
+msgid "Híbrido"
+msgstr "Híbrido"
+
+msgid "Segun destino"
+msgstr "Según destino"
+
+msgid "Full-time"
+msgstr "Full-time"
+
+msgid "Part-time"
+msgstr "Part-time"
+
+msgid "Contrato"
+msgstr "Contrato"
+
+msgid "Freelance"
+msgstr "Freelance"
+
+msgid "Si"
+msgstr "Sí"
+
+msgid "Junior"
+msgstr "Junior"
+
+msgid "Semi-Senior"
+msgstr "Semi-Senior"
+
+msgid "Senior"
+msgstr "Senior"
+
+msgid "Lead"
+msgstr "Lead"
+
+msgid "Español"
+msgstr "Español"
+
+msgid "Inglés"
+msgstr "Inglés"
+
+msgid "Portugués"
+msgstr "Portugués"
+
+msgid "Francés"
+msgstr "Francés"
+
+msgid "Alemán"
+msgstr "Alemán"
+
+msgid "Italiano"
+msgstr "Italiano"
+
+msgid "Japonés"
+msgstr "Japonés"
+
+msgid "Coreano"
+msgstr "Coreano"
+
+msgid "Chino"
+msgstr "Chino"
+
+msgid "Ruso"
+msgstr "Ruso"
+
+msgid "Árabe"
+msgstr "Árabe"
+
+msgid "Hindi"
+msgstr "Hindi"
+
+msgid "Proyecto"
+msgstr "Proyecto"
+
+msgid "Periodo"
+msgstr "Periodo"
+
+msgid "Descripción"
+msgstr "Descripción"
+
+msgid "Rol"
+msgstr "Rol"
+
+msgid "Especialidad"
+msgstr "Especialidad"
+
+msgid "Seniority"
+msgstr "Seniority"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "Perfil Profesional"
+msgstr "Perfil Profesional"
+
+msgid "Para trabajadores"
+msgstr "Para trabajadores"
+
+msgid "Para reclutadores"
+msgstr "Para reclutadores"
+
+msgid "¿Deseas eliminar esta experiencia laboral?"
+msgstr "¿Deseas eliminar esta experiencia laboral?"
+
+msgid "¿Deseas eliminar este proyecto?"
+msgstr "¿Deseas eliminar este proyecto?"
+
+msgid "Ej: Desarrollador Full Stack"
+msgstr "Ej: Desarrollador Full Stack"
+
+msgid "Ej: Tech Solutions"
+msgstr "Ej: Tech Solutions"
+
+msgid "2021 - Presente"
+msgstr "2021 - Presente"
+
+msgid "Ej: App de Delivery"
+msgstr "Ej: App de Delivery"
+
+msgid "Ej: Proyecto Personal"
+msgstr "Ej: Proyecto Personal"
+
+msgid "2023"
+msgstr "2023"
+
+msgid "Acerca de mí"
+msgstr "Acerca de mí"
+
+msgid "Activa"
+msgstr "Activa"
+
+msgid "Activa para que tu empresa sea visible en el directorio"
+msgstr "Activa para que tu empresa sea visible en el directorio"
+
+msgid "Actualizar descripción"
+msgstr "Actualizar descripción"
+
+msgid "Al menos un carácter especial (!@#$%^&*...)"
+msgstr "Al menos un carácter especial (!@#$%^&*...)"
+
+msgid "Al menos un número"
+msgstr "Al menos un número"
+
+msgid "Al menos una letra mayúscula"
+msgstr "Al menos una letra mayúscula"
+
+msgid "Buscar sector..."
+msgstr "Buscar sector..."
+
+msgid "Busco Talento"
+msgstr "Busco Talento"
+
+msgid "Busco Trabajo"
+msgstr "Busco Trabajo"
+
+msgid "Búsqueda Avanzada y Scoring"
+msgstr "Búsqueda Avanzada y Scoring"
+
+msgid "Candidato"
+msgstr "Candidato"
+
+msgid "Contactar con Candidato"
+msgstr "Contactar con Candidato"
+
+msgid ""
+"Crea tu perfil en minutos o explora nuestro directorio de empresas y "
+"talentos."
+msgstr ""
+"Crea tu perfil en minutos o explora nuestro directorio de empresas y "
+"talentos."
+
+msgid "Crear Nueva Vacante"
+msgstr "Crear Nueva Vacante"
+
+msgid "Crear Vacante"
+msgstr "Crear Vacante"
+
+msgid "Crear una cuenta gratis"
+msgstr "Crear una cuenta gratis"
+
+msgid "Cuéntanos sobre tu empresa..."
+msgstr "Cuéntanos sobre tu empresa..."
+
+msgid "Debe ser un correo corporativo (no Gmail, Yahoo, Hotmail, etc)."
+msgstr "Debe ser un correo corporativo (no Gmail, Yahoo, Hotmail, etc)."
+
+msgid "Describe las responsabilidades y requisitos del puesto..."
+msgstr "Describe las responsabilidades y requisitos del puesto..."
+
+msgid "Descubre empresas y reclutadores en diferentes sectores."
+msgstr "Descubre empresas y reclutadores en diferentes sectores."
+
+msgid "Explorar tablón de candidatos"
+msgstr "Explorar tablón de candidatos"
+
+msgid "Explorar tablón de reclutadores"
+msgstr "Explorar tablón de reclutadores"
+
+msgid "Explorar tablón público sin registro"
+msgstr "Explorar tablón público sin registro"
+
+msgid "Inicia sesión aquí"
+msgstr "Inicia sesión aquí"
+
+msgid "Ir a tablón de reclutadores"
+msgstr "Ir a tablón de reclutadores"
+
+msgid "Ir a tablón de trabajadores"
+msgstr "Ir a tablón de trabajadores"
+
+msgid ""
+"La plataforma que redefine el CV tradicional en un perfil profesional "
+"interactivo."
+msgstr ""
+"La plataforma que redefine el CV tradicional en un perfil profesional "
+"interactivo."
+
+msgid "Limpiar filtros"
+msgstr "Limpiar filtros"
+
+msgid "Mínimo 8 caracteres"
+msgstr "Mínimo 8 caracteres"
+
+msgid "Nombre de Empresa"
+msgstr "Nombre de Empresa"
+
+msgid "Nombre de tu empresa"
+msgstr "Nombre de tu empresa"
+
+msgid "Nombre y apellidos"
+msgstr "Nombre y apellidos"
+
+msgid "Registrarme como Candidato"
+msgstr "Registrarme como Candidato"
+
+msgid "Registrarme como Reclutador"
+msgstr "Registrarme como Reclutador"
+
+msgid "Requisitos de la contraseña:"
+msgstr "Requisitos de la contraseña:"
+
+msgid "Sitio Web"
+msgstr "Sitio Web"
+
+msgid "Sobre la empresa"
+msgstr "Sobre la empresa"
+
+msgid "Ubicación"
+msgstr "Ubicación"
+
+msgid "¿Listo para impulsar tu carrera o escalar tu equipo?"
+msgstr "¿Listo para impulsar tu carrera o escalar tu equipo?"
+
+msgid "¿Por qué TalentStack?"
+msgstr "¿Por qué TalentStack?"
+
+msgid "¿Qué estás buscando en la plataforma?"
+msgstr "¿Qué estás buscando en la plataforma?"
+
+msgid "¿Ya tienes una cuenta con Google, GitHub o LinkedIn?"
+msgstr "¿Ya tienes una cuenta con Google, GitHub o LinkedIn?"
+
+msgid "Anterior"
+msgstr "Anterior"
+
+msgid "Descripción (opcional)"
+msgstr "Descripción (opcional)"
+
+msgid "Deseables (OR)"
+msgstr "Deseables (OR)"
+
+msgid "Ej: $30,000 - $50,000 MXN mensuales"
+msgstr "Ej: $30,000 - $50,000 MXN mensuales"
+
+msgid "Ej: Ciudad de México, México"
+msgstr "Ej: Ciudad de México, México"
+
+msgid "Empresa Directa"
+msgstr "Empresa Directa"
+
+msgid "Enviar Mensaje"
+msgstr "Enviar Mensaje"
+
+msgid "Escribe tu propuesta o mensaje para el candidato..."
+msgstr "Escribe tu propuesta o mensaje para el candidato..."
+
+msgid "Especialidad y Habilidades"
+msgstr "Especialidad y Habilidades"
+
+msgid "Experiencia Laboral"
+msgstr "Experiencia Laboral"
+
+msgid "Ficha de Datos"
+msgstr "Ficha de Datos"
+
+msgid ""
+"Filtra perfiles o empresas por sector, especialidades concretas, modalidad "
+"de trabajo y más. Encuentra exactamente la combinación que necesitas."
+msgstr ""
+"Filtra perfiles o empresas por sector, especialidades concretas, modalidad "
+"de trabajo y más. Encuentra exactamente la combinación que necesitas."
+
+msgid "Filtros Avanzados"
+msgstr "Filtros Avanzados"
+
+msgid "Haz visible tu potencial"
+msgstr "Haz visible tu potencial"
+
+msgid "Ingresa un requisito por línea"
+msgstr "Ingresa un requisito por línea"
+
+msgid "Logo de empresa"
+msgstr "Logo de empresa"
+
+msgid "Logo de la empresa"
+msgstr "Logo de la empresa"
+
+msgid ""
+"Los profesionales exploran ofertas y empresas públicas; los reclutadores "
+"gestionan vacantes y contactan directo con los candidatos."
+msgstr ""
+"Los profesionales exploran ofertas y empresas públicas; los reclutadores "
+"gestionan vacantes y contactan directo con los candidatos."
+
+msgid "Mis Ofertas / Vacantes"
+msgstr "Mis Ofertas / Vacantes"
+
+msgid "Modalidad"
+msgstr "Modalidad"
+
+msgid "Modalidad:"
+msgstr "Modalidad:"
+
+msgid "No hay vacantes activas por el momento."
+msgstr "No hay vacantes activas por el momento."
+
+msgid "No se encontraron empresas con estos filtros."
+msgstr "No se encontraron empresas con estos filtros."
+
+msgid "No se encontraron perfiles con estos filtros."
+msgstr "No se encontraron perfiles con estos filtros."
+
+msgid "No tienes vacantes publicadas"
+msgstr "No tienes vacantes publicadas"
+
+msgid "Nota: La funcionalidad de guardado estará disponible próximamente."
+msgstr "Nota: La funcionalidad de guardado estará disponible próximamente."
+
+msgid "Obligatorios (AND)"
+msgstr "Obligatorios (AND)"
+
+msgid "Particular"
+msgstr "Particular"
+
+msgid "Paso 1 de 4 – ¿Qué buscas?"
+msgstr "Paso 1 de 4 – ¿Qué buscas?"
+
+msgid "Perfiles Interactivos"
+msgstr "Perfiles Interactivos"
+
+msgid "Preferencias de Trabajo"
+msgstr "Preferencias de Trabajo"
+
+msgid ""
+"Presenta tu experiencia, seniority, disponibilidad y red de habilidades en "
+"una página pública optimizada para compartir."
+msgstr ""
+"Presenta tu experiencia, seniority, disponibilidad y red de habilidades en "
+"una página pública optimizada para compartir."
+
+msgid "Proyectos Destacados"
+msgstr "Proyectos Destacados"
+
+msgid "Rango salarial"
+msgstr "Rango salarial"
+
+msgid "Reclutador"
+msgstr "Reclutador"
+
+msgid "Reclutador Independiente"
+msgstr "Reclutador Independiente"
+
+msgid "Redes Sociales y Portafolio"
+msgstr "Redes Sociales y Portafolio"
+
+msgid "Redes y Enlaces"
+msgstr "Redes y Enlaces"
+
+msgid "Requisitos"
+msgstr "Requisitos"
+
+msgid "Sin enlaces externos configurados."
+msgstr "Sin enlaces externos configurados."
+
+msgid "Sitio Web (opcional)"
+msgstr "Sitio Web (opcional)"
+
+msgid "Sitio Web:"
+msgstr "Sitio Web:"
+
+msgid "Sobre Nosotros"
+msgstr "Sobre Nosotros"
+
+msgid "Tablón de Empresas"
+msgstr "Tablón de Empresas"
+
+msgid "Tags (Opcionales)"
+msgstr "Tags (Opcionales)"
+
+msgid "Tecnologías"
+msgstr "Tecnologías"
+
+msgid "Tipo de Empresa"
+msgstr "Tipo de Empresa"
+
+msgid "Tipo de Reclutador"
+msgstr "Tipo de Reclutador"
+
+msgid "Tipo:"
+msgstr "Tipo:"
+
+msgid "Todas"
+msgstr "Todas"
+
+msgid "Trayectoria laboral y proyectos destacados"
+msgstr "Trayectoria laboral y proyectos destacados"
+
+msgid "Ubicación:"
+msgstr "Ubicación:"
+
+msgid "Un espacio doble"
+msgstr "Un espacio doble"
+
+msgid "Un requisito por línea..."
+msgstr "Un requisito por línea..."
+
+msgid "Vacantes Activas"
+msgstr "Vacantes Activas"
+
+msgid "Ver proyecto"
+msgstr "Ver proyecto"
+
+msgid ""
+"Vista previa: así es como los reclutadores y empresas ven tu perfil público."
+msgstr ""
+"Vista previa: así es como los reclutadores y empresas ven tu perfil público."
+
+msgid "candidatos"
+msgstr "candidatos"
+
+msgid "tu@empresa.com"
+msgstr "tu@empresa.com"
+
+msgid "Sin biografía disponible"
+msgstr "Sin biografía disponible"
+
+msgid "Paso 1 de 4 — ¿Qué buscas?"
+msgstr "Paso 1 de 4 — ¿Qué buscas?"
+
+msgid "Agregar tag"
+msgstr "Agregar tag"
+
+msgid "Añadir"
+msgstr "Añadir"
+
+msgid "Buscar o agregar tag (ej: Python, React, Git)..."
+msgstr "Buscar o agregar tag (ej: Python, React, Git)..."
+
+msgid "Escribe y presiona Enter o haz clic en + para añadir."
+msgstr "Escribe y presiona Enter o haz clic en + para añadir."
+
+msgid "No hay idiomas seleccionados"
+msgstr "No hay idiomas seleccionados"
+
+msgid "No hay tags seleccionados"
+msgstr "No hay tags seleccionados"
+
+msgid "Nuevo tag"
+msgstr "Nuevo tag"
+
+msgid "100% Gratuito para candidatos"
+msgstr "100% Gratuito para candidatos"
+
+msgid "Afinidad con vacantes técnicas"
+msgstr "Afinidad con vacantes técnicas"
+
+msgid "Alcance internacional"
+msgstr "Alcance internacional"
+
+msgid "Arquitectura de microservicios y liderazgo de equipo técnico."
+msgstr "Arquitectura de microservicios y liderazgo de equipo técnico."
+
+msgid "Backend Python"
+msgstr "Backend Python"
+
+msgid "Búsqueda y filtrado"
+msgstr "Búsqueda y filtrado"
+
+msgid "CV Tradicional (PDF)"
+msgstr "CV Tradicional (PDF)"
+
+msgid "CV Tradicional en PDF"
+msgstr "CV Tradicional en PDF"
+
+msgid "Cero métricas de visualización ni interés de empresas"
+msgstr "Cero métricas de visualización ni interés de empresas"
+
+msgid "Cero visibilidad"
+msgstr "Cero visibilidad"
+
+msgid "Compara la experiencia"
+msgstr "Compara la experiencia"
+
+msgid "Contactar directamente"
+msgstr "Contactar directamente"
+
+msgid "Contacto directo"
+msgstr "Contacto directo"
+
+msgid "Contacto directo con reclutadores"
+msgstr "Contacto directo con reclutadores"
+
+msgid "Contacto directo sin intermediarios"
+msgstr "Contacto directo sin intermediarios"
+
+msgid "Contacto directo y seguro vía email"
+msgstr "Contacto directo y seguro vía email"
+
+msgid "Contacto y respuesta"
+msgstr "Contacto y respuesta"
+
+msgid ""
+"Crea tu perfil en minutos, comparte tu enlace personalizado y haz visible tu"
+" potencial ante las mejores oportunidades."
+msgstr ""
+"Crea tu perfil en minutos, comparte tu enlace personalizado y haz visible tu"
+" potencial ante las mejores oportunidades."
+
+msgid "Crear mi cuenta gratuita"
+msgstr "Crear mi cuenta gratuita"
+
+msgid "Crear mi perfil interactivo"
+msgstr "Crear mi perfil interactivo"
+
+msgid "Criterio"
+msgstr "Criterio"
+
+msgid "Código fuente"
+msgstr "Código fuente"
+
+msgid "Data & IA"
+msgstr "Data & IA"
+
+msgid "Demostración de habilidades"
+msgstr "Demostración de habilidades"
+
+msgid "Desactualizado el mismo día en que se descarga"
+msgstr "Desactualizado el mismo día en que se descarga"
+
+msgid "Desarrollo Web"
+msgstr "Desarrollo Web"
+
+msgid "Descargar resumen"
+msgstr "Descargar resumen"
+
+msgid "Dinámico, responsivo y enriquecido con medios"
+msgstr "Dinámico, responsivo y enriquecido con medios"
+
+msgid "Diseñado para hacer destacar tu valor real en el mercado"
+msgstr "Diseñado para hacer destacar tu valor real en el mercado"
+
+msgid "Diseño & UX"
+msgstr "Diseño & UX"
+
+msgid "Disponible para nuevas ofertas"
+msgstr "Disponible para nuevas ofertas"
+
+msgid "Doble Ecosistema Conectado"
+msgstr "Doble Ecosistema Conectado"
+
+msgid "Documento estático de 2 páginas"
+msgstr "Documento estático de 2 páginas"
+
+msgid ""
+"Dos tablones sincronizados: profesionales mostrando su talento y "
+"reclutadores publicando oportunidades con total transparencia."
+msgstr ""
+"Dos tablones sincronizados: profesionales mostrando su talento y "
+"reclutadores publicando oportunidades con total transparencia."
+
+msgid ""
+"El CV tradicional en PDF ha muerto. Construye un perfil dinámico con "
+"taxonomía en 4 niveles, portafolio multimedia y contacto directo con "
+"reclutadores globales."
+msgstr ""
+"El CV tradicional en PDF ha muerto. Construye un perfil dinámico con "
+"taxonomía en 4 niveles, portafolio multimedia y contacto directo con "
+"reclutadores globales."
+
+msgid "El contraste entre el viejo modelo y la nueva era profesional"
+msgstr "El contraste entre el viejo modelo y la nueva era profesional"
+
+msgid "Enlaces a proyectos y demos que nadie abre"
+msgstr "Enlaces a proyectos y demos que nadie abre"
+
+msgid "Enlaces muertos"
+msgstr "Enlaces muertos"
+
+msgid "Enterrado en la bandeja"
+msgstr "Enterrado en la bandeja"
+
+msgid "Enterrado en un buzón junto a cientos de archivos idénticos"
+msgstr "Enterrado en un buzón junto a cientos de archivos idénticos"
+
+msgid "Español (Nativo), Inglés (C1 Avanzado)"
+msgstr "Español (Nativo), Inglés (C1 Avanzado)"
+
+msgid "Especialidades y tecnologías destacadas en este sector:"
+msgstr "Especialidades y tecnologías destacadas en este sector:"
+
+msgid "Experiencia reciente"
+msgstr "Experiencia reciente"
+
+msgid "Explorador de Talento en Tiempo Real"
+msgstr "Explorador de Talento en Tiempo Real"
+
+msgid "Explorar tablón de empresas"
+msgstr "Explorar tablón de empresas"
+
+msgid "Explorar tablón de talento"
+msgstr "Explorar tablón de talento"
+
+msgid "Explorar tablón público"
+msgstr "Explorar tablón público"
+
+msgid "Explorar todos los perfiles de este sector"
+msgstr "Explorar todos los perfiles de este sector"
+
+msgid "Filtra por sector y descubre las especialidades más demandadas hoy"
+msgstr "Filtra por sector y descubre las especialidades más demandadas hoy"
+
+msgid "Finanzas"
+msgstr "Finanzas"
+
+msgid "Formato y diseño"
+msgstr "Formato y diseño"
+
+msgid "Haz visible tu talento con un"
+msgstr "Haz visible tu talento con un"
+
+msgid "Idiomas disponibles"
+msgstr "Idiomas disponibles"
+
+msgid "Imágenes, links y repositorio directo"
+msgstr "Imágenes, links y repositorio directo"
+
+msgid "Ir a mi Dashboard"
+msgstr "Ir a mi Dashboard"
+
+msgid "La diferencia es contundente"
+msgstr "La diferencia es contundente"
+
+msgid "La evolución del currículum profesional"
+msgstr "La evolución del currículum profesional"
+
+msgid "Lectura manual o filtros ATS opacos"
+msgstr "Lectura manual o filtros ATS opacos"
+
+msgid "Listas de texto sin verificación visual"
+msgstr "Listas de texto sin verificación visual"
+
+msgid "Marketing & Growth"
+msgstr "Marketing & Growth"
+
+msgid "Matching Transparente y Cero Spam"
+msgstr "Matching Transparente y Cero Spam"
+
+msgid ""
+"Muestra capturas de proyectos, demos funcionales y repositorios de código. "
+"Demuestra lo que sabes hacer."
+msgstr ""
+"Muestra capturas de proyectos, demos funcionales y repositorios de código. "
+"Demuestra lo que sabes hacer."
+
+msgid "Niveles de clasificación"
+msgstr "Niveles de clasificación"
+
+msgid "Obsoleto de inmediato"
+msgstr "Obsoleto de inmediato"
+
+msgid ""
+"Olvídate de palabras clave sueltas. Clasificamos perfiles mediante Sector, "
+"Rol, Especialidad y Tags para un matching quirúrgico."
+msgstr ""
+"Olvídate de palabras clave sueltas. Clasificamos perfiles mediante Sector, "
+"Rol, Especialidad y Tags para un matching quirúrgico."
+
+msgid "Perfil Vivo TalentStack"
+msgstr "Perfil Vivo TalentStack"
+
+msgid "Portafolio Multimedia Integrado"
+msgstr "Portafolio Multimedia Integrado"
+
+msgid "Portafolio en vivo con demos y repositorios"
+msgstr "Portafolio en vivo con demos y repositorios"
+
+msgid "Presencia Global en 12 Idiomas"
+msgstr "Presencia Global en 12 Idiomas"
+
+msgid "Profesionales conectados"
+msgstr "Profesionales conectados"
+
+msgid "Proyectos interactivos"
+msgstr "Proyectos interactivos"
+
+msgid "Rechazado por filtro ATS"
+msgstr "Rechazado por filtro ATS"
+
+msgid "Remoto / Disponible a nivel global"
+msgstr "Remoto / Disponible a nivel global"
+
+msgid "Rígido, estático y limitado a 2 páginas"
+msgstr "Rígido, estático y limitado a 2 páginas"
+
+msgid "Semanas de silencio por correo"
+msgstr "Semanas de silencio por correo"
+
+msgid "Senior Full-Stack & Cloud Engineer"
+msgstr "Senior Full-Stack & Cloud Engineer"
+
+msgid ""
+"Sin algoritmos opacos ni comisiones abusivas. Filtra perfiles por "
+"disponibilidad real y contacta sin rodeos."
+msgstr ""
+"Sin algoritmos opacos ni comisiones abusivas. Filtra perfiles por "
+"disponibilidad real y contacta sin rodeos."
+
+msgid "Sin coste para profesionales"
+msgstr "Sin coste para profesionales"
+
+msgid "Superpoderes de TalentStack"
+msgstr "Superpoderes de TalentStack"
+
+msgid "Tablón de Candidatos"
+msgstr "Tablón de Candidatos"
+
+msgid "Tablón de Reclutadores"
+msgstr "Tablón de Reclutadores"
+
+msgid "Taxonomía Estructurada en 4 Capas"
+msgstr "Taxonomía Estructurada en 4 Capas"
+
+msgid "Taxonomía de Precisión"
+msgstr "Taxonomía de Precisión"
+
+msgid "Taxonomía de precisión en 4 capas"
+msgstr "Taxonomía de precisión en 4 capas"
+
+msgid "Taxonomía inteligente en 4 capas"
+msgstr "Taxonomía inteligente en 4 capas"
+
+msgid "Tecnología"
+msgstr "Tecnología"
+
+msgid "Tecnologías y competencias destacadas"
+msgstr "Tecnologías y competencias destacadas"
+
+msgid "Texto plano sin interactividad ni demostración práctica"
+msgstr "Texto plano sin interactividad ni demostración práctica"
+
+msgid "Traducción automática a 12 idiomas"
+msgstr "Traducción automática a 12 idiomas"
+
+msgid "Traducción nativa en 12 idiomas"
+msgstr "Traducción nativa en 12 idiomas"
+
+msgid ""
+"Tu perfil y su taxonomía se traducen automáticamente para conectar con "
+"oportunidades en todo el mundo sin barreras."
+msgstr ""
+"Tu perfil y su taxonomía se traducen automáticamente para conectar con "
+"oportunidades en todo el mundo sin barreras."
+
+msgid "Un PDF por cada idioma a traducir"
+msgstr "Un PDF por cada idioma a traducir"
+
+msgid "Ver demo en vivo"
+msgstr "Ver demo en vivo"
+
+msgid "Vista interactiva"
+msgstr "Vista interactiva"
+
+msgid "perfil profesional interactivo"
+msgstr "perfil profesional interactivo"
+
+msgid ""
+"¡Simulación interactiva! En un perfil real, este botón abre el canal de "
+"contacto directo con el candidato."
+msgstr ""
+"¡Simulación interactiva! En un perfil real, este botón abre el canal de "
+"contacto directo con el candidato."
+
+msgid "¿Buscas contratar talento?"
+msgstr "¿Buscas contratar talento?"
+
+msgid "¿Listo para dar el salto al perfil interactivo?"
+msgstr "¿Listo para dar el salto al perfil interactivo?"
+
+msgid "¿Por qué un perfil interactivo supera a cualquier PDF?"
+msgstr "¿Por qué un perfil interactivo supera a cualquier PDF?"
+
+msgid "Aumentan el score de afinidad"
+msgstr "Aumentan el score de afinidad"
+
+msgid "Buscando empresas y reclutadores..."
+msgstr "Buscando empresas y reclutadores..."
+
+msgid "Buscando profesionales..."
+msgstr "Buscando profesionales..."
+
+msgid "Buscar sector (ej: Tecnología, Salud)..."
+msgstr "Buscar sector (ej: Tecnología, Salud)..."
+
+msgid "Cargando empresas..."
+msgstr "Cargando empresas..."
+
+msgid "Cargando perfiles..."
+msgstr "Cargando perfiles..."
+
+msgid ""
+"Descubre organizaciones y reclutadores que buscan talento activamente con "
+"total transparencia."
+msgstr ""
+"Descubre organizaciones y reclutadores que buscan talento activamente con "
+"total transparencia."
+
+msgid "Disponible"
+msgstr "Disponible"
+
+msgid "El perfil debe tener todos"
+msgstr "El perfil debe tener todos"
+
+msgid ""
+"Encuentra empresas por sector, modalidad de trabajo o tipo de reclutador."
+msgstr ""
+"Encuentra empresas por sector, modalidad de trabajo o tipo de reclutador."
+
+msgid "Escribe para buscar tag (ej: Docker, AWS)..."
+msgstr "Escribe para buscar tag (ej: Docker, AWS)..."
+
+msgid "Escribe para buscar tag (ej: Python, React)..."
+msgstr "Escribe para buscar tag (ej: Python, React)..."
+
+msgid ""
+"Explora perfiles verificados con taxonomía de precisión, habilidades reales "
+"y contacto directo."
+msgstr ""
+"Explora perfiles verificados con taxonomía de precisión, habilidades reales "
+"y contacto directo."
+
+msgid ""
+"Filtra en cascada por Sector, Rol, Especialidad y competencias específicas."
+msgstr ""
+"Filtra en cascada por Sector, Rol, Especialidad y competencias específicas."
+
+msgid "Filtros Adicionales (Seniority y Modalidad)"
+msgstr "Filtros Adicionales (Seniority y Modalidad)"
+
+msgid "Filtros de Búsqueda Taxonómica"
+msgstr "Filtros de Búsqueda Taxonómica"
+
+msgid "Filtros de Empresas y Vacantes"
+msgstr "Filtros de Empresas y Vacantes"
+
+msgid "Match"
+msgstr "Match"
+
+msgid "Modalidad de Trabajo"
+msgstr "Modalidad de Trabajo"
+
+msgid "Nivel de Seniority"
+msgstr "Nivel de Seniority"
+
+msgid "No se encontraron empresas con estos filtros"
+msgstr "No se encontraron empresas con estos filtros"
+
+msgid "No se encontraron perfiles con estos filtros"
+msgstr "No se encontraron perfiles con estos filtros"
+
+msgid "Obligatorios / Deseables"
+msgstr "Obligatorios / Deseables"
+
+msgid "Para reclutadores (Empresas)"
+msgstr "Para reclutadores (Empresas)"
+
+msgid "Para trabajadores (Candidatos)"
+msgstr "Para trabajadores (Candidatos)"
+
+msgid ""
+"Prueba relajando algunos criterios de búsqueda o limpiando los filtros para "
+"ver más resultados."
+msgstr ""
+"Prueba relajando algunos criterios de búsqueda o limpiando los filtros para "
+"ver más resultados."
+
+msgid "Restablecer todos los filtros"
+msgstr "Restablecer todos los filtros"
+
+msgid "Sectores de Contratación"
+msgstr "Sectores de Contratación"
+
+msgid "Sin descripción"
+msgstr "Sin descripción"
+
+msgid "Tags y Tecnologías Clave"
+msgstr "Tags y Tecnologías Clave"
+
+msgid "Todas las especialidades"
+msgstr "Todas las especialidades"
+
+msgid "Todas las modalidades"
+msgstr "Todas las modalidades"
+
+msgid "Todos los niveles"
+msgstr "Todos los niveles"
+
+msgid "Todos los roles"
+msgstr "Todos los roles"
+
+msgid "Todos los sectores"
+msgstr "Todos los sectores"
+
+msgid "Todos los tipos"
+msgstr "Todos los tipos"
+
+msgid "Ver empresa y vacantes"
+msgstr "Ver empresa y vacantes"
+
+msgid "Ver perfil interactivo"
+msgstr "Ver perfil interactivo"
+
+msgid "empresa encontrada"
+msgstr "empresa encontrada"
+
+msgid "empresas encontradas"
+msgstr "empresas encontradas"
+
+msgid "más"
+msgstr "más"
+
+msgid "profesional encontrado"
+msgstr "profesional encontrado"
+
+msgid "profesionales encontrados"
+msgstr "profesionales encontrados"
 
 #~ msgid "Mi Perfil"
 #~ msgstr "Mi Perfil"

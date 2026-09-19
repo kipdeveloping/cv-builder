@@ -8,15 +8,15 @@
 <div class="max-w-lg mx-auto">
     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
         <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-2 text-center">{% trans "Crear Cuenta" %}</h1>
-        <p class="text-gray-500 dark:text-gray-400 text-center mb-6" id="step-subtitle">{% trans "Paso 1 de 4 - ¿Qué buscas?" %}</p>
+        <p class="text-gray-500 dark:text-gray-400 text-center mb-6" id="step-subtitle">{% trans "Paso 1 de 4 — ¿Qué buscas?" %}</p>
 
         {% if form.errors %}
-        <div class="bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-700 text-red-700 dark:text-red-200 px-4 py-3 rounded-lg mb-6">
+        <div id="server-errors" class="bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-700 text-red-700 dark:text-red-200 px-4 py-3 rounded-lg mb-6">
             <p class="font-semibold mb-2">{% trans "Por favor, corrige los siguientes errores:" %}</p>
             <ul class="list-disc list-inside text-sm">
                 {% for field in form %}
                     {% for error in field.errors %}
-                        <li>{{ field.label }}: {{ error }}</li>
+                        <li><strong>{{ field.label }}:</strong> {{ error }}</li>
                     {% endfor %}
                 {% endfor %}
                 {% for error in form.non_field_errors %}
@@ -26,9 +26,15 @@
         </div>
         {% endif %}
 
-        <form method="post" id="wizard-form" class="space-y-4">
+        <div id="register-config"
+            data-initial-step="{{ initial_step|default:1 }}"
+            data-initial-role="{{ form.role.value|default:'candidate' }}"
+            data-blocked-domains="{{ blocked_domains|default:'[]' }}">
+        </div>
+
+        <form method="post" id="wizard-form" class="space-y-4" novalidate>
             {% csrf_token %}
-            <input type="hidden" name="role" id="id_role" value="candidate">
+            <input type="hidden" name="role" id="id_role" value="{{ form.role.value|default:'candidate' }}">
 
             <!-- Step 1: Role Selection -->
             <div class="step step-1">
@@ -50,116 +56,106 @@
             </div>
 
             <!-- Step 2: Credentials -->
-            <div class="step step-2 hidden">
+            <div class="step step-2 hidden space-y-4">
                 <div>
                     <label for="id_email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Email" %}</label>
                     <input type="email" name="email" id="id_email" required
                         class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                         placeholder="tu@email.com"
                         value="{{ form.email.value|default:'' }}">
-                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-400 recruiter-hint hidden">
-                        {% trans "Debe ser un correo corporativo (no Gmail, Yahoo, etc)." %}
+                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-400 recruiter-hint hidden" id="email-recruiter-hint">
+                        {% trans "Debe ser un correo corporativo (no Gmail, Yahoo, Hotmail, etc)." %}
                     </p>
+                    <p class="mt-1 text-xs text-red-600 dark:text-red-400 hidden" id="email-error-msg"></p>
                 </div>
 
                 <div>
                     <label for="id_password1" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Contraseña" %}</label>
                     <input type="password" name="password1" id="id_password1" required
                         class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                        placeholder="">
-                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                        {% trans "Mínimo 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial." %}
-                    </p>
+                        placeholder="••••••••">
+                    
+                    <!-- Real-time visual password checklist -->
+                    <div class="mt-2 text-xs space-y-1 bg-gray-50 dark:bg-gray-700/50 p-3 rounded-lg border border-gray-200 dark:border-gray-600" id="password-checklist">
+                        <p class="font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Requisitos de la contraseña:" %}</p>
+                        <div id="rule-length" class="flex items-center gap-2 text-gray-500 dark:text-gray-400 transition-colors">
+                            <span class="rule-icon text-sm">&#x2022;</span>
+                            <span>{% trans "Mínimo 8 caracteres" %}</span>
+                        </div>
+                        <div id="rule-uppercase" class="flex items-center gap-2 text-gray-500 dark:text-gray-400 transition-colors">
+                            <span class="rule-icon text-sm">&#x2022;</span>
+                            <span>{% trans "Al menos una letra mayúscula" %}</span>
+                        </div>
+                        <div id="rule-number" class="flex items-center gap-2 text-gray-500 dark:text-gray-400 transition-colors">
+                            <span class="rule-icon text-sm">&#x2022;</span>
+                            <span>{% trans "Al menos un número" %}</span>
+                        </div>
+                        <div id="rule-special" class="flex items-center gap-2 text-gray-500 dark:text-gray-400 transition-colors">
+                            <span class="rule-icon text-sm">&#x2022;</span>
+                            <span>{% trans "Al menos un carácter especial (!@#$%^&*...)" %}</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div>
                     <label for="id_password2" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Confirmar contraseña" %}</label>
                     <input type="password" name="password2" id="id_password2" required
                         class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                        placeholder="">
+                        placeholder="••••••••">
+                    <p class="mt-1 text-xs hidden" id="password-match-feedback"></p>
                 </div>
 
-                <!-- OAuth buttons -->
-                <div class="mt-6">
-                    <div class="relative">
-                        <div class="absolute inset-0 flex items-center">
-                            <div class="w-full border-t border-gray-300 dark:border-gray-600"></div>
-                        </div>
-                        <div class="relative flex justify-center text-sm">
-                            <span class="px-2 bg-white dark:bg-gray-800 text-gray-500">{% trans "O continúa con" %}</span>
-                        </div>
-                    </div>
-                    <div class="mt-4 grid grid-cols-2 gap-3" id="oauth-buttons">
-                        <a href="{% url 'social:begin' 'google-oauth2' %}"
-                            class="oauth-btn google-btn w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition">
-                            <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-                            Google
-                        </a>
-                        <a href="{% url 'social:begin' 'linkedin-oauth2' %}"
-                            class="oauth-btn linkedin-btn w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition">
-                            <svg class="w-5 h-5" fill="#0A66C2" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                            LinkedIn
-                        </a>
-                        <a href="{% url 'social:begin' 'github' %}" id="oauth-github"
-                            class="oauth-btn github-btn w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                            GitHub
-                        </a>
-                    </div>
+                <!-- Existing accounts OAuth link -->
+                <div class="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-gray-500 dark:text-gray-400">
+                    {% trans "¿Ya tienes una cuenta con Google, GitHub o LinkedIn?" %}
+                    <a href="{% url 'login' %}" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold block mt-1">
+                        {% trans "Inicia sesión aquí" %}
+                    </a>
                 </div>
             </div>
 
             <!-- Step 3: Personal Info / Company Info -->
-            <div class="step step-3 hidden">
-                <!-- Candidate fields -->
-                <div class="candidate-fields">
-                    <div>
-                        <label for="id_first_name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Nombre" %}</label>
-                        <input type="text" name="first_name" id="id_first_name"
-                            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                            placeholder="{% trans 'Tu nombre' %}">
-                    </div>
-
-                    <div>
-                        <label for="id_last_name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Apellido" %}</label>
-                        <input type="text" name="last_name" id="id_last_name"
-                            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                            placeholder="{% trans 'Tu apellido' %}">
-                    </div>
+            <div class="step step-3 hidden space-y-4">
+                <div>
+                    <label for="id_first_name" id="label_first_name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Nombre" %}</label>
+                    <input type="text" name="first_name" id="id_first_name" required
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                        placeholder="{% trans 'Tu nombre' %}"
+                        value="{{ form.first_name.value|default:'' }}">
+                    <p class="mt-1 text-xs text-red-600 dark:text-red-400 hidden" id="error_first_name"></p>
                 </div>
 
-                <!-- Recruiter fields -->
-                <div class="recruiter-fields hidden">
-                    <div>
-                        <label for="id_first_name_recruiter" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Nombre de Contacto" %}</label>
-                        <input type="text" name="first_name" id="id_first_name_recruiter"
-                            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                            placeholder="{% trans 'Tu nombre' %}">
-                    </div>
+                <div>
+                    <label for="id_last_name" id="label_last_name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Apellido" %}</label>
+                    <input type="text" name="last_name" id="id_last_name" required
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                        placeholder="{% trans 'Tu apellido' %}"
+                        value="{{ form.last_name.value|default:'' }}">
+                    <p class="mt-1 text-xs text-red-600 dark:text-red-400 hidden" id="error_last_name"></p>
+                </div>
 
-                    <div>
-                        <label for="id_last_name_recruiter" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Apellido" %}</label>
-                        <input type="text" name="last_name" id="id_last_name_recruiter"
-                            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                            placeholder="{% trans 'Tu apellido' %}">
-                    </div>
-
+                <!-- Recruiter-specific Step 3 fields -->
+                <div class="recruiter-fields hidden space-y-4 pt-1">
                     <div>
                         <label for="id_company_name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Nombre de Empresa" %}</label>
                         <input type="text" name="company_name" id="id_company_name"
                             class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                            placeholder="{% trans 'Nombre de tu empresa' %}">
+                            placeholder="{% trans 'Nombre de tu empresa' %}"
+                            value="{{ form.company_name.value|default:'' }}">
+                        <p class="mt-1 text-xs text-red-600 dark:text-red-400 hidden" id="error_company_name"></p>
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Tipo de Empresa" %}</label>
                         <div class="flex gap-4">
-                            <label class="flex items-center gap-2">
-                                <input type="radio" name="company_type" value="empresa" class="text-indigo-600 focus:ring-indigo-500">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="company_type" value="empresa" class="text-indigo-600 focus:ring-indigo-500"
+                                    {% if form.company_type.value != 'particular' %}checked{% endif %}>
                                 <span class="text-gray-700 dark:text-gray-300">{% trans "Empresa" %}</span>
                             </label>
-                            <label class="flex items-center gap-2">
-                                <input type="radio" name="company_type" value="particular" class="text-indigo-600 focus:ring-indigo-500">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="company_type" value="particular" class="text-indigo-600 focus:ring-indigo-500"
+                                    {% if form.company_type.value == 'particular' %}checked{% endif %}>
                                 <span class="text-gray-700 dark:text-gray-300">{% trans "Particular" %}</span>
                             </label>
                         </div>
@@ -168,47 +164,37 @@
             </div>
 
             <!-- Step 4: Specific Info -->
-            <div class="step step-4 hidden">
-                <!-- Candidate step 4 -->
-                <div class="candidate-fields">
-                    <div>
-                        <label for="id_sector" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Sector" %}</label>
-                        <select name="sector" id="id_sector"
-                            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-                            <option value="">{% trans "Seleccionar..." %}</option>
-                            {% for sector in sectors %}
-                            <option value="{{ sector.slug }}">{{ sector.name_es }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
+            <div class="step step-4 hidden space-y-4">
+                <div>
+                    <label for="id_sector" id="label_sector" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Sector" %}</label>
+                    <select name="sector" id="id_sector" required
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                        <option value="">{% trans "Seleccionar..." %}</option>
+                        {% for sector in sectors %}
+                        <option value="{{ sector.slug }}" {% if form.sector.value == sector.slug %}selected{% endif %}>{{ sector.name_es }}</option>
+                        {% endfor %}
+                    </select>
+                    <p class="mt-1 text-xs text-red-600 dark:text-red-400 hidden" id="error_sector"></p>
                 </div>
 
-                <!-- Recruiter step 4 -->
-                <div class="recruiter-fields hidden">
-                    <div>
-                        <label for="id_sector_recruiter" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Sector de la Empresa" %}</label>
-                        <select name="sector" id="id_sector_recruiter"
-                            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-                            <option value="">{% trans "Seleccionar..." %}</option>
-                            {% for sector in sectors %}
-                            <option value="{{ sector.slug }}">{{ sector.name_es }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-
+                <!-- Recruiter-specific Step 4 fields -->
+                <div class="recruiter-fields hidden space-y-4 pt-1">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Modalidad" %}</label>
                         <div class="flex gap-4">
-                            <label class="flex items-center gap-2">
-                                <input type="radio" name="work_modality" value="remote" class="text-indigo-600 focus:ring-indigo-500">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="work_modality" value="remote" class="text-indigo-600 focus:ring-indigo-500"
+                                    {% if form.work_modality.value == 'remote' or not form.work_modality.value %}checked{% endif %}>
                                 <span class="text-gray-700 dark:text-gray-300">{% trans "Remoto" %}</span>
                             </label>
-                            <label class="flex items-center gap-2">
-                                <input type="radio" name="work_modality" value="hybrid" class="text-indigo-600 focus:ring-indigo-500">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="work_modality" value="hybrid" class="text-indigo-600 focus:ring-indigo-500"
+                                    {% if form.work_modality.value == 'hybrid' %}checked{% endif %}>
                                 <span class="text-gray-700 dark:text-gray-300">{% trans "Híbrido" %}</span>
                             </label>
-                            <label class="flex items-center gap-2">
-                                <input type="radio" name="work_modality" value="onsite" class="text-indigo-600 focus:ring-indigo-500">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="work_modality" value="onsite" class="text-indigo-600 focus:ring-indigo-500"
+                                    {% if form.work_modality.value == 'onsite' %}checked{% endif %}>
                                 <span class="text-gray-700 dark:text-gray-300">{% trans "Presencial" %}</span>
                             </label>
                         </div>
@@ -218,19 +204,20 @@
                         <label for="id_company_website" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Sitio Web (opcional)" %}</label>
                         <input type="url" name="company_website" id="id_company_website"
                             class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                            placeholder="https://...">
+                            placeholder="https://..."
+                            value="{{ form.company_website.value|default:'' }}">
                     </div>
 
                     <div>
                         <label for="id_company_description" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{% trans "Descripción (opcional)" %}</label>
                         <textarea name="company_description" id="id_company_description" rows="3"
                             class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                            placeholder="{% trans 'Cuéntanos sobre tu empresa...' %}"></textarea>
+                            placeholder="{% trans 'Cuéntanos sobre tu empresa...' %}">{{ form.company_description.value|default:'' }}</textarea>
                     </div>
                 </div>
             </div>
 
-            <div class="flex justify-between items-center pt-2">
+            <div class="flex justify-between items-center pt-4">
                 <button type="button" id="btn-prev"
                     class="hidden px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
                     {% trans "Atrás" %}
@@ -248,10 +235,10 @@
         </form>
 
         <div class="flex justify-center gap-2 mt-6">
-            <span class="w-2 h-2 rounded-full bg-indigo-600" id="dot-1"></span>
-            <span class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600" id="dot-2"></span>
-            <span class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600" id="dot-3"></span>
-            <span class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600" id="dot-4"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-indigo-600 transition-colors" id="dot-1"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-gray-300 dark:bg-gray-600 transition-colors" id="dot-2"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-gray-300 dark:bg-gray-600 transition-colors" id="dot-3"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-gray-300 dark:bg-gray-600 transition-colors" id="dot-4"></span>
         </div>
 
         <p class="mt-6 text-center text-gray-600 dark:text-gray-400">
@@ -270,10 +257,19 @@
         border-color: #6366F1;
         background-color: #312E81;
     }
+    .rule-valid {
+        color: #10B981 !important;
+    }
+    .dark .rule-valid {
+        color: #34D399 !important;
+    }
+    .input-error {
+        border-color: #EF4444 !important;
+    }
 </style>
 
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/register.js' %}?v=3"></script>
+<script src="{% static 'js/register.js' %}?v=4"></script>
 {% endblock %}

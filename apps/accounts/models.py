@@ -1,60 +1,61 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
+from django.utils.translation import gettext_lazy as _, get_language
 
 
 LOCATION_FLEX_CHOICES = [
-    ('remote', 'Remoto'),
-    ('hybrid', 'Hibrido'),
-    ('onsite', 'Presencial'),
+    ('remote', _('Remoto')),
+    ('hybrid', _('Híbrido')),
+    ('onsite', _('Presencial')),
 ]
 
 SEARCH_STATUS_CHOICES = [
-    ('active', 'Buscando activamente'),
-    ('passive', 'Abierto a ofertas'),
-    ('not_looking', 'No buscando'),
+    ('active', _('Buscando activamente')),
+    ('passive', _('Abierto a ofertas')),
+    ('not_looking', _('No buscando')),
 ]
 
 AVAILABILITY_CHOICES = [
-    ('immediate', 'Inmediata'),
-    ('2_weeks', '2 semanas'),
-    ('1_month', '1 mes'),
-    ('negotiable', 'Negociable'),
+    ('immediate', _('Inmediata')),
+    ('2_weeks', _('2 semanas')),
+    ('1_month', _('1 mes')),
+    ('negotiable', _('Negociable')),
 ]
 
 EMPLOYMENT_TYPE_CHOICES = [
-    ('full_time', 'Full-time'),
-    ('part_time', 'Part-time'),
-    ('contract', 'Contrato'),
-    ('freelance', 'Freelance'),
+    ('full_time', _('Full-time')),
+    ('part_time', _('Part-time')),
+    ('contract', _('Contrato')),
+    ('freelance', _('Freelance')),
 ]
 
 RELOCATE_CHOICES = [
-    ('yes', 'Si'),
-    ('no', 'No'),
-    ('somewhere', 'Segun destino'),
+    ('yes', _('Sí')),
+    ('no', _('No')),
+    ('somewhere', _('Según destino')),
 ]
 
 TRAVEL_CHOICES = [
-    ('none', 'No'),
-    ('occasional', 'Ocasional'),
-    ('frequent', 'Frecuente'),
+    ('none', _('No')),
+    ('occasional', _('Ocasional')),
+    ('frequent', _('Frecuente')),
 ]
 
 ROLE_CHOICES = [
-    ('candidate', 'Candidato'),
-    ('recruiter', 'Reclutador'),
+    ('candidate', _('Candidato')),
+    ('recruiter', _('Reclutador')),
 ]
 
 COMPANY_TYPE_CHOICES = [
-    ('empresa', 'Empresa'),
-    ('particular', 'Particular'),
+    ('empresa', _('Empresa')),
+    ('particular', _('Particular')),
 ]
 
 VACANCY_STATUS_CHOICES = [
-    ('active', 'Activa'),
-    ('closed', 'Cerrada'),
-    ('draft', 'Borrador'),
+    ('active', _('Activa')),
+    ('closed', _('Cerrada')),
+    ('draft', _('Borrador')),
 ]
 
 
@@ -72,6 +73,13 @@ class SectorTag(models.Model):
 
     def get_name(self, language='es'):
         return self.name_en if language == 'en' else self.name_es
+
+    @property
+    def display_name(self):
+        lang = (get_language() or 'es').lower()
+        if lang.startswith('en') and self.name_en:
+            return self.name_en
+        return self.name_es
 
     class Meta:
         verbose_name = 'Sector Tag'
@@ -98,10 +106,10 @@ class UserProfile(models.Model):
     especialidad = models.ForeignKey('RolEspecialidad', on_delete=models.SET_NULL, null=True, blank=True)
 
     SENIORITY_CHOICES = [
-        ('junior', 'Junior'),
-        ('semi_senior', 'Semi-Senior'),
-        ('senior', 'Senior'),
-        ('lead', 'Lead'),
+        ('junior', _('Junior')),
+        ('semi_senior', _('Semi-Senior')),
+        ('senior', _('Senior')),
+        ('lead', _('Lead')),
     ]
     seniority = models.CharField(max_length=20, choices=SENIORITY_CHOICES, blank=True, default='')
     languages = models.JSONField(default=dict, blank=True)
@@ -113,7 +121,7 @@ class UserProfile(models.Model):
     def get_employment_types_display(self):
         mapping = dict(EMPLOYMENT_TYPE_CHOICES)
         return ' | '.join(
-            mapping.get(code, code) for code in (self.employment_type or []) if code
+            str(mapping.get(code, code)) for code in (self.employment_type or []) if code
         )
 
     class Meta:
@@ -132,6 +140,13 @@ class SectorRol(models.Model):
     def get_name(self, language='es'):
         return self.name_en if language == 'en' else self.name_es
 
+    @property
+    def display_name(self):
+        lang = (get_language() or 'es').lower()
+        if lang.startswith('en') and self.name_en:
+            return self.name_en
+        return self.name_es
+
     class Meta:
         unique_together = ('sector', 'slug')
         verbose_name = 'Sector Rol'
@@ -149,6 +164,13 @@ class RolEspecialidad(models.Model):
 
     def get_name(self, language='es'):
         return self.name_en if language == 'en' else self.name_es
+
+    @property
+    def display_name(self):
+        lang = (get_language() or 'es').lower()
+        if lang.startswith('en') and self.name_en:
+            return self.name_en
+        return self.name_es
 
     class Meta:
         unique_together = ('sector_rol', 'slug')
@@ -183,9 +205,17 @@ class Tag(models.Model):
     def get_name(self, language='es'):
         return self.name_en if language == 'en' else self.name_es
 
+    @property
+    def display_name(self):
+        lang = (get_language() or 'es').lower()
+        if lang.startswith('en') and self.name_en:
+            return self.name_en
+        return self.name_es
+
     class Meta:
         verbose_name = 'Tag'
         verbose_name_plural = 'Tags'
+
 
 
 class ProfileTag(models.Model):

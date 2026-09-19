@@ -1,91 +1,188 @@
-﻿{% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load i18n %}
 {% load static %}
 
-{% block title %}{% trans "Tablón de Talentos" %} - CV Builder{% endblock %}
+{% block title %}{% trans "Tablón de Talentos" %} - TalentStack{% endblock %}
 
 {% block content %}
-<div class="space-y-6">
-    <div class="text-center">
-        <h1 class="text-3xl font-bold text-gray-900 dark:text-white">{% trans "Tablón de Talentos" %}</h1>
-        <p class="text-gray-600 dark:text-gray-400 mt-2">{% trans "Descubre profesionales talentosos en diferentes sectores." %}</p>
+<div class="relative overflow-hidden space-y-10 py-4 sm:py-6">
+
+    <!-- Ambient Glow Background Effects -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-tr from-indigo-500/15 via-purple-500/15 to-pink-500/15 blur-[100px] rounded-full pointer-events-none -z-10"></div>
+
+    <!-- ========================================================================= -->
+    <!-- 1. HEADER & DUAL-WALL SEGMENTED NAVIGATION                                -->
+    <!-- ========================================================================= -->
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+        <!-- Dual Wall Segmented Switcher -->
+        <div class="inline-flex p-1.5 bg-gray-200/80 dark:bg-gray-800 rounded-2xl border border-gray-300/70 dark:border-gray-700 shadow-inner mb-2">
+            <a href="{% url 'wall' %}"
+                class="px-5 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 bg-indigo-600 text-white shadow-md flex items-center gap-2">
+                <span>👨‍💻</span>
+                <span>{% trans "Para trabajadores (Candidatos)" %}</span>
+            </a>
+            <a href="{% url 'recruiter_wall' %}"
+                class="px-5 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white flex items-center gap-2">
+                <span>🏢</span>
+                <span>{% trans "Para reclutadores (Empresas)" %}</span>
+            </a>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+            {% trans "Tablón de Talentos" %}
+        </h1>
+        <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 font-normal leading-relaxed">
+            {% trans "Explora perfiles verificados con taxonomía de precisión, habilidades reales y contacto directo." %}
+        </p>
     </div>
 
-    <!-- Filters Panel -->
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+    <!-- ========================================================================= -->
+    <!-- 2. MODERN GLASSMORPHIC FILTERS PANEL                                      -->
+    <!-- ========================================================================= -->
+    <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-md rounded-2xl sm:rounded-3xl border border-gray-200/80 dark:border-gray-700/80 shadow-xl p-6 sm:p-8 transition-all">
+        <!-- Filter Header with Counter & Clear -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-gray-200/70 dark:border-gray-700/70">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="text-lg font-bold text-gray-900 dark:text-white">
+                        {% trans "Filtros de Búsqueda Taxonómica" %}
+                    </h2>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">
+                        {% trans "Filtra en cascada por Sector, Rol, Especialidad y competencias específicas." %}
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
+                <span id="results-count-badge" class="px-3 py-1.5 rounded-full text-xs font-bold bg-indigo-50 dark:bg-indigo-950/70 text-indigo-700 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800/60 shadow-xs">
+                    {% trans "Cargando perfiles..." %}
+                </span>
+                <button id="clear-filters" type="button"
+                    class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/60 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
+                    {% trans "Limpiar filtros" %}
+                </button>
+            </div>
+        </div>
+
+        <!-- Cascading Primary Filters -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-6">
             <!-- Sector Dropdown -->
             <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Sector" %}</label>
-                <select id="sector-filter" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-                    <option value="">{% trans "Todos" %}</option>
-                </select>
+                <label for="sector-filter" class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">
+                    1. {% trans "Sector" %}
+                </label>
+                <div class="relative">
+                    <select id="sector-filter" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-750 text-gray-900 dark:text-white text-sm shadow-sm transition">
+                        <option value="">{% trans "Todos los sectores" %}</option>
+                    </select>
+                </div>
             </div>
 
             <!-- Role Dropdown -->
             <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Rol" %}</label>
-                <select id="rol-filter" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-                    <option value="">{% trans "Todos" %}</option>
-                </select>
+                <label for="rol-filter" class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">
+                    2. {% trans "Rol" %}
+                </label>
+                <div class="relative">
+                    <select id="rol-filter" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-750 text-gray-900 dark:text-white text-sm shadow-sm transition">
+                        <option value="">{% trans "Todos los roles" %}</option>
+                    </select>
+                </div>
             </div>
 
             <!-- Specialty Dropdown -->
             <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Especialidad" %}</label>
-                <select id="especialidad-filter" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-                    <option value="">{% trans "Todas" %}</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- Tags Section -->
-        <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
-            <button id="toggle-tags" class="flex items-center justify-between w-full text-left">
-                <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{% trans "Tags (Opcionales)" %}</span>
-                <svg id="tags-arrow" class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </button>
-            <div id="tags-section" class="hidden mt-4 space-y-4">
-                <!-- Must Tags -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Obligatorios (AND)" %}</label>
-                    <div class="flex flex-wrap gap-2 mb-2" id="must-tags-chips"></div>
-                    <div class="relative">
-                        <input type="text" id="must-tags-input" placeholder="{% trans 'Buscar tag...' %}"
-                            class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-                        <div id="must-tags-suggestions" class="hidden absolute z-10 w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg mt-1 max-h-48 overflow-y-auto"></div>
-                    </div>
-                </div>
-
-                <!-- Nice Tags -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Deseables (OR)" %}</label>
-                    <div class="flex flex-wrap gap-2 mb-2" id="nice-tags-chips"></div>
-                    <div class="relative">
-                        <input type="text" id="nice-tags-input" placeholder="{% trans 'Buscar tag...' %}"
-                            class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-                        <div id="nice-tags-suggestions" class="hidden absolute z-10 w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg mt-1 max-h-48 overflow-y-auto"></div>
-                    </div>
+                <label for="especialidad-filter" class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">
+                    3. {% trans "Especialidad" %}
+                </label>
+                <div class="relative">
+                    <select id="especialidad-filter" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-750 text-gray-900 dark:text-white text-sm shadow-sm transition">
+                        <option value="">{% trans "Todas las especialidades" %}</option>
+                    </select>
                 </div>
             </div>
         </div>
 
-        <!-- Advanced Filters -->
-        <div class="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
-            <button id="toggle-advanced" class="flex items-center justify-between w-full text-left">
-                <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{% trans "Filtros Avanzados" %}</span>
-                <svg id="advanced-arrow" class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <!-- Tags Section Accordion -->
+        <div class="border-t border-gray-200/70 dark:border-gray-700/70 pt-5 mt-6">
+            <button id="toggle-tags" type="button" class="flex items-center justify-between w-full text-left py-1 group">
+                <div class="flex items-center gap-2">
+                    <span class="text-sm font-bold text-gray-800 dark:text-gray-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition">
+                        🏷️ {% trans "Tags y Tecnologías Clave" %}
+                    </span>
+                    <span class="text-xs text-gray-500 dark:text-gray-400">({% trans "Obligatorios / Deseables" %})</span>
+                </div>
+                <svg id="tags-arrow" class="w-5 h-5 text-gray-400 group-hover:text-indigo-600 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
             </button>
-            <div id="advanced-section" class="hidden mt-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            <div id="tags-section" class="hidden mt-4 space-y-4 pt-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <!-- Must Tags (AND) -->
+                    <div class="p-4 rounded-xl bg-gray-50/80 dark:bg-gray-750/70 border border-gray-200/60 dark:border-gray-700/60">
+                        <div class="flex items-center justify-between mb-2">
+                            <label class="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">
+                                {% trans "Obligatorios (AND)" %}
+                            </label>
+                            <span class="text-[11px] text-gray-500">{% trans "El perfil debe tener todos" %}</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-2" id="must-tags-chips"></div>
+                        <div class="relative">
+                            <input type="text" id="must-tags-input" placeholder="{% trans 'Escribe para buscar tag (ej: Python, React)...' %}"
+                                class="w-full px-3.5 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs">
+                            <div id="must-tags-suggestions" class="hidden absolute z-20 w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg mt-1 max-h-48 overflow-y-auto shadow-lg"></div>
+                        </div>
+                    </div>
+
+                    <!-- Nice Tags (OR) -->
+                    <div class="p-4 rounded-xl bg-gray-50/80 dark:bg-gray-750/70 border border-gray-200/60 dark:border-gray-700/60">
+                        <div class="flex items-center justify-between mb-2">
+                            <label class="text-xs font-bold uppercase tracking-wide text-purple-700 dark:text-purple-300">
+                                {% trans "Deseables (OR)" %}
+                            </label>
+                            <span class="text-[11px] text-gray-500">{% trans "Aumentan el score de afinidad" %}</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-2" id="nice-tags-chips"></div>
+                        <div class="relative">
+                            <input type="text" id="nice-tags-input" placeholder="{% trans 'Escribe para buscar tag (ej: Docker, AWS)...' %}"
+                                class="w-full px-3.5 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs">
+                            <div id="nice-tags-suggestions" class="hidden absolute z-20 w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg mt-1 max-h-48 overflow-y-auto shadow-lg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Filters Accordion -->
+        <div class="border-t border-gray-200/70 dark:border-gray-700/70 pt-5 mt-5">
+            <button id="toggle-advanced" type="button" class="flex items-center justify-between w-full text-left py-1 group">
+                <div class="flex items-center gap-2">
+                    <span class="text-sm font-bold text-gray-800 dark:text-gray-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition">
+                        ⚙️ {% trans "Filtros Adicionales (Seniority y Modalidad)" %}
+                    </span>
+                </div>
+                <svg id="advanced-arrow" class="w-5 h-5 text-gray-400 group-hover:text-indigo-600 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </button>
+
+            <div id="advanced-section" class="hidden mt-4 pt-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Seniority" %}</label>
-                        <select id="seniority-filter" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-                            <option value="">{% trans "Todos" %}</option>
+                        <label for="seniority-filter" class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">
+                            {% trans "Nivel de Seniority" %}
+                        </label>
+                        <select id="seniority-filter" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-750 text-gray-900 dark:text-white text-sm shadow-sm transition">
+                            <option value="">{% trans "Todos los niveles" %}</option>
                             <option value="junior">Junior</option>
                             <option value="semi_senior">Semi-Senior</option>
                             <option value="senior">Senior</option>
@@ -93,9 +190,11 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{% trans "Modalidad" %}</label>
-                        <select id="location-filter" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-                            <option value="">{% trans "Todas" %}</option>
+                        <label for="location-filter" class="block text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2">
+                            {% trans "Modalidad de Trabajo" %}
+                        </label>
+                        <select id="location-filter" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-750 text-gray-900 dark:text-white text-sm shadow-sm transition">
+                            <option value="">{% trans "Todas las modalidades" %}</option>
                             <option value="remote">{% trans "Remoto" %}</option>
                             <option value="hybrid">{% trans "Híbrido" %}</option>
                             <option value="onsite">{% trans "Presencial" %}</option>
@@ -104,39 +203,67 @@
                 </div>
             </div>
         </div>
-
-        <!-- Clear Filters -->
-        <div class="mt-4 flex justify-end">
-            <button id="clear-filters" class="px-4 py-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300">
-                {% trans "Limpiar filtros" %}
-            </button>
-        </div>
     </div>
 
-    <div id="loading" class="hidden text-center py-8">
-        <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
-        <p class="mt-2 text-gray-600 dark:text-gray-400">{% trans "Cargando..." %}</p>
+    <!-- ========================================================================= -->
+    <!-- 3. LOADING STATE                                                          -->
+    <!-- ========================================================================= -->
+    <div id="loading" class="hidden text-center py-16">
+        <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-indigo-600 border-t-transparent"></div>
+        <p class="mt-3 text-sm font-semibold text-gray-600 dark:text-gray-400">{% trans "Buscando profesionales..." %}</p>
     </div>
 
+    <!-- ========================================================================= -->
+    <!-- 4. PROFILE CARDS GRID                                                     -->
+    <!-- ========================================================================= -->
     <div id="cv-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
     </div>
 
-    <div id="no-results" class="hidden text-center py-12">
-        <svg class="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-        </svg>
-        <p class="text-gray-500 dark:text-gray-400">{% trans "No se encontraron perfiles con estos filtros." %}</p>
+    <!-- ========================================================================= -->
+    <!-- 5. NO RESULTS STATE                                                       -->
+    <!-- ========================================================================= -->
+    <div id="no-results" class="hidden text-center py-16 bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm max-w-xl mx-auto">
+        <div class="w-16 h-16 rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-500 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">
+            {% trans "No se encontraron perfiles con estos filtros" %}
+        </h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">
+            {% trans "Prueba relajando algunos criterios de búsqueda o limpiando los filtros para ver más resultados." %}
+        </p>
+        <button type="button" onclick="document.getElementById('clear-filters').click()"
+            class="px-5 py-2.5 rounded-xl text-sm font-bold bg-indigo-600 text-white hover:bg-indigo-700 transition shadow-md">
+            {% trans "Restablecer todos los filtros" %}
+        </button>
     </div>
 </div>
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/wall.js' %}?v=4"></script>
 <script>
     const wallApiUrl = '{% url "wall_api" %}';
     const tagsApiUrl = '{% url "get_tags" %}';
     const tagHierarchyUrl = '{% url "get_tag_hierarchy" %}';
     const allTagsUrl = '{% url "get_all_tags" %}';
+
+    window.wallI18n = {
+        allSectors: "{% trans 'Todos los sectores' %}",
+        allRoles: "{% trans 'Todos los roles' %}",
+        allSpecialties: "{% trans 'Todas las especialidades' %}",
+        loading: "{% trans 'Buscando profesionales...' %}",
+        noResults: "{% trans 'No se encontraron perfiles con estos filtros' %}",
+        showingCount: "{% trans 'profesionales encontrados' %}",
+        showingOne: "{% trans 'profesional encontrado' %}",
+        noDescription: "{% trans 'Sin descripción' %}",
+        viewProfile: "{% trans 'Ver perfil interactivo' %}",
+        availableStatus: "{% trans 'Disponible' %}",
+        openStatus: "{% trans 'Abierto a ofertas' %}",
+        match: "{% trans 'Match' %}",
+        moreTags: "{% trans 'más' %}"
+    };
 </script>
+<script src="{% static 'js/wall.js' %}?v=5"></script>
 {% endblock %}

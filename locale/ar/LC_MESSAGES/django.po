@@ -14,8 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 
 #: .\apps\accounts\forms.py:11 .\apps\accounts\forms.py:28
 #: .\templates\accounts\login.html:31 .\templates\accounts\register.html:34
@@ -52,26 +51,27 @@ msgstr "يجب أن تحتوي كلمة المرور على رقم واحد عل
 #: .\apps\accounts\forms.py:70
 #, python-brace-format
 msgid ""
-"La contraseña debe contener al menos un carácter especial (!@#$%^&*(),.?\":"
-"{}|<>)."
+"La contraseña debe contener al menos un carácter especial "
+"(!@#$%^&*(),.?\":{}|<>)."
 msgstr ""
 "يجب أن تحتوي كلمة المرور على حرف خاص واحد على الأقل (!@#$%^&*(),.?\":{}|<>)."
 
 #: .\apps\accounts\forms.py:87 .\apps\accounts\forms.py:106
 #: .\templates\accounts\complete_profile.html:29
-#: .\templates\accounts\dashboard.html:13 .\templates\accounts\register.html:61
+#: .\templates\accounts\dashboard.html:13
+#: .\templates\accounts\register.html:61
 #: .\templates\resumes\templates\_section_references.html:14
 msgid "Nombre"
 msgstr "الاسم الأول"
 
 #: .\apps\accounts\forms.py:95 .\apps\accounts\forms.py:115
 #: .\templates\accounts\complete_profile.html:37
-#: .\templates\accounts\dashboard.html:15 .\templates\accounts\register.html:68
+#: .\templates\accounts\dashboard.html:15
+#: .\templates\accounts\register.html:68
 msgid "Apellido"
 msgstr "اللقب"
 
 #: .\apps\accounts\forms.py:124 .\templates\accounts\register.html:77
-#, fuzzy
 #| msgid "Título profesional"
 msgid "Cargo / Título profesional"
 msgstr "المسمى المهني"
@@ -125,7 +125,6 @@ msgid "El formato del email no es valido."
 msgstr "صيغة البريد الإلكتروني غير صالحة."
 
 #: .\apps\accounts\views.py:347
-#, fuzzy
 #| msgid "Bio actualizada correctamente."
 msgid "Perfil completado correctamente."
 msgstr "تم تحديث السيرة الذاتية بنجاح."
@@ -144,13 +143,11 @@ msgid "Informacion de Cuenta"
 msgstr "معلومات الحساب"
 
 #: .\templates\accounts\account_settings.html:15
-#, fuzzy
 #| msgid "Email"
 msgid "Email:"
 msgstr "البريد الإلكتروني"
 
 #: .\templates\accounts\account_settings.html:16
-#, fuzzy
 #| msgid "Nombre"
 msgid "Nombre:"
 msgstr "الاسم الأول"
@@ -192,19 +189,16 @@ msgid "Vincular"
 msgstr "ربط"
 
 #: .\templates\accounts\account_settings.html:102
-#, fuzzy
 #| msgid "Volver al dashboard"
 msgid "Volver al Dashboard"
 msgstr "العودة إلى لوحة التحكم"
 
 #: .\templates\accounts\complete_profile.html:4
-#, fuzzy
 #| msgid "Completa tu perfil profesional"
 msgid "Completar perfil"
 msgstr "أكمل ملفك المهني"
 
 #: .\templates\accounts\complete_profile.html:9
-#, fuzzy
 #| msgid "Completa tu perfil profesional"
 msgid "Completa tu perfil"
 msgstr "أكمل ملفك المهني"
@@ -214,7 +208,6 @@ msgid "Cuéntanos un poco sobre ti para personalizar tu experiencia."
 msgstr "أخبرنا قليلاً عن نفسك لتخصيص تجربتك."
 
 #: .\templates\accounts\complete_profile.html:14
-#, fuzzy
 #| msgid "Por favor, corrige los errores."
 msgid "Por favor, corrige los errores:"
 msgstr "يرجى تصحيح الأخطاء."
@@ -222,11 +215,10 @@ msgstr "يرجى تصحيح الأخطاء."
 #: .\templates\accounts\complete_profile.html:32
 #: .\templates\accounts\profile.html:347 .\templates\accounts\register.html:64
 msgid "Tu nombre"
-msgstr "اسمك الأول"
+msgstr "اسمك"
 
 #: .\templates\accounts\complete_profile.html:40
 #: .\templates\accounts\register.html:71
-#, fuzzy
 #| msgid "Tus apellidos"
 msgid "Tu apellido"
 msgstr "اسمك الأخير"
@@ -240,7 +232,6 @@ msgid "Dashboard"
 msgstr "لوحة التحكم"
 
 #: .\templates\accounts\dashboard.html:10
-#, fuzzy
 #| msgid "CV Builder"
 msgid "Bienvenido a CV Builder"
 msgstr "منشئ السيرة الذاتية"
@@ -258,10 +249,9 @@ msgstr "لإكمال ملفك الشخصي، نحتاج إلى اسمك الأو
 #: .\templates\accounts\dashboard.html:516
 #: .\templates\accounts\dashboard.html:608
 #: .\templates\accounts\dashboard.html:654
-#, fuzzy
 #| msgid "Guardar bio"
 msgid "Guardar"
-msgstr "حفظ النبذة"
+msgstr "حفظ"
 
 #: .\templates\accounts\dashboard.html:33 .\templates\accounts\profile.html:24
 #: .\templates\resumes\templates\classic.html:6
@@ -271,10 +261,9 @@ msgid "Foto de perfil"
 msgstr "صورة الملف الشخصي"
 
 #: .\templates\accounts\dashboard.html:85
-#, fuzzy
 #| msgid "Editar"
 msgid "Editar estado"
-msgstr "تعديل"
+msgstr "تعديل الحالة"
 
 #: .\templates\accounts\dashboard.html:92 .\templates\accounts\profile.html:64
 #: .\templates\resumes\templates\_section_skills.html:3
@@ -290,26 +279,30 @@ msgstr "المهارات"
 msgid "Editar"
 msgstr "تعديل"
 
-#: .\templates\accounts\dashboard.html:107 .\templates\accounts\profile.html:74
-#, fuzzy
+#: .\templates\accounts\dashboard.html:107
+#: .\templates\accounts\profile.html:74
 #| msgid "Habilidades"
 msgid "Sin habilidades"
 msgstr "المهارات"
 
-#: .\templates\accounts\dashboard.html:115 .\templates\accounts\profile.html:81
+#: .\templates\accounts\dashboard.html:115
+#: .\templates\accounts\profile.html:81
 msgid "Bio"
-msgstr "نبذة قصيرة"
+msgstr "السيرة الذاتية"
 
 #: .\templates\accounts\dashboard.html:129
-#: .\templates\accounts\dashboard.html:416 .\templates\accounts\profile.html:88
+#: .\templates\accounts\dashboard.html:416
+#: .\templates\accounts\profile.html:88
 msgid "Preferencias de trabajo"
 msgstr "تفضيلات العمل"
 
-#: .\templates\accounts\dashboard.html:137 .\templates\accounts\profile.html:92
+#: .\templates\accounts\dashboard.html:137
+#: .\templates\accounts\profile.html:92
 msgid "Tipo de empleo:"
 msgstr "نوع التوظيف:"
 
-#: .\templates\accounts\dashboard.html:141 .\templates\accounts\profile.html:98
+#: .\templates\accounts\dashboard.html:141
+#: .\templates\accounts\profile.html:98
 msgid "Salario esperado:"
 msgstr "الراتب المتوقع:"
 
@@ -330,10 +323,9 @@ msgstr "سيري الذاتية"
 
 #: .\templates\accounts\dashboard.html:167
 #: .\templates\accounts\profile.html:138
-#, fuzzy
 #| msgid "Experiencia"
 msgid "Experiencia y Proyectos"
-msgstr "الخبرة"
+msgstr "الخبرات والمشاريع"
 
 #: .\templates\accounts\dashboard.html:170
 #: .\templates\resumes\templates\creative.html:38
@@ -343,24 +335,22 @@ msgstr "إضافة"
 #: .\templates\accounts\dashboard.html:251
 #: .\templates\accounts\profile.html:180
 msgid "Redes Sociales"
-msgstr "روابط التواصل الاجتماعي"
+msgstr "شبكات التواصل"
 
 #: .\templates\accounts\dashboard.html:283
 #: .\templates\accounts\profile.html:207
 msgid "Sin redes sociales configuradas"
-msgstr "لا توجد روابط تواصل اجتماعي"
+msgstr "لم يتم تكوين شبكات التواصل الاجتماعي"
 
 #: .\templates\accounts\dashboard.html:294
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar foto"
-msgstr "آخر تحديث:"
+msgstr "تحديث الصورة"
 
 #: .\templates\accounts\dashboard.html:305
-#, fuzzy
 #| msgid "JPG, PNG o WebP. Máximo 5MB."
 msgid "JPG, PNG o WebP. Maximo 5MB."
-msgstr "JPG أو PNG أو WebP. بحد أقصى 5MB."
+msgstr "JPG أو PNG أو WebP. بحد أقصى 5 ميجابايت."
 
 #: .\templates\accounts\dashboard.html:308
 #: .\templates\accounts\dashboard.html:332
@@ -375,34 +365,29 @@ msgid "Cancelar"
 msgstr "إلغاء"
 
 #: .\templates\accounts\dashboard.html:320
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar titular"
-msgstr "آخر تحديث:"
+msgstr "تحديث العنوان"
 
 #: .\templates\accounts\dashboard.html:329
-#, fuzzy
 #| msgid "Ej: Desarrollador Web"
 msgid "Ej: Desarrollador Full Stack Senior"
-msgstr "مثال: مطور ويب"
+msgstr "مثال: مطور برمجيات متقدم"
 
 #: .\templates\accounts\dashboard.html:343
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar bio"
-msgstr "آخر تحديث:"
+msgstr "تحديث السيرة الذاتية"
 
 #: .\templates\accounts\dashboard.html:352
-#, fuzzy
 #| msgid "Cuéntanos sobre ti..."
 msgid "Cuentanos sobre ti..."
-msgstr "حدثنا عن نفسك..."
+msgstr "أخبرنا عن نفسك..."
 
 #: .\templates\accounts\dashboard.html:366
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar estado"
-msgstr "آخر تحديث:"
+msgstr "تحديث الحالة"
 
 #: .\templates\accounts\dashboard.html:375
 msgid "Estado de busqueda"
@@ -418,19 +403,19 @@ msgstr "غير محدد"
 
 #: .\templates\accounts\dashboard.html:378
 msgid "Buscando activamente"
-msgstr "يبحث بنشاط"
+msgstr "أبحث بنشاط عن عمل"
 
 #: .\templates\accounts\dashboard.html:379
 msgid "Abierto a ofertas"
-msgstr "مفتوح للعروض"
+msgstr "منفتح على العروض"
 
 #: .\templates\accounts\dashboard.html:380
 msgid "No buscando"
-msgstr "لا يبحث"
+msgstr "لا أبحث عن عمل"
 
 #: .\templates\accounts\dashboard.html:384
 msgid "Disponibilidad"
-msgstr "التوفر"
+msgstr "التوافر"
 
 #: .\templates\accounts\dashboard.html:387
 msgid "Inmediata"
@@ -450,7 +435,7 @@ msgstr "قابل للتفاوض"
 
 #: .\templates\accounts\dashboard.html:394
 msgid "Preferencia de ubicacion"
-msgstr "تفضيل الموقع"
+msgstr "تفضيل موقع العمل"
 
 #: .\templates\accounts\dashboard.html:397
 msgid "Remoto"
@@ -462,7 +447,7 @@ msgstr "هجين"
 
 #: .\templates\accounts\dashboard.html:399
 msgid "Presencial"
-msgstr "في المكتب"
+msgstr "حضوري"
 
 #: .\templates\accounts\dashboard.html:425
 msgid "Tipo de empleo"
@@ -498,31 +483,26 @@ msgid "Disponible para viajar"
 msgstr "مستعد للسفر"
 
 #: .\templates\accounts\dashboard.html:457
-#, fuzzy
 #| msgid "Opcional"
 msgid "Ocasional"
-msgstr "اختياري"
+msgstr "عرضي"
 
 #: .\templates\accounts\dashboard.html:458
-#, fuzzy
 #| msgid "Crea tu cuenta"
 msgid "Frecuente"
-msgstr "أنشئ حسابك"
+msgstr "متكرر"
 
 #: .\templates\accounts\dashboard.html:475
-#, fuzzy
 #| msgid "Habilidades"
 msgid "Editar habilidades"
 msgstr "المهارات"
 
 #: .\templates\accounts\dashboard.html:486
-#, fuzzy
 #| msgid "Agregar habilidad"
 msgid "Nueva habilidad"
 msgstr "إضافة مهارة"
 
 #: .\templates\accounts\dashboard.html:498
-#, fuzzy
 #| msgid "Sector principal:"
 msgid "Principal"
 msgstr "القطاع الرئيسي:"
@@ -549,7 +529,6 @@ msgid "Agregar experiencia"
 msgstr "إضافة خبرة"
 
 #: .\templates\accounts\dashboard.html:594
-#, fuzzy
 #| msgid "Título del puesto"
 msgid "Titulo del puesto"
 msgstr "المسمى الوظيفي"
@@ -572,12 +551,12 @@ msgstr "الوصف..."
 
 #: .\templates\accounts\dashboard.html:617
 msgid "Editar redes sociales"
-msgstr "تعديل روابط التواصل الاجتماعي"
+msgstr "تعديل شبكات التواصل الاجتماعي"
 
 #: .\templates\accounts\login.html:4 .\templates\accounts\login.html:46
 #: .\templates\base.html:75
 msgid "Entrar"
-msgstr "دخول"
+msgstr "تسجيل الدخول"
 
 #: .\templates\accounts\login.html:9
 msgid "Iniciar Sesión"
@@ -592,7 +571,6 @@ msgid "¿Olvidaste tu contraseña?"
 msgstr "هل نسيت كلمة المرور؟"
 
 #: .\templates\accounts\login.html:62
-#, fuzzy
 #| msgid "Continúa con"
 msgid "O continúa con"
 msgstr "المتابعة عبر"
@@ -602,8 +580,8 @@ msgid ""
 "El login con redes sociales no está configurado. Consulta el README para "
 "configurar las credenciales OAuth."
 msgstr ""
-"تسجيل الدخول عبر وسائل التواصل الاجتماعي غير مهيأ. راجع README لتهيئة بيانات "
-"OAuth."
+"تسجيل الدخول عبر وسائل التواصل الاجتماعي غير مهيأ. راجع README لتهيئة بيانات"
+" OAuth."
 
 #: .\templates\accounts\login.html:108
 msgid "¿No tienes cuenta?"
@@ -619,19 +597,16 @@ msgstr "هذا هو ملفك الشخصي العام"
 
 #: .\templates\accounts\profile.html:12
 #: .\templates\registration\password_change_done.html:13
-#, fuzzy
 #| msgid "Volver al dashboard"
 msgid "Ir al Dashboard"
-msgstr "العودة إلى لوحة التحكم"
+msgstr "الذهاب إلى لوحة التحكم"
 
 #: .\templates\accounts\profile.html:122
-#, fuzzy
 #| msgid "Contacto"
 msgid "Contactar"
 msgstr "اتصل بنا"
 
 #: .\templates\accounts\profile.html:131
-#, fuzzy
 #| msgid "Aún no tienes CVs creados."
 msgid "Este candidato no tiene CVs publicados."
 msgstr "هذا المرشح ليس لديه سير ذاتية منشورة."
@@ -663,7 +638,6 @@ msgstr "الجوائز والتكريمات"
 
 #: .\templates\accounts\profile.html:289
 #: .\templates\resumes\templates\_section_publications.html:3
-#, fuzzy
 #| msgid "Publicado"
 msgid "Publicaciones"
 msgstr "منشور"
@@ -675,26 +649,23 @@ msgstr "الاهتمامات"
 
 #: .\templates\accounts\profile.html:317
 #: .\templates\resumes\templates\_section_references.html:3
-#, fuzzy
 #| msgid "Experiencia"
 msgid "Referencias"
 msgstr "الخبرة"
 
 #: .\templates\accounts\profile.html:338
-#, fuzzy
 #| msgid "Contacto"
 msgid "Contactar a"
-msgstr "اتصل بنا"
+msgstr "التواصل مع"
 
 #: .\templates\accounts\profile.html:350
 msgid "Nombre completo"
 msgstr "الاسم الكامل"
 
 #: .\templates\accounts\profile.html:353
-#, fuzzy
 #| msgid "Email"
 msgid "Tu email"
-msgstr "البريد الإلكتروني"
+msgstr "بريدك الإلكتروني"
 
 #: .\templates\accounts\profile.html:356
 msgid "tu@email.com"
@@ -702,7 +673,7 @@ msgstr "you@email.com"
 
 #: .\templates\accounts\profile.html:359
 msgid "Mensaje"
-msgstr "رسالة"
+msgstr "الرسالة"
 
 #: .\templates\accounts\profile.html:362
 msgid "Escribe tu mensaje..."
@@ -714,9 +685,10 @@ msgstr "إرسال"
 
 #: .\templates\accounts\register.html:5 .\templates\base.html:76
 msgid "Registrarse"
-msgstr "تسجيل"
+msgstr "إنشاء حساب"
 
-#: .\templates\accounts\register.html:10 .\templates\accounts\register.html:103
+#: .\templates\accounts\register.html:10
+#: .\templates\accounts\register.html:103
 msgid "Crear Cuenta"
 msgstr "إنشاء حساب"
 
@@ -762,7 +734,7 @@ msgstr "تسجيل الدخول"
 
 #: .\templates\base.html:30
 msgid "Tablón"
-msgstr "لوحة الإعلانات"
+msgstr "اللوحة"
 
 #: .\templates\base.html:33
 msgid "Cambiar tema"
@@ -785,8 +757,8 @@ msgid ""
 "Diseña CVs impresionantes con plantillas profesionales. Publica en nuestro "
 "tablón de talentos y conecta con oportunidades."
 msgstr ""
-"صمّم سيرًا ذاتية مذهلة باستخدام قوالب احترافية. انشر في لوحة المواهب وتواصل مع "
-"الفرص."
+"صمّم سيرًا ذاتية مذهلة باستخدام قوالب احترافية. انشر في لوحة المواهب وتواصل "
+"مع الفرص."
 
 #: .\templates\landing.html:19
 msgid "Mi Dashboard"
@@ -855,7 +827,6 @@ msgid "Contraseña actualizada"
 msgstr "تم تحديث كلمة المرور"
 
 #: .\templates\registration\password_change_done.html:10
-#, fuzzy
 #| msgid "Foto actualizada correctamente."
 msgid "Tu contraseña ha sido cambiada correctamente."
 msgstr "تم تحديث الصورة بنجاح."
@@ -869,7 +840,6 @@ msgid "Actualizar contraseña"
 msgstr "تحديث كلمة المرور"
 
 #: .\templates\registration\password_reset_complete.html:4
-#, fuzzy
 #| msgid "Contraseña"
 msgid "Contraseña restablecida"
 msgstr "كلمة المرور"
@@ -879,7 +849,6 @@ msgid "Tu contraseña ha sido restablecida. Ya puedes iniciar sesión."
 msgstr "تمت إعادة تعيين كلمة المرور. يمكنك الآن تسجيل الدخول."
 
 #: .\templates\registration\password_reset_confirm.html:4
-#, fuzzy
 #| msgid "Contraseña"
 msgid "Nueva contraseña"
 msgstr "كلمة المرور"
@@ -900,7 +869,8 @@ msgstr "حفظ كلمة المرور"
 msgid ""
 "El enlace de restablecimiento no es válido o ya ha sido usado. Solicita uno "
 "nuevo."
-msgstr "رابط إعادة التعيين غير صالح أو تم استخدامه بالفعل. اطلب رابطاً جديداً."
+msgstr ""
+"رابط إعادة التعيين غير صالح أو تم استخدامه بالفعل. اطلب رابطاً جديداً."
 
 #: .\templates\registration\password_reset_confirm.html:41
 msgid "Solicitar nuevo enlace"
@@ -1021,7 +991,6 @@ msgid "Año"
 msgstr "السنة"
 
 #: .\templates\resumes\templates\_section_awards.html:20
-#, fuzzy
 #| msgid "Agregar experiencia"
 msgid "Agregar premio"
 msgstr "إضافة خبرة"
@@ -1031,13 +1000,11 @@ msgid "Nombre de la certificación"
 msgstr "اسم الشهادة"
 
 #: .\templates\resumes\templates\_section_certifications.html:14
-#, fuzzy
 #| msgid "Institución"
 msgid "Institución o plataforma"
 msgstr "المؤسسة"
 
 #: .\templates\resumes\templates\_section_certifications.html:20
-#, fuzzy
 #| msgid "Agregar educación"
 msgid "Agregar certificación"
 msgstr "إضافة تعليم"
@@ -1060,7 +1027,7 @@ msgstr "إضافة تعليم"
 
 #: .\templates\resumes\templates\_section_experience.html:3
 msgid "Experiencia"
-msgstr "الخبرة"
+msgstr "خبرة"
 
 #: .\templates\resumes\templates\_section_experience.html:14
 msgid "Título del puesto"
@@ -1079,7 +1046,6 @@ msgid "Lectura"
 msgstr "القراءة"
 
 #: .\templates\resumes\templates\_section_interests.html:13
-#, fuzzy
 #| msgid "Agregar"
 msgid "Agregar interés"
 msgstr "إضافة"
@@ -1093,7 +1059,6 @@ msgid "Nivel"
 msgstr "المستوى"
 
 #: .\templates\resumes\templates\_section_languages.html:18
-#, fuzzy
 #| msgid "Agregar habilidad"
 msgid "Agregar idioma"
 msgstr "إضافة مهارة"
@@ -1107,7 +1072,6 @@ msgid "Nombre del proyecto"
 msgstr "اسم المشروع"
 
 #: .\templates\resumes\templates\_section_projects.html:14
-#, fuzzy
 #| msgid "Descripción de tus responsabilidades..."
 msgid "Descripción del proyecto..."
 msgstr "وصف مسؤولياتك..."
@@ -1118,13 +1082,11 @@ msgid "https://..."
 msgstr "https://..."
 
 #: .\templates\resumes\templates\_section_projects.html:20
-#, fuzzy
 #| msgid "Agregar experiencia"
 msgid "Agregar proyecto"
-msgstr "إضافة خبرة"
+msgstr "إضافة مشروع"
 
 #: .\templates\resumes\templates\_section_publications.html:14
-#, fuzzy
 #| msgid "Título del puesto"
 msgid "Título de la publicación"
 msgstr "المسمى الوظيفي"
@@ -1134,13 +1096,11 @@ msgid "Medio o revista"
 msgstr "الوسيلة أو المجلة"
 
 #: .\templates\resumes\templates\_section_publications.html:22
-#, fuzzy
 #| msgid "Agregar educación"
 msgid "Agregar publicación"
 msgstr "إضافة تعليم"
 
 #: .\templates\resumes\templates\_section_references.html:15
-#, fuzzy
 #| msgid "Cargando..."
 msgid "Cargo"
 msgstr "جارٍ التحميل..."
@@ -1150,7 +1110,6 @@ msgid "email o teléfono"
 msgstr "البريد الإلكتروني أو الهاتف"
 
 #: .\templates\resumes\templates\_section_references.html:22
-#, fuzzy
 #| msgid "Agregar experiencia"
 msgid "Agregar referencia"
 msgstr "إضافة خبرة"
@@ -1182,7 +1141,6 @@ msgid "Describe tu labor..."
 msgstr "صف عملك..."
 
 #: .\templates\resumes\templates\_section_volunteering.html:22
-#, fuzzy
 #| msgid "Agregar habilidad"
 msgid "Agregar voluntariado"
 msgstr "إضافة مهارة"
@@ -1228,6 +1186,1058 @@ msgstr "جارٍ التحميل..."
 #: .\templates\wall\wall.html:43
 msgid "No se encontraron CVs en esta categoría."
 msgstr "لم يتم العثور على سير ذاتية في هذه الفئة."
+
+msgid "Mis Habilidades"
+msgstr "مهاراتي"
+
+msgid "Perfil público"
+msgstr "الملف الشخصي العام"
+
+msgid "Perfil publico"
+msgstr "الملف الشخصي العام"
+
+msgid "Activa para que tu perfil sea visible en el tablón"
+msgstr "فعّل ليظهر ملفك الشخصي في اللوحة"
+
+msgid "Debes subir una foto de perfil para hacer tu perfil público."
+msgstr "يجب تحميل صورة للملف الشخصي لجعله عامًا."
+
+msgid "Debes subir una foto de perfil para hacer tu perfil publico."
+msgstr "يجب تحميل صورة للملف الشخصي لجعله عامًا."
+
+msgid "Sin titular"
+msgstr "بدون عنوان"
+
+msgid "Sin biografia"
+msgstr "لا توجد سيرة ذاتية"
+
+msgid "Sin biografía"
+msgstr "لا توجد سيرة ذاتية"
+
+msgid "Sector:"
+msgstr "القطاع:"
+
+msgid "Rol:"
+msgstr "الدور:"
+
+msgid "Especialidad:"
+msgstr "التخصص:"
+
+msgid "Seniority:"
+msgstr "مستوى الخبرة:"
+
+msgid "Idiomas:"
+msgstr "اللغات:"
+
+msgid "Tags:"
+msgstr "الوسوم:"
+
+msgid "Sin experiencia ni proyectos agregados"
+msgstr "لم تتم إضافة أي خبرة أو مشروع بعد"
+
+msgid "Cargo / Puesto"
+msgstr "المنصب / الوظيفة"
+
+msgid "Empresa o Cliente"
+msgstr "الشركة أو العميل"
+
+msgid "Logotipo de la empresa (Opcional)"
+msgstr "شعار الشركة (اختياري)"
+
+msgid "Captura o imagen del proyecto (Opcional)"
+msgstr "لقطة شاشة أو صورة للمشروع (اختياري)"
+
+msgid "Haz clic para subir"
+msgstr "انقر للتحميل"
+
+msgid "el logo o imagen"
+msgstr "الشعار أو الصورة"
+
+msgid "la captura del proyecto"
+msgstr "لقطة شاشة المشروع"
+
+msgid "Logotipo cargado"
+msgstr "تم تحميل الشعار"
+
+msgid "Imagen cargada"
+msgstr "تم تحميل الصورة"
+
+msgid "Listo para guardar"
+msgstr "جاهز للحفظ"
+
+msgid "Eliminar"
+msgstr "حذف"
+
+msgid "Ver"
+msgstr "عرض"
+
+msgid "Editar Habilidades"
+msgstr "تعديل المهارات"
+
+msgid "Editar experiencia"
+msgstr "تعديل الخبرة"
+
+msgid "Editar proyecto"
+msgstr "تعديل المشروع"
+
+msgid "Estado de búsqueda"
+msgstr "حالة البحث عن عمل"
+
+msgid "Preferencia de ubicación"
+msgstr "تفضيل موقع العمل"
+
+msgid "Cuéntanos sobre ti..."
+msgstr "أخبرنا عن نفسك..."
+
+msgid "JPG, PNG o WebP. Máximo 5MB."
+msgstr "JPG أو PNG أو WebP. بحد أقصى 5 ميجابايت."
+
+msgid "URL del proyecto (Opcional)"
+msgstr "رابط المشروع (اختياري)"
+
+msgid "Describe el proyecto y las tecnologías usadas..."
+msgstr "صف المشروع والتقنيات المستخدمة..."
+
+msgid "Describe tus responsabilidades y logros..."
+msgstr "صف مسؤولياتك وإنجازاتك..."
+
+msgid "Seleccionar..."
+msgstr "اختر..."
+
+msgid "Seleccionar idioma..."
+msgstr "اختر اللغة..."
+
+msgid "Buscar tag..."
+msgstr "ابحث عن وسم..."
+
+msgid "Híbrido"
+msgstr "هجين"
+
+msgid "Segun destino"
+msgstr "حسب الوجهة"
+
+msgid "Full-time"
+msgstr "دوام كامل"
+
+msgid "Part-time"
+msgstr "دوام جزئي"
+
+msgid "Contrato"
+msgstr "عقد"
+
+msgid "Freelance"
+msgstr "عمل حر"
+
+msgid "Si"
+msgstr "نعم"
+
+msgid "Junior"
+msgstr "مبتدئ"
+
+msgid "Semi-Senior"
+msgstr "متوسط الخبرة"
+
+msgid "Senior"
+msgstr "خبير"
+
+msgid "Lead"
+msgstr "قائد فريق"
+
+msgid "Español"
+msgstr "الإسبانية"
+
+msgid "Inglés"
+msgstr "الإنجليزية"
+
+msgid "Portugués"
+msgstr "البرتغالية"
+
+msgid "Francés"
+msgstr "الفرنسية"
+
+msgid "Alemán"
+msgstr "الألمانية"
+
+msgid "Italiano"
+msgstr "الإيطالية"
+
+msgid "Japonés"
+msgstr "اليابانية"
+
+msgid "Coreano"
+msgstr "الكورية"
+
+msgid "Chino"
+msgstr "الصينية"
+
+msgid "Ruso"
+msgstr "الروسية"
+
+msgid "Árabe"
+msgstr "العربية"
+
+msgid "Hindi"
+msgstr "الهندية"
+
+msgid "Proyecto"
+msgstr "مشروع"
+
+msgid "Periodo"
+msgstr "الفترة"
+
+msgid "Descripción"
+msgstr "الوصف"
+
+msgid "Rol"
+msgstr "الدور"
+
+msgid "Especialidad"
+msgstr "التخصص"
+
+msgid "Seniority"
+msgstr "مستوى الخبرة"
+
+msgid "Tags"
+msgstr "الوسوم"
+
+msgid "Perfil Profesional"
+msgstr "الملف المهني"
+
+msgid "Para trabajadores"
+msgstr "للباحثين عن عمل"
+
+msgid "Para reclutadores"
+msgstr "لمسؤولي التوظيف"
+
+msgid "¿Deseas eliminar esta experiencia laboral?"
+msgstr "هل ترغب في حذف هذه الخبرة المهنية؟"
+
+msgid "¿Deseas eliminar este proyecto?"
+msgstr "هل ترغب في حذف هذا المشروع؟"
+
+msgid "Ej: Desarrollador Full Stack"
+msgstr "مثال: مطور برمجيات متكامل"
+
+msgid "Ej: Tech Solutions"
+msgstr "مثال: حلول التقنية"
+
+msgid "2021 - Presente"
+msgstr "2021 - الحاضر"
+
+msgid "Ej: App de Delivery"
+msgstr "مثال: تطبيق توصيل"
+
+msgid "Ej: Proyecto Personal"
+msgstr "مثال: مشروع شخصي"
+
+msgid "2023"
+msgstr "2023"
+
+msgid "Acerca de mí"
+msgstr "عني"
+
+msgid "Activa"
+msgstr "نشط"
+
+msgid "Activa para que tu empresa sea visible en el directorio"
+msgstr "فعّل لتظهر شركتك في الدليل"
+
+msgid "Actualizar descripción"
+msgstr "تحديث الوصف"
+
+msgid "Al menos un carácter especial (!@#$%^&*...)"
+msgstr "رمز خاص واحد على الأقل (!@#$%^&*...)"
+
+msgid "Buscar sector..."
+msgstr "ابحث عن قطاع..."
+
+msgid "Busco Talento"
+msgstr "أبحث عن مواهب"
+
+msgid "Busco Trabajo"
+msgstr "أبحث عن عمل"
+
+msgid "Búsqueda Avanzada y Scoring"
+msgstr "بحث متقدم وتقييم"
+
+msgid "Candidato"
+msgstr "مرشح"
+
+msgid "Contactar con Candidato"
+msgstr "التواصل مع المرشح"
+
+msgid ""
+"Crea tu perfil en minutos o explora nuestro directorio de empresas y "
+"talentos."
+msgstr "أنشئ ملفك الشخصي في دقائق أو استكشف دليل الشركات والمواهب لدينا."
+
+msgid "Crear Nueva Vacante"
+msgstr "إنشاء شاغر جديد"
+
+msgid "Crear Vacante"
+msgstr "إنشاء شاغر"
+
+msgid "Crear una cuenta gratis"
+msgstr "إنشاء حساب مجاني"
+
+msgid "Cuéntanos sobre tu empresa..."
+msgstr "أخبرنا عن شركتك..."
+
+msgid "Debe ser un correo corporativo (no Gmail, Yahoo, Hotmail, etc)."
+msgstr ""
+"يجب أن يكون بريدًا إلكترونيًا رسميًا للشركة (ليس Gmail أو Yahoo أو Hotmail "
+"إلخ)."
+
+msgid "Describe las responsabilidades y requisitos del puesto..."
+msgstr "صف مسؤوليات ومتطلبات الوظيفة..."
+
+msgid "Descubre empresas y reclutadores en diferentes sectores."
+msgstr "اكتشف الشركات ومسؤولي التوظيف في مختلف القطاعات."
+
+msgid "Explorar tablón de candidatos"
+msgstr "استكشف لوحة المرشحين"
+
+msgid "Explorar tablón de reclutadores"
+msgstr "استكشف لوحة مسؤولي التوظيف"
+
+msgid "Explorar tablón público sin registro"
+msgstr "استكشف اللوحة العامة دون تسجيل"
+
+msgid "Inicia sesión aquí"
+msgstr "سجّل الدخول هنا"
+
+msgid "Ir a tablón de reclutadores"
+msgstr "الانتقال إلى لوحة التوظيف"
+
+msgid "Ir a tablón de trabajadores"
+msgstr "الانتقال إلى لوحة المواهب"
+
+msgid ""
+"La plataforma que redefine el CV tradicional en un perfil profesional "
+"interactivo."
+msgstr "المنصة التي تعيد صياغة السيرة الذاتية التقليدية إلى ملف مهني تفاعلي."
+
+msgid "Limpiar filtros"
+msgstr "مسح الفلاتر"
+
+msgid "Nombre de Empresa"
+msgstr "اسم الشركة"
+
+msgid "Nombre de tu empresa"
+msgstr "اسم شركتك"
+
+msgid "Nombre y apellidos"
+msgstr "الاسم الكامل"
+
+msgid "Registrarme como Candidato"
+msgstr "التسجيل كمرشح"
+
+msgid "Registrarme como Reclutador"
+msgstr "التسجيل كمسؤول توظيف"
+
+msgid "Requisitos de la contraseña:"
+msgstr "متطلبات كلمة المرور:"
+
+msgid "Sitio Web"
+msgstr "الموقع الإلكتروني"
+
+msgid "Sobre la empresa"
+msgstr "عن الشركة"
+
+msgid "Ubicación"
+msgstr "الموقع"
+
+msgid "¿Listo para impulsar tu carrera o escalar tu equipo?"
+msgstr "هل أنت مستعد لتعزيز مسيرتك المهنية أو توسيع فريقك؟"
+
+msgid "¿Por qué TalentStack?"
+msgstr "لماذا TalentStack؟"
+
+msgid "¿Qué estás buscando en la plataforma?"
+msgstr "عما تبحث في المنصة؟"
+
+msgid "¿Ya tienes una cuenta con Google, GitHub o LinkedIn?"
+msgstr "هل لديك حساب بالفعل مع Google أو GitHub أو LinkedIn؟"
+
+msgid "Descripción (opcional)"
+msgstr "الوصف (اختياري)"
+
+msgid "Deseables (OR)"
+msgstr "مرغوب (OR)"
+
+msgid "Ej: $30,000 - $50,000 MXN mensuales"
+msgstr "مثال: 30,000$ - 50,000$ بيزو مكسيكي شهريًا"
+
+msgid "Ej: Ciudad de México, México"
+msgstr "مثال: مكسيكو سيتي، المكسيك"
+
+msgid "Empresa Directa"
+msgstr "شركة مباشرة"
+
+msgid "Enviar Mensaje"
+msgstr "إرسال رسالة"
+
+msgid "Escribe tu propuesta o mensaje para el candidato..."
+msgstr "اكتب اقتراحك أو رسالتك للمرشح..."
+
+msgid "Especialidad y Habilidades"
+msgstr "التخصص والمهارات"
+
+msgid "Experiencia Laboral"
+msgstr "الخبرة المهنية"
+
+msgid "Ficha de Datos"
+msgstr "ورقة البيانات"
+
+msgid ""
+"Filtra perfiles o empresas por sector, especialidades concretas, modalidad "
+"de trabajo y más. Encuentra exactamente la combinación que necesitas."
+msgstr ""
+"قم بتصفية الملفات الشخصية أو الشركات حسب القطاع والتخصصات ونمط العمل "
+"والمزيد. اعثر بدقة على التوافق المناسب لك."
+
+msgid "Filtros Avanzados"
+msgstr "تصفية متقدمة"
+
+msgid "Haz visible tu potencial"
+msgstr "اجعل إمكاناتك مرئية"
+
+msgid "Ingresa un requisito por línea"
+msgstr "أدخل شرطًا واحدًا في كل سطر"
+
+msgid "Logo de empresa"
+msgstr "شعار الشركة"
+
+msgid "Logo de la empresa"
+msgstr "شعار الشركة"
+
+msgid ""
+"Los profesionales exploran ofertas y empresas públicas; los reclutadores "
+"gestionan vacantes y contactan directo con los candidatos."
+msgstr ""
+"يستكشف المهنيون العروض والشركات العامة؛ ويدير مسؤولو التوظيف الوظائف "
+"ويتواصلون مباشرة مع المرشحين."
+
+msgid "Mis Ofertas / Vacantes"
+msgstr "عروضي / الوظائف الشاغرة"
+
+msgid "Modalidad"
+msgstr "نمط العمل"
+
+msgid "Modalidad:"
+msgstr "نمط العمل:"
+
+msgid "No hay vacantes activas por el momento."
+msgstr "لا توجد وظائف شاغرة حاليًا."
+
+msgid "No se encontraron empresas con estos filtros."
+msgstr "لم يتم العثور على شركات وفقًا لهذه الفلاتر."
+
+msgid "No se encontraron perfiles con estos filtros."
+msgstr "لم يتم العثور على ملفات شخصية بهذه الفلاتر."
+
+msgid "No tienes vacantes publicadas"
+msgstr "ليس لديك وظائف منشورة"
+
+msgid "Nota: La funcionalidad de guardado estará disponible próximamente."
+msgstr "ملاحظة: ستتوفر ميزة الحفظ قريبًا."
+
+msgid "Obligatorios (AND)"
+msgstr "إلزامي (AND)"
+
+msgid "Particular"
+msgstr "فردي"
+
+msgid "Paso 1 de 4 – ¿Qué buscas?"
+msgstr "الخطوة 1 من 4 – ما الذي تبحث عنه؟"
+
+msgid "Perfiles Interactivos"
+msgstr "ملفات شخصية تفاعلية"
+
+msgid "Preferencias de Trabajo"
+msgstr "تفضيلات العمل"
+
+msgid ""
+"Presenta tu experiencia, seniority, disponibilidad y red de habilidades en "
+"una página pública optimizada para compartir."
+msgstr ""
+"اعرض خبراتك ومستواك وتوافرك وشبكة مهاراتك في صفحة عامة مُحسّنة للمشاركة."
+
+msgid "Proyectos Destacados"
+msgstr "مشاريع مميزة"
+
+msgid "Rango salarial"
+msgstr "نطاق الراتب"
+
+msgid "Reclutador"
+msgstr "مسؤول توظيف"
+
+msgid "Reclutador Independiente"
+msgstr "مسؤول توظيف مستقل"
+
+msgid "Redes Sociales y Portafolio"
+msgstr "التواصل الاجتماعي والملف المهني"
+
+msgid "Redes y Enlaces"
+msgstr "الشبكات والروابط"
+
+msgid "Requisitos"
+msgstr "المتطلبات"
+
+msgid "Sin enlaces externos configurados."
+msgstr "لا توجد روابط خارجية مهيأة."
+
+msgid "Sitio Web (opcional)"
+msgstr "الموقع الإلكتروني (اختياري)"
+
+msgid "Sitio Web:"
+msgstr "الموقع الإلكتروني:"
+
+msgid "Sobre Nosotros"
+msgstr "من نحن"
+
+msgid "Tablón de Empresas"
+msgstr "لوحة الشركات"
+
+msgid "Tags (Opcionales)"
+msgstr "الوسوم (اختياري)"
+
+msgid "Tecnologías"
+msgstr "التقنيات"
+
+msgid "Tipo de Empresa"
+msgstr "نوع الشركة"
+
+msgid "Tipo de Reclutador"
+msgstr "نوع مسؤول التوظيف"
+
+msgid "Tipo:"
+msgstr "النوع:"
+
+msgid "Todas"
+msgstr "الكل"
+
+msgid "Trayectoria laboral y proyectos destacados"
+msgstr "المسيرة المهنية والمشاريع المميزة"
+
+msgid "Ubicación:"
+msgstr "الموقع:"
+
+msgid "Un espacio doble"
+msgstr "مساحة مزدوجة"
+
+msgid "Un requisito por línea..."
+msgstr "شرط واحد لكل سطر..."
+
+msgid "Vacantes Activas"
+msgstr "الوظائف النشطة"
+
+msgid "Ver proyecto"
+msgstr "عرض المشروع"
+
+msgid ""
+"Vista previa: así es como los reclutadores y empresas ven tu perfil público."
+msgstr "معاينة: هكذا يرى مسؤولو التوظيف والشركات ملفك الشخصي العام."
+
+msgid "candidatos"
+msgstr "مرشحين"
+
+msgid "tu@empresa.com"
+msgstr "you@company.com"
+
+msgid "Sin biografía disponible"
+msgstr "لا توجد سيرة ذاتية متاحة"
+
+msgid "Paso 1 de 4 — ¿Qué buscas?"
+msgstr "الخطوة 1 من 4 — ما الذي تبحث عنه؟"
+
+msgid "Agregar tag"
+msgstr "إضافة وسم"
+
+msgid "Añadir"
+msgstr "إضافة"
+
+msgid "Buscar o agregar tag (ej: Python, React, Git)..."
+msgstr "ابحث أو أضف وسمًا (مثل: Python, React, Git)..."
+
+msgid "Escribe y presiona Enter o haz clic en + para añadir."
+msgstr "اكتب واضغط Enter أو انقر على + للإضافة."
+
+msgid "No hay idiomas seleccionados"
+msgstr "لم يتم تحديد لغات"
+
+msgid "No hay tags seleccionados"
+msgstr "لم يتم تحديد وسوم"
+
+msgid "Nuevo tag"
+msgstr "وسم جديد"
+
+msgid "100% Gratuito para candidatos"
+msgstr "مجاني 100٪ للمرشحين"
+
+msgid "Afinidad con vacantes técnicas"
+msgstr "درجة التوافق مع الشواغر التقنية"
+
+msgid "Alcance internacional"
+msgstr "وصول دولي"
+
+msgid "Arquitectura de microservicios y liderazgo de equipo técnico."
+msgstr "هندسة الخدمات المصغرة وقيادة الفريق التقني."
+
+msgid "Backend Python"
+msgstr "باك إند بايثون"
+
+msgid "Búsqueda y filtrado"
+msgstr "البحث والتصفية"
+
+msgid "CV Tradicional (PDF)"
+msgstr "السيرة الذاتية التقليدية (PDF)"
+
+msgid "CV Tradicional en PDF"
+msgstr "السيرة الذاتية التقليدية بصيغة PDF"
+
+msgid "Cero métricas de visualización ni interés de empresas"
+msgstr "صفر من مؤشرات المشاهدة وبدون معرفة باهتمام الشركات"
+
+msgid "Cero visibilidad"
+msgstr "انعدام الرؤية"
+
+msgid "Compara la experiencia"
+msgstr "قارن التجربة"
+
+msgid "Contactar directamente"
+msgstr "تواصل مباشرة"
+
+msgid "Contacto directo"
+msgstr "اتصال مباشر"
+
+msgid "Contacto directo con reclutadores"
+msgstr "تواصل مباشر مع مسؤولي التوظيف"
+
+msgid "Contacto directo sin intermediarios"
+msgstr "اتصال مباشر بدون وسطاء"
+
+msgid "Contacto directo y seguro vía email"
+msgstr "اتصال مباشر وآمن عبر البريد الإلكتروني"
+
+msgid "Contacto y respuesta"
+msgstr "الاتصال والاستجابة"
+
+msgid ""
+"Crea tu perfil en minutos, comparte tu enlace personalizado y haz visible tu"
+" potencial ante las mejores oportunidades."
+msgstr ""
+"أنشئ ملفك في دقائق، وشارك رابطك المخصص، واجعل إمكانياتك مرئية لأفضل الفرص."
+
+msgid "Crear mi cuenta gratuita"
+msgstr "إنشاء حسابي المجاني"
+
+msgid "Crear mi perfil interactivo"
+msgstr "إنشاء ملفي التفاعلي"
+
+msgid "Criterio"
+msgstr "المعيار"
+
+msgid "Código fuente"
+msgstr "الشفرة المصدرية"
+
+msgid "Data & IA"
+msgstr "البيانات والذكاء الاصطناعي"
+
+msgid "Demostración de habilidades"
+msgstr "إثبات المهارات"
+
+msgid "Desactualizado el mismo día en que se descarga"
+msgstr "قديم وغير محدث في نفس يوم تحميله"
+
+msgid "Desarrollo Web"
+msgstr "تطوير الويب"
+
+msgid "Descargar resumen"
+msgstr "تحميل الملخص"
+
+msgid "Dinámico, responsivo y enriquecido con medios"
+msgstr "ديناميكي، متجاوب، وغني بالوسائط"
+
+msgid "Diseñado para hacer destacar tu valor real en el mercado"
+msgstr "مصمم لإبراز قيمتك الحقيقية في السوق"
+
+msgid "Diseño & UX"
+msgstr "التصميم وتجربة المستخدم"
+
+msgid "Disponible para nuevas ofertas"
+msgstr "متاح لعروض جديدة"
+
+msgid "Doble Ecosistema Conectado"
+msgstr "نظام بيئي مزدوج متصل"
+
+msgid "Documento estático de 2 páginas"
+msgstr "وثيقة ثابتة من صفحتين"
+
+msgid ""
+"Dos tablones sincronizados: profesionales mostrando su talento y "
+"reclutadores publicando oportunidades con total transparencia."
+msgstr ""
+"لوحتان متزامنتان: محترفون يعرضون مواهبهم ومسؤولو توظيف ينشرون الفرص بشفافية "
+"تامة."
+
+msgid ""
+"El CV tradicional en PDF ha muerto. Construye un perfil dinámico con "
+"taxonomía en 4 niveles, portafolio multimedia y contacto directo con "
+"reclutadores globales."
+msgstr ""
+"انتهى عهد السيرة الذاتية التقليدية بتنسيق PDF. ابنِ ملفًا شخصيًا ديناميكيًا "
+"بتصنيف من 4 مستويات ومعرض وسائط واتصال مباشر مع مسؤولي التوظيف حول العالم."
+
+msgid "El contraste entre el viejo modelo y la nueva era profesional"
+msgstr "التباين بين النموذج القديم والعصر المهني الجديد"
+
+msgid "Enlaces a proyectos y demos que nadie abre"
+msgstr "روابط مشاريع وعروض لا يفتحها أحد"
+
+msgid "Enlaces muertos"
+msgstr "روابط معطلة"
+
+msgid "Enterrado en la bandeja"
+msgstr "مدفون في صندوق الوارد"
+
+msgid "Enterrado en un buzón junto a cientos de archivos idénticos"
+msgstr "مدفون في صندوق البريد بجانب مئات الملفات المتطابقة"
+
+msgid "Español (Nativo), Inglés (C1 Avanzado)"
+msgstr "الإسبانية (لغة أم)، الإنجليزية (متقدم C1)"
+
+msgid "Especialidades y tecnologías destacadas en este sector:"
+msgstr "التخصصات والتقنيات البارزة في هذا القطاع:"
+
+msgid "Experiencia reciente"
+msgstr "الخبرة الأخيرة"
+
+msgid "Explorador de Talento en Tiempo Real"
+msgstr "مستكشف المواهب بالوقت الفعلي"
+
+msgid "Explorar tablón de empresas"
+msgstr "استكشف لوحة الشركات"
+
+msgid "Explorar tablón de talento"
+msgstr "استكشف لوحة المواهب"
+
+msgid "Explorar tablón público"
+msgstr "استكشف اللوحة العامة"
+
+msgid "Explorar todos los perfiles de este sector"
+msgstr "استكشف جميع الملفات في هذا القطاع"
+
+msgid "Filtra por sector y descubre las especialidades más demandadas hoy"
+msgstr "قم بالتصفية حسب القطاع واكتشف التخصصات الأكثر طلباً اليوم"
+
+msgid "Finanzas"
+msgstr "المالية"
+
+msgid "Formato y diseño"
+msgstr "التنسيق والتصميم"
+
+msgid "Haz visible tu talento con un"
+msgstr "اجعل موهبتك مرئية من خلال"
+
+msgid "Idiomas disponibles"
+msgstr "اللغات المتاحة"
+
+msgid "Imágenes, links y repositorio directo"
+msgstr "صور وروابط ومستودع برمجيات مباشر"
+
+msgid "Ir a mi Dashboard"
+msgstr "الذهاب إلى لوحة التحكم الخاصة بي"
+
+msgid "La diferencia es contundente"
+msgstr "الفرق واضح وجلي"
+
+msgid "La evolución del currículum profesional"
+msgstr "تطور السيرة الذاتية المهنية"
+
+msgid "Lectura manual o filtros ATS opacos"
+msgstr "قراءة يدوية أو فلاتر ATS غامضة"
+
+msgid "Listas de texto sin verificación visual"
+msgstr "قوائم نصية بدون إثبات بصري"
+
+msgid "Marketing & Growth"
+msgstr "التسويق والنمو"
+
+msgid "Matching Transparente y Cero Spam"
+msgstr "مطابقة شفافة وبدون إزعاج"
+
+msgid ""
+"Muestra capturas de proyectos, demos funcionales y repositorios de código. "
+"Demuestra lo que sabes hacer."
+msgstr ""
+"اعرض لقطات شاشة للمشاريع، وعروضاً حية، ومستودعات برمجية. أثبت ما يمكنك فعله."
+
+msgid "Niveles de clasificación"
+msgstr "مستويات التصنيف"
+
+msgid "Obsoleto de inmediato"
+msgstr "يصبح قديماً على الفور"
+
+msgid ""
+"Olvídate de palabras clave sueltas. Clasificamos perfiles mediante Sector, "
+"Rol, Especialidad y Tags para un matching quirúrgico."
+msgstr ""
+"انسَ الكلمات المفتاحية العشوائية. نحن نصنف الملفات عبر القطاع والدور والتخصص"
+" والوسوم لمطابقة دقيقة كالجراحة."
+
+msgid "Perfil Vivo TalentStack"
+msgstr "ملف TalentStack الحي"
+
+msgid "Portafolio Multimedia Integrado"
+msgstr "معرض وسائط متكامل"
+
+msgid "Portafolio en vivo con demos y repositorios"
+msgstr "معرض أعمال حي مع عروض توضيحية ومستودعات"
+
+msgid "Presencia Global en 12 Idiomas"
+msgstr "حضور عالمي بـ 12 لغة"
+
+msgid "Profesionales conectados"
+msgstr "محترفون متصلون"
+
+msgid "Proyectos interactivos"
+msgstr "مشاريع تفاعلية"
+
+msgid "Rechazado por filtro ATS"
+msgstr "مرفوض بواسطة فلاتر ATS"
+
+msgid "Remoto / Disponible a nivel global"
+msgstr "عن بُعد / متاح عالمياً"
+
+msgid "Rígido, estático y limitado a 2 páginas"
+msgstr "جامد، ثابت ومحدود بصفحتين"
+
+msgid "Semanas de silencio por correo"
+msgstr "أسابيع من الصمت عبر البريد الإلكتروني"
+
+msgid "Senior Full-Stack & Cloud Engineer"
+msgstr "مهندس أول فول ستاك وحوسبة سحابية"
+
+msgid ""
+"Sin algoritmos opacos ni comisiones abusivas. Filtra perfiles por "
+"disponibilidad real y contacta sin rodeos."
+msgstr ""
+"بدون خوارزميات غامضة أو عمولات مجحفة. قم بتصفية الملفات حسب التوفر الفعلي "
+"وتواصل دون وسيط."
+
+msgid "Sin coste para profesionales"
+msgstr "بدون أي تكلفة على المهنيين"
+
+msgid "Superpoderes de TalentStack"
+msgstr "مزايا TalentStack الفائقة"
+
+msgid "Tablón de Candidatos"
+msgstr "لوحة المرشحين"
+
+msgid "Tablón de Reclutadores"
+msgstr "لوحة مسؤولي التوظيف"
+
+msgid "Taxonomía Estructurada en 4 Capas"
+msgstr "تصنيف منظم من 4 طبقات"
+
+msgid "Taxonomía de Precisión"
+msgstr "تصنيف فائق الدقة"
+
+msgid "Taxonomía de precisión en 4 capas"
+msgstr "تصنيف دقيق من 4 مستويات"
+
+msgid "Taxonomía inteligente en 4 capas"
+msgstr "تصنيف ذكي من 4 طبقات"
+
+msgid "Tecnología"
+msgstr "التكنولوجيا"
+
+msgid "Tecnologías y competencias destacadas"
+msgstr "التقنيات والمهارات البارزة"
+
+msgid "Texto plano sin interactividad ni demostración práctica"
+msgstr "نص عادي بدون تفاعلية أو إثبات عملي"
+
+msgid "Traducción automática a 12 idiomas"
+msgstr "ترجمة تلقائية إلى 12 لغة"
+
+msgid "Traducción nativa en 12 idiomas"
+msgstr "ترجمة أصلية بـ 12 لغة"
+
+msgid ""
+"Tu perfil y su taxonomía se traducen automáticamente para conectar con "
+"oportunidades en todo el mundo sin barreras."
+msgstr ""
+"يتم ترجمة ملفك وتصنيفك تلقائيًا للتواصل مع الفرص في جميع أنحاء العالم دون أي"
+" حواجز."
+
+msgid "Un PDF por cada idioma a traducir"
+msgstr "ملف PDF منفصل لكل لغة تريد ترجمتها"
+
+msgid "Ver demo en vivo"
+msgstr "مشاهدة العرض الحي"
+
+msgid "Vista interactiva"
+msgstr "عرض تفاعلي"
+
+msgid "perfil profesional interactivo"
+msgstr "ملف مهني تفاعلي"
+
+msgid ""
+"¡Simulación interactiva! En un perfil real, este botón abre el canal de "
+"contacto directo con el candidato."
+msgstr ""
+"محاكاة تفاعلية! في الملف الحقيقي، يفتح هذا الزر قناة الاتصال المباشر مع "
+"المرشح."
+
+msgid "¿Buscas contratar talento?"
+msgstr "هل تبحث عن توظيف كفاءات؟"
+
+msgid "¿Listo para dar el salto al perfil interactivo?"
+msgstr "هل أنت مستعد للانتقال إلى الملف التفاعلي؟"
+
+msgid "¿Por qué un perfil interactivo supera a cualquier PDF?"
+msgstr "لماذا يتفوق الملف التفاعلي على أي ملف PDF؟"
+
+msgid "Aumentan el score de afinidad"
+msgstr "تزيد من درجة التوافق"
+
+msgid "Buscando empresas y reclutadores..."
+msgstr "جاري البحث عن شركات ومسؤولي توظيف..."
+
+msgid "Buscando profesionales..."
+msgstr "جاري البحث عن مهنيين..."
+
+msgid "Buscar sector (ej: Tecnología, Salud)..."
+msgstr "ابحث عن قطاع (مثل: التكنولوجيا، الصحة)..."
+
+msgid "Cargando empresas..."
+msgstr "جاري تحميل الشركات..."
+
+msgid "Cargando perfiles..."
+msgstr "جاري تحميل الملفات..."
+
+msgid ""
+"Descubre organizaciones y reclutadores que buscan talento activamente con "
+"total transparencia."
+msgstr ""
+"اكتشف المؤسسات ومسؤولي التوظيف الذين يبحثون بنشاط عن الكفاءات بشفافية كاملة."
+
+msgid "Disponible"
+msgstr "متاح"
+
+msgid "El perfil debe tener todos"
+msgstr "يجب أن يتضمن الملف جميعها"
+
+msgid ""
+"Encuentra empresas por sector, modalidad de trabajo o tipo de reclutador."
+msgstr "ابحث عن الشركات حسب القطاع أو نمط العمل أو نوع مسؤول التوظيف."
+
+msgid "Escribe para buscar tag (ej: Docker, AWS)..."
+msgstr "اكتب للبحث عن وسم (مثل: Docker, AWS)..."
+
+msgid "Escribe para buscar tag (ej: Python, React)..."
+msgstr "اكتب للبحث عن وسم (مثل: Python, React)..."
+
+msgid ""
+"Explora perfiles verificados con taxonomía de precisión, habilidades reales "
+"y contacto directo."
+msgstr "استكشف ملفات تم التحقق منها بتصنيف دقيق ومهارات حقيقية وتواصل مباشر."
+
+msgid ""
+"Filtra en cascada por Sector, Rol, Especialidad y competencias específicas."
+msgstr "قم بالتصفية المتتالية حسب القطاع والدور والتخصص والمهارات المحددة."
+
+msgid "Filtros Adicionales (Seniority y Modalidad)"
+msgstr "فلاتر إضافية (الأقدمية ونمط العمل)"
+
+msgid "Filtros de Búsqueda Taxonómica"
+msgstr "فلاتر البحث التصنيفي"
+
+msgid "Filtros de Empresas y Vacantes"
+msgstr "فلاتر الشركات والوظائف"
+
+msgid "Match"
+msgstr "تطابق"
+
+msgid "Modalidad de Trabajo"
+msgstr "نمط العمل"
+
+msgid "Nivel de Seniority"
+msgstr "مستوى الخبرة"
+
+msgid "No se encontraron empresas con estos filtros"
+msgstr "لم يتم العثور على شركات بهذه الفلاتر"
+
+msgid "No se encontraron perfiles con estos filtros"
+msgstr "لم يتم العثور على ملفات بهذه الفلاتر"
+
+msgid "Obligatorios / Deseables"
+msgstr "إلزامي / مرغوب"
+
+msgid "Para reclutadores (Empresas)"
+msgstr "لمسؤولي التوظيف (الشركات)"
+
+msgid "Para trabajadores (Candidatos)"
+msgstr "للمرشحين (المواهب)"
+
+msgid ""
+"Prueba relajando algunos criterios de búsqueda o limpiando los filtros para "
+"ver más resultados."
+msgstr ""
+"جرب تخفيف بعض معايير البحث أو إعادة ضبط الفلاتر للاطلاع على مزيد من النتائج."
+
+msgid "Restablecer todos los filtros"
+msgstr "إعادة ضبط جميع الفلاتر"
+
+msgid "Sectores de Contratación"
+msgstr "قطاعات التوظيف"
+
+msgid "Sin descripción"
+msgstr "بدون وصف"
+
+msgid "Tags y Tecnologías Clave"
+msgstr "الوسوم والتقنيات الرئيسية"
+
+msgid "Todas las especialidades"
+msgstr "جميع التخصصات"
+
+msgid "Todas las modalidades"
+msgstr "جميع الأنماط"
+
+msgid "Todos los niveles"
+msgstr "جميع المستويات"
+
+msgid "Todos los roles"
+msgstr "جميع الأدوار"
+
+msgid "Todos los sectores"
+msgstr "جميع القطاعات"
+
+msgid "Todos los tipos"
+msgstr "جميع الأنواع"
+
+msgid "Ver empresa y vacantes"
+msgstr "عرض الشركة والشواغر"
+
+msgid "Ver perfil interactivo"
+msgstr "عرض الملف التفاعلي"
+
+msgid "empresa encontrada"
+msgstr "شركة تم العثور عليها"
+
+msgid "empresas encontradas"
+msgstr "شركات تم العثور عليها"
+
+msgid "más"
+msgstr "المزيد"
+
+msgid "profesional encontrado"
+msgstr "مهني تم العثور عليه"
+
+msgid "profesionales encontrados"
+msgstr "مهنيين تم العثور عليهم"
 
 #~ msgid "Mi Perfil"
 #~ msgstr "ملفي الشخصي"

@@ -1,4 +1,4 @@
-﻿import re
+import re
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -177,30 +177,49 @@ class WizardRegistrationForm(RegistrationForm):
         
         # Corporate email validation for recruiters
         if role == 'recruiter':
-            domain = email.split('@')[-1].lower()
+            domain = email.split('@')[-1].lower() if '@' in email else ''
             blocked_domains = getattr(settings, 'BLOCKED_EMAIL_DOMAINS', [])
             if domain in blocked_domains:
                 raise ValidationError(_('Para registrarse como reclutador, debe usar un correo corporativo (no se permiten correos de dominios genéricos como Gmail, Yahoo, etc).'))
         
         return email
 
+    def clean(self):
+        cleaned_data = super().clean()
+        role = cleaned_data.get('role') or self.data.get('role') or 'candidate'
+        cleaned_data['role'] = role
+
+        if role == 'recruiter':
+            company_name = cleaned_data.get('company_name', '').strip()
+            if not company_name:
+                self.add_error('company_name', _('El nombre de la empresa es obligatorio.'))
+
+        sector = cleaned_data.get('sector', '').strip()
+        if not sector:
+            self.add_error('sector', _('Por favor, selecciona un sector.'))
+
+        return cleaned_data
+
     def save(self, commit=True):
         user = super().save(commit=False)
-        user.first_name = self.cleaned_data.get('first_name', '')
-        user.last_name = self.cleaned_data.get('last_name', '')
+        user.first_name = self.cleaned_data.get('first_name', '').strip()
+        user.last_name = self.cleaned_data.get('last_name', '').strip()
         role = self.cleaned_data.get('role') or 'candidate'
         
         if commit:
             user.save()
             
+            # Keep UserProfile.role consistent for both roles
+            user.profile.role = role
+            
             if role == 'recruiter':
                 from .models import RecruiterProfile, SectorTag
                 profile = RecruiterProfile.objects.create(user=user)
-                profile.company_name = self.cleaned_data.get('company_name', '')
+                profile.company_name = self.cleaned_data.get('company_name', '').strip()
                 profile.company_type = self.cleaned_data.get('company_type', '')
                 profile.work_modality = self.cleaned_data.get('work_modality', '')
-                profile.company_website = self.cleaned_data.get('company_website', '')
-                profile.company_description = self.cleaned_data.get('company_description', '')
+                profile.company_website = self.cleaned_data.get('company_website', '').strip()
+                profile.company_description = self.cleaned_data.get('company_description', '').strip()
                 sector_slug = self.cleaned_data.get('sector', '')
                 if sector_slug:
                     try:
@@ -217,6 +236,7 @@ class WizardRegistrationForm(RegistrationForm):
                         profile.sector = SectorTag.objects.get(slug=sector_slug)
                     except SectorTag.DoesNotExist:
                         pass
-                profile.save()
+            
+            user.profile.save()
         
         return user

@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
     <script>
         (function() {
-            var theme = localStorage.getItem('cvbuilder_theme');
+            var theme = localStorage.getItem('talentstack_theme') || localStorage.getItem('cvbuilder_theme');
             if (theme === 'dark' || (!theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
             }
         })();
     </script>
@@ -119,7 +121,7 @@
         });
     </script>
     <script src="{% static 'js/i18n.js' %}?v=3"></script>
-    <script src="{% static 'js/darkmode.js' %}"></script>
+    <script src="{% static 'js/darkmode.js' %}?v=2"></script>
     <script src="{% static 'js/language.js' %}"></script>
     {% block extra_js %}{% endblock %}
 </body>

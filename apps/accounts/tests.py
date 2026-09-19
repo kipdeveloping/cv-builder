@@ -1,31 +1,115 @@
 from django.contrib.auth.models import User
 from django.core import mail
 from django.test import TestCase
+from django.core.files.uploadedfile import SimpleUploadedFile
 from django.urls import reverse
 
-from .models import UserProfile
+from .models import UserProfile, RecruiterProfile, SectorTag
 
 
 class RegistrationTest(TestCase):
-    def test_register_creates_user_and_profile(self):
+    def setUp(self):
+        self.sector = SectorTag.objects.create(
+            name_es='Tecnología',
+            name_en='Technology',
+            slug='tecnologia'
+        )
+
+    def test_candidate_registration_success(self):
         response = self.client.post(reverse('register'), {
-            'email': 'nuevo@example.com',
+            'role': 'candidate',
+            'email': 'candidato@example.com',
             'first_name': 'Ana',
             'last_name': 'Perez',
+            'sector': 'tecnologia',
             'password1': 'Contraseña1!',
             'password2': 'Contraseña1!',
         })
         self.assertEqual(response.status_code, 302)
-        self.assertTrue(User.objects.filter(email='nuevo@example.com').exists())
+        self.assertTrue(User.objects.filter(email='candidato@example.com').exists())
 
-        user = User.objects.get(email='nuevo@example.com')
+        user = User.objects.get(email='candidato@example.com')
         self.assertIsNotNone(user.profile)
         self.assertEqual(user.first_name, 'Ana')
+        self.assertEqual(user.last_name, 'Perez')
+        self.assertEqual(user.profile.role, 'candidate')
+        self.assertEqual(user.profile.sector, self.sector)
+
+    def test_recruiter_registration_success(self):
+        response = self.client.post(reverse('register'), {
+            'role': 'recruiter',
+            'email': 'recruiter@corporation.com',
+            'first_name': 'Carlos',
+            'last_name': 'Gomez',
+            'company_name': 'Acme Corp',
+            'company_type': 'empresa',
+            'work_modality': 'remote',
+            'sector': 'tecnologia',
+            'password1': 'Contraseña1!',
+            'password2': 'Contraseña1!',
+        })
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(User.objects.filter(email='recruiter@corporation.com').exists())
+
+        user = User.objects.get(email='recruiter@corporation.com')
+        self.assertEqual(user.profile.role, 'recruiter')
+        self.assertTrue(hasattr(user, 'recruiter_profile'))
+        self.assertEqual(user.recruiter_profile.company_name, 'Acme Corp')
+        self.assertEqual(user.recruiter_profile.company_sector, self.sector)
+        self.assertEqual(user.recruiter_profile.work_modality, 'remote')
+
+    def test_recruiter_blocked_email_domain(self):
+        response = self.client.post(reverse('register'), {
+            'role': 'recruiter',
+            'email': 'recruiter@gmail.com',
+            'first_name': 'Carlos',
+            'last_name': 'Gomez',
+            'company_name': 'Acme Corp',
+            'sector': 'tecnologia',
+            'password1': 'Contraseña1!',
+            'password2': 'Contraseña1!',
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'correo corporativo')
+        self.assertFalse(User.objects.filter(email='recruiter@gmail.com').exists())
+
+    def test_recruiter_missing_company_name(self):
+        response = self.client.post(reverse('register'), {
+            'role': 'recruiter',
+            'email': 'recruiter@corporation.com',
+            'first_name': 'Carlos',
+            'last_name': 'Gomez',
+            'company_name': '',
+            'sector': 'tecnologia',
+            'password1': 'Contraseña1!',
+            'password2': 'Contraseña1!',
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'nombre de la empresa es obligatorio')
+        self.assertFalse(User.objects.filter(email='recruiter@corporation.com').exists())
+
+    def test_candidate_missing_sector(self):
+        response = self.client.post(reverse('register'), {
+            'role': 'candidate',
+            'email': 'candidato2@example.com',
+            'first_name': 'Ana',
+            'last_name': 'Perez',
+            'sector': '',
+            'password1': 'Contraseña1!',
+            'password2': 'Contraseña1!',
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'selecciona un sector')
+        self.assertFalse(User.objects.filter(email='candidato2@example.com').exists())
 
     def test_register_duplicate_email_rejected(self):
         User.objects.create_user(username='a@example.com', email='a@example.com', password='x2Qw!asd8')
         response = self.client.post(reverse('register'), {
+            'role': 'candidate',
             'email': 'a@example.com',
+            'first_name': 'Ana',
+            'last_name': 'Perez',
+            'sector': 'tecnologia',
             'password1': 'Contraseña1!',
             'password2': 'Contraseña1!',
         })
@@ -129,6 +213,7 @@ class PublicProfileTest(TestCase):
         )
         self.profile = self.user.profile
         self.profile.headline = 'Desarrolladora Web'
+        self.profile.is_public = True
         self.profile.save()
 
     def test_profile_page_reachable_anonymously(self):
@@ -180,3 +265,61 @@ class ContactEmailTest(TestCase):
         }, content_type='application/json')
         self.assertEqual(response.status_code, 400)
         self.assertEqual(len(mail.outbox), 0)
+
+
+class LanguageSwitchTest(TestCase):
+    def test_switch_to_english(self):
+        # Post to set_language to switch to 'en'
+        response = self.client.post(reverse('set_language'), {
+            'language': 'en',
+            'next': reverse('landing')
+        })
+        self.assertEqual(response.status_code, 302)
+        # Verify django_language cookie or session is set
+        self.assertIn('django_language', self.client.cookies)
+        self.assertEqual(self.client.cookies['django_language'].value, 'en')
+
+        # Request a page and verify English translation is served
+        page = self.client.get(reverse('landing'))
+        self.assertEqual(page.status_code, 200)
+        self.assertContains(page, 'lang="en"')
+
+    def test_switch_to_french(self):
+        response = self.client.post(reverse('set_language'), {
+            'language': 'fr',
+            'next': reverse('landing')
+        })
+        self.assertEqual(response.status_code, 302)
+        page = self.client.get(reverse('landing'))
+        self.assertEqual(page.status_code, 200)
+        self.assertContains(page, 'lang="fr"')
+
+
+class MediaUploadTest(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username='mediauser@example.com', email='mediauser@example.com', password='Contraseña1!'
+        )
+        self.client.login(username='mediauser@example.com', password='Contraseña1!')
+
+    def test_upload_valid_image(self):
+        # 1x1 transparent PNG
+        png_data = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15c4\x00\x00\x00\rIDATx\x9cc`\x00\x00\x00\x02\x00\x01H\xaf\xa4q\x00\x00\x00\x00IEND\xaeB`\x82'
+        uploaded = SimpleUploadedFile('test.png', png_data, content_type='image/png')
+        response = self.client.post(reverse('upload_media'), {'image': uploaded})
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertEqual(data['status'], 'ok')
+        self.assertIn('media_items/', data['url'])
+
+    def test_upload_without_file_fails(self):
+        response = self.client.post(reverse('upload_media'), {})
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.json()['status'], 'error')
+
+    def test_upload_invalid_mime_fails(self):
+        bad_file = SimpleUploadedFile('script.sh', b'echo hello', content_type='text/plain')
+        response = self.client.post(reverse('upload_media'), {'image': bad_file})
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.json()['status'], 'error')
+

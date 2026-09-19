@@ -1,4 +1,4 @@
-﻿from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from django.db.models import Q
 from apps.accounts.models import SectorTag, SectorRol, RolEspecialidad, Tag, UserProfile, ProfileTag, RecruiterProfile
@@ -63,6 +63,7 @@ def get_tag_hierarchy(request):
 
 
 def wall_api_view(request):
+    lang = request.LANGUAGE_CODE if hasattr(request, 'LANGUAGE_CODE') else 'es'
     sector_slug = request.GET.get('sector')
     rol_slug = request.GET.get('rol')
     especialidad_slug = request.GET.get('especialidad')
@@ -125,6 +126,11 @@ def wall_api_view(request):
 
         relevance = round((score / max_score * 100) if max_score > 0 else 0)
 
+        tag_items = [
+            {'name': pt.tag.get_name(lang), 'slug': pt.tag.slug, 'type': pt.tag_type}
+            for pt in profile.tags.all()
+        ]
+
         profile_list.append({
             'id': profile.id,
             'user_id': user.id,
@@ -132,14 +138,19 @@ def wall_api_view(request):
             'headline': profile.headline or '',
             'bio': profile.bio or '',
             'photo': profile.photo.url if profile.photo else None,
-            'sector': profile.sector.name_es if profile.sector else '',
-            'rol': profile.rol.name_es if profile.rol else '',
-            'especialidad': profile.especialidad.name_es if profile.especialidad else '',
+            'sector': profile.sector.get_name(lang) if profile.sector else '',
+            'rol': profile.rol.get_name(lang) if profile.rol else '',
+            'especialidad': profile.especialidad.get_name(lang) if profile.especialidad else '',
             'seniority': profile.seniority or '',
+            'seniority_display': profile.get_seniority_display() if hasattr(profile, 'get_seniority_display') else (profile.seniority or ''),
             'location': profile.location_flex or '',
+            'location_display': profile.get_location_flex_display() if hasattr(profile, 'get_location_flex_display') else (profile.location_flex or ''),
+            'search_status': profile.search_status or 'active',
+            'search_status_display': profile.get_search_status_display() if hasattr(profile, 'get_search_status_display') else '',
             'experience': profile.experience or [],
             'projects': profile.projects or [],
             'tags': profile_tags,
+            'tag_items': tag_items,
             'score': relevance,
         })
 
@@ -182,7 +193,9 @@ def recruiter_wall_api_view(request):
             'company_logo': profile.company_logo.url if profile.company_logo else None,
             'sector': profile.company_sector.get_name(lang) if profile.company_sector else '',
             'company_type': profile.company_type,
+            'company_type_display': profile.get_company_type_display() if hasattr(profile, 'get_company_type_display') else profile.company_type,
             'work_modality': profile.work_modality,
+            'work_modality_display': profile.get_work_modality_display() if hasattr(profile, 'get_work_modality_display') else profile.work_modality,
             'company_description': profile.company_description or '',
             'company_website': profile.company_website or '',
             'social_links': profile.social_links or {},
@@ -204,12 +217,12 @@ def get_tags_api(request):
 
 def get_all_tags_api(request):
     lang = request.LANGUAGE_CODE if hasattr(request, 'LANGUAGE_CODE') else 'es'
-    search = request.GET.get('search', '')
+    search = request.GET.get('search', '').strip()
 
     tags = Tag.objects.all()
     if search:
         tags = tags.filter(
-            Q(name_es__icontains=search) | Q(name_en__icontains=search)
+            Q(name_es__icontains=search) | Q(name_en__icontains=search) | Q(slug__icontains=search)
         )
 
     tag_list = [{
@@ -218,7 +231,7 @@ def get_all_tags_api(request):
         'name': tag.get_name(lang),
         'category': tag.category,
         'especialidad': tag.especialidad.name_es if tag.especialidad else None
-    } for tag in tags[:50]]
+    } for tag in tags[:100]]
 
     return JsonResponse({'tags': tag_list})
 

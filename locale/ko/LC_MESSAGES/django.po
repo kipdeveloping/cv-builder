@@ -51,26 +51,26 @@ msgstr "비밀번호에는 숫자가 하나 이상 포함되어야 합니다."
 #: .\apps\accounts\forms.py:70
 #, python-brace-format
 msgid ""
-"La contraseña debe contener al menos un carácter especial (!@#$%^&*(),.?\":"
-"{}|<>)."
-msgstr ""
-"비밀번호에는 특수 문자를 1개 이상 포함해야 합니다 (!@#$%^&*(),.?\":{}|<>)."
+"La contraseña debe contener al menos un carácter especial "
+"(!@#$%^&*(),.?\":{}|<>)."
+msgstr "비밀번호에는 특수 문자를 1개 이상 포함해야 합니다 (!@#$%^&*(),.?\":{}|<>)."
 
 #: .\apps\accounts\forms.py:87 .\apps\accounts\forms.py:106
 #: .\templates\accounts\complete_profile.html:29
-#: .\templates\accounts\dashboard.html:13 .\templates\accounts\register.html:61
+#: .\templates\accounts\dashboard.html:13
+#: .\templates\accounts\register.html:61
 #: .\templates\resumes\templates\_section_references.html:14
 msgid "Nombre"
 msgstr "이름"
 
 #: .\apps\accounts\forms.py:95 .\apps\accounts\forms.py:115
 #: .\templates\accounts\complete_profile.html:37
-#: .\templates\accounts\dashboard.html:15 .\templates\accounts\register.html:68
+#: .\templates\accounts\dashboard.html:15
+#: .\templates\accounts\register.html:68
 msgid "Apellido"
 msgstr "성"
 
 #: .\apps\accounts\forms.py:124 .\templates\accounts\register.html:77
-#, fuzzy
 #| msgid "Título profesional"
 msgid "Cargo / Título profesional"
 msgstr "직업 직함"
@@ -124,7 +124,6 @@ msgid "El formato del email no es valido."
 msgstr "이메일 형식이 올바르지 않습니다."
 
 #: .\apps\accounts\views.py:347
-#, fuzzy
 #| msgid "Bio actualizada correctamente."
 msgid "Perfil completado correctamente."
 msgstr "소개가 성공적으로 업데이트되었습니다."
@@ -143,13 +142,11 @@ msgid "Informacion de Cuenta"
 msgstr "계정 정보"
 
 #: .\templates\accounts\account_settings.html:15
-#, fuzzy
 #| msgid "Email"
 msgid "Email:"
 msgstr "이메일"
 
 #: .\templates\accounts\account_settings.html:16
-#, fuzzy
 #| msgid "Nombre"
 msgid "Nombre:"
 msgstr "이름"
@@ -191,19 +188,16 @@ msgid "Vincular"
 msgstr "연결"
 
 #: .\templates\accounts\account_settings.html:102
-#, fuzzy
 #| msgid "Volver al dashboard"
 msgid "Volver al Dashboard"
 msgstr "대시보드로 돌아가기"
 
 #: .\templates\accounts\complete_profile.html:4
-#, fuzzy
 #| msgid "Completa tu perfil profesional"
 msgid "Completar perfil"
 msgstr "직업 프로필을 완성하세요"
 
 #: .\templates\accounts\complete_profile.html:9
-#, fuzzy
 #| msgid "Completa tu perfil profesional"
 msgid "Completa tu perfil"
 msgstr "직업 프로필을 완성하세요"
@@ -213,7 +207,6 @@ msgid "Cuéntanos un poco sobre ti para personalizar tu experiencia."
 msgstr "경험을 개인화하기 위해 자신에 대해 조금 알려주세요."
 
 #: .\templates\accounts\complete_profile.html:14
-#, fuzzy
 #| msgid "Por favor, corrige los errores."
 msgid "Por favor, corrige los errores:"
 msgstr "오류를 수정해 주세요."
@@ -221,11 +214,10 @@ msgstr "오류를 수정해 주세요."
 #: .\templates\accounts\complete_profile.html:32
 #: .\templates\accounts\profile.html:347 .\templates\accounts\register.html:64
 msgid "Tu nombre"
-msgstr "귀하의 이름"
+msgstr "이름"
 
 #: .\templates\accounts\complete_profile.html:40
 #: .\templates\accounts\register.html:71
-#, fuzzy
 #| msgid "Tus apellidos"
 msgid "Tu apellido"
 msgstr "귀하의 성"
@@ -239,7 +231,6 @@ msgid "Dashboard"
 msgstr "대시보드"
 
 #: .\templates\accounts\dashboard.html:10
-#, fuzzy
 #| msgid "CV Builder"
 msgid "Bienvenido a CV Builder"
 msgstr "이력서 빌더"
@@ -257,10 +248,9 @@ msgstr "프로필을 완성하려면 이름과 성이 필요합니다."
 #: .\templates\accounts\dashboard.html:516
 #: .\templates\accounts\dashboard.html:608
 #: .\templates\accounts\dashboard.html:654
-#, fuzzy
 #| msgid "Guardar bio"
 msgid "Guardar"
-msgstr "자기소개 저장"
+msgstr "저장"
 
 #: .\templates\accounts\dashboard.html:33 .\templates\accounts\profile.html:24
 #: .\templates\resumes\templates\classic.html:6
@@ -270,10 +260,9 @@ msgid "Foto de perfil"
 msgstr "프로필 사진"
 
 #: .\templates\accounts\dashboard.html:85
-#, fuzzy
 #| msgid "Editar"
 msgid "Editar estado"
-msgstr "편집"
+msgstr "상태 수정"
 
 #: .\templates\accounts\dashboard.html:92 .\templates\accounts\profile.html:64
 #: .\templates\resumes\templates\_section_skills.html:3
@@ -287,40 +276,44 @@ msgstr "기술"
 #: .\templates\accounts\dashboard.html:254
 #: .\templates\accounts\dashboard.html:558
 msgid "Editar"
-msgstr "편집"
+msgstr "수정"
 
-#: .\templates\accounts\dashboard.html:107 .\templates\accounts\profile.html:74
-#, fuzzy
+#: .\templates\accounts\dashboard.html:107
+#: .\templates\accounts\profile.html:74
 #| msgid "Habilidades"
 msgid "Sin habilidades"
 msgstr "기술"
 
-#: .\templates\accounts\dashboard.html:115 .\templates\accounts\profile.html:81
+#: .\templates\accounts\dashboard.html:115
+#: .\templates\accounts\profile.html:81
 msgid "Bio"
-msgstr "자기소개"
+msgstr "소개"
 
 #: .\templates\accounts\dashboard.html:129
-#: .\templates\accounts\dashboard.html:416 .\templates\accounts\profile.html:88
+#: .\templates\accounts\dashboard.html:416
+#: .\templates\accounts\profile.html:88
 msgid "Preferencias de trabajo"
-msgstr "근무 선호사항"
+msgstr "근무 선호도"
 
-#: .\templates\accounts\dashboard.html:137 .\templates\accounts\profile.html:92
+#: .\templates\accounts\dashboard.html:137
+#: .\templates\accounts\profile.html:92
 msgid "Tipo de empleo:"
 msgstr "고용 형태:"
 
-#: .\templates\accounts\dashboard.html:141 .\templates\accounts\profile.html:98
+#: .\templates\accounts\dashboard.html:141
+#: .\templates\accounts\profile.html:98
 msgid "Salario esperado:"
 msgstr "희망 연봉:"
 
 #: .\templates\accounts\dashboard.html:145
 #: .\templates\accounts\profile.html:104
 msgid "Disponible para mudarse:"
-msgstr "이사 가능:"
+msgstr "이직/거주 이전 가능 여부:"
 
 #: .\templates\accounts\dashboard.html:149
 #: .\templates\accounts\profile.html:110
 msgid "Disponible para viajar:"
-msgstr "출장 가능:"
+msgstr "출장 가능 여부:"
 
 #: .\templates\accounts\dashboard.html:158
 #: .\templates\accounts\dashboard.html:525
@@ -329,10 +322,9 @@ msgstr "내 이력서"
 
 #: .\templates\accounts\dashboard.html:167
 #: .\templates\accounts\profile.html:138
-#, fuzzy
 #| msgid "Experiencia"
 msgid "Experiencia y Proyectos"
-msgstr "경력"
+msgstr "경력 및 프로젝트"
 
 #: .\templates\accounts\dashboard.html:170
 #: .\templates\resumes\templates\creative.html:38
@@ -347,16 +339,14 @@ msgstr "소셜 링크"
 #: .\templates\accounts\dashboard.html:283
 #: .\templates\accounts\profile.html:207
 msgid "Sin redes sociales configuradas"
-msgstr "소셜 링크가 설정되지 않음"
+msgstr "설정된 소셜 링크가 없습니다"
 
 #: .\templates\accounts\dashboard.html:294
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar foto"
-msgstr "업데이트: "
+msgstr "사진 업데이트"
 
 #: .\templates\accounts\dashboard.html:305
-#, fuzzy
 #| msgid "JPG, PNG o WebP. Máximo 5MB."
 msgid "JPG, PNG o WebP. Maximo 5MB."
 msgstr "JPG, PNG 또는 WebP. 최대 5MB."
@@ -374,34 +364,29 @@ msgid "Cancelar"
 msgstr "취소"
 
 #: .\templates\accounts\dashboard.html:320
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar titular"
-msgstr "업데이트: "
+msgstr "한 줄 소개 업데이트"
 
 #: .\templates\accounts\dashboard.html:329
-#, fuzzy
 #| msgid "Ej: Desarrollador Web"
 msgid "Ej: Desarrollador Full Stack Senior"
-msgstr "예: 웹 개발자"
+msgstr "예: 시니어 풀스택 개발자"
 
 #: .\templates\accounts\dashboard.html:343
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar bio"
-msgstr "업데이트: "
+msgstr "자기소개 업데이트"
 
 #: .\templates\accounts\dashboard.html:352
-#, fuzzy
 #| msgid "Cuéntanos sobre ti..."
 msgid "Cuentanos sobre ti..."
 msgstr "자신에 대해 알려주세요..."
 
 #: .\templates\accounts\dashboard.html:366
-#, fuzzy
 #| msgid "Actualizado:"
 msgid "Actualizar estado"
-msgstr "업데이트: "
+msgstr "상태 업데이트"
 
 #: .\templates\accounts\dashboard.html:375
 msgid "Estado de busqueda"
@@ -417,31 +402,31 @@ msgstr "지정되지 않음"
 
 #: .\templates\accounts\dashboard.html:378
 msgid "Buscando activamente"
-msgstr "적극 구직 중"
+msgstr "적극적 구직 중"
 
 #: .\templates\accounts\dashboard.html:379
 msgid "Abierto a ofertas"
-msgstr "제안 수락 가능"
+msgstr "이직 제안에 열려 있음"
 
 #: .\templates\accounts\dashboard.html:380
 msgid "No buscando"
-msgstr "구직 중 아님"
+msgstr "구직 중이 아님"
 
 #: .\templates\accounts\dashboard.html:384
 msgid "Disponibilidad"
-msgstr "근무 가능 시기"
+msgstr "입사 가능 시기"
 
 #: .\templates\accounts\dashboard.html:387
 msgid "Inmediata"
-msgstr "즉시"
+msgstr "즉시 가능"
 
 #: .\templates\accounts\dashboard.html:388
 msgid "2 semanas"
-msgstr "2주"
+msgstr "2주 후"
 
 #: .\templates\accounts\dashboard.html:389
 msgid "1 mes"
-msgstr "1개월"
+msgstr "1개월 후"
 
 #: .\templates\accounts\dashboard.html:390
 msgid "Negociable"
@@ -449,11 +434,11 @@ msgstr "협의 가능"
 
 #: .\templates\accounts\dashboard.html:394
 msgid "Preferencia de ubicacion"
-msgstr "근무지 선호"
+msgstr "근무 위치 선호도"
 
 #: .\templates\accounts\dashboard.html:397
 msgid "Remoto"
-msgstr "재택"
+msgstr "원격 근무"
 
 #: .\templates\accounts\dashboard.html:398
 msgid "Hibrido"
@@ -461,7 +446,7 @@ msgstr "하이브리드"
 
 #: .\templates\accounts\dashboard.html:399
 msgid "Presencial"
-msgstr "출근"
+msgstr "현장 근무"
 
 #: .\templates\accounts\dashboard.html:425
 msgid "Tipo de empleo"
@@ -486,42 +471,37 @@ msgstr "예"
 #: .\templates\accounts\dashboard.html:448
 #: .\templates\accounts\dashboard.html:456
 msgid "No"
-msgstr "아니요"
+msgstr "아니오"
 
 #: .\templates\accounts\dashboard.html:449
 msgid "Según destino"
-msgstr "지역에 따라 다름"
+msgstr "지역에 따라 결정"
 
 #: .\templates\accounts\dashboard.html:453
 msgid "Disponible para viajar"
 msgstr "출장 가능"
 
 #: .\templates\accounts\dashboard.html:457
-#, fuzzy
 #| msgid "Opcional"
 msgid "Ocasional"
-msgstr "선택 사항"
+msgstr "때때로 가능"
 
 #: .\templates\accounts\dashboard.html:458
-#, fuzzy
 #| msgid "Crea tu cuenta"
 msgid "Frecuente"
-msgstr "계정 만들기"
+msgstr "자주 가능"
 
 #: .\templates\accounts\dashboard.html:475
-#, fuzzy
 #| msgid "Habilidades"
 msgid "Editar habilidades"
 msgstr "기술"
 
 #: .\templates\accounts\dashboard.html:486
-#, fuzzy
 #| msgid "Agregar habilidad"
 msgid "Nueva habilidad"
 msgstr "기술 추가"
 
 #: .\templates\accounts\dashboard.html:498
-#, fuzzy
 #| msgid "Sector principal:"
 msgid "Principal"
 msgstr "주요 분야:"
@@ -548,7 +528,6 @@ msgid "Agregar experiencia"
 msgstr "경력 추가"
 
 #: .\templates\accounts\dashboard.html:594
-#, fuzzy
 #| msgid "Título del puesto"
 msgid "Titulo del puesto"
 msgstr "직위"
@@ -571,7 +550,7 @@ msgstr "설명..."
 
 #: .\templates\accounts\dashboard.html:617
 msgid "Editar redes sociales"
-msgstr "소셜 링크 편집"
+msgstr "소셜 링크 수정"
 
 #: .\templates\accounts\login.html:4 .\templates\accounts\login.html:46
 #: .\templates\base.html:75
@@ -591,7 +570,6 @@ msgid "¿Olvidaste tu contraseña?"
 msgstr "비밀번호를 잊으셨나요?"
 
 #: .\templates\accounts\login.html:62
-#, fuzzy
 #| msgid "Continúa con"
 msgid "O continúa con"
 msgstr "로 계속하기"
@@ -600,9 +578,7 @@ msgstr "로 계속하기"
 msgid ""
 "El login con redes sociales no está configurado. Consulta el README para "
 "configurar las credenciales OAuth."
-msgstr ""
-"소셜 로그인이 설정되어 있지 않습니다. OAuth 자격 증명 설정은 README를 참조하"
-"세요."
+msgstr "소셜 로그인이 설정되어 있지 않습니다. OAuth 자격 증명 설정은 README를 참조하세요."
 
 #: .\templates\accounts\login.html:108
 msgid "¿No tienes cuenta?"
@@ -618,19 +594,16 @@ msgstr "이것은 공개 프로필입니다"
 
 #: .\templates\accounts\profile.html:12
 #: .\templates\registration\password_change_done.html:13
-#, fuzzy
 #| msgid "Volver al dashboard"
 msgid "Ir al Dashboard"
-msgstr "대시보드로 돌아가기"
+msgstr "대시보드로 이동"
 
 #: .\templates\accounts\profile.html:122
-#, fuzzy
 #| msgid "Contacto"
 msgid "Contactar"
 msgstr "연락처"
 
 #: .\templates\accounts\profile.html:131
-#, fuzzy
 #| msgid "Aún no tienes CVs creados."
 msgid "Este candidato no tiene CVs publicados."
 msgstr "이 후보자는 게시된 이력서가 없습니다."
@@ -662,7 +635,6 @@ msgstr "수상 및 표창"
 
 #: .\templates\accounts\profile.html:289
 #: .\templates\resumes\templates\_section_publications.html:3
-#, fuzzy
 #| msgid "Publicado"
 msgid "Publicaciones"
 msgstr "게시됨"
@@ -674,23 +646,20 @@ msgstr "관심사"
 
 #: .\templates\accounts\profile.html:317
 #: .\templates\resumes\templates\_section_references.html:3
-#, fuzzy
 #| msgid "Experiencia"
 msgid "Referencias"
 msgstr "경력"
 
 #: .\templates\accounts\profile.html:338
-#, fuzzy
 #| msgid "Contacto"
 msgid "Contactar a"
-msgstr "연락처"
+msgstr "연락 대상:"
 
 #: .\templates\accounts\profile.html:350
 msgid "Nombre completo"
 msgstr "성명"
 
 #: .\templates\accounts\profile.html:353
-#, fuzzy
 #| msgid "Email"
 msgid "Tu email"
 msgstr "이메일"
@@ -713,9 +682,10 @@ msgstr "보내기"
 
 #: .\templates\accounts\register.html:5 .\templates\base.html:76
 msgid "Registrarse"
-msgstr "가입하기"
+msgstr "회원가입"
 
-#: .\templates\accounts\register.html:10 .\templates\accounts\register.html:103
+#: .\templates\accounts\register.html:10
+#: .\templates\accounts\register.html:103
 msgid "Crear Cuenta"
 msgstr "계정 만들기"
 
@@ -765,7 +735,7 @@ msgstr "게시판"
 
 #: .\templates\base.html:33
 msgid "Cambiar tema"
-msgstr "테마 변경"
+msgstr "테마 전환"
 
 #: .\templates\base.html:73
 msgid "Salir"
@@ -783,9 +753,7 @@ msgstr "전문 이력서 만들기"
 msgid ""
 "Diseña CVs impresionantes con plantillas profesionales. Publica en nuestro "
 "tablón de talentos y conecta con oportunidades."
-msgstr ""
-"전문 템플릿으로 멋진 이력서를 디자인하세요. 인재 게시판에 게시하고 기회와 연"
-"결되세요."
+msgstr "전문 템플릿으로 멋진 이력서를 디자인하세요. 인재 게시판에 게시하고 기회와 연결되세요."
 
 #: .\templates\landing.html:19
 msgid "Mi Dashboard"
@@ -814,8 +782,7 @@ msgstr "3 가지 전문 템플릿"
 #: .\templates\landing.html:52
 msgid ""
 "Elige entre diseños clásico, moderno y creativo para destacar tu perfil."
-msgstr ""
-"클래식, 모던, 크리에이티브 디자인 중에서 선택하여 프로필을 돋보이게 하세요."
+msgstr "클래식, 모던, 크리에이티브 디자인 중에서 선택하여 프로필을 돋보이게 하세요."
 
 #: .\templates\landing.html:61
 msgid "Editor visual"
@@ -855,7 +822,6 @@ msgid "Contraseña actualizada"
 msgstr "비밀번호가 업데이트되었습니다"
 
 #: .\templates\registration\password_change_done.html:10
-#, fuzzy
 #| msgid "Foto actualizada correctamente."
 msgid "Tu contraseña ha sido cambiada correctamente."
 msgstr "사진이 성공적으로 업데이트되었습니다."
@@ -869,7 +835,6 @@ msgid "Actualizar contraseña"
 msgstr "비밀번호 업데이트"
 
 #: .\templates\registration\password_reset_complete.html:4
-#, fuzzy
 #| msgid "Contraseña"
 msgid "Contraseña restablecida"
 msgstr "비밀번호"
@@ -879,7 +844,6 @@ msgid "Tu contraseña ha sido restablecida. Ya puedes iniciar sesión."
 msgstr "비밀번호가 재설정되었습니다. 이제 로그인할 수 있습니다."
 
 #: .\templates\registration\password_reset_confirm.html:4
-#, fuzzy
 #| msgid "Contraseña"
 msgid "Nueva contraseña"
 msgstr "비밀번호"
@@ -900,8 +864,7 @@ msgstr "비밀번호 저장"
 msgid ""
 "El enlace de restablecimiento no es válido o ya ha sido usado. Solicita uno "
 "nuevo."
-msgstr ""
-"재설정 링크가 유효하지 않거나 이미 사용되었습니다. 새 링크를 요청하세요."
+msgstr "재설정 링크가 유효하지 않거나 이미 사용되었습니다. 새 링크를 요청하세요."
 
 #: .\templates\registration\password_reset_confirm.html:41
 msgid "Solicitar nuevo enlace"
@@ -932,9 +895,7 @@ msgstr "아래 링크를 클릭하여 새 비밀번호를 설정하세요:"
 #: .\templates\registration\password_reset_email.html:9
 msgid ""
 "Si no solicitaste este cambio, ignora este email. Tu contraseña no cambiará."
-msgstr ""
-"이 변경을 요청하지 않았다면 이 이메일을 무시하세요. 비밀번호는 변경되지 않습"
-"니다."
+msgstr "이 변경을 요청하지 않았다면 이 이메일을 무시하세요. 비밀번호는 변경되지 않습니다."
 
 #: .\templates\registration\password_reset_form.html:4
 #: .\templates\registration\password_reset_form.html:9
@@ -1022,7 +983,6 @@ msgid "Año"
 msgstr "연도"
 
 #: .\templates\resumes\templates\_section_awards.html:20
-#, fuzzy
 #| msgid "Agregar experiencia"
 msgid "Agregar premio"
 msgstr "경력 추가"
@@ -1032,13 +992,11 @@ msgid "Nombre de la certificación"
 msgstr "자격증 이름"
 
 #: .\templates\resumes\templates\_section_certifications.html:14
-#, fuzzy
 #| msgid "Institución"
 msgid "Institución o plataforma"
 msgstr "기관"
 
 #: .\templates\resumes\templates\_section_certifications.html:20
-#, fuzzy
 #| msgid "Agregar educación"
 msgid "Agregar certificación"
 msgstr "학력 추가"
@@ -1080,7 +1038,6 @@ msgid "Lectura"
 msgstr "독서"
 
 #: .\templates\resumes\templates\_section_interests.html:13
-#, fuzzy
 #| msgid "Agregar"
 msgid "Agregar interés"
 msgstr "추가"
@@ -1094,7 +1051,6 @@ msgid "Nivel"
 msgstr "수준"
 
 #: .\templates\resumes\templates\_section_languages.html:18
-#, fuzzy
 #| msgid "Agregar habilidad"
 msgid "Agregar idioma"
 msgstr "기술 추가"
@@ -1108,7 +1064,6 @@ msgid "Nombre del proyecto"
 msgstr "프로젝트 이름"
 
 #: .\templates\resumes\templates\_section_projects.html:14
-#, fuzzy
 #| msgid "Descripción de tus responsabilidades..."
 msgid "Descripción del proyecto..."
 msgstr "담당 업무 설명..."
@@ -1119,13 +1074,11 @@ msgid "https://..."
 msgstr "https://..."
 
 #: .\templates\resumes\templates\_section_projects.html:20
-#, fuzzy
 #| msgid "Agregar experiencia"
 msgid "Agregar proyecto"
-msgstr "경력 추가"
+msgstr "프로젝트 추가"
 
 #: .\templates\resumes\templates\_section_publications.html:14
-#, fuzzy
 #| msgid "Título del puesto"
 msgid "Título de la publicación"
 msgstr "직위"
@@ -1135,13 +1088,11 @@ msgid "Medio o revista"
 msgstr "매체 또는 저널"
 
 #: .\templates\resumes\templates\_section_publications.html:22
-#, fuzzy
 #| msgid "Agregar educación"
 msgid "Agregar publicación"
 msgstr "학력 추가"
 
 #: .\templates\resumes\templates\_section_references.html:15
-#, fuzzy
 #| msgid "Cargando..."
 msgid "Cargo"
 msgstr "로딩 중..."
@@ -1151,7 +1102,6 @@ msgid "email o teléfono"
 msgstr "이메일 또는 전화"
 
 #: .\templates\resumes\templates\_section_references.html:22
-#, fuzzy
 #| msgid "Agregar experiencia"
 msgid "Agregar referencia"
 msgstr "경력 추가"
@@ -1183,7 +1133,6 @@ msgid "Describe tu labor..."
 msgstr "담당 업무를 설명하세요..."
 
 #: .\templates\resumes\templates\_section_volunteering.html:22
-#, fuzzy
 #| msgid "Agregar habilidad"
 msgid "Agregar voluntariado"
 msgstr "기술 추가"
@@ -1229,6 +1178,1037 @@ msgstr "로딩 중..."
 #: .\templates\wall\wall.html:43
 msgid "No se encontraron CVs en esta categoría."
 msgstr "이 카테고리에서 이력서를 찾을 수 없습니다."
+
+msgid "Mis Habilidades"
+msgstr "내 기술"
+
+msgid "Perfil público"
+msgstr "공개 프로필"
+
+msgid "Perfil publico"
+msgstr "공개 프로필"
+
+msgid "Activa para que tu perfil sea visible en el tablón"
+msgstr "게시판에 프로필이 표시되도록 활성화하세요"
+
+msgid "Debes subir una foto de perfil para hacer tu perfil público."
+msgstr "프로필을 공개하려면 프로필 사진을 업로드해야 합니다."
+
+msgid "Debes subir una foto de perfil para hacer tu perfil publico."
+msgstr "프로필을 공개하려면 프로필 사진을 업로드해야 합니다."
+
+msgid "Sin titular"
+msgstr "한 줄 소개 없음"
+
+msgid "Sin biografia"
+msgstr "자기소개 없음"
+
+msgid "Sin biografía"
+msgstr "자기소개 없음"
+
+msgid "Sector:"
+msgstr "분야:"
+
+msgid "Rol:"
+msgstr "역할:"
+
+msgid "Especialidad:"
+msgstr "전문 분야:"
+
+msgid "Seniority:"
+msgstr "경력 레벨:"
+
+msgid "Idiomas:"
+msgstr "언어:"
+
+msgid "Tags:"
+msgstr "태그:"
+
+msgid "Sin experiencia ni proyectos agregados"
+msgstr "추가된 경력이나 프로젝트가 없습니다"
+
+msgid "Cargo / Puesto"
+msgstr "직책 / 직무"
+
+msgid "Empresa o Cliente"
+msgstr "회사 또는 고객사"
+
+msgid "Logotipo de la empresa (Opcional)"
+msgstr "회사 로고 (선택 사항)"
+
+msgid "Captura o imagen del proyecto (Opcional)"
+msgstr "프로젝트 스크린샷 또는 이미지 (선택 사항)"
+
+msgid "Haz clic para subir"
+msgstr "클릭하여 업로드"
+
+msgid "el logo o imagen"
+msgstr "로고 또는 이미지"
+
+msgid "la captura del proyecto"
+msgstr "프로젝트 스크린샷"
+
+msgid "Logotipo cargado"
+msgstr "로고 업로드 완료"
+
+msgid "Imagen cargada"
+msgstr "이미지 업로드 완료"
+
+msgid "Listo para guardar"
+msgstr "저장 준비 완료"
+
+msgid "Eliminar"
+msgstr "삭제"
+
+msgid "Ver"
+msgstr "보기"
+
+msgid "Editar Habilidades"
+msgstr "기술 수정"
+
+msgid "Editar experiencia"
+msgstr "경력 수정"
+
+msgid "Editar proyecto"
+msgstr "프로젝트 수정"
+
+msgid "Estado de búsqueda"
+msgstr "구직 상태"
+
+msgid "Preferencia de ubicación"
+msgstr "근무 위치 선호도"
+
+msgid "Cuéntanos sobre ti..."
+msgstr "자신에 대해 알려주세요..."
+
+msgid "JPG, PNG o WebP. Máximo 5MB."
+msgstr "JPG, PNG 또는 WebP. 최대 5MB."
+
+msgid "URL del proyecto (Opcional)"
+msgstr "프로젝트 URL (선택 사항)"
+
+msgid "Describe el proyecto y las tecnologías usadas..."
+msgstr "프로젝트와 사용된 기술을 설명하세요..."
+
+msgid "Describe tus responsabilidades y logros..."
+msgstr "담당 업무 및 성과를 설명하세요..."
+
+msgid "Seleccionar..."
+msgstr "선택..."
+
+msgid "Seleccionar idioma..."
+msgstr "언어 선택..."
+
+msgid "Buscar tag..."
+msgstr "태그 검색..."
+
+msgid "Híbrido"
+msgstr "하이브리드"
+
+msgid "Segun destino"
+msgstr "지역에 따라 결정"
+
+msgid "Full-time"
+msgstr "정규직"
+
+msgid "Part-time"
+msgstr "파트타임"
+
+msgid "Contrato"
+msgstr "계약직"
+
+msgid "Freelance"
+msgstr "프리랜서"
+
+msgid "Si"
+msgstr "예"
+
+msgid "Junior"
+msgstr "주니어"
+
+msgid "Semi-Senior"
+msgstr "미드 레벨"
+
+msgid "Senior"
+msgstr "시니어"
+
+msgid "Lead"
+msgstr "리드"
+
+msgid "Español"
+msgstr "스페인어"
+
+msgid "Inglés"
+msgstr "영어"
+
+msgid "Portugués"
+msgstr "포르투갈어"
+
+msgid "Francés"
+msgstr "프랑스어"
+
+msgid "Alemán"
+msgstr "독일어"
+
+msgid "Italiano"
+msgstr "이탈리아어"
+
+msgid "Japonés"
+msgstr "일본어"
+
+msgid "Coreano"
+msgstr "한국어"
+
+msgid "Chino"
+msgstr "중국어"
+
+msgid "Ruso"
+msgstr "러시아어"
+
+msgid "Árabe"
+msgstr "아랍어"
+
+msgid "Hindi"
+msgstr "힌디어"
+
+msgid "Proyecto"
+msgstr "프로젝트"
+
+msgid "Periodo"
+msgstr "기간"
+
+msgid "Descripción"
+msgstr "설명"
+
+msgid "Rol"
+msgstr "역할"
+
+msgid "Especialidad"
+msgstr "전문 분야"
+
+msgid "Seniority"
+msgstr "경력 레벨"
+
+msgid "Tags"
+msgstr "태그"
+
+msgid "Perfil Profesional"
+msgstr "전문가 프로필"
+
+msgid "Para trabajadores"
+msgstr "구직자용"
+
+msgid "Para reclutadores"
+msgstr "채용 담당자용"
+
+msgid "¿Deseas eliminar esta experiencia laboral?"
+msgstr "이 경력을 삭제하시겠습니까?"
+
+msgid "¿Deseas eliminar este proyecto?"
+msgstr "이 프로젝트를 삭제하시겠습니까?"
+
+msgid "Ej: Desarrollador Full Stack"
+msgstr "예: 풀스택 개발자"
+
+msgid "Ej: Tech Solutions"
+msgstr "예: Tech Solutions"
+
+msgid "2021 - Presente"
+msgstr "2021 - 현재"
+
+msgid "Ej: App de Delivery"
+msgstr "예: 배달 애플리케이션"
+
+msgid "Ej: Proyecto Personal"
+msgstr "예: 개인 프로젝트"
+
+msgid "2023"
+msgstr "2023"
+
+msgid "Acerca de mí"
+msgstr "내 소개"
+
+msgid "Activa"
+msgstr "활성"
+
+msgid "Activa para que tu empresa sea visible en el directorio"
+msgstr "기업 디렉토리에 표시되도록 활성화하세요"
+
+msgid "Actualizar descripción"
+msgstr "설명 업데이트"
+
+msgid "Al menos un carácter especial (!@#$%^&*...)"
+msgstr "특수 문자 1개 이상 (!@#$%^&*...)"
+
+msgid "Buscar sector..."
+msgstr "분야 검색..."
+
+msgid "Busco Talento"
+msgstr "인재 찾기"
+
+msgid "Busco Trabajo"
+msgstr "구직 중"
+
+msgid "Búsqueda Avanzada y Scoring"
+msgstr "고급 검색 및 스코어링"
+
+msgid "Candidato"
+msgstr "구직자"
+
+msgid "Contactar con Candidato"
+msgstr "후보자에게 연락하기"
+
+msgid ""
+"Crea tu perfil en minutos o explora nuestro directorio de empresas y "
+"talentos."
+msgstr "몇 분 만에 프로필을 만들거나 기업 및 인재 디렉토리를 탐색하세요."
+
+msgid "Crear Nueva Vacante"
+msgstr "새 채용 공고 작성"
+
+msgid "Crear Vacante"
+msgstr "채용 공고 작성"
+
+msgid "Crear una cuenta gratis"
+msgstr "무료 계정 만들기"
+
+msgid "Cuéntanos sobre tu empresa..."
+msgstr "회사에 대해 알려주세요..."
+
+msgid "Debe ser un correo corporativo (no Gmail, Yahoo, Hotmail, etc)."
+msgstr "회사 이메일이어야 합니다 (Gmail, Yahoo, Hotmail 등 불가)."
+
+msgid "Describe las responsabilidades y requisitos del puesto..."
+msgstr "직무의 책임 및 자격 요건을 설명하세요..."
+
+msgid "Descubre empresas y reclutadores en diferentes sectores."
+msgstr "다양한 분야의 기업과 채용 담당자를 만나보세요."
+
+msgid "Explorar tablón de candidatos"
+msgstr "구직자 게시판 둘러보기"
+
+msgid "Explorar tablón de reclutadores"
+msgstr "채용 공고 게시판 둘러보기"
+
+msgid "Explorar tablón público sin registro"
+msgstr "가입 없이 공개 게시판 둘러보기"
+
+msgid "Inicia sesión aquí"
+msgstr "여기서 로그인"
+
+msgid "Ir a tablón de reclutadores"
+msgstr "채용 공고 게시판으로 이동"
+
+msgid "Ir a tablón de trabajadores"
+msgstr "인재 게시판으로 이동"
+
+msgid ""
+"La plataforma que redefine el CV tradicional en un perfil profesional "
+"interactivo."
+msgstr "전통적인 이력서를 인터랙티브 전문가 프로필로 재정의하는 플랫폼."
+
+msgid "Limpiar filtros"
+msgstr "필터 초기화"
+
+msgid "Nombre de Empresa"
+msgstr "회사명"
+
+msgid "Nombre de tu empresa"
+msgstr "회사 이름"
+
+msgid "Nombre y apellidos"
+msgstr "성명"
+
+msgid "Registrarme como Candidato"
+msgstr "구직자로 등록"
+
+msgid "Registrarme como Reclutador"
+msgstr "채용 담당자로 등록"
+
+msgid "Requisitos de la contraseña:"
+msgstr "비밀번호 요구사항:"
+
+msgid "Sitio Web"
+msgstr "웹사이트"
+
+msgid "Sobre la empresa"
+msgstr "회사 소개"
+
+msgid "Ubicación"
+msgstr "위치"
+
+msgid "¿Listo para impulsar tu carrera o escalar tu equipo?"
+msgstr "커리어를 도약시키거나 팀을 확장할 준비가 되셨나요?"
+
+msgid "¿Por qué TalentStack?"
+msgstr "왜 TalentStack인가요?"
+
+msgid "¿Qué estás buscando en la plataforma?"
+msgstr "플랫폼에서 무엇을 찾고 계신가요?"
+
+msgid "¿Ya tienes una cuenta con Google, GitHub o LinkedIn?"
+msgstr "Google, GitHub 또는 LinkedIn 계정이 이미 있으신가요?"
+
+msgid "Descripción (opcional)"
+msgstr "설명 (선택)"
+
+msgid "Deseables (OR)"
+msgstr "우대사항 (OR)"
+
+msgid "Ej: $30,000 - $50,000 MXN mensuales"
+msgstr "예: 월 30,000 - 50,000 MXN"
+
+msgid "Ej: Ciudad de México, México"
+msgstr "예: 멕시코시티, 멕시코"
+
+msgid "Empresa Directa"
+msgstr "직접 채용 기업"
+
+msgid "Enviar Mensaje"
+msgstr "메시지 보내기"
+
+msgid "Escribe tu propuesta o mensaje para el candidato..."
+msgstr "후보자에게 제안이나 메시지를 작성하세요..."
+
+msgid "Especialidad y Habilidades"
+msgstr "전문 분야 및 기술"
+
+msgid "Experiencia Laboral"
+msgstr "직무 경력"
+
+msgid "Ficha de Datos"
+msgstr "데이터 시트"
+
+msgid ""
+"Filtra perfiles o empresas por sector, especialidades concretas, modalidad "
+"de trabajo y más. Encuentra exactamente la combinación que necesitas."
+msgstr "분야, 특정 전문 기술, 근무 형태 등으로 프로필이나 기업을 필터링하세요. 필요한 완벽한 조합을 찾을 수 있습니다."
+
+msgid "Filtros Avanzados"
+msgstr "고급 필터"
+
+msgid "Haz visible tu potencial"
+msgstr "당신의 잠재력을 드러내세요"
+
+msgid "Ingresa un requisito por línea"
+msgstr "한 줄에 하나의 자격요건을 입력하세요"
+
+msgid "Logo de empresa"
+msgstr "회사 로고"
+
+msgid "Logo de la empresa"
+msgstr "회사 로고"
+
+msgid ""
+"Los profesionales exploran ofertas y empresas públicas; los reclutadores "
+"gestionan vacantes y contactan directo con los candidatos."
+msgstr "구직자는 채용 공고와 공개 기업을 탐색하고, 채용 담당자는 공고를 관리하며 인재에게 직접 연락합니다."
+
+msgid "Mis Ofertas / Vacantes"
+msgstr "내 채용 공고 / 포지션"
+
+msgid "Modalidad"
+msgstr "근무 형태"
+
+msgid "Modalidad:"
+msgstr "근무 형태:"
+
+msgid "No hay vacantes activas por el momento."
+msgstr "현재 활성화된 채용 공고가 없습니다."
+
+msgid "No se encontraron empresas con estos filtros."
+msgstr "해당 조건의 기업을 찾을 수 없습니다."
+
+msgid "No se encontraron perfiles con estos filtros."
+msgstr "해당 조건의 프로필을 찾을 수 없습니다."
+
+msgid "No tienes vacantes publicadas"
+msgstr "게시된 채용 공고가 없습니다"
+
+msgid "Nota: La funcionalidad de guardado estará disponible próximamente."
+msgstr "참고: 저장 기능은 곧 제공될 예정입니다."
+
+msgid "Obligatorios (AND)"
+msgstr "필수사항 (AND)"
+
+msgid "Particular"
+msgstr "개인"
+
+msgid "Paso 1 de 4 – ¿Qué buscas?"
+msgstr "1단계 / 4단계 – 무엇을 찾고 계신가요?"
+
+msgid "Perfiles Interactivos"
+msgstr "인터랙티브 프로필"
+
+msgid "Preferencias de Trabajo"
+msgstr "근무 선호사항"
+
+msgid ""
+"Presenta tu experiencia, seniority, disponibilidad y red de habilidades en "
+"una página pública optimizada para compartir."
+msgstr "공유에 최적화된 공개 페이지에서 경력, 시니어 레벨, 가능 일정, 보유 기술을 한눈에 보여주세요."
+
+msgid "Proyectos Destacados"
+msgstr "주요 프로젝트"
+
+msgid "Rango salarial"
+msgstr "급여 범위"
+
+msgid "Reclutador"
+msgstr "채용 담당자"
+
+msgid "Reclutador Independiente"
+msgstr "프리랜서 채용 담당자"
+
+msgid "Redes Sociales y Portafolio"
+msgstr "소셜 미디어 및 포트폴리오"
+
+msgid "Redes y Enlaces"
+msgstr "소셜 링크"
+
+msgid "Requisitos"
+msgstr "자격 요건"
+
+msgid "Sin enlaces externos configurados."
+msgstr "설정된 외부 링크가 없습니다."
+
+msgid "Sitio Web (opcional)"
+msgstr "웹사이트 (선택)"
+
+msgid "Sitio Web:"
+msgstr "웹사이트:"
+
+msgid "Sobre Nosotros"
+msgstr "회사 소개"
+
+msgid "Tablón de Empresas"
+msgstr "기업 게시판"
+
+msgid "Tags (Opcionales)"
+msgstr "태그 (선택)"
+
+msgid "Tecnologías"
+msgstr "기술 스택"
+
+msgid "Tipo de Empresa"
+msgstr "기업 형태"
+
+msgid "Tipo de Reclutador"
+msgstr "채용 담당자 유형"
+
+msgid "Tipo:"
+msgstr "유형:"
+
+msgid "Todas"
+msgstr "전체"
+
+msgid "Trayectoria laboral y proyectos destacados"
+msgstr "업무 이력 및 주요 프로젝트"
+
+msgid "Ubicación:"
+msgstr "위치:"
+
+msgid "Un espacio doble"
+msgstr "두 개의 공간"
+
+msgid "Un requisito por línea..."
+msgstr "한 줄에 하나의 자격 요건..."
+
+msgid "Vacantes Activas"
+msgstr "진행 중인 채용 공고"
+
+msgid "Ver proyecto"
+msgstr "프로젝트 보기"
+
+msgid ""
+"Vista previa: así es como los reclutadores y empresas ven tu perfil público."
+msgstr "미리보기: 채용 담당자와 기업에게 공개 프로필이 이렇게 표시됩니다."
+
+msgid "candidatos"
+msgstr "후보자"
+
+msgid "tu@empresa.com"
+msgstr "you@company.com"
+
+msgid "Sin biografía disponible"
+msgstr "등록된 소개가 없습니다"
+
+msgid "Paso 1 de 4 — ¿Qué buscas?"
+msgstr "1단계 / 4단계 — 무엇을 찾고 계신가요?"
+
+msgid "Agregar tag"
+msgstr "태그 추가"
+
+msgid "Añadir"
+msgstr "추가"
+
+msgid "Buscar o agregar tag (ej: Python, React, Git)..."
+msgstr "태그 검색 또는 추가 (예: Python, React, Git)..."
+
+msgid "Escribe y presiona Enter o haz clic en + para añadir."
+msgstr "입력 후 Enter를 누르거나 + 를 클릭하여 추가하세요."
+
+msgid "No hay idiomas seleccionados"
+msgstr "선택된 언어가 없습니다"
+
+msgid "No hay tags seleccionados"
+msgstr "선택된 태그가 없습니다"
+
+msgid "Nuevo tag"
+msgstr "새 태그"
+
+msgid "100% Gratuito para candidatos"
+msgstr "후보자 100% 무료"
+
+msgid "Afinidad con vacantes técnicas"
+msgstr "기술 직무 적합도"
+
+msgid "Alcance internacional"
+msgstr "국제적 도달 범위"
+
+msgid "Arquitectura de microservicios y liderazgo de equipo técnico."
+msgstr "마이크로서비스 아키텍처 및 기술 팀 리더십."
+
+msgid "Backend Python"
+msgstr "Python 백엔드"
+
+msgid "Búsqueda y filtrado"
+msgstr "검색 및 필터링"
+
+msgid "CV Tradicional (PDF)"
+msgstr "전통적인 이력서 (PDF)"
+
+msgid "CV Tradicional en PDF"
+msgstr "전통적인 PDF 이력서"
+
+msgid "Cero métricas de visualización ni interés de empresas"
+msgstr "조회수 지표 제로 및 기업 관심도 확인 불가"
+
+msgid "Cero visibilidad"
+msgstr "가시성 제로"
+
+msgid "Compara la experiencia"
+msgstr "경험 비교하기"
+
+msgid "Contactar directamente"
+msgstr "직접 연락하기"
+
+msgid "Contacto directo"
+msgstr "직접 문의"
+
+msgid "Contacto directo con reclutadores"
+msgstr "채용 담당자와의 직접 연락"
+
+msgid "Contacto directo sin intermediarios"
+msgstr "중개자 없는 직접 연락"
+
+msgid "Contacto directo y seguro vía email"
+msgstr "이메일을 통한 안전하고 직접적인 연락"
+
+msgid "Contacto y respuesta"
+msgstr "연락 및 응답"
+
+msgid ""
+"Crea tu perfil en minutos, comparte tu enlace personalizado y haz visible tu"
+" potencial ante las mejores oportunidades."
+msgstr "몇 분 만에 프로필을 만들고, 맞춤 링크를 공유하여 최고의 기회에 당신의 잠재력을 드러내세요."
+
+msgid "Crear mi cuenta gratuita"
+msgstr "무료 계정 생성"
+
+msgid "Crear mi perfil interactivo"
+msgstr "대화형 프로필 만들기"
+
+msgid "Criterio"
+msgstr "기준"
+
+msgid "Código fuente"
+msgstr "소스 코드"
+
+msgid "Data & IA"
+msgstr "데이터 & AI"
+
+msgid "Demostración de habilidades"
+msgstr "기술 입증"
+
+msgid "Desactualizado el mismo día en que se descarga"
+msgstr "다운로드하는 바로 그날 구식이 됨"
+
+msgid "Desarrollo Web"
+msgstr "웹 개발"
+
+msgid "Descargar resumen"
+msgstr "요약본 다운로드"
+
+msgid "Dinámico, responsivo y enriquecido con medios"
+msgstr "동적이고 반응형이며 다양한 미디어 지원"
+
+msgid "Diseñado para hacer destacar tu valor real en el mercado"
+msgstr "시장에서 당신의 실제 가치를 돋보이게 하도록 설계되었습니다"
+
+msgid "Diseño & UX"
+msgstr "디자인 & UX"
+
+msgid "Disponible para nuevas ofertas"
+msgstr "새로운 기회에 열려 있음"
+
+msgid "Doble Ecosistema Conectado"
+msgstr "연결된 듀얼 에코시스템"
+
+msgid "Documento estático de 2 páginas"
+msgstr "정적인 2페이지 문서"
+
+msgid ""
+"Dos tablones sincronizados: profesionales mostrando su talento y "
+"reclutadores publicando oportunidades con total transparencia."
+msgstr "두 개의 동기화된 보드: 자신의 재능을 선보이는 전문가들과 완전한 투명성으로 기회를 게시하는 채용 담당자."
+
+msgid ""
+"El CV tradicional en PDF ha muerto. Construye un perfil dinámico con "
+"taxonomía en 4 niveles, portafolio multimedia y contacto directo con "
+"reclutadores globales."
+msgstr ""
+"전통적인 PDF 이력서는 끝났습니다. 4단계 분류 체계, 멀티미디어 포트폴리오, 글로벌 채용 담당자와의 직접 소통이 가능한 동적 프로필을"
+" 만드세요."
+
+msgid "El contraste entre el viejo modelo y la nueva era profesional"
+msgstr "기존 모델과 새로운 전문직 시대 간의 극명한 대비"
+
+msgid "Enlaces a proyectos y demos que nadie abre"
+msgstr "아무도 열어보지 않는 프로젝트 및 데모 링크"
+
+msgid "Enlaces muertos"
+msgstr "끊어진 링크"
+
+msgid "Enterrado en la bandeja"
+msgstr "받은편지함에 파묻힘"
+
+msgid "Enterrado en un buzón junto a cientos de archivos idénticos"
+msgstr "수백 개의 동일한 파일과 함께 받은편지함에 묻힘"
+
+msgid "Español (Nativo), Inglés (C1 Avanzado)"
+msgstr "스페인어 (원어민), 영어 (C1 고급)"
+
+msgid "Especialidades y tecnologías destacadas en este sector:"
+msgstr "이 분야의 주요 전문 분야 및 기술:"
+
+msgid "Experiencia reciente"
+msgstr "최근 경력"
+
+msgid "Explorador de Talento en Tiempo Real"
+msgstr "실시간 인재 탐색기"
+
+msgid "Explorar tablón de empresas"
+msgstr "기업 게시판 둘러보기"
+
+msgid "Explorar tablón de talento"
+msgstr "인재 게시판 둘러보기"
+
+msgid "Explorar tablón público"
+msgstr "공개 게시판 둘러보기"
+
+msgid "Explorar todos los perfiles de este sector"
+msgstr "이 분야의 모든 프로필 둘러보기"
+
+msgid "Filtra por sector y descubre las especialidades más demandadas hoy"
+msgstr "분야별로 필터링하고 오늘날 가장 수요가 많은 전문 분야를 확인하세요"
+
+msgid "Finanzas"
+msgstr "금융"
+
+msgid "Formato y diseño"
+msgstr "형식 및 디자인"
+
+msgid "Haz visible tu talento con un"
+msgstr "당신의 재능을 보여주는"
+
+msgid "Idiomas disponibles"
+msgstr "지원 언어"
+
+msgid "Imágenes, links y repositorio directo"
+msgstr "이미지, 링크 및 직접 저장소 연결"
+
+msgid "Ir a mi Dashboard"
+msgstr "내 대시보드로 이동"
+
+msgid "La diferencia es contundente"
+msgstr "차이는 분명합니다"
+
+msgid "La evolución del currículum profesional"
+msgstr "전문가 이력서의 진화"
+
+msgid "Lectura manual o filtros ATS opacos"
+msgstr "수동 검토 또는 불투명한 ATS 필터"
+
+msgid "Listas de texto sin verificación visual"
+msgstr "시각적 입증이 없는 단순 텍스트 목록"
+
+msgid "Marketing & Growth"
+msgstr "마케팅 & 그로스"
+
+msgid "Matching Transparente y Cero Spam"
+msgstr "투명한 매칭 및 스팸 제로"
+
+msgid ""
+"Muestra capturas de proyectos, demos funcionales y repositorios de código. "
+"Demuestra lo que sabes hacer."
+msgstr "프로젝트 스크린샷, 실제 작동하는 데모, 코드 저장소를 보여주세요. 당신의 역량을 증명하세요."
+
+msgid "Niveles de clasificación"
+msgstr "분류 체계 단계"
+
+msgid "Obsoleto de inmediato"
+msgstr "즉시 구식이 됨"
+
+msgid ""
+"Olvídate de palabras clave sueltas. Clasificamos perfiles mediante Sector, "
+"Rol, Especialidad y Tags para un matching quirúrgico."
+msgstr "단순 키워드 나열은 잊으세요. 정확한 매칭을 위해 섹터, 역할, 전문 분야, 태그로 프로필을 정밀하게 분류합니다."
+
+msgid "Perfil Vivo TalentStack"
+msgstr "TalentStack 라이브 프로필"
+
+msgid "Portafolio Multimedia Integrado"
+msgstr "통합 멀티미디어 포트폴리오"
+
+msgid "Portafolio en vivo con demos y repositorios"
+msgstr "데모 및 저장소가 포함된 실시간 포트폴리오"
+
+msgid "Presencia Global en 12 Idiomas"
+msgstr "12개 언어로 글로벌 진출"
+
+msgid "Profesionales conectados"
+msgstr "연결된 전문가"
+
+msgid "Proyectos interactivos"
+msgstr "대화형 프로젝트"
+
+msgid "Rechazado por filtro ATS"
+msgstr "ATS 필터에 의해 탈락"
+
+msgid "Remoto / Disponible a nivel global"
+msgstr "원격 근무 / 전 세계 어디서나 가능"
+
+msgid "Rígido, estático y limitado a 2 páginas"
+msgstr "경직되고 정적이며 2페이지로 제한됨"
+
+msgid "Semanas de silencio por correo"
+msgstr "몇 주간 이어지는 이메일 무응답"
+
+msgid "Senior Full-Stack & Cloud Engineer"
+msgstr "시니어 풀스택 & 클라우드 엔지니어"
+
+msgid ""
+"Sin algoritmos opacos ni comisiones abusivas. Filtra perfiles por "
+"disponibilidad real y contacta sin rodeos."
+msgstr "불투명한 알고리즘이나 과도한 수수료가 없습니다. 실제 가용성으로 프로필을 필터링하고 바로 연락하세요."
+
+msgid "Sin coste para profesionales"
+msgstr "전문가 이용료 무료"
+
+msgid "Superpoderes de TalentStack"
+msgstr "TalentStack의 핵심 역량"
+
+msgid "Tablón de Candidatos"
+msgstr "후보자 게시판"
+
+msgid "Tablón de Reclutadores"
+msgstr "채용 담당자 게시판"
+
+msgid "Taxonomía Estructurada en 4 Capas"
+msgstr "구조화된 4단계 분류 체계"
+
+msgid "Taxonomía de Precisión"
+msgstr "정밀 분류 체계"
+
+msgid "Taxonomía de precisión en 4 capas"
+msgstr "4단계 정밀 분류 체계"
+
+msgid "Taxonomía inteligente en 4 capas"
+msgstr "지능형 4단계 분류 체계"
+
+msgid "Tecnología"
+msgstr "기술"
+
+msgid "Tecnologías y competencias destacadas"
+msgstr "주요 기술 및 핵심 역량"
+
+msgid "Texto plano sin interactividad ni demostración práctica"
+msgstr "상호작용이나 실질적 증명이 없는 단순 텍스트"
+
+msgid "Traducción automática a 12 idiomas"
+msgstr "12개 언어 자동 번역"
+
+msgid "Traducción nativa en 12 idiomas"
+msgstr "12개 언어 원어민급 번역 지원"
+
+msgid ""
+"Tu perfil y su taxonomía se traducen automáticamente para conectar con "
+"oportunidades en todo el mundo sin barreras."
+msgstr "당신의 프로필과 분류 체계가 자동으로 번역되어 장벽 없이 전 세계의 기회와 연결됩니다."
+
+msgid "Un PDF por cada idioma a traducir"
+msgstr "번역할 언어마다 별도의 PDF 필요"
+
+msgid "Ver demo en vivo"
+msgstr "라이브 데모 보기"
+
+msgid "Vista interactiva"
+msgstr "대화형 보기"
+
+msgid "perfil profesional interactivo"
+msgstr "인터랙티브 전문 프로필"
+
+msgid ""
+"¡Simulación interactiva! En un perfil real, este botón abre el canal de "
+"contacto directo con el candidato."
+msgstr "인터랙티브 시뮬레이션! 실제 프로필에서는 이 버튼으로 후보자와 직접 연락할 수 있습니다."
+
+msgid "¿Buscas contratar talento?"
+msgstr "인재를 채용하고 싶으신가요?"
+
+msgid "¿Listo para dar el salto al perfil interactivo?"
+msgstr "대화형 프로필로 한 단계 도약할 준비가 되셨나요?"
+
+msgid "¿Por qué un perfil interactivo supera a cualquier PDF?"
+msgstr "왜 대화형 프로필이 기존 PDF를 압도할까요?"
+
+msgid "Aumentan el score de afinidad"
+msgstr "적합도 점수 증가"
+
+msgid "Buscando empresas y reclutadores..."
+msgstr "기업 및 채용 담당자 검색 중..."
+
+msgid "Buscando profesionales..."
+msgstr "전문가 검색 중..."
+
+msgid "Buscar sector (ej: Tecnología, Salud)..."
+msgstr "섹터 검색 (예: 기술, 헬스케어)..."
+
+msgid "Cargando empresas..."
+msgstr "기업 목록 불러오는 중..."
+
+msgid "Cargando perfiles..."
+msgstr "프로필 불러오는 중..."
+
+msgid ""
+"Descubre organizaciones y reclutadores que buscan talento activamente con "
+"total transparencia."
+msgstr "완전한 투명성으로 인재를 적극적으로 찾는 기업과 채용 담당자를 발견하세요."
+
+msgid "Disponible"
+msgstr "가능"
+
+msgid "El perfil debe tener todos"
+msgstr "프로필이 모두 갖추어야 함"
+
+msgid ""
+"Encuentra empresas por sector, modalidad de trabajo o tipo de reclutador."
+msgstr "분야, 근무 방식 또는 채용 담당자 유형별로 기업을 찾으세요."
+
+msgid "Escribe para buscar tag (ej: Docker, AWS)..."
+msgstr "태그 검색을 위해 입력 (예: Docker, AWS)..."
+
+msgid "Escribe para buscar tag (ej: Python, React)..."
+msgstr "태그 검색을 위해 입력 (예: Python, React)..."
+
+msgid ""
+"Explora perfiles verificados con taxonomía de precisión, habilidades reales "
+"y contacto directo."
+msgstr "정밀한 분류 체계, 검증된 역량, 직접 연락이 가능한 프로필을 탐색하세요."
+
+msgid ""
+"Filtra en cascada por Sector, Rol, Especialidad y competencias específicas."
+msgstr "섹터, 역할, 전문 분야 및 세부 역량별로 단계별 필터링하세요."
+
+msgid "Filtros Adicionales (Seniority y Modalidad)"
+msgstr "추가 필터 (경력 수준 및 근무 방식)"
+
+msgid "Filtros de Búsqueda Taxonómica"
+msgstr "분류 체계 검색 필터"
+
+msgid "Filtros de Empresas y Vacantes"
+msgstr "기업 및 채용 공고 필터"
+
+msgid "Match"
+msgstr "매치"
+
+msgid "Modalidad de Trabajo"
+msgstr "근무 방식"
+
+msgid "Nivel de Seniority"
+msgstr "경력 수준"
+
+msgid "No se encontraron empresas con estos filtros"
+msgstr "이 필터와 일치하는 기업이 없습니다"
+
+msgid "No se encontraron perfiles con estos filtros"
+msgstr "이 필터와 일치하는 프로필이 없습니다"
+
+msgid "Obligatorios / Deseables"
+msgstr "필수 / 우대"
+
+msgid "Para reclutadores (Empresas)"
+msgstr "채용 담당자용 (기업)"
+
+msgid "Para trabajadores (Candidatos)"
+msgstr "구직자용 (인재)"
+
+msgid ""
+"Prueba relajando algunos criterios de búsqueda o limpiando los filtros para "
+"ver más resultados."
+msgstr "검색 조건을 완화하거나 필터를 재설정하여 더 많은 결과를 확인해보세요."
+
+msgid "Restablecer todos los filtros"
+msgstr "모든 필터 초기화"
+
+msgid "Sectores de Contratación"
+msgstr "채용 분야"
+
+msgid "Sin descripción"
+msgstr "설명 없음"
+
+msgid "Tags y Tecnologías Clave"
+msgstr "태그 및 핵심 기술"
+
+msgid "Todas las especialidades"
+msgstr "모든 전문 분야"
+
+msgid "Todas las modalidades"
+msgstr "모든 근무 형태"
+
+msgid "Todos los niveles"
+msgstr "모든 레벨"
+
+msgid "Todos los roles"
+msgstr "모든 역할"
+
+msgid "Todos los sectores"
+msgstr "모든 섹터"
+
+msgid "Todos los tipos"
+msgstr "모든 유형"
+
+msgid "Ver empresa y vacantes"
+msgstr "기업 및 채용 공고 보기"
+
+msgid "Ver perfil interactivo"
+msgstr "인터랙티브 프로필 보기"
+
+msgid "empresa encontrada"
+msgstr "개 기업 발견"
+
+msgid "empresas encontradas"
+msgstr "개 기업 발견"
+
+msgid "más"
+msgstr "개 더보기"
+
+msgid "profesional encontrado"
+msgstr "명의 전문가 발견"
+
+msgid "profesionales encontrados"
+msgstr "명의 전문가 발견"
 
 #~ msgid "Mi Perfil"
 #~ msgstr "내 프로필"
@@ -1290,12 +2270,10 @@ msgstr "이 카테고리에서 이력서를 찾을 수 없습니다."
 #~ msgid ""
 #~ "La contraseña debe tener al menos 8 caracteres, 1 mayúscula, 1 número y 1 "
 #~ "carácter especial."
-#~ msgstr ""
-#~ "비밀번호는 8자 이상, 대문자 1개, 숫자 1개, 특수 문자 1개를 포함해야 합니"
-#~ "다."
+#~ msgstr "비밀번호는 8자 이상, 대문자 1개, 숫자 1개, 특수 문자 1개를 포함해야 합니다."
 
 #~ msgid "Mínimo 8 caracteres"
-#~ msgstr "최소 8자"
+#~ msgstr "최소 8자 이상"
 
 #~ msgid "Perfil profesional"
 #~ msgstr "직업 프로필"

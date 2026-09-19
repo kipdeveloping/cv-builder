@@ -15,7 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    menu.addEventListener('click', function(e) {
-        e.stopPropagation();
+    // When clicking a language option, sync localStorage immediately before form submission
+    menu.querySelectorAll('button[name="language"]').forEach(function(langBtn) {
+        langBtn.addEventListener('click', function() {
+            var langCode = this.value;
+            if (langCode) {
+                localStorage.setItem('language', langCode);
+            }
+        });
     });
 });
