@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     try {
+        var _t = (typeof t === 'function') ? t : function(key) { return key; };
+
         let currentStep = 1;
         const totalSteps = 4;
         let selectedRole = 'candidate';
@@ -22,10 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function getSubtitles() {
             return {
-                1: t('Paso 1 de 4 \u2014 \u00bfQu\u00e9 buscas?'),
-                2: t('Paso 2 de 4 \u2014 Datos de acceso'),
-                3: t('Paso 3 de 4 \u2014 Datos personales'),
-                4: t('Paso 4 de 4 \u2014 Informaci\u00f3n espec\u00edfica')
+                1: _t('Paso 1 de 4 \u2014 \u00bfQu\u00e9 buscas?'),
+                2: _t('Paso 2 de 4 \u2014 Datos de acceso'),
+                3: _t('Paso 3 de 4 \u2014 Datos personales'),
+                4: _t('Paso 4 de 4 \u2014 Informaci\u00f3n espec\u00edfica')
             };
         }
 
@@ -53,19 +55,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 const password1 = document.getElementById('id_password1');
                 const password2 = document.getElementById('id_password2');
                 if (!email.value.trim()) {
-                    showError(t('El email es obligatorio.'));
+                    showError(_t('El email es obligatorio.'));
                     return false;
                 }
                 if (!password1.value) {
-                    showError(t('La contrase\u00f1a es obligatoria.'));
+                    showError(_t('La contrase\u00f1a es obligatoria.'));
                     return false;
                 }
                 if (!password2.value) {
-                    showError(t('Debes confirmar la contrase\u00f1a.'));
+                    showError(_t('Debes confirmar la contrase\u00f1a.'));
                     return false;
                 }
                 if (password1.value !== password2.value) {
-                    showError(t('Las contrase\u00f1as no coinciden.'));
+                    showError(_t('Las contrase\u00f1as no coinciden.'));
                     return false;
                 }
             }
@@ -75,16 +77,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (selectedRole === 'recruiter') {
                     const companyName = document.getElementById('id_company_name');
                     if (!firstName.value.trim() || !lastName.value.trim()) {
-                        showError(t('Nombre y apellido son obligatorios.'));
+                        showError(_t('Nombre y apellido son obligatorios.'));
                         return false;
                     }
                     if (!companyName.value.trim()) {
-                        showError(t('El nombre de la empresa es obligatorio.'));
+                        showError(_t('El nombre de la empresa es obligatorio.'));
                         return false;
                     }
                 } else {
                     if (!firstName.value.trim() || !lastName.value.trim()) {
-                        showError(t('Nombre y apellido son obligatorios.'));
+                        showError(_t('Nombre y apellido son obligatorios.'));
                         return false;
                     }
                 }
