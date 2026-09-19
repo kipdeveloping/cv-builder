@@ -435,7 +435,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             (seniority ? '<span class="px-2 py-0.5 rounded-md text-[10px] font-bold border ' + seniorityClass + '">' + seniority + '</span>' : '') +
                             (location ? '<span class="px-2 py-0.5 rounded-md text-[10px] font-medium bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">📍 ' + location + '</span>' : '') +
                         '</div>' +
-                    </div>' +
+                    '</div>' +
                 '</div>' +
                 '<p class="text-xs text-gray-600 dark:text-gray-300 line-clamp-2 leading-relaxed">' + safeBio + '</p>' +
                 taxonomyHtml +
