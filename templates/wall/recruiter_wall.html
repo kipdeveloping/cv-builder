@@ -81,7 +81,7 @@
                 <div id="sector-chips" class="flex flex-wrap gap-2 mb-2"></div>
                 <div class="relative">
                     <input type="text" id="sector-input" placeholder="{% trans 'Buscar sector (ej: Tecnología, Salud)...' %}"
-                        class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-750 text-gray-900 dark:text-white text-sm shadow-sm transition">
+                        class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm shadow-sm transition">
                     <div id="sector-suggestions" class="hidden absolute z-20 w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl mt-1 max-h-48 overflow-y-auto shadow-xl"></div>
                 </div>
             </div>
@@ -92,17 +92,17 @@
                     {% trans "Modalidad de Trabajo" %}
                 </label>
                 <div class="grid grid-cols-1 gap-2.5">
-                    <label class="flex items-center gap-3 p-2 rounded-xl bg-gray-50 dark:bg-gray-750 border border-gray-200/60 dark:border-gray-700/60 hover:border-indigo-400 cursor-pointer transition">
-                        <input type="checkbox" id="modality-remote" value="remote" class="w-4 h-4 text-indigo-600 bg-white border-gray-300 rounded focus:ring-indigo-500">
-                        <span class="text-xs font-semibold text-gray-700 dark:text-gray-200">🌍 {% trans "Remoto" %}</span>
+                    <label class="flex items-center gap-3 p-2.5 rounded-xl bg-gray-50 dark:bg-gray-700/60 border border-gray-200/60 dark:border-gray-600/60 hover:border-indigo-400 dark:hover:border-indigo-400 cursor-pointer transition">
+                        <input type="checkbox" id="modality-remote" value="remote" class="w-4 h-4 text-indigo-600 bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-500 rounded focus:ring-indigo-500">
+                        <span class="text-xs font-semibold text-gray-800 dark:text-gray-100">🌍 {% trans "Remoto" %}</span>
                     </label>
-                    <label class="flex items-center gap-3 p-2 rounded-xl bg-gray-50 dark:bg-gray-750 border border-gray-200/60 dark:border-gray-700/60 hover:border-indigo-400 cursor-pointer transition">
-                        <input type="checkbox" id="modality-hybrid" value="hybrid" class="w-4 h-4 text-indigo-600 bg-white border-gray-300 rounded focus:ring-indigo-500">
-                        <span class="text-xs font-semibold text-gray-700 dark:text-gray-200">🔄 {% trans "Híbrido" %}</span>
+                    <label class="flex items-center gap-3 p-2.5 rounded-xl bg-gray-50 dark:bg-gray-700/60 border border-gray-200/60 dark:border-gray-600/60 hover:border-indigo-400 dark:hover:border-indigo-400 cursor-pointer transition">
+                        <input type="checkbox" id="modality-hybrid" value="hybrid" class="w-4 h-4 text-indigo-600 bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-500 rounded focus:ring-indigo-500">
+                        <span class="text-xs font-semibold text-gray-800 dark:text-gray-100">🔄 {% trans "Híbrido" %}</span>
                     </label>
-                    <label class="flex items-center gap-3 p-2 rounded-xl bg-gray-50 dark:bg-gray-750 border border-gray-200/60 dark:border-gray-700/60 hover:border-indigo-400 cursor-pointer transition">
-                        <input type="checkbox" id="modality-onsite" value="onsite" class="w-4 h-4 text-indigo-600 bg-white border-gray-300 rounded focus:ring-indigo-500">
-                        <span class="text-xs font-semibold text-gray-700 dark:text-gray-200">🏢 {% trans "Presencial" %}</span>
+                    <label class="flex items-center gap-3 p-2.5 rounded-xl bg-gray-50 dark:bg-gray-700/60 border border-gray-200/60 dark:border-gray-600/60 hover:border-indigo-400 dark:hover:border-indigo-400 cursor-pointer transition">
+                        <input type="checkbox" id="modality-onsite" value="onsite" class="w-4 h-4 text-indigo-600 bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-500 rounded focus:ring-indigo-500">
+                        <span class="text-xs font-semibold text-gray-800 dark:text-gray-100">🏢 {% trans "Presencial" %}</span>
                     </label>
                 </div>
             </div>
@@ -113,17 +113,17 @@
                     {% trans "Tipo de Reclutador" %}
                 </label>
                 <div class="grid grid-cols-1 gap-2.5">
-                    <label class="flex items-center gap-3 p-2 rounded-xl bg-gray-50 dark:bg-gray-750 border border-gray-200/60 dark:border-gray-700/60 hover:border-indigo-400 cursor-pointer transition">
-                        <input type="radio" name="company_type" value="" checked class="w-4 h-4 text-indigo-600 bg-white border-gray-300 focus:ring-indigo-500">
-                        <span class="text-xs font-semibold text-gray-700 dark:text-gray-200">{% trans "Todos los tipos" %}</span>
+                    <label class="flex items-center gap-3 p-2.5 rounded-xl bg-gray-50 dark:bg-gray-700/60 border border-gray-200/60 dark:border-gray-600/60 hover:border-indigo-400 dark:hover:border-indigo-400 cursor-pointer transition">
+                        <input type="radio" name="company_type" value="" checked class="w-4 h-4 text-indigo-600 bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-500 focus:ring-indigo-500">
+                        <span class="text-xs font-semibold text-gray-800 dark:text-gray-100">{% trans "Todos los tipos" %}</span>
                     </label>
-                    <label class="flex items-center gap-3 p-2 rounded-xl bg-gray-50 dark:bg-gray-750 border border-gray-200/60 dark:border-gray-700/60 hover:border-indigo-400 cursor-pointer transition">
-                        <input type="radio" name="company_type" value="empresa" class="w-4 h-4 text-indigo-600 bg-white border-gray-300 focus:ring-indigo-500">
-                        <span class="text-xs font-semibold text-gray-700 dark:text-gray-200">🏢 {% trans "Empresa Directa" %}</span>
+                    <label class="flex items-center gap-3 p-2.5 rounded-xl bg-gray-50 dark:bg-gray-700/60 border border-gray-200/60 dark:border-gray-600/60 hover:border-indigo-400 dark:hover:border-indigo-400 cursor-pointer transition">
+                        <input type="radio" name="company_type" value="empresa" class="w-4 h-4 text-indigo-600 bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-500 focus:ring-indigo-500">
+                        <span class="text-xs font-semibold text-gray-800 dark:text-gray-100">🏢 {% trans "Empresa Directa" %}</span>
                     </label>
-                    <label class="flex items-center gap-3 p-2 rounded-xl bg-gray-50 dark:bg-gray-750 border border-gray-200/60 dark:border-gray-700/60 hover:border-indigo-400 cursor-pointer transition">
-                        <input type="radio" name="company_type" value="particular" class="w-4 h-4 text-indigo-600 bg-white border-gray-300 focus:ring-indigo-500">
-                        <span class="text-xs font-semibold text-gray-700 dark:text-gray-200">💼 {% trans "Reclutador Independiente" %}</span>
+                    <label class="flex items-center gap-3 p-2.5 rounded-xl bg-gray-50 dark:bg-gray-700/60 border border-gray-200/60 dark:border-gray-600/60 hover:border-indigo-400 dark:hover:border-indigo-400 cursor-pointer transition">
+                        <input type="radio" name="company_type" value="particular" class="w-4 h-4 text-indigo-600 bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-500 focus:ring-indigo-500">
+                        <span class="text-xs font-semibold text-gray-800 dark:text-gray-100">💼 {% trans "Reclutador Independiente" %}</span>
                     </label>
                 </div>
             </div>
